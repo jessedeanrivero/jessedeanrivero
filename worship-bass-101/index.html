@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Worship Bass 101 — A free guide by Jesse Phillips</title>
+<meta name="description" content="Worship Bass 101 by Jesse Phillips — a free guide to playing bass in worship music. Mindset, serving the song, technique, tone, gear, scale theory, chord theory, and the Nashville Number System, written for bass players in church and worship contexts." />
+<meta name="keywords" content="worship bass, worship bass 101, bass guitar worship, Christian bass player, church bass player, Nashville Number System bass, worship music theory, Jesse Phillips" />
+<meta name="author" content="Jesse Phillips" />
+<link rel="canonical" href="https://jessedeanrivero.com/worship-bass-101" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Jesse Phillips" />
+<meta property="og:title" content="Worship Bass 101 — A free guide by Jesse Phillips" />
+<meta property="og:description" content="A free guide to playing bass in worship music. Mindset, technique, tone, theory, and the Nashville Number System." />
+<meta property="og:url" content="https://jessedeanrivero.com/worship-bass-101" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Worship Bass 101 — A free guide by Jesse Phillips" />
+<meta name="twitter:description" content="A free guide to playing bass in worship music. Mindset, technique, tone, theory, and the Nashville Number System." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Worship Bass 101",
+  "alternativeHeadline":"A free guide to playing bass in worship music",
+  "author":{"@type":"Person","name":"Jesse Phillips","url":"https://jessedeanrivero.com/"},
+  "publisher":{"@type":"Person","name":"Jesse Phillips"},
+  "url":"https://jessedeanrivero.com/worship-bass-101",
+  "description":"A free guide to playing bass in worship music. Covers mindset, serving the song, technique, tone, scale theory, chord theory, and the Nashville Number System.",
+  "about":["Worship Bass","Bass Guitar","Christian Music","Music Theory","Nashville Number System"],
+  "inLanguage":"en"
+}
+</script>
+
+<style>
+  :root{
+    --ink:#080605;--ink-2:#100b08;--card:#15100c;--cream:#f7efe3;--muted:rgba(247,239,227,.74);
+    --faint:rgba(247,239,227,.46);--gold:#f3a83c;--gold-2:#ffc46b;--ember:#e8693a;
+    --line:rgba(247,239,227,.14);--field:rgba(247,239,227,.05);
+    --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(120% 60% at 80% -5%, rgba(214,83,132,.10), transparent 55%),
+      radial-gradient(120% 55% at 0% 8%, rgba(243,168,60,.10), transparent 55%),
+      var(--ink);
+    color:var(--cream);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;line-height:1.6
+  }
+  a{color:var(--gold-2);text-decoration:none;border-bottom:1px solid rgba(255,196,107,.3);transition:border-color .3s,color .3s}
+  a:hover{color:var(--gold);border-bottom-color:var(--gold)}
+  .grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+
+  /* nav (shared) */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,5vw,56px);background:rgba(8,6,5,.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--serif);font-weight:330;font-size:clamp(16px,2.4vw,20px);text-decoration:none;color:var(--cream);border:0}
+  .brand span{color:var(--gold)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:14px;font-weight:500;text-decoration:none;color:var(--cream);opacity:.86;position:relative;transition:opacity .3s;border:0}
+  .nav-links a.active{color:var(--gold);opacity:1}
+  .nav-links a:hover{opacity:1}
+  .nav-soon{font-size:14px;font-weight:500;color:var(--faint);display:inline-flex;align-items:center;gap:8px}
+  .nav-soon i{font-style:normal;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(243,168,60,.45);border-radius:100px;padding:2px 8px}
+  .nav-toggle{display:none;background:none;border:0;color:var(--cream);cursor:pointer;width:30px;height:22px;position:relative}
+  .nav-toggle span{position:absolute;left:0;width:100%;height:1.5px;background:var(--cream);transition:.3s}
+  .nav-toggle span:nth-child(1){top:2px}.nav-toggle span:nth-child(2){top:10px}.nav-toggle span:nth-child(3){top:18px}
+  body.menu-open .nav-toggle span:nth-child(1){top:10px;transform:rotate(45deg)}
+  body.menu-open .nav-toggle span:nth-child(2){opacity:0}
+  body.menu-open .nav-toggle span:nth-child(3){top:10px;transform:rotate(-45deg)}
+  .mobile-menu{position:fixed;inset:0;z-index:29;background:rgba(8,6,5,.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:.4s}
+  body.menu-open .mobile-menu{opacity:1;visibility:visible}
+  .mobile-menu a,.mobile-menu .nav-soon{font-family:var(--serif);font-size:28px;text-decoration:none;color:var(--cream);border:0}
+  .mobile-menu .nav-soon i{font-family:var(--sans)}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 clamp(22px,5vw,40px);position:relative;z-index:5}
+
+  /* hero */
+  header.hero{padding-top:clamp(130px,18vh,200px);padding-bottom:30px;text-align:center}
+  .eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:12px;margin-bottom:24px}
+  .eyebrow::before,.eyebrow::after{content:"";width:30px;height:1px;background:var(--gold);opacity:.6}
+  h1{font-family:var(--serif);font-weight:330;font-size:clamp(48px,8.4vw,108px);line-height:.96;letter-spacing:-.02em;margin:0 auto}
+  h1 .accent{color:var(--gold);font-style:italic;font-weight:400}
+  .byline{margin-top:20px;font-size:13px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .lede{margin:38px auto 0;max-width:60ch;font-size:clamp(16px,1.9vw,19px);color:var(--muted);line-height:1.66}
+
+  /* content typography */
+  .content{padding:50px 0 30px}
+  .content h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4.4vw,46px);letter-spacing:-.012em;line-height:1.04;margin:80px 0 24px;color:var(--cream)}
+  .content h2:first-child{margin-top:0}
+  .content h2 .rule{display:block;width:60px;height:2px;background:var(--gold);margin-bottom:22px;border-radius:2px}
+  .content h3{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2);margin:46px 0 16px}
+  .content h4{font-family:var(--serif);font-weight:500;font-style:italic;font-size:clamp(18px,2.2vw,22px);color:var(--cream);margin:30px 0 10px;letter-spacing:-.005em}
+  .content p{font-size:17px;line-height:1.72;color:var(--cream);margin:18px 0;font-weight:300}
+  .content p strong{color:var(--gold-2);font-weight:600;letter-spacing:.005em}
+  .content ul{margin:18px 0;padding-left:0;list-style:none}
+  .content ul li{position:relative;padding-left:28px;margin:10px 0;font-size:17px;line-height:1.66;font-weight:300}
+  .content ul li::before{content:"";position:absolute;left:0;top:13px;width:14px;height:1px;background:var(--gold);opacity:.7}
+  .content ul ul{margin:6px 0 14px 0}
+  .content ul ul li{font-size:16px;color:var(--muted);padding-left:24px}
+  .content ul ul li::before{width:10px;background:var(--faint)}
+  .content em{color:var(--gold-2);font-style:italic;font-weight:400}
+  .content blockquote{margin:30px 0;padding:22px 28px;background:rgba(20,14,10,.42);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;font-style:italic;font-family:var(--serif);font-size:18px;color:var(--cream);font-weight:400;line-height:1.55}
+
+  /* hand-drawn diagrams */
+  figure{margin:40px auto;text-align:center;padding:20px 0}
+  figure.steps{margin:30px auto 20px}
+  figure img{max-width:100%;height:auto;display:block;margin:0 auto;filter:invert(.92) hue-rotate(180deg) brightness(1.05) contrast(1.05);opacity:.94}
+  figcaption{margin-top:14px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);font-weight:600}
+
+  /* signoff */
+  .signoff{margin-top:80px;padding:50px 0 30px;text-align:center;border-top:1px solid var(--line)}
+  .signoff p{font-size:17px;color:var(--muted);max-width:50ch;margin:0 auto 24px;font-weight:300;line-height:1.65}
+  .signoff .sig{max-width:200px;height:auto;margin:30px auto 6px;display:block;filter:invert(.92) hue-rotate(180deg) brightness(1.05);opacity:.94}
+  .signoff .name{font-family:var(--serif);font-style:italic;font-weight:400;font-size:24px;color:var(--gold);margin-top:4px}
+  .signoff .contacts{margin-top:34px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;font-size:14px}
+  .signoff .contacts a{border:0}
+
+  /* footer */
+  footer{margin-top:60px;border-top:1px solid var(--line);padding:36px 0 56px;text-align:center}
+  footer .links{display:flex;gap:26px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+  footer .links a{color:var(--muted);font-size:14px;border:0}
+  footer .links a:hover{color:var(--gold)}
+  footer .copy{font-size:11px;letter-spacing:.18em;color:var(--faint);line-height:1.9}
+
+  @media (max-width:820px){
+    .nav-links{display:none}.nav-toggle{display:block}
+    .content h2{margin-top:60px}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="nav">
+  <a class="brand" href="/">jessedeanrivero<span>.com</span></a>
+  <nav class="nav-links">
+    <a href="/playlist-submissions">Playlist Submissions</a>
+    <a href="/worship-bass-101" class="active">Worship Bass 101</a>
+    <span class="nav-soon">Tools For Worship <i>Soon</i></span>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
+  <a href="/playlist-submissions">Playlist Submissions</a>
+  <a href="/worship-bass-101">Worship Bass 101</a>
+  <span class="nav-soon">Tools For Worship <i>Soon</i></span>
+</div>
+
+<main class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">A Free Guide</span>
+    <h1>Worship Bass <span class="accent">101.</span></h1>
+    <p class="byline">By Jesse Phillips</p>
+  </header>
+
+  <article class="content">
+
+    <h2><span class="rule"></span>Intro</h2>
+    <p>Hi! I'm Jesse and I play bass for my day job. One reason I wanted to put this resource out there is because I feel like bass players don't get a whole lot of resources made just for them. I had to learn a lot of these things on my own and I wanted to create something that I wish I had a few years ago. In my time playing worship bass I've come across a lot of people who have the opinion that worship music is boring musically and that it is not difficult to play. Bass players seem to deal with this a good bit because of the genre's simple chord structure and rhythmic patterns. While it may not be "difficult" in the way that playing Victor Wooten licks can be physically challenging, there are several areas in which I find that worship bass playing is just as challenging.</p>
+
+    <p>Take these 3 sentences for example:</p>
+    <ul>
+      <li>I like to watch movies.</li>
+      <li>I get a kick out of going to movie theaters and watching action movies on giant screens.</li>
+      <li>It's thrilling to partake in cinematic experiences.</li>
+    </ul>
+
+    <p>Some of these sentences contain more information than the others. Some might include bigger vocabulary. Some might just get the bare minimum to communicate a feeling. If you're going around a group and talking about one thing you enjoy, "I like to watch movies" might be more appropriate than "It's thrilling to partake in cinematic experiences" — but at the same time if you're on a first date and you're going back and forth about yourselves and you say that you "get a kick out of going to movie theaters and watching action movies on giant screens", that might be more personable than just "I like to watch movies".</p>
+
+    <p>As a bass player, you're a part of the musical conversation that's happening. Sometimes it's appropriate to throw in some of those fancy licks (just like fancy verbage in conversation), but sometimes it can seem really disingenuous and ruin the moment. I hope this resource will help enable you to be more intentional with your note choices and play more confidently as you hone your craft!</p>
+
+    <h2><span class="rule"></span>Practical Tips</h2>
+
+    <h3>Mindset</h3>
+    <p>Mindset is one of the most crucial parts of being a musician. What notes are you choosing to play? How are you choosing to serve the song? Here are some things to think about when approaching worship bass playing:</p>
+    <ul>
+      <li>You and the drummer are the backbone of what goes on.</li>
+      <li>The notes you play provide the foundation of the chord.</li>
+      <li>Start to think like a producer:
+        <ul>
+          <li>If each song is a pie, each musician and singer has a slice of it. What's your slice?</li>
+          <li>If everyone is doing fancy licks at every turn, no one is going to be heard. Give each other room to do cool things.</li>
+          <li>What pockets are there for me to add something extra in a song?</li>
+          <li>How would you play differently with only one electric guitar vs two? What about with a piano player vs. keys player?</li>
+        </ul>
+      </li>
+      <li>What kind of room are you playing in?
+        <ul>
+          <li>When we're practicing in our room, we're able to hear the dynamics of our instrument very well. When we barely tap the strings we can hear it. But in a group setting it's hard to pick out the dynamics when everyone is playing. Recalibrate your playing so that your range goes from like 70%–100%.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Goals in Worship Bass</h3>
+    <p>It's important to define your goal in playing bass as a part of the worship team. I'm not necessarily talking about a 5 year plan type of goal, but more about defining the "why" behind what you're doing. What is it for? In rock music, it's to gain followers, gain attention, gain CD sales, entertain the audience… which is totally fine! Those things aren't bad. But knowing your goals informs your playing. So are you playing on a Sunday morning to gain those things? I'd argue that Sunday mornings and anytime you lead people in worship, it's about bringing people into the presence of the Lord as you worship the Lord as well. Let that inform your note choices and stage presence.</p>
+
+    <h3>Serving the Song</h3>
+    <p>You might know some really sweet licks, have some gnarly tone, or even have some ideas of passing chords that would be musically pleasing. While these things are great and can be worked out in practice, just think of your playing as a way to serve the song. What does it need? Let your licks be like Batman. Maybe your licks are the notes the audience deserves, but not the ones it needs right now.</p>
+
+    <h2><span class="rule"></span>Playing &amp; Technique</h2>
+
+    <h3>Note Choices</h3>
+    <p>One thing I've seen a lot of bass players get hung up on is choosing the right notes to play. The answer to this is actually incredibly simple: just play the chords. Since you're part of the backbone of the group, start out with the foundation of just playing what chords are happening. Don't get too caught up in the weeds of each song trying to find perfect note choices.</p>
+
+    <h3>Syncing Up With Drums</h3>
+    <p>I've been given some pretty bad advice from other people about how to play rhythmically. The kick drum is NOT your only source of rhythmic guidance. If you are only listening to kick patterns you will miss a lot of rich stuff that the other parts of a kit can show you. So I want to set the record straight with you guys here. A good place to start knowing how to play rhythmically is by listening to the kick, snare, and hi-hat from your drummer. The kick pattern is definitely important to follow, but if you're not listening to the snare and hi-hat you might miss the context of the patterns that are being played and lose out on the rhythm of your playing. Use the kick as your base line (no pun intended) and then listen to snare and hi-hat for some extra ideas. I like to play octaves of the chord I'm playing during snare hits in choruses and bridges of songs to give the song an extra lift. It's subtle, doesn't change the root that people are hearing, so it's a great way to add without overpowering. If you play with a drummer often, you might start learning their tom fills too and can fill in some fancy licks in time with their fills.</p>
+
+    <h3>Voicing Notes, Feeling and Phrasing</h3>
+    <p>The part of the neck you play on and the string you choose matters. Sure, you can play an "A" note on the 5th fret of the low E string and also as an open A, but the difference in tone is noticeable because the string you play the note on has a different thickness and tension to it. Be intentional to choose notes based on how they sound more than just the knowledge that it's the same note.</p>
+
+    <p>When it comes to the feel of playing bass, I've heard a lot of people in the worship world talk about "laying back." If you play with a metronome it's basically just laying on the backside of the click rather than rushing on the front side (does this sound like football to anyone else?) BUT, I will make the argument that laying back isn't always what feels best. Each song breathes differently and feels different. Sometimes you can build anticipation in the bridge of a song by slightly rushing the last measure of a bridge build and then laying back and using more sustained notes in the following chorus. (A good example of this is is in Great Are You Lord. Build the last bridge and then drop to a low sustained note going into the next chorus.) It's all about what actually feels better, not what others think or what have heard you should do to make it sound better.</p>
+
+    <p>"Phrasing" is a huge part of feel. Phrasing includes where you play your notes, how you play your notes (with hammer ons, pull offs, etc), and which notes you play in order. I view bass like I would singing phrases. Vocalists have to slide into certain notes, take breaths, choose whether to sing in chest voice or float notes in order to hit them. In the same way, make your bass sing each note and phrase. You're not just a rhythmic element in music, so choose your licks intentionally.</p>
+
+    <p>Another part of phrasing is choosing how long notes sustain out. A mistake I often see in bass players starting out is they like to make their notes short and try to "groove" too much with the song. Long sustained notes are really pleasing to hear underneath the color that all of the other instruments are providing. Don't be afraid to hold a note out until the next note is supposed to be played. This includes the end of phrases where the band is about to drop out. Make sure you play through the end of the phrase instead of awkwardly dying out and looking like a fool with your pants on the ground.</p>
+
+    <p>One of the last points I'll make in this section is about dynamics. Dynamics are more than just playing louder and softer. Getting "bigger" in a moment can mean just choosing a lower note to round out the sound more or changing the last measure of a build into 16th notes instead of 8th notes. Get creative with how to change the dynamic of a song without just using volume as your only tool.</p>
+
+    <h3>Tone</h3>
+    <p>Tone is an area that can be discussed for a long time. People will fight you to the death (especially on the Facebook group Gear Talk: Praise &amp; Worship) about what tone is "right" for bass and guitar.</p>
+
+    <p>I'll talk a bit about tone in this section, but also know that things are subjective. You might like something that someone else doesn't like as far as your tone goes. All that matters is that you use your tone to take them to the Throne. (I'm so sorry. I had to throw in something like that.)</p>
+
+    <p>Everything affects your tone! Cables, basses, parts of the string you strike, pick ups, wood in your bass, etc. Here are just some things to think about when it comes to tone:</p>
+
+    <h4>Fingernails vs. Flesh</h4>
+    <ul>
+      <li>This might seem like a really small thing, but fingernails can make your notes sound inconsistent when you pluck a string. If you want the attack of a nail, make sure you use it intentionally, otherwise it'll seem like you're not paying attention when your smooth sound is interrupted by sharp attack every other note.</li>
+      <li>Using the flesh on each of your fingers is smoother, nails bring more attack, and using your palm to mute while using your thumb can be a very round tone.</li>
+      <li>Where are you plucking the note with your right hand? If you do it over the pickups it'll sound different than up on the neck.</li>
+    </ul>
+
+    <h4>Picks</h4>
+    <p>Picks have different tones. Thicker picks get a lot fuller of a tone while thinner picks give a lot of brightness in the attack. Even where you strike the string with your pick makes a difference. The edges feel rounder in tone than just the pointed bottom.</p>
+
+    <h4>Basses</h4>
+    <p>Your bass is probably one of the most obvious places that tone will come from. There are several factors within a bass that make up it's voice.</p>
+    <ul>
+      <li><strong>Active vs. Passive:</strong> Active basses have a battery that is powering up your preamp/pickups so the tone is a lot more aggressive. Passive basses don't have that same punch, but sound warm and round.</li>
+      <li><strong>Single Coil vs Humbucker:</strong> The difference between single coils and pick ups is pretty noticeable when you've got them side by side. A humbucker is basically two single coils that are wired out of phase with each other (to buck the hum). Single coils are typically a little brighter while humbuckers are typically louder and darker.</li>
+    </ul>
+
+    <h4>Pedals</h4>
+    <p>I'm not sure why pedals are such a hot topic when it comes to bass guitar, but say that adding pedals to your signal chain is a sin. I don't see that anywhere in the Bible so here are some things to look at with bass pedals.</p>
+
+    <p><strong>Basics</strong></p>
+    <ul>
+      <li>There aren't any "essential" pedals for bass. You can plug directly into the sound board (usually through some sort of DI box) and it sounds good already. But there are some pedals that can be used as tools to sculpt your sound.</li>
+      <li><strong>Tuner:</strong> ALWAYS BE IN TUNE. You don't need a pedal, but you can by a clip on tuner for less than $20. Your tone is important, but nothing can ruin great tone faster than bad tuning.</li>
+      <li><strong>Compression:</strong> I use compression to smooth out my dynamics a little bit. It evens it out so your tone is nice and buttery.</li>
+      <li><strong>Amp/Cab Simulation:</strong> If you're not running into a real amp, these can be helpful to give a little bit of character to your notes. When you dig in the settings can get a little dirty just like a real amp would.</li>
+    </ul>
+
+    <p><strong>Some Advanced Options:</strong></p>
+    <ul>
+      <li>When you're looking to sculpt your tone even further, here are some categories of different pedals that would be interesting:
+        <ul>
+          <li>Drives (fuzz, overdrive, distortion) to give your tone a little aggression and stick out in the mix better, Mods (Reverbs, Delays, Chorus) to provide specific effects, and Octavers, so you're sending more information to cover the sonic range in a mix.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>Amps</h4>
+    <p>Amps aren't as essential for bass as they can be for electric guitar so I'm not going to spend a ton of time on them. The warmth of a real amp is hard to beat. They give you drive when you really dig in, they feel good when they're turned up and you feel it in your chest, and they can be great for adding low end into a room where the PA doesn't have much low end. Most situations however will probably not allow for a live amp, so a great option is getting something like a SansAmp to give you the drive and dynamic of a real amp.</p>
+
+    <h2><span class="rule"></span>Theory</h2>
+
+    <h3>Scale Theory</h3>
+    <p>Scales can be daunting because there are so many different ones to learn. Once you learn the major and minor scales you begin to notice other things like major pentatnoic and minor pentatonic scales. Then harmonic and melodic minor. Then modes that are built off of each scale degree. Then variations of those modes that if properly written out look like plans to build the death star. It's overwhelming and that's why a lot of people don't dive into scale theory. <strong>BUT I'M GOING TO MAKE THIS SO SIMPLE FOR YOU THAT YOU MIGHT BE ABLE TO SELL THIS ON AN INFOMERCIAL AFTERWARDS.</strong> Just master the Major scale and forget the other ones. In worship music, 90% of the songs will be based on the major scale. So here's some stuff about the Major scale:</p>
+
+    <figure>
+      <img src="diagrams/diagram-1-major-scale.png" alt="Major scale in C — handwritten musical staff showing C, D, E, F, G, A, B, C">
+      <figcaption>Diagram 1</figcaption>
+    </figure>
+
+    <p>Ain't nobody got time for reading music right now, but I'm going to base everything off of the C major scale in this example. You build a major scale based on steps. If you're playing a C and you go up a whole step (2 frets) that note is a D. From D if you go up a whole step, it's an E. Then a half step (1 fret) brings you to F. Then a whole step from F is G. A whole step from G is A. A whole step from A is B. Then a half step from B leads you back to your "tonic" or your "root" note C. So if you're ever trying to build a scale here is what to think of (W = Whole Step and H = Half Step):</p>
+
+    <figure class="steps">
+      <img src="diagrams/wwhwwwh-steps.png" alt="W W H W W W H — the whole and half step pattern for a major scale">
+    </figure>
+
+    <h3>Chord Theory</h3>
+    <p>"Why does chord theory matter for a bass player? Don't I just play one note?" Chord theory can change everything about how you approach bass. When you're thinking in chords and not just notes it can help you decide which notes sound better to use on fills and which notes can be used in passing. It can also help with things like the Nashville Number System. And the Nashville Number System can help in memorizing music really quickly. So with that in mind, here's a little bit on chord theory:</p>
+
+    <p>Each note in your scale is called a "scale degree." So let's take the Major scale again and give each of the notes a number:</p>
+
+    <figure>
+      <img src="diagrams/diagram-2-scale-degrees-c-major.png" alt="C major scale degrees — 1 C, 2 D, 3 E, 4 F, 5 G, 6 A, 7 B, 1 C">
+      <figcaption>Diagram 2</figcaption>
+    </figure>
+
+    <p>Each of these numbers is important because they take the note and make it something that is transposable. If you build a major scale in the key of Bb, the numbers are still the same. So let's build Bb off of our "patented" WWHWWWH scale:</p>
+
+    <figure>
+      <img src="diagrams/diagram-3-bb-major-scale.png" alt="Bb major scale degrees — 1 Bb, 2 C, 3 D, 4 Eb, 5 F, 6 G, 7 A, 1 Bb">
+      <figcaption>Diagram 3</figcaption>
+    </figure>
+
+    <p>The Bb major scale is just showing us what notes the WWHWWWH is leading us to in that key. You can do this with any key and the numbers remain the same.</p>
+
+    <p>Going back to the C major scale, chords are built on thirds. What that means is that when you play a note to begin a chord in that scale, skip a note and that builds the next part of the chord. So from C (1) skip D (2) and then E (3) is your next note in the chord. Then from E skip F (4) and then G (5) is the next part of the chord. These 3 notes comprise the basic major and minor chords in a key. We won't get into extensions like minor 7ths and 9ths and stuff, but this is the basic way things are constructed.</p>
+
+    <p>You don't have to fully grasp that stuff to be honest. Here's a shortcut to know which things are major and minor:</p>
+
+    <figure>
+      <img src="diagrams/diagram-4-chord-qualities.png" alt="Chord qualities in a major key — 1 MAJ, 2 min, 3 min, 4 MAJ, 5 MAJ, 6 min, 7 diminished, back to 1">
+      <figcaption>Diagram 4</figcaption>
+    </figure>
+
+    <p>So if you're in the key of C and you're playing a G chord, you can know that G is a 5 and that 5's are always major in the key. (There are exceptions which can cause debate for years. Ex. Revelation Song. The "5" is minor because it's written in a mode of the major scale based off of the 5 called Mixolydian. It's confusing because it throws a wrench into the 5 is always major thing, but ignore this anomoly and we'll get back to the regularly scheduled programming here.)</p>
+
+    <p>Inversions can be really cool for bass players because it shifts the dynamic of a chord into a completely different space. So they should be used with caution if the actual chord in the song doesn't have the inversion written in. But here's how inversions work. You have your chord built on 3rds (1, 3, 5 or C, E, G). A first inversion would mean that the "root" note shifts to the second note in the chord (or the 3). So in the key of C, your first inversion for the chord C is an E. The second inversion is a G because that is the next note it's built on. An F chord in the key of C is major, so you build it F, A, C or 4, 6, 1. The first inversion would be an A and the second inversion would be a 1.</p>
+
+    <p>"QUESTION! So what if a song starts off on a minor chord? Doesn't all of this get thrown away?" Songs that start on a minor usually start on the 6 of a major scale (which is a minor chord). So you can still use major scale theory, just know that your first chord is not a "1". Lots of worship songs start off on chords that aren't the root of the scale, but the root note of the key is usually what centers the whole song back to feeling rest (if it ever really does rest.)</p>
+
+    <h3>Nashville Numbers</h3>
+    <p>Now that you've seen a little bit about how chords correlate with numbers in a scale degree, you've basically learned the Nashville Number System. There are some little nuances of understanding how charts are written in numbers, but if you wanted to communicate you could say that a progression in the key of C is a "six four one five" and know that 6 chords are minor and 4, 1, and 5 chords are major.</p>
+
+  </article>
+
+  <section class="signoff">
+    <h2 style="font-family:var(--serif);font-weight:330;font-size:clamp(28px,4.4vw,44px);margin:0 0 24px;letter-spacing:-.012em;line-height:1.04">Thank you!</h2>
+    <p>I hope that this information has been helpful rather than confusing. Worship bass playing is a pursuit that takes a lot longer than a few hours to master. I'd love to eventually release a revision of this with some answers to specific questions you have so feel free to reach out to me on Instagram: <a href="https://www.instagram.com/thejessephillips" target="_blank" rel="noopener">@thejessephillips</a> or my website: <a href="/">jessedeanrivero.com</a> and let me know what else I can include or if you have any questions!</p>
+    <p style="font-style:italic;color:var(--gold-2);font-family:var(--serif);font-size:19px;margin-top:30px">Keep slappin' da bass, mon.</p>
+    <img class="sig" src="diagrams/jesse-signature.png" alt="Jesse — signature">
+    <div class="name">Jesse</div>
+    <div class="contacts">
+      <a href="mailto:jessedeanrivero@gmail.com">jessedeanrivero@gmail.com</a>
+      <a href="https://www.instagram.com/thejessephillips" target="_blank" rel="noopener">@thejessephillips</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/playlist-submissions">Playlist Submissions</a>
+      <a href="https://www.instagram.com/thejessephillips" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="copy">©JESSEDEANRIVERO.COM</div>
+  </footer>
+
+</main>
+
+<script>
+  var t=document.getElementById("navToggle");
+  if(t){t.addEventListener("click",function(){document.body.classList.toggle("menu-open");});}
+</script>
+</body>
+</html>
