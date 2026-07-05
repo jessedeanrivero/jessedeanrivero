@@ -197,6 +197,11 @@ section p strong{color:var(--ink);font-weight:500}
 .download .cta-row{justify-content:center;margin-top:36px}
 .fineprint{margin-top:26px;font-size:.8rem;color:var(--muted);opacity:.75}
 
+/* support / buy me a coffee */
+.support{margin-top:54px;text-align:center}
+.support-line{font-size:.9rem;color:var(--muted);margin-bottom:20px;max-width:44ch;margin-left:auto;margin-right:auto}
+.bmc-wrap{display:flex;justify-content:center;align-items:center;min-height:56px}
+
 footer{
   border-top:1px solid rgba(201,164,92,.12);
   padding:34px clamp(22px,6vw,72px);
@@ -307,6 +312,12 @@ footer a:hover{color:var(--gold)}
       <a class="btn btn-ghost" href="https://github.com/jessedeanrivero/context-advocate" target="_blank" rel="noopener">View on GitHub</a>
     </div>
     <p class="fineprint reveal">Free to use. No account, no tracking, no server. Your context lives entirely in your own Google Drive.</p>
+    <div class="support">
+      <p class="support-line">Free forever. If it earns a place in your day, you can buy me a coffee.</p>
+      <div class="bmc-wrap">
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="jessedeanrivero" data-color="#FFDD00" data-emoji="☕"  data-font="Poppins" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+      </div>
+    </div>
   </div>
 
 </main>
@@ -325,6 +336,5 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{
   io.observe(el);
 });
 </script>
-  <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="jessedeanrivero" data-color="#FFDD00" data-emoji="☕"  data-font="Poppins" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
 </body>
 </html>
