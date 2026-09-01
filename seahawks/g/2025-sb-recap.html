@@ -112,6 +112,13 @@ h3 small{display:none}
 .legend .lab{align-self:start;margin-top:3px}
 footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);line-height:1.6}
 footer p{margin:8px 0}
+.support-card{margin:0 0 26px;padding:18px;border:1px solid rgba(201,255,61,.45);border-radius:12px;background:radial-gradient(480px 180px at 100% 0,rgba(201,255,61,.14),transparent 65%),var(--panel);color:var(--ink)}
+.support-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:5px}
+.support-card strong{display:block;font-family:var(--disp);font-size:clamp(22px,6vw,28px);font-weight:400;line-height:1.05;letter-spacing:.01em;text-transform:uppercase}
+.support-card p{margin:8px 0 14px;color:var(--mute);font-size:15px;line-height:1.5}
+.support-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;border-radius:7px;background:var(--sea);box-shadow:0 8px 24px rgba(201,255,61,.12);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;line-height:1;text-decoration:none;text-transform:uppercase;transition:transform .15s ease-out,background-color .15s ease-out,box-shadow .15s ease-out}
+.support-link:hover{background:#ddff80;box-shadow:0 10px 28px rgba(201,255,61,.2);transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.support-link{transition:none}.support-link:hover{transform:none}}
 .share{display:block;width:100%;background:transparent;cursor:pointer;text-align:center;margin:30px 0 0;padding:14px;border:1px dashed var(--line);border-radius:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 
 
@@ -217,6 +224,12 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 </section>
 
 <footer>
+  <aside class="support-card" aria-labelledby="support-title">
+    <div class="support-kicker">Enjoyed this?</div>
+    <strong id="support-title">Keep Seattle Football HQ independent</strong>
+    <p>If the Game Prep Sheets and breakdowns make game day better, you can buy me a coffee.</p>
+    <a class="support-link" href="https://buymeacoffee.com/jessedeanrivero" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Buy me a coffee</a>
+  </aside>
   <p><b>About the grades.</b> A grade is a percentile. It compares one player's production in this game against every
   comparable performance in the season: 591 quarterback games,
   3,501 skill-player games, 9,753 defensive games.
