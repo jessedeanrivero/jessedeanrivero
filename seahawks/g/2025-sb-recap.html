@@ -19,6 +19,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;m
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 .wrap{max-width:700px;margin:0 auto;padding:0 18px 80px}
 a{color:var(--sea)}
+.site-home{padding:14px 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.site-home a{color:var(--mute);text-decoration:none}
+.site-home a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .top b{color:var(--ink);font-weight:500}
 .hero{position:relative;padding:22px 0 10px;border-top:1px solid var(--line)}
@@ -41,7 +45,7 @@ h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12
 h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:26px 0 8px;font-weight:500}
 h3.o{color:var(--opp)}
 .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
-/* cheat sheet */
+/* Game Prep Sheet */
 .card{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--line);animation:up .5s both}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .cn{font-family:var(--disp);font-size:34px;line-height:1;color:var(--sea);opacity:.9}
@@ -51,7 +55,7 @@ h3.o{color:var(--opp)}
 .why{margin:0 0 10px;color:var(--mute);font-size:16px}
 .lab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:3px 7px;border-radius:3px;border:1px solid var(--line);color:var(--mute)}
 .lab.derived{border-color:#2f5e8a;color:#8dc6ff}.lab.verified{border-color:#2f7a4a;color:var(--good)}.lab.airead{border-color:#7a5a2f;color:var(--opp)}.lab.model{border-color:#6a3f8a;color:#d7a8ff}
-/* the call */
+/* quick prediction */
 .callgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
 .callcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px 12px;position:relative}
 .callcard.hq{border-color:#2d4a2f;background:linear-gradient(180deg,#132217,var(--panel))}
@@ -146,6 +150,7 @@ padding:16px 0 4px}
 <body>
 <div class="wrap">
 
+<div class="site-home"><a href="https://jessedeanrivero.com/">← jessedeanrivero.com</a></div>
 <div class="crumb"><a href="/seahawks">Seattle Football HQ</a> / Postgame</div>
 
 <header class="hero">

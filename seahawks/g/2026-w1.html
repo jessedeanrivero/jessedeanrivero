@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>New England at Seattle · Week 1 scouting sheet</title>
+<title>New England at Seattle · Week 1 Game Prep Sheet</title>
 <meta name="description" content="Seven months after Seattle held the best offense in football to 13 points on the biggest stage, New England comes to Lumen for kickoff night. The numb">
+<link rel="canonical" href="https://jessedeanrivero.com/seahawks/g/2026-w1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -19,6 +20,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;m
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 .wrap{max-width:700px;margin:0 auto;padding:0 18px 80px}
 a{color:var(--sea)}
+.site-home{padding:14px 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.site-home a{color:var(--mute);text-decoration:none}
+.site-home a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .top b{color:var(--ink);font-weight:500}
 .hero{position:relative;padding:22px 0 10px;border-top:1px solid var(--line)}
@@ -30,10 +35,12 @@ a{color:var(--sea)}
 h1.hl{font-family:var(--disp);font-size:clamp(34px,9vw,58px);line-height:1;text-transform:uppercase;margin:26px 0 12px;letter-spacing:.01em}
 .dek{font-size:19px;line-height:1.5;color:#d6dced;margin:0 0 16px}
 .story{padding-left:20px;margin:0;color:var(--mute)}.story li{margin:6px 0}
-.nav{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 70%,transparent);padding:10px 0 12px;margin:18px -18px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav a{display:inline-block;margin-left:18px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--bg2)}
-.nav a:last-child{margin-right:18px}
+.nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px;margin:18px -18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.jump-label{padding:0 18px 6px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
+.navlinks{display:flex;gap:8px;overflow-x:auto;padding:0 18px 2px;white-space:nowrap;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--bg2)}
+.nav a:hover{border-color:var(--sea)}
 section{padding-top:34px;scroll-margin-top:60px}
 h2{font-family:var(--disp);font-size:34px;line-height:1;text-transform:uppercase;margin:0 0 6px;letter-spacing:.01em}
 h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-top:6px;text-transform:uppercase}
@@ -41,7 +48,7 @@ h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12
 h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:26px 0 8px;font-weight:500}
 h3.o{color:var(--opp)}
 .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
-/* cheat sheet */
+/* Game Prep Sheet */
 .card{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--line);animation:up .5s both}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .cn{font-family:var(--disp);font-size:34px;line-height:1;color:var(--sea);opacity:.9}
@@ -51,7 +58,7 @@ h3.o{color:var(--opp)}
 .why{margin:0 0 10px;color:var(--mute);font-size:16px}
 .lab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:3px 7px;border-radius:3px;border:1px solid var(--line);color:var(--mute)}
 .lab.derived{border-color:#2f5e8a;color:#8dc6ff}.lab.verified{border-color:#2f7a4a;color:var(--good)}.lab.airead{border-color:#7a5a2f;color:var(--opp)}.lab.model{border-color:#6a3f8a;color:#d7a8ff}
-/* the call */
+/* quick prediction */
 .callgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
 .callcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px 12px;position:relative}
 .callcard.hq{border-color:#2d4a2f;background:linear-gradient(180deg,#132217,var(--panel))}
@@ -81,6 +88,20 @@ h3 small{display:none}
 .ml{color:var(--mute)}.mv{font-family:var(--mono);font-size:16px;text-align:right;white-space:nowrap}
 .mr{text-align:right;white-space:nowrap}.lg{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:right;white-space:nowrap}
 .ident{color:var(--mute);font-size:15px;margin:6px 0 10px;line-height:1.55}.ident b{color:var(--ink);font-weight:600}
+.unit-summaries{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px 0 16px}
+.unit-summary{padding-top:10px;border-top:1px solid var(--line)}
+.unit-summary .k{margin-top:0}
+.section-disclosure{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0}
+.section-disclosure summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr auto;gap:4px 18px;align-items:center;padding:15px 0}
+.section-disclosure summary::-webkit-details-marker{display:none}
+.section-disclosure summary>span{font-family:var(--disp);font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.section-disclosure summary>small{grid-column:1;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.section-disclosure summary::after{content:"+";grid-column:2;grid-row:1 / span 2;font-family:var(--mono);font-size:24px;color:var(--sea)}
+.section-disclosure[open] summary::after{content:"–"}
+.disclosure-body{padding:0 0 18px}
+.model-explainer{margin-top:24px;padding:0 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg2)}
+.model-part{padding-top:6px;border-top:1px solid var(--line);margin-top:18px}
+.model-part h3{margin-top:18px}
 /* players */
 .qb{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin:8px 0 14px}
 .qbn{font-family:var(--disp);font-size:26px;text-transform:uppercase;letter-spacing:.01em}
@@ -91,6 +112,8 @@ h3 small{display:none}
 .pos{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:4px}
 .use{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--mute);white-space:nowrap;line-height:1.6}.use i{color:var(--dim)}
 @media(max-width:560px){.pt .use{white-space:normal;overflow-wrap:anywhere}}
+@media(max-width:560px){.unit-summaries{grid-template-columns:1fr;gap:4px}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
 .gone,.warn,.new{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
 .gone{background:#3a1d1d;color:var(--bad)}.warn{background:#3d2f12;color:var(--opp)}.new{background:#173322;color:var(--good)}
 /* meeting */
@@ -115,6 +138,7 @@ footer p{margin:8px 0}
 <body>
 <div class="wrap">
 
+<div class="site-home"><a href="https://jessedeanrivero.com/">← jessedeanrivero.com</a></div>
 <div class="crumb2"><a href="/seahawks">← Seattle Football HQ</a></div><div class="top"><span><b>Seattle Football HQ</b></span><span>Week 1 · 2026</span></div>
 
 <header class="hero">
@@ -125,16 +149,16 @@ footer p{margin:8px 0}
   <h1 class="hl">The rematch</h1>
   <p class="dek">Seven months after Seattle held the best offense in football to 13 points on the biggest stage, New England comes to Lumen for kickoff night. The numbers say this is the best defense in the league against the best offense in the league, and both sides changed their skill groups in the offseason. Here&#x27;s what to actually watch.</p>
   <ul class="story"><li>Seattle&#x27;s defense finished 2025 first in EPA per play, first against the run, first on third down, and first in points allowed. It did that blitzing less than most of the league.</li><li>New England&#x27;s offense finished first in EPA per play and first in passing EPA. Then it lost its top target (Diggs) and added A.J. Brown and Romeo Doubs.</li><li>Seattle&#x27;s biggest 2025 weakness was giveaways, 31st in the league. It had zero in the Super Bowl. That&#x27;s the whole game.</li></ul>
-  <p class='meta'><a href='#call'>The call: Bet on the unit that didn&#x27;t change →</a></p>
 </header>
 
-<nav class="nav">
-  <a href="#call">The call</a><a href="#cheat">Cheat sheet</a><a href="#numbers">The matchup</a><a href="#opp">New England</a><a href="#sea">Seattle</a><a href="#players">Players</a><a href="#coaches">Coaches</a><a href="#last">Last meeting</a><a href="#iq">Football IQ</a>
+<nav class="nav" aria-label="Jump to a section">
+  <div class="jump-label">Jump to a section</div>
+  <div class="navlinks"><a href="#call">Quick Prediction</a><a href="#cheat">Game Prep Sheet</a><a href="#numbers">The matchup</a><a href="#opp">New England</a><a href="#sea">Seattle</a><a href="#players">Players</a><a href="#coaches">Coaches</a><a href="#last">Last meeting</a><a href="#iq">Football IQ</a></div>
 </nav>
 
 
 <section id="call">
-  <h2>The call<small>Model score, HQ score, season record</small></h2>
+  <h2>Quick Prediction<small>Model score, HQ score, season record</small></h2>
   <div class="callgrid">
     <div class="callcard model"><div class="k">Model</div>
       <div class="cscore"><span class="s">SEA 25.5</span><span class="o">NE 22.4</span></div>
@@ -150,9 +174,9 @@ footer p{margin:8px 0}
     <tr><td class="ml">Net EPA rating, SEA</td><td class="mv">+0.151</td><td class="mr"><span class="rk hi">3rd in NFL</span></td></tr>
     <tr><td class="ml">Net EPA rating, NE</td><td class="mv">+0.198</td><td class="mr"><span class="rk hi">2nd in NFL</span></td></tr>
     <tr><td class="ml">Team rating edge, in points for SEA</td><td class="mv">-0.6</td><td class="mr"></td></tr>
-    <tr><td class="ml">Elo, in points for SEA <span class="pos">+141 rating pts</span></td><td class="mv">+3.7</td><td class="mr"><a href="#elomath" class="pos">why</a></td></tr>
+    <tr><td class="ml">Elo, in points for SEA <span class="pos">+141 rating pts</span></td><td class="mv">+3.7</td><td class="mr"><a href="#model-details" class="pos">why</a></td></tr>
     <tr><td class="ml">Home field, in points for SEA</td><td class="mv">+0.2</td><td class="mr"></td></tr>
-    <tr><td class="ml">Quarterback, in points for SEA</td><td class="mv">-0.1</td><td class="mr"><a href="#qbmath" class="pos">why</a></td></tr>
+    <tr><td class="ml">Quarterback, in points for SEA</td><td class="mv">-0.1</td><td class="mr"><a href="#model-details" class="pos">why</a></td></tr>
     
     <tr><td class="ml"><b>Predicted margin for SEA</b></td><td class="mv"><b>+3.2</b></td><td class="mr"><span class="rk">60% to win</span></td></tr>
   </table>
@@ -161,16 +185,16 @@ footer p{margin:8px 0}
   <h3>The conclusion</h3>
   <div class="conc"><p>The model has Seattle by 3.2, and for once the model and I agree. It&#x27;s worth knowing why it changed its mind: EPA per play alone said coin flip, because New England&#x27;s offense was so good last year that it cancels out Seattle&#x27;s defense on paper. Elo disagrees, because Elo counts January. Seattle enters this season 141 rating points ahead of New England almost entirely because of what happened in Santa Clara, and playoff wins are the thing efficiency numbers throw away.</p><p>Here&#x27;s what neither can see. Defenses carry over year to year better than offenses do, and Seattle&#x27;s defense returns its core: Williams, Lawrence, Nwosu, Murphy, Emmanwori, Ernest Jones. New England&#x27;s offense turned over its receiver room and now has to learn A.J. Brown and Romeo Doubs on the fly against the unit that held it to 13 points seven months ago. Maye&#x27;s 8.7% sack rate was the crack in that offense all year, and Macdonald&#x27;s disguise got to him six times in the Super Bowl. Add that Macdonald is year three into a scheme that finished 2nd and 1st in his previous two second years, and this is a bad week to be a new receiver corps.</p><p>On the other side, Seattle&#x27;s offense has its own problems. The run game was 21st before Walker left, and Charbonnet may not play. Darnold&#x27;s 14 interceptions are the reason this isn&#x27;t a comfortable pick. If he gives it away twice, New England wins anyway.</p><p>I&#x27;ll stay at 23-20 rather than chase the model up to 25. The market has this at 44.5 total and I think that&#x27;s right: two top-five scoring defenses, offenses with new parts, a Wednesday night crowd that&#x27;s going to be deafening. Low twenties both sides, Seattle by a field goal, and the unit that didn&#x27;t change decides it.</p></div>
 
-  <details class="iq"><summary>How the model works</summary>
+  <details class="section-disclosure model-explainer" id="model-details">
+    <summary><span>How the model works</span><small>Inputs, backtest, Elo, and quarterback math</small></summary>
+    <div class="disclosure-body">
     <p>Four inputs. <b>Team ratings</b>: EPA per play on offense and allowed on defense, blending the current season with last season, last season fading as games get played. <b>Elo</b>: a running rating that moves with margin of victory and reverts partway each offseason, including playoff results. <b>Quarterback</b>: opponent-adjusted EPA per dropback for tonight's starter, measured against the team's own recent baseline so nobody gets counted twice. <b>Home field</b>. The margin is a straight line through those; the total is a straight line through both offenses and defenses; win probability is how often a margin that size holds up given the historical error. Fit on 1,855 regular season games, 2019 to 2025.</p>
     <p><b>Not in the model:</b> injuries other than at quarterback, offseason roster changes, weather, rest and travel, coaching, anything that happened after the last snap of the stat season. Read the conclusion for those.</p>
     <p><b>Backtest,</b> leaving each season out and predicting it with the others:</p>
     <table class="mt small bt"><tr><td class="ml"></td><td class="mv">games</td><td class="mv">picks</td><td class="mv">miss</td><td class="mv">market</td></tr><tr><td class="ml">weeks 1-3</td><td class="mv">333</td><td class="mv">64%</td><td class="mv">9.7</td><td class="mv">63%</td></tr><tr><td class="ml">weeks 4-9</td><td class="mv">608</td><td class="mv">65%</td><td class="mv">10.2</td><td class="mv">66%</td></tr><tr><td class="ml">weeks 10+</td><td class="mv">914</td><td class="mv">66%</td><td class="mv">10.2</td><td class="mv">68%</td></tr><tr><td class="ml">all</td><td class="mv">1855</td><td class="mv">65%</td><td class="mv">10.2</td><td class="mv">66%</td></tr></table>
     <p class="ex" style="margin-top:6px">Picks = share of games where the model's favorite won. Miss = average error on the margin, in points. Market = the same pick rate for the closing betting line.</p>
     <p class="ex">Translation: it picks the winner about 65% of the time and misses the margin by 10 points on average. The betting market picks 66%, so this is within about a point and a half of Vegas. In weeks 1 through 3 it actually edges the market, 64% to 63%, because early lines are guessing from last year too. Expect it to be wrong about one week in three, and don't bet on it.</p>
-  </details>
-
-  <details class="iq" id="elomath"><summary>Elo, explained</summary>
+  <div class="model-part" id="elomath"><h3>Elo, explained</h3>
     <p>Elo is a running rating that moves after every game by how much you won or lost by and how surprising the
     result was. Beat a much better team by a lot and you take a big chunk of their rating. It reverts partway toward
     average each offseason, because rosters change.</p>
@@ -178,9 +202,9 @@ footer p{margin:8px 0}
     whether you actually won, including in January. Seattle enters this season +141 Elo points ahead of
     New England largely because of what happened in February, and that is worth
     <b>+3.7 points</b> tonight. Playoff games count.</p>
-    </details>
+    </div>
 
-  <details class="iq" id="qbmath"><summary>Quarterback, explained</summary>
+  <div class="model-part" id="qbmath"><h3>Quarterback, explained</h3>
     <div class="callgrid"><div class="callcard"><div class="k">Seattle</div><div class="cn2 s">S.Darnold</div><span class="warn">assumed starter</span><div class="prob">Rating <b>+0.058</b> EPA per dropback<br>Team baseline +0.057<br><b>Change +0.001</b> · 1,293 career dropbacks</div></div><div class="callcard"><div class="k">New England</div><div class="cn2 o">D.Maye</div><span class="warn">assumed starter</span><div class="prob">Rating <b>+0.144</b> EPA per dropback<br>Team baseline +0.139<br><b>Change +0.005</b> · 914 career dropbacks</div></div></div>
     <p>Team EPA ratings already contain whatever the quarterback did, so you cannot just add "good QB" on top or you
     count him twice. Instead the model rates tonight's starter against <b>the team's own recent quarterback baseline</b>.
@@ -191,7 +215,9 @@ footer p{margin:8px 0}
     who is 0.10 worse than the starter costs his team about 2.0 points.</p>
     <p class="ex">The same regression rates defenses. Hardest to throw on: CLE (-0.16), PHI (-0.16), MIN (-0.15). Easiest: WAS (+0.06), TEN (+0.05), ARI (+0.03). Those numbers are what gets divided out of each quarterback.</p>
     <p class="ex">It assumes the listed starter plays. If that changes before kickoff, so does this number.</p>
-    </details>
+    </div>
+    </div>
+  </details>
 
   
 
@@ -203,7 +229,7 @@ footer p{margin:8px 0}
 </section>
 
 <section id="cheat">
-  <h2>Game day cheat sheet<small>If you see this, watch this</small></h2>
+  <h2>Game Prep Sheet<small>If you see this, watch this</small></h2>
   <p class="sub">Ten things to look for tonight, built from last season's play-by-play plus what changed in the offseason. Read it before kickoff, keep it open during.</p>
   
 <article class="card" style="animation-delay:60ms">
@@ -325,30 +351,46 @@ footer p{margin:8px 0}
 
 <section id="opp">
   <h2>New England<small>Opponent scouting · 2025 regular season</small></h2>
+  <h3 class="o">Strengths and weaknesses</h3>
+  <div class="unit-summaries">
+    <div class="unit-summary"><div class="k">Offense</div><p class="ident"><b>Strengths:</b> epa per play (1st), pass epa per dropback (1st), explosive play rate (2nd).<br><b>Weaknesses:</b> rush epa per carry (24th), sack rate taken (24th), red zone td rate (11th).</p></div>
+    <div class="unit-summary"><div class="k">Defense</div><p class="ident"><b>Strengths:</b> 4th down conversion allowed (2nd), points allowed per game (4th), points per drive allowed (7th).<br><b>Weaknesses:</b> red zone td rate allowed (25th), takeaways per game (20th), sack rate generated (20th).</p></div>
+  </div>
+  <details class="section-disclosure team-details">
+    <summary><span>Full New England profile</span><small>Offense, defense, and tendencies</small></summary>
+    <div class="disclosure-body">
   <h3 class="o">Offense</h3>
-  <p class="ident"><b>Strengths:</b> epa per play (1st), pass epa per dropback (1st), explosive play rate (2nd).<br><b>Weaknesses:</b> rush epa per carry (24th), sack rate taken (24th), red zone td rate (11th).</p>
   <table class="mt"><tr><td class="ml">EPA per play</td><td class="mv">+0.157</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg +0.013</td></tr><tr><td class="ml">Success rate</td><td class="mv">48.4%</td><td class="mr"><span class="rk good">4th</span></td><td class="lg">lg 44.3%</td></tr><tr><td class="ml">Pass EPA per dropback</td><td class="mv">+0.306</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg +0.043</td></tr><tr><td class="ml">Rush EPA per carry</td><td class="mv">-0.084</td><td class="mr"><span class="rk mid">24th</span></td><td class="lg">lg -0.063</td></tr><tr><td class="ml">Explosive play rate</td><td class="mv">14.9%</td><td class="mr"><span class="rk good">2nd</span></td><td class="lg">lg 12.1%</td></tr><tr><td class="ml">3rd down conversion</td><td class="mv">43.6%</td><td class="mr"><span class="rk good">6th</span></td><td class="lg">lg 39.9%</td></tr><tr><td class="ml">4th down conversion</td><td class="mv">72.0%</td><td class="mr"><span class="rk good">2nd</span></td><td class="lg">lg 55.9%</td></tr><tr><td class="ml">Red zone TD rate</td><td class="mv">62.8%</td><td class="mr"><span class="rk mid">11th</span></td><td class="lg">lg 60.5%</td></tr><tr><td class="ml">Points per drive</td><td class="mv">2.72</td><td class="mr"><span class="rk good">2nd</span></td><td class="lg">lg 2.16</td></tr><tr><td class="ml">Points per game</td><td class="mv">28.8</td><td class="mr"><span class="rk good">2nd</span></td><td class="lg">lg 23.0</td></tr><tr><td class="ml">Giveaways per game</td><td class="mv">0.94</td><td class="mr"><span class="rk mid">10th</span></td><td class="lg">lg 1.10</td></tr><tr><td class="ml">Sack rate taken</td><td class="mv">7.8%</td><td class="mr"><span class="rk mid">24th</span></td><td class="lg">lg 6.5%</td></tr></table>
   <div class="k">Tendencies</div>
   <table class="mt"><tr><td class="ml">Pass rate over expected</td><td class="mv">+3.9</td><td class="mr"><span class="rk hi">6th highest</span></td><td class="lg">lg -0.9</td></tr><tr><td class="ml">Avg depth of target</td><td class="mv">9.2</td><td class="mr"><span class="rk hi">2nd highest</span></td><td class="lg">lg 7.8</td></tr><tr><td class="ml">Deep throw rate (20+)</td><td class="mv">14.3%</td><td class="mr"><span class="rk hi">3rd highest</span></td><td class="lg">lg 11.5%</td></tr><tr><td class="ml">QB scramble rate</td><td class="mv">10.4%</td><td class="mr"><span class="rk hi">2nd highest</span></td><td class="lg">lg 5.9%</td></tr><tr><td class="ml">Play action rate</td><td class="mv">24.1%</td><td class="mr"><span class="rk hi">15th highest</span></td><td class="lg">lg 23.2%</td></tr><tr><td class="ml">Screen rate</td><td class="mv">4.2%</td><td class="mr"><span class="rk hi">32nd highest</span></td><td class="lg">lg 7.8%</td></tr><tr><td class="ml">Pre-snap motion rate</td><td class="mv">52.5%</td><td class="mr"><span class="rk hi">21st highest</span></td><td class="lg">lg 54.9%</td></tr><tr><td class="ml">No-huddle rate</td><td class="mv">2.3%</td><td class="mr"><span class="rk hi">32nd highest</span></td><td class="lg">lg 9.9%</td></tr><tr><td class="ml">Runs into 8+ box</td><td class="mv">21.6%</td><td class="mr"><span class="rk hi">2nd highest</span></td><td class="lg">lg 8.7%</td></tr><tr><td class="ml">Blitz rate faced</td><td class="mv">31.1%</td><td class="mr"><span class="rk hi">12th highest</span></td><td class="lg">lg 29.5%</td></tr><tr><td class="ml">Avg pass rushers faced</td><td class="mv">4.37</td><td class="mr"><span class="rk hi">5th highest</span></td><td class="lg">lg 4.30</td></tr></table>
   <h3 class="o">Defense</h3>
-  <p class="ident"><b>Strengths:</b> 4th down conversion allowed (2nd), points allowed per game (4th), points per drive allowed (7th).<br><b>Weaknesses:</b> red zone td rate allowed (25th), takeaways per game (20th), sack rate generated (20th).</p>
   <table class="mt"><tr><td class="ml">EPA per play allowed</td><td class="mv">-0.041</td><td class="mr"><span class="rk mid">11th</span></td><td class="lg">lg +0.014</td></tr><tr><td class="ml">Success rate allowed</td><td class="mv">44.9%</td><td class="mr"><span class="rk mid">18th</span></td><td class="lg">lg 44.3%</td></tr><tr><td class="ml">Pass EPA allowed</td><td class="mv">-0.038</td><td class="mr"><span class="rk mid">11th</span></td><td class="lg">lg +0.043</td></tr><tr><td class="ml">Rush EPA allowed</td><td class="mv">-0.079</td><td class="mr"><span class="rk mid">15th</span></td><td class="lg">lg -0.061</td></tr><tr><td class="ml">Explosive rate allowed</td><td class="mv">11.9%</td><td class="mr"><span class="rk mid">15th</span></td><td class="lg">lg 12.1%</td></tr><tr><td class="ml">3rd down conversion allowed</td><td class="mv">38.7%</td><td class="mr"><span class="rk mid">12th</span></td><td class="lg">lg 40.0%</td></tr><tr><td class="ml">4th down conversion allowed</td><td class="mv">33.3%</td><td class="mr"><span class="rk good">2nd</span></td><td class="lg">lg 55.7%</td></tr><tr><td class="ml">Red zone TD rate allowed</td><td class="mv">66.7%</td><td class="mr"><span class="rk bad">25th</span></td><td class="lg">lg 60.6%</td></tr><tr><td class="ml">Points per drive allowed</td><td class="mv">1.83</td><td class="mr"><span class="rk good">7th</span></td><td class="lg">lg 2.16</td></tr><tr><td class="ml">Points allowed per game</td><td class="mv">18.8</td><td class="mr"><span class="rk good">4th</span></td><td class="lg">lg 23.0</td></tr><tr><td class="ml">Takeaways per game</td><td class="mv">1.06</td><td class="mr"><span class="rk mid">20th</span></td><td class="lg">lg 1.10</td></tr><tr><td class="ml">Sack rate generated</td><td class="mv">5.9%</td><td class="mr"><span class="rk mid">20th</span></td><td class="lg">lg 6.5%</td></tr></table>
   <div class="k">Tendencies</div>
   <table class="mt"><tr><td class="ml">Pass rate over expected faced</td><td class="mv">-1.3</td><td class="mr"><span class="rk hi">19th highest</span></td><td class="lg">lg -0.7</td></tr><tr><td class="ml">Avg depth of target faced</td><td class="mv">7.4</td><td class="mr"><span class="rk hi">25th highest</span></td><td class="lg">lg 7.8</td></tr><tr><td class="ml">Deep throw rate faced</td><td class="mv">10.8%</td><td class="mr"><span class="rk hi">18th highest</span></td><td class="lg">lg 11.5%</td></tr><tr><td class="ml">QB scramble rate faced</td><td class="mv">5.1%</td><td class="mr"><span class="rk hi">24th highest</span></td><td class="lg">lg 5.9%</td></tr><tr><td class="ml">Play action rate faced</td><td class="mv">24.7%</td><td class="mr"><span class="rk hi">10th highest</span></td><td class="lg">lg 23.2%</td></tr><tr><td class="ml">Screen rate faced</td><td class="mv">7.8%</td><td class="mr"><span class="rk hi">17th highest</span></td><td class="lg">lg 7.8%</td></tr><tr><td class="ml">Motion rate faced</td><td class="mv">57.6%</td><td class="mr"><span class="rk hi">11th highest</span></td><td class="lg">lg 54.9%</td></tr><tr><td class="ml">No-huddle rate faced</td><td class="mv">8.7%</td><td class="mr"><span class="rk hi">21st highest</span></td><td class="lg">lg 9.8%</td></tr><tr><td class="ml">Runs faced with 8+ box</td><td class="mv">10.1%</td><td class="mr"><span class="rk hi">11th highest</span></td><td class="lg">lg 8.8%</td></tr><tr><td class="ml">Blitz rate</td><td class="mv">27.4%</td><td class="mr"><span class="rk hi">19th highest</span></td><td class="lg">lg 29.4%</td></tr><tr><td class="ml">Avg pass rushers sent</td><td class="mv">4.33</td><td class="mr"><span class="rk hi">13th highest</span></td><td class="lg">lg 4.30</td></tr></table>
+    </div>
+  </details>
 </section>
 
 <section id="sea">
   <h2>Seattle<small>Self scout · 2025 regular season</small></h2>
+  <h3>Strengths and weaknesses</h3>
+  <div class="unit-summaries">
+    <div class="unit-summary"><div class="k">Offense</div><p class="ident"><b>Strengths:</b> points per game (3rd), explosive play rate (6th), success rate (7th).<br><b>Weaknesses:</b> giveaways per game (31st), rush epa per carry (21st), red zone td rate (21st).</p></div>
+    <div class="unit-summary"><div class="k">Defense</div><p class="ident"><b>Strengths:</b> epa per play allowed (1st), rush epa allowed (1st), explosive rate allowed (1st).<br><b>Weaknesses:</b> sack rate generated (13th), 4th down conversion allowed (12th), pass epa allowed (6th).</p></div>
+  </div>
+  <details class="section-disclosure team-details">
+    <summary><span>Full Seattle profile</span><small>Offense, defense, and tendencies</small></summary>
+    <div class="disclosure-body">
   <h3>Offense</h3>
-  <p class="ident"><b>Strengths:</b> points per game (3rd), explosive play rate (6th), success rate (7th).<br><b>Weaknesses:</b> giveaways per game (31st), rush epa per carry (21st), red zone td rate (21st).</p>
   <table class="mt"><tr><td class="ml">EPA per play</td><td class="mv">+0.039</td><td class="mr"><span class="rk mid">12th</span></td><td class="lg">lg +0.013</td></tr><tr><td class="ml">Success rate</td><td class="mv">46.7%</td><td class="mr"><span class="rk good">7th</span></td><td class="lg">lg 44.3%</td></tr><tr><td class="ml">Pass EPA per dropback</td><td class="mv">+0.121</td><td class="mr"><span class="rk good">8th</span></td><td class="lg">lg +0.043</td></tr><tr><td class="ml">Rush EPA per carry</td><td class="mv">-0.076</td><td class="mr"><span class="rk mid">21st</span></td><td class="lg">lg -0.063</td></tr><tr><td class="ml">Explosive play rate</td><td class="mv">13.9%</td><td class="mr"><span class="rk good">6th</span></td><td class="lg">lg 12.1%</td></tr><tr><td class="ml">3rd down conversion</td><td class="mv">40.6%</td><td class="mr"><span class="rk mid">15th</span></td><td class="lg">lg 39.9%</td></tr><tr><td class="ml">4th down conversion</td><td class="mv">58.3%</td><td class="mr"><span class="rk mid">15th</span></td><td class="lg">lg 55.9%</td></tr><tr><td class="ml">Red zone TD rate</td><td class="mv">57.7%</td><td class="mr"><span class="rk mid">21st</span></td><td class="lg">lg 60.5%</td></tr><tr><td class="ml">Points per drive</td><td class="mv">2.52</td><td class="mr"><span class="rk good">8th</span></td><td class="lg">lg 2.16</td></tr><tr><td class="ml">Points per game</td><td class="mv">28.4</td><td class="mr"><span class="rk good">3rd</span></td><td class="lg">lg 23.0</td></tr><tr><td class="ml">Giveaways per game</td><td class="mv">1.53</td><td class="mr"><span class="rk bad">31st</span></td><td class="lg">lg 1.10</td></tr><tr><td class="ml">Sack rate taken</td><td class="mv">5.2%</td><td class="mr"><span class="rk mid">9th</span></td><td class="lg">lg 6.5%</td></tr></table>
   <div class="k">Tendencies</div>
   <table class="mt"><tr><td class="ml">Pass rate over expected</td><td class="mv">-4.1</td><td class="mr"><span class="rk hi">26th highest</span></td><td class="lg">lg -0.9</td></tr><tr><td class="ml">Avg depth of target</td><td class="mv">7.9</td><td class="mr"><span class="rk hi">16th highest</span></td><td class="lg">lg 7.8</td></tr><tr><td class="ml">Deep throw rate (20+)</td><td class="mv">11.1%</td><td class="mr"><span class="rk hi">18th highest</span></td><td class="lg">lg 11.5%</td></tr><tr><td class="ml">QB scramble rate</td><td class="mv">2.9%</td><td class="mr"><span class="rk hi">26th highest</span></td><td class="lg">lg 5.9%</td></tr><tr><td class="ml">Play action rate</td><td class="mv">25.2%</td><td class="mr"><span class="rk hi">11th highest</span></td><td class="lg">lg 23.2%</td></tr><tr><td class="ml">Screen rate</td><td class="mv">6.0%</td><td class="mr"><span class="rk hi">24th highest</span></td><td class="lg">lg 7.8%</td></tr><tr><td class="ml">Pre-snap motion rate</td><td class="mv">56.9%</td><td class="mr"><span class="rk hi">13th highest</span></td><td class="lg">lg 54.9%</td></tr><tr><td class="ml">No-huddle rate</td><td class="mv">7.3%</td><td class="mr"><span class="rk hi">16th highest</span></td><td class="lg">lg 9.9%</td></tr><tr><td class="ml">Runs into 8+ box</td><td class="mv">7.9%</td><td class="mr"><span class="rk hi">12th highest</span></td><td class="lg">lg 8.7%</td></tr><tr><td class="ml">Blitz rate faced</td><td class="mv">31.5%</td><td class="mr"><span class="rk hi">11th highest</span></td><td class="lg">lg 29.5%</td></tr><tr><td class="ml">Avg pass rushers faced</td><td class="mv">4.39</td><td class="mr"><span class="rk hi">3rd highest</span></td><td class="lg">lg 4.30</td></tr></table>
   <h3>Defense</h3>
-  <p class="ident"><b>Strengths:</b> epa per play allowed (1st), rush epa allowed (1st), explosive rate allowed (1st).<br><b>Weaknesses:</b> sack rate generated (13th), 4th down conversion allowed (12th), pass epa allowed (6th).</p>
   <table class="mt"><tr><td class="ml">EPA per play allowed</td><td class="mv">-0.111</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg +0.014</td></tr><tr><td class="ml">Success rate allowed</td><td class="mv">40.1%</td><td class="mr"><span class="rk good">3rd</span></td><td class="lg">lg 44.3%</td></tr><tr><td class="ml">Pass EPA allowed</td><td class="mv">-0.075</td><td class="mr"><span class="rk good">6th</span></td><td class="lg">lg +0.043</td></tr><tr><td class="ml">Rush EPA allowed</td><td class="mv">-0.207</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg -0.061</td></tr><tr><td class="ml">Explosive rate allowed</td><td class="mv">8.5%</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg 12.1%</td></tr><tr><td class="ml">3rd down conversion allowed</td><td class="mv">32.2%</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg 40.0%</td></tr><tr><td class="ml">4th down conversion allowed</td><td class="mv">52.3%</td><td class="mr"><span class="rk mid">12th</span></td><td class="lg">lg 55.7%</td></tr><tr><td class="ml">Red zone TD rate allowed</td><td class="mv">50.0%</td><td class="mr"><span class="rk good">3rd</span></td><td class="lg">lg 60.6%</td></tr><tr><td class="ml">Points per drive allowed</td><td class="mv">1.51</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg 2.16</td></tr><tr><td class="ml">Points allowed per game</td><td class="mv">17.2</td><td class="mr"><span class="rk good">1st</span></td><td class="lg">lg 23.0</td></tr><tr><td class="ml">Takeaways per game</td><td class="mv">1.53</td><td class="mr"><span class="rk good">4th</span></td><td class="lg">lg 1.10</td></tr><tr><td class="ml">Sack rate generated</td><td class="mv">6.8%</td><td class="mr"><span class="rk mid">13th</span></td><td class="lg">lg 6.5%</td></tr></table>
   <div class="k">Tendencies</div>
   <table class="mt"><tr><td class="ml">Pass rate over expected faced</td><td class="mv">+1.1</td><td class="mr"><span class="rk hi">12th highest</span></td><td class="lg">lg -0.7</td></tr><tr><td class="ml">Avg depth of target faced</td><td class="mv">6.6</td><td class="mr"><span class="rk hi">32nd highest</span></td><td class="lg">lg 7.8</td></tr><tr><td class="ml">Deep throw rate faced</td><td class="mv">10.8%</td><td class="mr"><span class="rk hi">19th highest</span></td><td class="lg">lg 11.5%</td></tr><tr><td class="ml">QB scramble rate faced</td><td class="mv">6.8%</td><td class="mr"><span class="rk hi">8th highest</span></td><td class="lg">lg 5.9%</td></tr><tr><td class="ml">Play action rate faced</td><td class="mv">21.4%</td><td class="mr"><span class="rk hi">24th highest</span></td><td class="lg">lg 23.2%</td></tr><tr><td class="ml">Screen rate faced</td><td class="mv">8.2%</td><td class="mr"><span class="rk hi">13th highest</span></td><td class="lg">lg 7.8%</td></tr><tr><td class="ml">Motion rate faced</td><td class="mv">53.7%</td><td class="mr"><span class="rk hi">20th highest</span></td><td class="lg">lg 54.9%</td></tr><tr><td class="ml">No-huddle rate faced</td><td class="mv">15.2%</td><td class="mr"><span class="rk hi">2nd highest</span></td><td class="lg">lg 9.8%</td></tr><tr><td class="ml">Runs faced with 8+ box</td><td class="mv">5.0%</td><td class="mr"><span class="rk hi">27th highest</span></td><td class="lg">lg 8.8%</td></tr><tr><td class="ml">Blitz rate</td><td class="mv">24.7%</td><td class="mr"><span class="rk hi">25th highest</span></td><td class="lg">lg 29.4%</td></tr><tr><td class="ml">Avg pass rushers sent</td><td class="mv">4.24</td><td class="mr"><span class="rk hi">26th highest</span></td><td class="lg">lg 4.30</td></tr></table>
+    </div>
+  </details>
 </section>
 
 <section id="players">
@@ -421,9 +463,10 @@ footer p{margin:8px 0}
 <button class="share" id="share" type="button">Send this to a Seahawks friend before kickoff</button>
 <script>
 document.getElementById('share').addEventListener('click', async () => {
-  const data = {title: document.title, text: 'Week 1 scouting sheet', url: location.href};
+  const publicUrl = 'https://jessedeanrivero.com/seahawks/g/2026-w1';
+  const data = {title: document.title, text: 'Week 1 Game Prep Sheet', url: publicUrl};
   try { if (navigator.share) { await navigator.share(data); return; } } catch (e) {}
-  try { await navigator.clipboard.writeText(location.href); document.getElementById('share').textContent = 'Link copied'; } catch (e) {}
+  try { await navigator.clipboard.writeText(publicUrl); document.getElementById('share').textContent = 'Live link copied'; } catch (e) {}
 });
 </script>
 

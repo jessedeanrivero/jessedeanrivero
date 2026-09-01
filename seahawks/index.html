@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seattle Football HQ · 2026</title>
-<meta name="description" content="Weekly Seahawks scouting sheets and postgame breakdowns. 0-0 this season.">
+<meta name="description" content="Weekly Seahawks Game Prep Sheets and postgame breakdowns. 0-0 this season.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -19,6 +19,10 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;m
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 .wrap{max-width:700px;margin:0 auto;padding:0 18px 80px}
 a{color:var(--sea)}
+.site-home{padding:14px 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.site-home a{color:var(--mute);text-decoration:none}
+.site-home a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
 .top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
 .top b{color:var(--ink);font-weight:500}
 .hero{position:relative;padding:22px 0 10px;border-top:1px solid var(--line)}
@@ -41,7 +45,7 @@ h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12
 h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:26px 0 8px;font-weight:500}
 h3.o{color:var(--opp)}
 .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
-/* cheat sheet */
+/* Game Prep Sheet */
 .card{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--line);animation:up .5s both}
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .cn{font-family:var(--disp);font-size:34px;line-height:1;color:var(--sea);opacity:.9}
@@ -51,7 +55,7 @@ h3.o{color:var(--opp)}
 .why{margin:0 0 10px;color:var(--mute);font-size:16px}
 .lab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:3px 7px;border-radius:3px;border:1px solid var(--line);color:var(--mute)}
 .lab.derived{border-color:#2f5e8a;color:#8dc6ff}.lab.verified{border-color:#2f7a4a;color:var(--good)}.lab.airead{border-color:#7a5a2f;color:var(--opp)}.lab.model{border-color:#6a3f8a;color:#d7a8ff}
-/* the call */
+/* quick prediction */
 .callgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
 .callcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px 12px;position:relative}
 .callcard.hq{border-color:#2d4a2f;background:linear-gradient(180deg,#132217,var(--panel))}
@@ -125,8 +129,13 @@ margin:0;letter-spacing:.01em}
 .rec span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
 color:var(--dim);margin-top:6px}
 .hero-card{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);
-border-radius:14px;padding:18px;margin:18px 0;transition:border-color .15s}
+border-radius:14px;padding:18px;margin:18px 0;transition:border-color .15s,transform .15s ease-out}
 .hero-card:hover{border-color:var(--sea)}
+.hero-card.current{padding:clamp(22px,5vw,32px);border-color:color-mix(in oklch,var(--sea) 42%,var(--line));
+background:radial-gradient(600px 220px at 88% 0,rgba(201,255,61,.13),transparent 65%),var(--panel)}
+.hero-card.current:hover{transform:translateY(-2px)}
+.hero-card.current .mu{font-size:clamp(38px,10vw,58px);margin:12px 0 10px}
+.hero-card.current .go{margin-top:18px;color:var(--ink);border-color:var(--sea)}
 .hero-card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
 .hero-card .mu{font-family:var(--disp);font-size:clamp(26px,7.5vw,40px);line-height:1.02;text-transform:uppercase;
 margin:8px 0 6px;color:var(--sea)}
@@ -134,7 +143,11 @@ margin:8px 0 6px;color:var(--sea)}
 .hero-card .sub2{font-family:var(--mono);font-size:12px;color:var(--mute);line-height:1.6}
 .hero-card .go{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
 text-transform:uppercase;color:var(--sea);border-bottom:1px solid var(--line);padding-bottom:2px}
+.hero-card.past{background:transparent;border-radius:8px;padding:14px 16px;margin-top:10px}
 .hero-card.past .tag{color:var(--opp)}
+.hero-card.past .mu{font-size:clamp(24px,6vw,30px);margin:6px 0 4px}
+.hero-card.past .go{margin-top:8px;color:var(--mute)}
+@media(prefers-reduced-motion:reduce){.hero-card{transition:none}}
 .arch{display:grid;gap:0}
 .arch a{display:grid;grid-template-columns:58px 1fr auto;gap:10px;align-items:center;padding:12px 4px;
 border-top:1px solid var(--line);text-decoration:none;color:inherit}
@@ -159,6 +172,7 @@ border-top:1px solid var(--line);text-decoration:none;color:inherit}
 <body>
 <div class="wrap">
 
+<div class="site-home"><a href="https://jessedeanrivero.com/">← jessedeanrivero.com</a></div>
 <header class="brand">
   <h1><span>Seattle</span><br>Football HQ</h1>
   <p>2026 season · updated Sep 1, 2026</p>
@@ -171,11 +185,11 @@ border-top:1px solid var(--line);text-decoration:none;color:inherit}
   <div><b>+0</b><span>Differential</span></div>
 </div>
 
-<a class="hero-card" href="/seahawks/g/2026-w1">
-  <div class="tag">Next up · prep sheet</div>
+<a class="hero-card current" href="/seahawks/g/2026-w1">
+  <div class="tag">Next up · Game Prep Sheet</div>
   <div class="mu"><span class='o'>NE</span><span class='at'>at</span>SEA</div>
   <div class="sub2">Wednesday, September 9 · 5:20 pm PT<br>SEA -3.5 · O/U 44.5</div>
-  <span class="go">Read the cheat sheet →</span>
+  <span class="go">Open the Game Prep Sheet →</span>
 </a>
 
 <a class="hero-card past" href="/seahawks/g/2025-sb-recap">
@@ -186,13 +200,13 @@ border-top:1px solid var(--line);text-decoration:none;color:inherit}
 </a>
 
 <section id="archive">
-  <h2>Every week<small>Prep sheets and breakdowns</small></h2>
-  <div class="arch"><a href="/seahawks/g/2026-w1"><div class="wk">Wk 1</div><div class="op">vs New England<i>prep sheet</i></div><div class="sc up">Sep 9</div></a><a href="/seahawks/g/2025-sb-recap"><div class="wk">Super Bowl</div><div class="op">at New England<i>breakdown</i></div><div class="sc w">W 29-13</div></a><a href="/seahawks/g/2025-conf-recap"><div class="wk">Conf championship</div><div class="op">vs the Rams<i>breakdown</i></div><div class="sc w">W 31-27</div></a><a href="/seahawks/g/2025-div-recap"><div class="wk">Divisional</div><div class="op">vs San Francisco<i>breakdown</i></div><div class="sc w">W 41-6</div></a></div>
+  <h2>Every week<small>Game Prep Sheets and breakdowns</small></h2>
+  <div class="arch"><a href="/seahawks/g/2026-w1"><div class="wk">Wk 1</div><div class="op">vs New England<i>Game Prep Sheet</i></div><div class="sc up">Sep 9</div></a><a href="/seahawks/g/2025-sb-recap"><div class="wk">Super Bowl</div><div class="op">at New England<i>breakdown</i></div><div class="sc w">W 29-13</div></a><a href="/seahawks/g/2025-conf-recap"><div class="wk">Conf championship</div><div class="op">vs the Rams<i>breakdown</i></div><div class="sc w">W 31-27</div></a><a href="/seahawks/g/2025-div-recap"><div class="wk">Divisional</div><div class="op">vs San Francisco<i>breakdown</i></div><div class="sc w">W 41-6</div></a></div>
 </section>
 
 <footer>
   <p>Built from free public data: nflverse play-by-play and FTN charting, Pro Football Reference snap counts,
-  and the National Weather Service. A prep sheet goes up before each game and a breakdown goes up after.</p>
+  and the National Weather Service. A Game Prep Sheet goes up before each game and a breakdown goes up after.</p>
   <p>Independent fan project. Not affiliated with, endorsed by, or connected to the NFL or the Seattle Seahawks.
   No logos, no player photos, just the numbers and a point of view.</p>
 </footer>
