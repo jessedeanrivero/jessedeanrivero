@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA 13, NE 10 · Week 1 breakdown</title>
+<meta name="description" content="Postgame breakdown: SEA 13, NE 10">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{--bg:#0a0f1c;--bg2:#101829;--panel:#141e33;--line:#233150;--ink:#eef1f7;--mute:#93a0bb;--dim:#5f6c88;
+--sea:#c9ff3d;--opp:#ffb347;--good:#79e87a;--bad:#ff7b72;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+--sans:"Barlow","Helvetica Neue",Arial,sans-serif;--disp:"Anton","Impact","Arial Narrow",sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5;
+background-image:radial-gradient(1200px 600px at 80% -10%,rgba(201,255,61,.10),transparent 60%),radial-gradient(900px 500px at -10% 30%,rgba(255,179,71,.06),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{max-width:700px;margin:0 auto;padding:0 18px 80px}
+a{color:var(--sea)}
+.site-home{padding:14px 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.site-home a{color:var(--mute);text-decoration:none}
+.site-home a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.top b{color:var(--ink);font-weight:500}
+.hero{position:relative;padding:22px 0 10px;border-top:1px solid var(--line)}
+.vs{font-family:var(--disp);font-size:clamp(44px,12vw,84px);line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:0}
+.vs .o{color:var(--opp)}.vs .s{color:var(--sea)}.vs .at{color:var(--dim);font-size:.5em;vertical-align:middle;margin:0 .1em}
+.meta{font-family:var(--mono);font-size:13px;color:var(--mute);margin:14px 0 0;line-height:1.7}
+.meta b{color:var(--ink);font-weight:500}
+.rec{display:inline-block;padding:1px 7px;border:1px solid var(--line);border-radius:4px;margin-right:6px}
+h1.hl{font-family:var(--disp);font-size:clamp(34px,9vw,58px);line-height:1;text-transform:uppercase;margin:26px 0 12px;letter-spacing:.01em}
+.dek{font-size:19px;line-height:1.5;color:#d6dced;margin:0 0 16px}
+.story{padding-left:20px;margin:0;color:var(--mute)}.story li{margin:6px 0}
+.nav{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 70%,transparent);padding:10px 0 12px;margin:18px -18px 0;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;margin-left:18px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--bg2)}
+.nav a:last-child{margin-right:18px}
+section{padding-top:34px;scroll-margin-top:60px}
+h2{font-family:var(--disp);font-size:34px;line-height:1;text-transform:uppercase;margin:0 0 6px;letter-spacing:.01em}
+h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-top:6px;text-transform:uppercase}
+.sub{color:var(--mute);margin:0 0 18px;font-size:16px}
+h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:26px 0 8px;font-weight:500}
+h3.o{color:var(--opp)}
+.k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
+/* Game Prep Sheet */
+.card{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--line);animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cn{font-family:var(--disp);font-size:34px;line-height:1;color:var(--sea);opacity:.9}
+.cb .k:first-child{margin-top:2px}
+.see{font-family:var(--disp);font-size:22px;line-height:1.15;margin:0 0 4px;letter-spacing:.005em}
+.watch{margin:0 0 4px;font-weight:600;color:#fff}
+.why{margin:0 0 10px;color:var(--mute);font-size:16px}
+.lab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:3px 7px;border-radius:3px;border:1px solid var(--line);color:var(--mute)}
+.lab.derived{border-color:#2f5e8a;color:#8dc6ff}.lab.verified{border-color:#2f7a4a;color:var(--good)}.lab.airead{border-color:#7a5a2f;color:var(--opp)}.lab.model{border-color:#6a3f8a;color:#d7a8ff}
+/* quick prediction */
+.callgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
+.callcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px 12px;position:relative}
+.callcard.hq{border-color:#2d4a2f;background:linear-gradient(180deg,#132217,var(--panel))}
+.cscore{display:flex;flex-direction:column;gap:2px;font-family:var(--disp);font-size:clamp(22px,6.5vw,30px);line-height:1.05;text-transform:uppercase;margin:4px 0 8px}
+.cscore .s{color:var(--sea)}.cscore .o{color:var(--opp)}
+.cn2{font-family:var(--disp);font-size:clamp(20px,5.5vw,26px);line-height:1.05;text-transform:uppercase;margin:4px 0 8px}
+.cn2.s{color:var(--sea)}.cn2.o{color:var(--opp)}
+.pt b.s{color:var(--sea)}.pt b.o{color:var(--opp)}
+h3 small{display:none}
+.prob{font-family:var(--mono);font-size:12px;color:var(--mute);margin-bottom:10px;line-height:1.5}
+.conc p{margin:0 0 12px;font-size:17px;line-height:1.55;color:#d6dced}
+.pt.small td{font-size:13px;padding:7px 3px}
+.bt .ml{white-space:nowrap;font-size:13px}.bt .mv{font-size:13px}.pt.small .use{white-space:normal;font-size:11.5px}
+/* comparisons */
+.cmphead,.cmp{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.cmphead{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);border-top:0}
+.cmphead .s{color:var(--sea)}.cmphead .o{color:var(--opp)}
+.cl{font-size:15px;color:var(--mute)}
+.cs b,.co b{display:block;font-family:var(--mono);font-size:18px;font-weight:500}
+.cs b{color:var(--sea)}.co b{color:var(--opp)}
+.rk{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 6px;border-radius:3px;background:#1c2740;color:var(--mute);margin-top:2px}
+.rk.good{background:#173322;color:var(--good)}.rk.bad{background:#3a1d1d;color:var(--bad)}.rk.hi{background:#1c2740;color:#aab6d0}
+/* metric tables */
+.mt{width:100%;border-collapse:collapse;font-size:15px}
+.mt td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:middle}
+.mt.small td{padding:5px 4px;font-size:14px}
+.ml{color:var(--mute)}.mv{font-family:var(--mono);font-size:16px;text-align:right;white-space:nowrap}
+.mr{text-align:right;white-space:nowrap}.lg{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:right;white-space:nowrap}
+.ident{color:var(--mute);font-size:15px;margin:6px 0 10px;line-height:1.55}.ident b{color:var(--ink);font-weight:600}
+/* players */
+.qb{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin:8px 0 14px}
+.qbn{font-family:var(--disp);font-size:26px;text-transform:uppercase;letter-spacing:.01em}
+.qbs{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+.qbs span b{display:block;font-size:17px;color:var(--ink);font-weight:500;letter-spacing:0}
+.pt{width:100%;border-collapse:collapse}.pt td{padding:9px 4px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+.pt tr.off td{opacity:.55}
+.pos{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:4px}
+.use{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--mute);white-space:nowrap;line-height:1.6}.use i{color:var(--dim)}
+@media(max-width:560px){.pt .use{white-space:normal;overflow-wrap:anywhere}}
+.gone,.warn,.new{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
+.gone{background:#3a1d1d;color:var(--bad)}.warn{background:#3d2f12;color:var(--opp)}.new{background:#173322;color:var(--good)}
+/* meeting */
+.meet{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:10px}
+.score{display:flex;gap:18px;font-family:var(--disp);font-size:40px;line-height:1;text-transform:uppercase;margin:6px 0 10px;color:var(--dim)}
+.score .w{color:var(--ink)}
+.note{color:var(--mute);font-size:15px;margin:12px 0 0}
+/* iq */
+.iq{border-top:1px solid var(--line);padding:12px 0}
+.iq summary{cursor:pointer;font-family:var(--disp);font-size:22px;text-transform:uppercase;letter-spacing:.01em;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.iq summary::after{content:"+";font-family:var(--mono);color:var(--sea);font-size:22px}
+.iq[open] summary::after{content:"–"}
+.iq p{margin:10px 0 0;color:var(--mute);font-size:16px}.iq .ex{color:#d6dced}.iq .ex b{color:var(--sea);font-weight:600}
+/* footer */
+.legend{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;color:var(--mute);margin:12px 0}
+.legend .lab{align-self:start;margin-top:3px}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);line-height:1.6}
+footer p{margin:8px 0}
+.support-card{margin:0 0 26px;padding:18px;border:1px solid rgba(201,255,61,.45);border-radius:12px;background:radial-gradient(480px 180px at 100% 0,rgba(201,255,61,.14),transparent 65%),var(--panel);color:var(--ink)}
+.support-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:5px}
+.support-card strong{display:block;font-family:var(--disp);font-size:clamp(22px,6vw,28px);font-weight:400;line-height:1.05;letter-spacing:.01em;text-transform:uppercase}
+.support-card p{margin:8px 0 14px;color:var(--mute);font-size:15px;line-height:1.5}
+.support-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;border-radius:7px;background:var(--sea);box-shadow:0 8px 24px rgba(201,255,61,.12);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;line-height:1;text-decoration:none;text-transform:uppercase;transition:transform .15s ease-out,background-color .15s ease-out,box-shadow .15s ease-out}
+.support-link:hover{background:#ddff80;box-shadow:0 10px 28px rgba(201,255,61,.2);transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.support-link{transition:none}.support-link:hover{transform:none}}
+.share{display:block;width:100%;background:transparent;cursor:pointer;text-align:center;margin:30px 0 0;padding:14px;border:1px dashed var(--line);border-radius:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+
+
+.gr{display:inline-block;min-width:34px;text-align:center;font-family:var(--mono);font-size:13px;font-weight:500;
+padding:2px 6px;border-radius:4px;background:#1c2740;color:var(--mute)}
+.gr.good{background:#173322;color:var(--good)}.gr.bad{background:#3a1d1d;color:var(--bad)}
+.pl{width:100%;border-collapse:collapse}
+.pl td,.pl th{padding:8px 3px;border-top:1px solid var(--line);font-size:14px;text-align:right;vertical-align:middle}
+.pl td:first-child,.pl th:first-child{text-align:left}
+.pl th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+border-top:0;font-weight:400}
+.pl .nm{font-weight:600}.pl .nm span{font-family:var(--mono);font-size:10px;color:var(--dim);margin-left:5px}
+.res{display:flex;align-items:baseline;gap:16px;font-family:var(--disp);font-size:clamp(38px,11vw,64px);
+line-height:1;text-transform:uppercase;margin:8px 0 4px}
+.res .s{color:var(--sea)}.res .o{color:var(--opp)}
+.res .lost{opacity:.5}
+.wl{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;padding:3px 9px;border-radius:4px}
+.wl.win{background:#173322;color:var(--good)}.wl.loss{background:#3a1d1d;color:var(--bad)}
+.sw{border-top:1px solid var(--line);padding:11px 0;display:grid;grid-template-columns:52px 1fr;gap:10px}
+.sw .t{font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.5}
+.sw .d{font-size:14px;color:#d6dced;line-height:1.5}
+.sw .m{font-family:var(--mono);font-size:12px;margin-top:3px}
+.sw .m .up{color:var(--sea)}.sw .m .dn{color:var(--opp)}
+.pcgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.dv{display:grid;grid-template-columns:26px 1fr auto;gap:8px;padding:7px 0;border-top:1px solid var(--line);
+font-size:14px;align-items:center}
+.dv .n{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.dv .r{font-family:var(--mono);font-size:12px}
+.dv.score .r{color:var(--good)}.dv.turn .r{color:var(--bad)}
+.crumb{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
+padding:16px 0 4px}
+.crumb a{color:var(--mute);text-decoration:none;border-bottom:1px solid var(--line)}
+
+</style>
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<div class="wrap">
+<div class="site-home"><a href="https://jessedeanrivero.com/">← jessedeanrivero.com</a></div>
+
+<div class="crumb"><a href="/seahawks">Seattle Football HQ</a> / Postgame</div>
+
+<header class="hero">
+  <p class="meta">Week 1 · 2026-09-09 · Lumen Field</p>
+  <div class="res"><span class="s ">SEA 13</span>
+    <span class="o lost">NE 10</span></div>
+  <span class="wl win">Seattle wins</span>
+  <h1 class="hl">The breakdown</h1>
+  <p class="dek"></p>
+</header>
+
+<nav class="nav">
+  <a href="#eff">Efficiency</a><a href="#calling">Play calling</a><a href="#swing">Swing plays</a>
+  <a href="#off">Offense</a><a href="#def">Defense</a><a href="#drives">Drives</a>
+</nav>
+
+<section id="eff">
+  <h2>What happened<small>Seattle on both sides of the ball</small></h2>
+  <div class="k">Model scorecard</div><table class="mt"><tr><td class="ml">Predicted</td><td class="mv">SEA 25.5, NE 22.4</td><td class="mr"><span class="rk good">correct</span></td></tr><tr><td class="ml">Actual</td><td class="mv">SEA 13, NE 10</td><td class="mr"><span class="rk">0.1 off</span></td></tr><tr><td class="ml">HQ call</td><td class="mv">SEA 23, NE 20</td><td class="mr"><span class="rk good">correct</span></td></tr></table>
+  <div class="cmphead"><div></div><div class="s">SEA offense</div><div class="o">SEA defense</div></div>
+  <div class="cmp"><div class="cl">EPA per play</div><div class="cs"><b>+0.029</b></div><div class="co"><b>-0.092</b></div></div><div class="cmp"><div class="cl">Success rate</div><div class="cs"><b>38.8%</b></div><div class="co"><b>40.8%</b></div></div><div class="cmp"><div class="cl">Pass EPA</div><div class="cs"><b>+0.226</b></div><div class="co"><b>+0.066</b></div></div><div class="cmp"><div class="cl">Rush EPA</div><div class="cs"><b>-0.195</b></div><div class="co"><b>-0.451</b></div></div><div class="cmp"><div class="cl">Explosive play rate</div><div class="cs"><b>10.2%</b></div><div class="co"><b>5.6%</b></div></div><div class="cmp"><div class="cl">Third down</div><div class="cs"><b>18.2%</b></div><div class="co"><b>31.2%</b></div></div><div class="cmp"><div class="cl">Sacks</div><div class="cs"><b>2 taken</b></div><div class="co"><b>3 made</b></div></div><div class="cmp"><div class="cl">Turnovers</div><div class="cs"><b>0 lost</b></div><div class="co"><b>3 won</b></div></div>
+
+
+</section>
+
+<section id="calling">
+  <h2>Play calling<small>How each side called it</small></h2>
+  <h3>Seattle</h3>
+  <table class="mt"><tr><td class="ml">Neutral early-down pass rate</td><td class="mv">51.6%</td></tr><tr><td class="ml">Pass rate over expected</td><td class="mv">-3.6</td></tr><tr><td class="ml">1st down pass rate</td><td class="mv">52.4%</td></tr><tr><td class="ml">2nd down pass rate</td><td class="mv">50.0%</td></tr><tr><td class="ml">3rd down pass rate</td><td class="mv">75.0%</td></tr><tr><td class="ml">Shotgun rate</td><td class="mv">51.0%</td></tr><tr><td class="ml">Avg depth of target</td><td class="mv">6.4</td></tr></table>
+  <h3 class="o">New England</h3>
+  <table class="mt"><tr><td class="ml">Neutral early-down pass rate</td><td class="mv">50.0%</td></tr><tr><td class="ml">Pass rate over expected</td><td class="mv">-5.3</td></tr><tr><td class="ml">1st down pass rate</td><td class="mv">41.4%</td></tr><tr><td class="ml">2nd down pass rate</td><td class="mv">65.2%</td></tr><tr><td class="ml">3rd down pass rate</td><td class="mv">88.2%</td></tr><tr><td class="ml">Shotgun rate</td><td class="mv">54.9%</td></tr><tr><td class="ml">Avg depth of target</td><td class="mv">6.7</td></tr></table>
+  <p class="note">Personnel groupings and formations are not in this section because nflverse participation data publishes after the postseason, not during the season. It will fill in here once the year is complete.</p>
+</section>
+
+<section id="swing">
+  <h2>Swing plays<small>The five that moved it most</small></h2>
+  <div class="sw"><div class="t">Q4<br>00:26</div><div><div class="d">(:26) (Shotgun) 10-D.Maye pass deep right intended for 13-M.Hollins INTERCEPTED by 29-J.Jobe [0-D.Lawrence] at SEA -3. Touchback.</div><div class="m"><span class="up">+42.1% win probability for SEA</span> · -2.670 EPA</div></div></div><div class="sw"><div class="t">Q4<br>11:38</div><div><div class="d">(11:38) 2-D.Lock pass short left to 11-J.Smith-Njigba for 45 yards, TOUCHDOWN.</div><div class="m"><span class="up">+34.3% win probability for SEA</span> · +6.140 EPA</div></div></div><div class="sw"><div class="t">Q4<br>02:00</div><div><div class="d">(2:00) (Shotgun) 10-D.Maye pass short right to 13-M.Hollins to SEA 36 for 11 yards (13-E.Jones).</div><div class="m"><span class="dn">-18.5% win probability for SEA</span> · +2.420 EPA</div></div></div><div class="sw"><div class="t">Q4<br>00:38</div><div><div class="d">(:38) (Shotgun) 10-D.Maye sacked at SEA 28 for -7 yards (58-D.Hall).</div><div class="m"><span class="up">+11.1% win probability for SEA</span> · -0.890 EPA</div></div></div><div class="sw"><div class="t">Q4<br>06:42</div><div><div class="d">(6:42) 2-D.Lock scrambles left tackle pushed ob at NE 3 for 14 yards (25-M.Jones).</div><div class="m"><span class="up">+10.3% win probability for SEA</span> · +1.730 EPA</div></div></div>
+</section>
+
+<section id="off">
+  <h2>Seattle offense<small>Usage, production, and a grade</small></h2>
+  <p class="note">Snap counts are not published yet. This section will fill them in when available.</p>
+  <table class="pl"><tr><th>Quarterback</th><th>DB</th><th>C/A</th><th>Yds</th><th>TD/INT</th><th>EPA</th><th>CPOE</th><th>Grade</th></tr>
+  <tr><td class="nm">Drew Lock <span>QB</span></td><td>23</td><td>16/22</td><td>180</td><td>1/0</td><td>+0.280</td><td>4.8</td><td><span class="gr good">100</span></td></tr><tr><td class="nm">Sam Darnold <span>QB</span></td><td>3</td><td>1/2</td><td>8</td><td>0/0</td><td>-0.692</td><td>-24.2</td><td><span class="gr mid">-</span></td></tr></table>
+  <table class="pl" style="margin-top:18px"><tr><th>Skill</th><th style="text-align:left">Production</th><th>Grade</th></tr>
+  <tr><td class="nm">Jadarian Price <span>RB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2/2 for 6 · 10 car 52</td><td><span class="gr mid">58</span></td></tr><tr><td class="nm">Jaxon Smith-Njigba <span>WR</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">8/11 for 122 · 1 TD</td><td><span class="gr good">92</span></td></tr><tr><td class="nm">George Holani <span>RB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">0/1 for 0 · 8 car 29</td><td><span class="gr mid">42</span></td></tr><tr><td class="nm">Cooper Kupp <span>WR</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2/3 for 35</td><td><span class="gr good">75</span></td></tr><tr><td class="nm">Rashid Shaheed <span>WR</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1/3 for 4</td><td><span class="gr bad">8</span></td></tr><tr><td class="nm">AJ Barner <span>TE</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2/2 for 13</td><td><span class="gr mid">-</span></td></tr><tr><td class="nm">Brady Russell <span>RB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2/2 for 20</td><td><span class="gr mid">-</span></td></tr><tr><td class="nm">Emanuel Wilson <span>RB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2 car 3</td><td><span class="gr mid">-</span></td></tr></table>
+</section>
+
+<section id="def">
+  <h2>Seattle defense<small>Usage, production, and a grade</small></h2>
+  <p class="note">Snap counts are not published yet. This section will fill them in when available.</p>
+  <table class="pl"><tr><th>Player</th><th style="text-align:left">Production</th><th>Grade</th></tr>
+  <tr><td class="nm">Julian Love <span>DB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2 TFL · 1 PD · 1 INT · 5 tkl</td><td><span class="gr good">100</span></td></tr><tr><td class="nm">Josh Jobe <span>DB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 TFL · 1 PD · 1 INT · 5 tkl</td><td><span class="gr good">91</span></td></tr><tr><td class="nm">Drake Thomas <span>LB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 sack · 1 hit · 1 TFL · 6 tkl</td><td><span class="gr good">88</span></td></tr><tr><td class="nm">Nehemiah Pritchett <span>DB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">2 PD · 1 INT · 5 tkl</td><td><span class="gr good">88</span></td></tr><tr><td class="nm">Derick Hall <span>LB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 sack · 1 hit · 1 TFL · 2 tkl</td><td><span class="gr good">78</span></td></tr><tr><td class="nm">Leonard Williams <span>DL</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 sack · 1 hit · 1 TFL · 3 tkl</td><td><span class="gr good">78</span></td></tr><tr><td class="nm">Uchenna Nwosu <span>LB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 TFL · 1 PD · 4 tkl</td><td><span class="gr good">75</span></td></tr><tr><td class="nm">Ernest Jones <span>LB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">12 tkl</td><td><span class="gr mid">72</span></td></tr><tr><td class="nm">Rodney Thomas <span>DB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 PD · 3 tkl</td><td><span class="gr mid">62</span></td></tr><tr><td class="nm">Rylie Mills <span>DL</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 TFL · 2 tkl</td><td><span class="gr mid">56</span></td></tr><tr><td class="nm">Byron Murphy II <span>DL</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 TFL · 2 tkl</td><td><span class="gr mid">56</span></td></tr><tr><td class="nm">DeMarcus Lawrence <span>LB</span></td><td style="text-align:left;font-family:var(--mono);font-size:12px">1 hit · 3 tkl</td><td><span class="gr mid">53</span></td></tr></table>
+  <h3 class="o">New England quarterback</h3>
+  <table class="pl"><tr><th></th><th>DB</th><th>C/A</th><th>Yds</th><th>TD/INT</th><th>EPA</th><th>CPOE</th><th>Grade</th></tr>
+  <tr><td class="nm">Drake Maye <span>QB</span></td><td>36</td><td>23/33</td><td>168</td><td>1/3</td><td>-0.128</td><td>6.0</td><td><span class="gr bad">0</span></td></tr></table>
+</section>
+
+<section id="drives">
+  <h2>Seattle drives<small>Every possession</small></h2>
+  <div class="dv "><div class="n">1</div><div>5 plays, 30 yards</div><div class="r">Punt</div></div><div class="dv "><div class="n">2</div><div>5 plays, 20 yards</div><div class="r">Punt</div></div><div class="dv "><div class="n">3</div><div>4 plays, 17 yards</div><div class="r">Punt</div></div><div class="dv "><div class="n">4</div><div>6 plays, 34 yards</div><div class="r">Punt</div></div><div class="dv "><div class="n">5</div><div>6 plays, 19 yards</div><div class="r">End Of Half</div></div><div class="dv "><div class="n">6</div><div>4 plays, 14 yards</div><div class="r">Punt</div></div><div class="dv score"><div class="n">7</div><div>7 plays, 36 yards</div><div class="r">Field Goal</div></div><div class="dv score"><div class="n">8</div><div>5 plays, 67 yards</div><div class="r">Touchdown</div></div><div class="dv score"><div class="n">9</div><div>7 plays, 49 yards</div><div class="r">Field Goal</div></div>
+</section>
+
+<footer>
+  <aside class="support-card" aria-labelledby="support-title">
+  <div class="support-kicker">Enjoyed this?</div>
+  <strong id="support-title">Keep Seattle Football HQ independent</strong>
+  <p>If the Game Prep Sheets and breakdowns make game day better, you can buy me a coffee.</p>
+  <a class="support-link" href="https://buymeacoffee.com/jessedeanrivero" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Buy me a coffee</a>
+</aside>
+  <p><b>About the grades.</b> A grade is a percentile. It compares one player's production in this game against every
+  comparable performance in the season: 2 quarterback games,
+  12 skill-player games, 32 defensive games.
+  A 90 means the player produced more than 90% of comparable outings. It is built from expected points added per
+  opportunity, completion percentage over expected for quarterbacks, and recorded defensive events.</p>
+  <p><b>What a grade is not.</b> It cannot see blocking, coverage, or route running, because public play-by-play does
+  not record them. A receiver who ran a perfect route on a play the quarterback missed gets nothing here. Treat these
+  as production in context, not as scouting.</p>
+  <p><b>Sources.</b> nflverse play-by-play and schedules. Grades and aggregate metrics are derived from the available source data.</p>
+  <p>Independent fan project. Not affiliated with the NFL or the Seattle Seahawks.</p>
+</footer>
+
+</div>
+</body>
+</html>
