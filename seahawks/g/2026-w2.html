@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seattle at Arizona · Week 2 Game Prep Sheet</title>
+<meta name="description" content="Week 2 Seahawks at Cardinals Game Prep Sheet with updated 2026 data, injuries, matchup notes, model score, and Jesse’s prediction.">
+<link rel="canonical" href="https://jessedeanrivero.com/seahawks/g/2026-w2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0f1c;--bg2:#101829;--panel:#141e33;--line:#233150;--ink:#eef1f7;--mute:#93a0bb;--dim:#5f6c88;
+--sea:#c9ff3d;--opp:#ffb347;--good:#79e87a;--bad:#ff7b72;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+--sans:"Barlow","Helvetica Neue",Arial,sans-serif;--disp:"Anton","Impact","Arial Narrow",sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5;
+background-image:radial-gradient(1200px 600px at 80% -10%,rgba(201,255,61,.10),transparent 60%),radial-gradient(900px 500px at -10% 30%,rgba(255,179,71,.06),transparent 60%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:overlay;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+.wrap{max-width:700px;margin:0 auto;padding:0 18px 80px}
+a{color:var(--sea)}
+.site-home{padding:14px 0 10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.site-home a{color:var(--mute);text-decoration:none}
+.site-home a:hover{color:var(--sea)}
+:focus-visible{outline:2px solid var(--sea);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0 8px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.top b{color:var(--ink);font-weight:500}
+.hero{position:relative;padding:22px 0 10px;border-top:1px solid var(--line)}
+.vs{font-family:var(--disp);font-size:clamp(44px,12vw,84px);line-height:.92;letter-spacing:.01em;text-transform:uppercase;margin:0}
+.vs .o{color:var(--opp)}.vs .s{color:var(--sea)}.vs .at{color:var(--dim);font-size:.5em;vertical-align:middle;margin:0 .1em}
+.meta{font-family:var(--mono);font-size:13px;color:var(--mute);margin:14px 0 0;line-height:1.7}
+.meta b{color:var(--ink);font-weight:500}
+.rec{display:inline-block;padding:1px 7px;border:1px solid var(--line);border-radius:4px;margin-right:6px}
+h1.hl{font-family:var(--disp);font-size:clamp(34px,9vw,58px);line-height:1;text-transform:uppercase;margin:26px 0 12px;letter-spacing:.01em}
+.dek{font-size:19px;line-height:1.5;color:#d6dced;margin:0 0 16px}
+.story{padding-left:20px;margin:0;color:var(--mute)}.story li{margin:6px 0}
+.nav{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 10px;margin:18px -18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.jump-label{padding:0 18px 6px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
+.navlinks{display:flex;gap:8px;overflow-x:auto;padding:0 18px 2px;white-space:nowrap;scrollbar-width:none}
+.navlinks::-webkit-scrollbar{display:none}
+.nav a{display:inline-block;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);text-decoration:none;background:var(--bg2)}
+.nav a:hover{border-color:var(--sea)}
+section{padding-top:34px;scroll-margin-top:60px}
+h2{font-family:var(--disp);font-size:34px;line-height:1;text-transform:uppercase;margin:0 0 6px;letter-spacing:.01em}
+h2 small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dim);margin-top:6px;text-transform:uppercase}
+.sub{color:var(--mute);margin:0 0 18px;font-size:16px}
+h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin:26px 0 8px;font-weight:500}
+h3.o{color:var(--opp)}
+.k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:12px 0 2px}
+/* Game Prep Sheet */
+.card{display:grid;grid-template-columns:44px 1fr;gap:10px;padding:18px 0;border-top:1px solid var(--line);animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cn{font-family:var(--disp);font-size:34px;line-height:1;color:var(--sea);opacity:.9}
+.cb .k:first-child{margin-top:2px}
+.see{font-family:var(--disp);font-size:22px;line-height:1.15;margin:0 0 4px;letter-spacing:.005em}
+.watch{margin:0 0 4px;font-weight:600;color:#fff}
+.why{margin:0 0 10px;color:var(--mute);font-size:16px}
+.lab{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;padding:3px 7px;border-radius:3px;border:1px solid var(--line);color:var(--mute)}
+.lab.derived{border-color:#2f5e8a;color:#8dc6ff}.lab.verified{border-color:#2f7a4a;color:var(--good)}.lab.airead{border-color:#7a5a2f;color:var(--opp)}.lab.model{border-color:#6a3f8a;color:#d7a8ff}
+/* quick prediction */
+.callgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 18px}
+.callcard{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 12px 12px;position:relative}
+.callcard.hq{border-color:#2d4a2f;background:linear-gradient(180deg,#132217,var(--panel))}
+.cscore{display:flex;flex-direction:column;gap:2px;font-family:var(--disp);font-size:clamp(22px,6.5vw,30px);line-height:1.05;text-transform:uppercase;margin:4px 0 8px}
+.cscore .s{color:var(--sea)}.cscore .o{color:var(--opp)}
+.cn2{font-family:var(--disp);font-size:clamp(20px,5.5vw,26px);line-height:1.05;text-transform:uppercase;margin:4px 0 8px}
+.cn2.s{color:var(--sea)}.cn2.o{color:var(--opp)}
+.pt b.s{color:var(--sea)}.pt b.o{color:var(--opp)}
+h3 small{display:none}
+.prob{font-family:var(--mono);font-size:12px;color:var(--mute);margin-bottom:10px;line-height:1.5}
+.conc p{margin:0 0 12px;font-size:17px;line-height:1.55;color:#d6dced}
+.pt.small td{font-size:13px;padding:7px 3px}
+.bt .ml{white-space:nowrap;font-size:13px}.bt .mv{font-size:13px}.pt.small .use{white-space:normal;font-size:11.5px}
+/* comparisons */
+.cmphead,.cmp{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.cmphead{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);border-top:0}
+.cmphead .s{color:var(--sea)}.cmphead .o{color:var(--opp)}
+.cl{font-size:15px;color:var(--mute)}
+.cs b,.co b{display:block;font-family:var(--mono);font-size:18px;font-weight:500}
+.cs b{color:var(--sea)}.co b{color:var(--opp)}
+.rk{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 6px;border-radius:3px;background:#1c2740;color:var(--mute);margin-top:2px}
+.rk.good{background:#173322;color:var(--good)}.rk.bad{background:#3a1d1d;color:var(--bad)}.rk.hi{background:#1c2740;color:#aab6d0}
+/* metric tables */
+.mt{width:100%;border-collapse:collapse;font-size:15px}
+.mt td{padding:8px 4px;border-top:1px solid var(--line);vertical-align:middle}
+.mt.small td{padding:5px 4px;font-size:14px}
+.ml{color:var(--mute)}.mv{font-family:var(--mono);font-size:16px;text-align:right;white-space:nowrap}
+.mr{text-align:right;white-space:nowrap}.lg{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:right;white-space:nowrap}
+.ident{color:var(--mute);font-size:15px;margin:6px 0 10px;line-height:1.55}.ident b{color:var(--ink);font-weight:600}
+.unit-summaries{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:8px 0 16px}
+.unit-summary{padding-top:10px;border-top:1px solid var(--line)}
+.unit-summary .k{margin-top:0}
+.section-disclosure{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0}
+.section-disclosure summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr auto;gap:4px 18px;align-items:center;padding:15px 0}
+.section-disclosure summary::-webkit-details-marker{display:none}
+.section-disclosure summary>span{font-family:var(--disp);font-size:24px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.section-disclosure summary>small{grid-column:1;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.section-disclosure summary::after{content:"+";grid-column:2;grid-row:1 / span 2;font-family:var(--mono);font-size:24px;color:var(--sea)}
+.section-disclosure[open] summary::after{content:"–"}
+.disclosure-body{padding:0 0 18px}
+.model-explainer{margin-top:24px;padding:0 16px;border:1px solid var(--line);border-radius:10px;background:var(--bg2)}
+.model-part{padding-top:6px;border-top:1px solid var(--line);margin-top:18px}
+.model-part h3{margin-top:18px}
+/* players */
+.qb{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin:8px 0 14px}
+.qbn{font-family:var(--disp);font-size:26px;text-transform:uppercase;letter-spacing:.01em}
+.qbs{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+.qbs span b{display:block;font-size:17px;color:var(--ink);font-weight:500;letter-spacing:0}
+.pt{width:100%;border-collapse:collapse}.pt td{padding:9px 4px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+.pt tr.off td{opacity:.55}
+.pos{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:4px}
+.use{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--mute);white-space:nowrap;line-height:1.6}.use i{color:var(--dim)}
+@media(max-width:560px){.pt .use{white-space:normal;overflow-wrap:anywhere}}
+@media(max-width:560px){.unit-summaries{grid-template-columns:1fr;gap:4px}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
+.gone,.warn,.new{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;border-radius:3px;margin-left:6px;vertical-align:middle}
+.gone{background:#3a1d1d;color:var(--bad)}.warn{background:#3d2f12;color:var(--opp)}.new{background:#173322;color:var(--good)}
+/* meeting */
+.meet{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:10px}
+.score{display:flex;gap:18px;font-family:var(--disp);font-size:40px;line-height:1;text-transform:uppercase;margin:6px 0 10px;color:var(--dim)}
+.score .w{color:var(--ink)}
+.note{color:var(--mute);font-size:15px;margin:12px 0 0}
+/* iq */
+.iq{border-top:1px solid var(--line);padding:12px 0}
+.iq summary{cursor:pointer;font-family:var(--disp);font-size:22px;text-transform:uppercase;letter-spacing:.01em;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.iq summary::after{content:"+";font-family:var(--mono);color:var(--sea);font-size:22px}
+.iq[open] summary::after{content:"–"}
+.iq p{margin:10px 0 0;color:var(--mute);font-size:16px}.iq .ex{color:#d6dced}.iq .ex b{color:var(--sea);font-weight:600}
+/* footer */
+.legend{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;color:var(--mute);margin:12px 0}
+.legend .lab{align-self:start;margin-top:3px}
+footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--dim);line-height:1.6}
+footer p{margin:8px 0}
+.support-card{margin:0 0 26px;padding:18px;border:1px solid rgba(201,255,61,.45);border-radius:12px;background:radial-gradient(480px 180px at 100% 0,rgba(201,255,61,.14),transparent 65%),var(--panel);color:var(--ink)}
+.support-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--sea);margin-bottom:5px}
+.support-card strong{display:block;font-family:var(--disp);font-size:clamp(22px,6vw,28px);font-weight:400;line-height:1.05;letter-spacing:.01em;text-transform:uppercase}
+.support-card p{margin:8px 0 14px;color:var(--mute);font-size:15px;line-height:1.5}
+.support-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:10px 14px;border-radius:7px;background:var(--sea);box-shadow:0 8px 24px rgba(201,255,61,.12);color:var(--bg);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.09em;line-height:1;text-decoration:none;text-transform:uppercase;transition:transform .15s ease-out,background-color .15s ease-out,box-shadow .15s ease-out}
+.support-link:hover{background:#ddff80;box-shadow:0 10px 28px rgba(201,255,61,.2);transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.support-link{transition:none}.support-link:hover{transform:none}}
+.share{display:block;width:100%;background:transparent;cursor:pointer;text-align:center;margin:30px 0 0;padding:14px;border:1px dashed var(--line);border-radius:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.crumb2{padding:14px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.crumb2 a{color:var(--mute);text-decoration:none}</style>
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+<div class="site-home"><a href="https://jessedeanrivero.com/">← jessedeanrivero.com</a></div>
+<div class="crumb2"><a href="/seahawks">← Seattle Football HQ</a></div>
+<div class="top"><span><b>Seattle Football HQ</b></span><span>Week 2 · 2026</span></div>
+
+<header class="hero">
+  <p class="vs"><span class="s">SEA</span><span class="at">at</span><span class="o">ARI</span></p>
+  <p class="meta"><span class="rec">Seattle 1-0</span><span class="rec">Arizona 1-0</span><br>
+  <b>Sunday, September 20 · 1:25 pm PT / 4:25 pm ET</b> · State Farm Stadium · FOX<br>
+  Mike Macdonald vs Mike LaFleur · Drew Lock starts for Seattle</p>
+  <h1 class="hl">Nine straight. Now prove it again.</h1>
+  <p class="dek">Seattle has won nine straight against Arizona, but the Cardinals opened the Mike LaFleur era with a 26-14 road win over the Chargers. Arizona controlled the ball for 37:31, gained 393 yards, ran 72 plays and did not turn it over. Seattle comes in 1-0 with its defense still deciding games and Drew Lock making the start for the injured Sam Darnold.</p>
+  <ul class="story">
+    <li>Seattle ran only 48 offensive plays in Week 1. Arizona ran 72. Possession and early-down efficiency are the first things to watch.</li>
+    <li>Jacoby Brissett went 27-of-37 for 277 yards with no interceptions. Trey McBride caught nine passes for 95 yards and a touchdown.</li>
+    <li>Lock went 16-of-22 for 187 yards, one touchdown and no interceptions after Darnold left the opener.</li>
+  </ul>
+</header>
+
+<nav class="nav" aria-label="Jump to a section">
+  <div class="jump-label">Jump to a section</div>
+  <div class="navlinks"><a href="#call">Predictions</a><a href="#cheat">Game Prep Sheet</a><a href="#numbers">The matchup</a><a href="#injuries">Injuries</a><a href="#opp">Arizona</a><a href="#sea">Seattle</a><a href="#players">Players</a><a href="#coaches">Coaches</a><a href="#last">Last meetings</a><a href="#iq">Football IQ</a></div>
+</nav>
+
+<section id="call">
+  <h2>Predictions<small>Model score and Jesse's pick</small></h2>
+  <div class="callgrid">
+    <div class="callcard model">
+      <div class="k">HQ model</div>
+      <div class="cscore"><span class="s">SEA 22.8</span><span class="o">ARI 18.6</span></div>
+      <div class="prob">Seattle by 4.2 · 62% win estimate</div>
+      <span class="lab model">MODEL</span>
+    </div>
+    <div class="callcard hq">
+      <div class="k">Jesse's pick</div>
+      <div class="cscore"><span class="s">SEA 24</span><span class="o">ARI 10</span></div>
+      <div class="prob">Seahawks destroy the Cardinals</div>
+      <span class="lab airead">JESSE</span>
+    </div>
+  </div>
+
+  <div class="k">Why the model lands there</div>
+  <table class="mt">
+    <tr><td class="ml">Seattle 2025 defense</td><td class="mv">17.2 pts/g</td><td class="mr"><span class="rk good">1st</span></td></tr>
+    <tr><td class="ml">Arizona 2025 defense</td><td class="mv">29 pts/g</td><td class="mr"><span class="rk bad">bottom tier</span></td></tr>
+    <tr><td class="ml">Seattle Week 1</td><td class="mv">13-10 W</td><td class="mr"><span class="rk">+3 TO</span></td></tr>
+    <tr><td class="ml">Arizona Week 1</td><td class="mv">26-14 W</td><td class="mr"><span class="rk">0 giveaways</span></td></tr>
+    <tr><td class="ml">QB adjustment</td><td class="mv">Lock starts</td><td class="mr"><span class="rk bad">SEA downgrade</span></td></tr>
+    <tr><td class="ml"><b>Predicted margin</b></td><td class="mv"><b>SEA +4.2</b></td><td class="mr"><span class="rk">road game</span></td></tr>
+  </table>
+  <p class="note">Same model framework as Week 1: prior-season team efficiency fades as current-season data arrives, with Elo, home field and quarterback adjustment layered in. Week 1 still receives limited weight because one game is noisy.</p>
+
+  <h3>The read</h3>
+  <div class="conc">
+    <p>Arizona earned attention in Week 1. The Cardinals did not steal the game with one play. They held a 21-snap advantage, gained 125 more yards than the Chargers and played turnover-free football.</p>
+    <p>Seattle's matchup advantage still starts with the defensive front. Arizona averaged under four yards per running-back carry, while Seattle opened 2026 by crushing New England's run game. If the Seahawks stop the run without crowding the box, Macdonald gets more coverage answers for McBride.</p>
+    <p>The variable is Lock. Seattle needs longer possessions than it had in the opener. If Lock protects the ball and Seattle gets JSN involved early, the defense should not need three fourth-quarter interceptions to finish the game.</p>
+  </div>
+
+  <details class="iq" open>
+    <summary>Season prediction record</summary>
+    <table class="pt small">
+      <tr><td class="ml">Wk 1 vs NE</td><td class="use">Model SEA 25.5-22.4</td><td class="use">Final SEA 13-10</td><td class="use"><b class="s">winner right</b></td></tr>
+      <tr><td class="ml">Wk 2 at ARI</td><td class="use">Model SEA 22.8-18.6</td><td class="use">Jesse SEA 24-10</td><td class="use">pending</td></tr>
+    </table>
+  </details>
+</section>
+
+<section id="cheat">
+  <h2>Game Prep Sheet<small>If you see this, watch this</small></h2>
+  <p class="sub">Ten things to keep open during the game. Week 2 blends the 2025 baseline with what both teams showed in their 2026 openers.</p>
+
+  <article class="card"><div class="cn">01</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Arizona starts by feeding Trey McBride.</p>
+    <div class="k">Watch</div><p class="watch">Who owns the middle of the field, especially with Nick Emmanwori still limited in practice.</p>
+    <div class="k">Why it matters</div><p class="why">McBride caught nine passes for 95 yards and a touchdown in Week 1. Brissett wants a dependable answer inside, and Seattle's safety health changes how aggressively the defense can rotate coverage toward him.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">02</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Brissett keeps getting the ball out before pressure arrives.</p>
+    <div class="k">Watch</div><p class="watch">Whether Seattle changes his first read instead of only trying to win faster up front.</p>
+    <div class="k">Why it matters</div><p class="why">Arizona's Week 1 offense lived in rhythm. Seattle's simulated-pressure game works best when the protection and quarterback identify different threats before the snap.</p>
+    <span class="lab airead">AI READ</span>
+  </div></article>
+
+  <article class="card"><div class="cn">03</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Arizona's guards start shuffling bodies.</p>
+    <div class="k">Watch</div><p class="watch">Leonard Williams and Byron Murphy inside, especially on third-and-medium.</p>
+    <div class="k">Why it matters</div><p class="why">Left guard Isaac Seumalo is dealing with a shoulder injury and right guard Isaiah Adams is working back from a knee injury. Both were limited Thursday. That is the cleanest injury-to-matchup connection on Arizona's side.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">04</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Seattle goes three-and-out early.</p>
+    <div class="k">Watch</div><p class="watch">The total snap count and Arizona's possession time, not only the score.</p>
+    <div class="k">Why it matters</div><p class="why">Seattle ran only 48 plays in Week 1. Arizona ran 72 and held the ball for 37:31. Seattle does not want its defense absorbing another 65 to 70 snaps.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">05</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Lock gets an early first-down play-action throw.</p>
+    <div class="k">Watch</div><p class="watch">Whether JSN is the first read and whether Arizona's linebackers step toward the run fake.</p>
+    <div class="k">Why it matters</div><p class="why">Lock was efficient in relief, and Seattle's biggest offensive play in Week 1 was his 45-yard touchdown to JSN from a run-action look on fourth-and-1.</p>
+    <span class="lab airead">AI READ</span>
+  </div></article>
+
+  <article class="card"><div class="cn">06</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Seattle keeps handing it off into a crowded front.</p>
+    <div class="k">Watch</div><p class="watch">Whether the run is earning another carry or only setting up the next throw.</p>
+    <div class="k">Why it matters</div><p class="why">Seattle's Week 1 rush efficiency was poor even though Jadarian Price averaged 5.2 yards per carry. Arizona's defense also held the Chargers to 81 rushing yards.</p>
+    <span class="lab derived">DERIVED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">07</div><div class="cb">
+    <div class="k">If you see</div><p class="see">JSN starts winning immediately.</p>
+    <div class="k">Watch</div><p class="watch">How quickly Arizona rolls help toward him and who becomes Seattle's second answer.</p>
+    <div class="k">Why it matters</div><p class="why">JSN opened the year with eight catches for 122 yards and the touchdown. Cooper Kupp upgraded to full participation Thursday, while Tory Horton has practiced in full both days.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">08</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Arizona keeps reaching second-and-short.</p>
+    <div class="k">Watch</div><p class="watch">Whether Seattle is losing to quick throws or giving up efficient runs.</p>
+    <div class="k">Why it matters</div><p class="why">Arizona's opener worked because it stayed on schedule. Seattle's best response is forcing Brissett into obvious passing downs where the disguise package has more value.</p>
+    <span class="lab airead">AI READ</span>
+  </div></article>
+
+  <article class="card"><div class="cn">09</div><div class="cb">
+    <div class="k">If you see</div><p class="see">The game is still within one score in the fourth quarter.</p>
+    <div class="k">Watch</div><p class="watch">Turnover margin before anything else.</p>
+    <div class="k">Why it matters</div><p class="why">Seattle won Week 1 with zero giveaways and three takeaways. Arizona also played turnover-free football while taking the ball away twice. Both teams just won with the clean version of the same formula.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+
+  <article class="card"><div class="cn">10</div><div class="cb">
+    <div class="k">If you see</div><p class="see">Arizona hangs around despite losing the efficiency battle.</p>
+    <div class="k">Watch</div><p class="watch">Special teams and short fields.</p>
+    <div class="k">Why it matters</div><p class="why">Arizona blocked a punt in Week 1 and turned it into a touchdown from the Chargers' 3-yard line. In a low-scoring divisional game, one short field changes the script.</p>
+    <span class="lab verified">VERIFIED</span>
+  </div></article>
+</section>
+
+<section id="numbers">
+  <h2>The matchup<small>Week 1 data plus the 2025 baseline</small></h2>
+  <div class="cmphead"><div></div><div class="s">SEA</div><div class="o">ARI</div></div>
+  <div class="cmp"><div class="cl">Week 1 points</div><div class="cs"><b>13</b></div><div class="co"><b>26</b></div></div>
+  <div class="cmp"><div class="cl">Week 1 points allowed</div><div class="cs"><b>10</b></div><div class="co"><b>14</b></div></div>
+  <div class="cmp"><div class="cl">Week 1 total yards</div><div class="cs"><b>285</b></div><div class="co"><b>393</b></div></div>
+  <div class="cmp"><div class="cl">Week 1 yards/play</div><div class="cs"><b>5.9</b></div><div class="co"><b>5.5</b></div></div>
+  <div class="cmp"><div class="cl">Week 1 offensive plays</div><div class="cs"><b>48</b></div><div class="co"><b>72</b></div></div>
+  <div class="cmp"><div class="cl">Week 1 turnovers</div><div class="cs"><b>0</b></div><div class="co"><b>0</b></div></div>
+
+  <h3>2025 context</h3>
+  <table class="mt">
+    <tr><td class="ml">Seattle points/game</td><td class="mv">28.4</td><td class="mr"><span class="rk good">3rd</span></td></tr>
+    <tr><td class="ml">Seattle points allowed/game</td><td class="mv">17.2</td><td class="mr"><span class="rk good">1st</span></td></tr>
+    <tr><td class="ml">Arizona points/game</td><td class="mv">22</td><td class="mr"><span class="rk">2025</span></td></tr>
+    <tr><td class="ml">Arizona points allowed/game</td><td class="mv">29</td><td class="mr"><span class="rk bad">2025</span></td></tr>
+  </table>
+  <p class="note">Arizona's opener is meaningful evidence of improvement. It is still one game, so the preview keeps the 2025 sample visible instead of replacing it.</p>
+</section>
+
+<section id="injuries">
+  <h2>Injury report<small>Thursday, September 17</small></h2>
+  <p class="sub">Sam Darnold is ruled out. Drew Lock starts. Friday's final game-status designations are still to come.</p>
+
+  <h3>Seattle</h3>
+  <table class="pt">
+    <tr><td><b>Sam Darnold</b> <span class="pos">QB · glute</span></td><td class="use"><span class="gone">OUT</span><br>Drew Lock starts</td></tr>
+    <tr><td><b>Ty Okada</b> <span class="pos">S · hamstring</span></td><td class="use"><span class="warn">DNP Thu</span></td></tr>
+    <tr><td><b>Anthony Bradford</b> <span class="pos">G · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Nick Emmanwori</b> <span class="pos">S · ankle/hip</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Josh Jones</b> <span class="pos">T · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Cooper Kupp</b> <span class="pos">WR · back</span></td><td class="use"><span class="new">Full Thu</span></td></tr>
+    <tr><td><b>Tory Horton</b> <span class="pos">WR · hamstring</span></td><td class="use"><span class="new">Full</span></td></tr>
+    <tr><td><b>Josh Jobe</b> <span class="pos">CB · wrist</span></td><td class="use"><span class="new">Full</span></td></tr>
+  </table>
+
+  <h3 class="o">Arizona</h3>
+  <table class="pt">
+    <tr><td><b>Roy Lopez</b> <span class="pos">DT · groin</span></td><td class="use"><span class="warn">DNP Thu</span></td></tr>
+    <tr><td><b>Isaac Seumalo</b> <span class="pos">G · shoulder</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Isaiah Adams</b> <span class="pos">G · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Andrew Billings</b> <span class="pos">DL · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Jack Gibbens</b> <span class="pos">LB · shoulder</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Max Melton</b> <span class="pos">CB · ankle</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Cody Simon</b> <span class="pos">LB · shoulder</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Dadrion Taylor-Demerson</b> <span class="pos">S · ribs</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Garrett Williams</b> <span class="pos">CB · Achilles</span></td><td class="use"><span class="warn">Limited</span></td></tr>
+    <tr><td><b>Trey McBride</b> <span class="pos">TE · back/rest</span></td><td class="use"><span class="new">Full Thu</span></td></tr>
+    <tr><td><b>Budda Baker</b> <span class="pos">S · rest</span></td><td class="use"><span class="new">Full Thu</span></td></tr>
+    <tr><td><b>Josh Sweat</b> <span class="pos">LB · rest</span></td><td class="use"><span class="new">Full Thu</span></td></tr>
+  </table>
+</section>
+
+<section id="opp">
+  <h2>Arizona<small>What Week 1 changed</small></h2>
+  <div class="unit-summaries">
+    <div class="unit-summary"><div class="k">Offense</div><p class="ident"><b>Week 1:</b> 393 yards, 72 plays, 5.5 yards per play, 37:31 possession, zero turnovers.<br><b>Identity:</b> Brissett rhythm passing, McBride volume, enough run game to stay on schedule.</p></div>
+    <div class="unit-summary"><div class="k">Defense</div><p class="ident"><b>Week 1:</b> 268 yards allowed, 51 plays, two takeaways, 14 points allowed.<br><b>Context:</b> Arizona allowed 29 points per game in 2025, so one strong opener is evidence, not a finished identity.</p></div>
+  </div>
+  <div class="qb"><div class="qbn">Jacoby Brissett</div><div class="qbs"><span><b>27/37</b>C/A</span><span><b>277</b>YDS</span><span><b>1/0</b>TD/INT</span><span><b>7.5</b>Y/A</span></div></div>
+  <table class="pt">
+    <tr><td><b>Trey McBride</b> <span class="pos">TE</span></td><td class="use">9 rec · 95 yds · 1 TD</td></tr>
+    <tr><td><b>Kendrick Bourne</b> <span class="pos">WR</span></td><td class="use">8 rec · 75 yds</td></tr>
+    <tr><td><b>Michael Wilson</b> <span class="pos">WR</span></td><td class="use">5 rec · 56 yds</td></tr>
+    <tr><td><b>Tyler Allgeier</b> <span class="pos">RB</span></td><td class="use">17 car · 61 yds</td></tr>
+    <tr><td><b>Jeremiyah Love</b> <span class="pos">RB</span></td><td class="use">11 car · 41 yds · 1 TD</td></tr>
+  </table>
+</section>
+
+<section id="sea">
+  <h2>Seattle<small>Week 1 self scout</small></h2>
+  <div class="unit-summaries">
+    <div class="unit-summary"><div class="k">Offense</div><p class="ident"><b>Good:</b> 5.9 yards per play, no turnovers, Lock and JSN created the explosive play Seattle needed.<br><b>Problem:</b> 48 plays and only two third-down conversions.</p></div>
+    <div class="unit-summary"><div class="k">Defense</div><p class="ident"><b>Good:</b> three takeaways, three sacks, dominant run defense.<br><b>Problem:</b> the unit played 67 New England snaps and needed a fourth-quarter takeover.</p></div>
+  </div>
+  <div class="qb"><div class="qbn">Drew Lock</div><div class="qbs"><span><b>16/22</b>C/A</span><span><b>187</b>YDS</span><span><b>1/0</b>TD/INT</span><span><b>8.5</b>Y/A</span></div></div>
+  <table class="pt">
+    <tr><td><b>Jaxon Smith-Njigba</b> <span class="pos">WR</span></td><td class="use">8 rec · 122 yds · 1 TD</td></tr>
+    <tr><td><b>Jadarian Price</b> <span class="pos">RB</span></td><td class="use">10 car · 52 yds</td></tr>
+    <tr><td><b>Cooper Kupp</b> <span class="pos">WR</span></td><td class="use">2 rec · 35 yds</td></tr>
+    <tr><td><b>Julian Love</b> <span class="pos">S</span></td><td class="use">INT · 2 TFL</td></tr>
+    <tr><td><b>Josh Jobe</b> <span class="pos">CB</span></td><td class="use">INT · PD · TFL</td></tr>
+    <tr><td><b>Nehemiah Pritchett</b> <span class="pos">CB</span></td><td class="use">INT · 2 PD</td></tr>
+  </table>
+</section>
+
+<section id="players">
+  <h2>Players to know<small>The matchup through Week 1</small></h2>
+  <h3>Seattle</h3>
+  <table class="pt">
+    <tr><td><b>Drew Lock</b> <span class="pos">QB</span></td><td class="use">First 2026 start · efficient relief win in Wk 1</td></tr>
+    <tr><td><b>Jaxon Smith-Njigba</b> <span class="pos">WR</span></td><td class="use">11 targets · 122 yds · TD</td></tr>
+    <tr><td><b>Jadarian Price</b> <span class="pos">RB</span></td><td class="use">10 carries · 52 yds</td></tr>
+    <tr><td><b>Leonard Williams</b> <span class="pos">DL</span></td><td class="use">Interior matchup gets bigger with ARI guard injuries</td></tr>
+    <tr><td><b>Nick Emmanwori</b> <span class="pos">S</span></td><td class="use">Limited Thu · ankle/hip</td></tr>
+  </table>
+  <h3 class="o">Arizona</h3>
+  <table class="pt">
+    <tr><td><b>Jacoby Brissett</b> <span class="pos">QB</span></td><td class="use">27/37 · 277 · TD · 0 INT</td></tr>
+    <tr><td><b>Trey McBride</b> <span class="pos">TE</span></td><td class="use">9 rec · 95 yds · TD</td></tr>
+    <tr><td><b>Tyler Allgeier</b> <span class="pos">RB</span></td><td class="use">17 carries · 61 yds</td></tr>
+    <tr><td><b>Jeremiyah Love</b> <span class="pos">RB</span></td><td class="use">11 carries · 41 yds · TD</td></tr>
+    <tr><td><b>Budda Baker</b> <span class="pos">S</span></td><td class="use">Full Thu after rest day</td></tr>
+    <tr><td><b>Josh Sweat</b> <span class="pos">LB</span></td><td class="use">Full Thu after rest day</td></tr>
+  </table>
+</section>
+
+<section id="coaches">
+  <h2>The coaches<small>Established system versus a new Arizona era</small></h2>
+  <div class="callgrid">
+    <div class="callcard"><div class="k">Seattle</div><div class="cn2 s">Mike Macdonald</div><div class="prob">Year 3 in Seattle · defending Super Bowl champion · 1-0 in 2026</div></div>
+    <div class="callcard"><div class="k">Arizona</div><div class="cn2 o">Mike LaFleur</div><div class="prob">1-0 as Arizona head coach · won debut 26-14 at LAC</div></div>
+  </div>
+  <div class="conc">
+    <p>LaFleur's first Cardinals game looked organized. Arizona stayed on the field, Brissett played on time and the offense did not become one-dimensional.</p>
+    <p>Macdonald's answer starts with the same formula Seattle used all last season: stop the run without overcommitting, change the picture before the snap and make the quarterback hold the ball long enough for four-man pressure to matter.</p>
+  </div>
+</section>
+
+<section id="last">
+  <h2>Last meetings<small>Seattle has won nine straight</small></h2>
+  <div class="meet">
+    <div class="k">Most recent · Week 10, 2025</div>
+    <div class="score"><span class="w">SEA 44</span><span>ARI 22</span></div>
+    <p class="note">The earlier 2025 meeting in Glendale was much tighter: Seattle 23, Arizona 20 on a walk-off Jason Myers field goal.</p>
+  </div>
+  <table class="pt" style="margin-top:14px">
+    <tr><td class="ml">2025 Wk 10</td><td class="use">SEA 44 · ARI 22</td></tr>
+    <tr><td class="ml">2025 Wk 4</td><td class="use">SEA 23 · ARI 20</td></tr>
+    <tr><td class="ml">2024 Wk 14</td><td class="use">SEA 30 · ARI 18</td></tr>
+    <tr><td class="ml">2024 Wk 12</td><td class="use">SEA 16 · ARI 6</td></tr>
+    <tr><td class="ml">2023 Wk 18</td><td class="use">SEA 21 · ARI 20</td></tr>
+  </table>
+</section>
+
+<section id="iq">
+  <h2>Football IQ<small>The concepts behind this week's sheet</small></h2>
+  <details class="iq"><summary>EPA per play</summary><p>Expected Points Added measures how much each snap changes a team's expected points. It gives more credit to plays that matter in the down-and-distance situation instead of treating every yard equally.</p><p class="ex"><b>This week:</b> the 2025 baseline still matters more than one Week 1 sample, which is why the model does not treat Arizona as a finished top-five unit after one game.</p></details>
+  <details class="iq"><summary>Simulated pressure</summary><p>The defense presents more potential rushers than it sends, then drops one expected rusher and attacks from somewhere else. The goal is to make the protection identify the wrong threats while still keeping bodies in coverage.</p><p class="ex"><b>This week:</b> Brissett played on time against Los Angeles. Seattle needs the disguise to change his first read before the rush arrives.</p></details>
+  <details class="iq"><summary>Possession versus play count</summary><p>Possession time tells you how long an offense owned the ball. Play count tells you how many chances it created.</p><p class="ex"><b>This week:</b> Arizona ran 72 plays in Week 1. Seattle ran 48. A repeat gives Arizona 24 more chances to create a mistake or explosive play.</p></details>
+  <details class="iq"><summary>Light box</summary><p>A light box means the defense keeps fewer defenders close to the line. If the front still stops the run, the defense keeps more bodies for coverage and disguise.</p><p class="ex"><b>This week:</b> Seattle's front handling Allgeier and Love without safety help frees the secondary to focus on McBride.</p></details>
+  <details class="iq"><summary>Play action</summary><p>The quarterback shows a handoff before pulling the ball back to throw. It works when linebackers or safeties react to the run and leave space behind them.</p><p class="ex"><b>This week:</b> early play action gives Lock defined throws without asking him to live in obvious dropback situations.</p></details>
+</section>
+
+<button class="share" id="share" type="button">Send this to a Seahawks friend before kickoff</button>
+<script>
+document.getElementById('share').addEventListener('click', async () => {
+  const publicUrl = 'https://jessedeanrivero.com/seahawks/g/2026-w2';
+  const data = {title: document.title, text: 'Week 2 Seahawks at Cardinals Game Prep Sheet', url: publicUrl};
+  try { if (navigator.share) { await navigator.share(data); return; } } catch (e) {}
+  try { await navigator.clipboard.writeText(publicUrl); document.getElementById('share').textContent = 'Live link copied'; } catch (e) {}
+});
+</script>
+
+<footer>
+  <aside class="support-card" aria-labelledby="support-title">
+    <div class="support-kicker">Enjoyed this?</div>
+    <strong id="support-title">Keep Seattle Football HQ independent</strong>
+    <p>If the Game Prep Sheets and breakdowns make game day better, you can buy me a coffee.</p>
+    <a class="support-link" href="https://buymeacoffee.com/jessedeanrivero" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">☕</span> Buy me a coffee</a>
+  </aside>
+  <div class="legend">
+    <span class="lab verified">Verified</span><span>Scores, schedule, official injury participation and box-score production.</span>
+    <span class="lab derived">Derived</span><span>Calculations from public game data. Week 1 ranks and rates remain small-sample numbers.</span>
+    <span class="lab airead">AI read</span><span>A matchup interpretation drawn from the numbers. Treat it as a theory to test while you watch.</span>
+  </div>
+  <p>Sources: nflverse play-by-play and schedules; official Seahawks and Cardinals injury reports; NFL and team box scores. Built September 17, 2026.</p>
+  <p><a href="https://www.seahawks.com/news/week-2-injury-report-seahawks-vs-cardinals" target="_blank" rel="noopener noreferrer">Seattle injury report</a> · <a href="https://www.azcardinals.com/news/injury-report-week-2-vs-seahawks" target="_blank" rel="noopener noreferrer">Arizona injury report</a> · <a href="https://www.seahawks.com/game-day/2026/reg-week2/seahawks-at-cardinals/" target="_blank" rel="noopener noreferrer">Official game center</a></p>
+  <p>This is an independent fan project. Not affiliated with the NFL, the Seattle Seahawks or the Arizona Cardinals.</p>
+</footer>
+</div>
+</body>
+</html>
