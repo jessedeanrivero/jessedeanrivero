@@ -140,7 +140,15 @@ footer p{margin:8px 0}
 .support-link:hover{background:#ddff80;box-shadow:0 10px 28px rgba(201,255,61,.2);transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.support-link{transition:none}.support-link:hover{transform:none}}
 .share{display:block;width:100%;background:transparent;cursor:pointer;text-align:center;margin:30px 0 0;padding:14px;border:1px dashed var(--line);border-radius:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.crumb2{padding:14px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.crumb2 a{color:var(--mute);text-decoration:none}</style>
+.crumb2{padding:14px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.crumb2 a{color:var(--mute);text-decoration:none}
+.gameday-hero-img{width:100%;display:block;border:1px solid var(--line);border-radius:12px;margin:18px 0 8px}
+.fanpicks{margin:14px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.fanpick{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 14px;border-top:1px solid var(--line);align-items:center}.fanpick:first-child{border-top:0}.fanpick b{font-family:var(--mono);color:var(--sea)}
+.game-day-band{position:relative;overflow:hidden;min-height:260px;border:1px solid var(--line);border-radius:12px;margin-top:22px;background:linear-gradient(90deg,rgba(10,15,28,.96),rgba(10,15,28,.28)),url('https://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2023%2F1024%2Fr1242666_1296x729_16-9.jpg') center/cover}
+.game-day-band .inner{max-width:390px;padding:28px;position:relative;z-index:1}.game-day-band h3{font-family:var(--disp);font-size:42px;line-height:.95;color:#fff;margin:0 0 10px}.game-day-band p{color:#d6dced}.game-day-band a{display:inline-block;background:var(--sea);color:var(--bg);padding:11px 15px;border-radius:6px;text-decoration:none;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase}
+.coach-spot{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:stretch;margin-top:20px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}.coach-spot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08)}.coach-copy{padding:18px 18px 18px 0}.coach-quote{font-family:var(--disp);font-size:34px;line-height:1;text-transform:uppercase;color:var(--sea);margin:5px 0 8px}.coach-name{font-family:var(--mono);font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+@media(max-width:560px){.coach-spot{grid-template-columns:110px 1fr}.coach-quote{font-size:28px}.game-day-band{min-height:230px}}
+</style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
@@ -154,6 +162,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <div class="top"><span><b>Seattle Football HQ</b></span><span>Week 2 · 2026</span></div>
 
 <header class="hero">
+  <img class="gameday-hero-img" src="https://jessedeanrivero.com/seahawks/gameday-sea-ari.jpg" alt="Seattle Seahawks vs Arizona Cardinals Week 2 game day graphic">
   <p class="vs"><span class="s">SEA</span><span class="at">at</span><span class="o">ARI</span></p>
   <p class="meta"><span class="rec">Seattle 1-0</span><span class="rec">Arizona 1-0</span><br>
   <b>Sunday, September 20 · 1:25 pm PT / 4:25 pm ET</b> · State Farm Stadium · FOX<br>
@@ -178,7 +187,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="callcard model">
       <div class="k">HQ model</div>
       <div class="cscore"><span class="s">SEA 22.8</span><span class="o">ARI 18.6</span></div>
-      <div class="prob">Seattle by 4.2 · 62% win estimate</div>
+      <div class="prob">Seattle by 4.2 · 62% win estimate · projected score 22.8–18.6</div>
       <span class="lab model">MODEL</span>
     </div>
     <div class="callcard hq">
@@ -187,6 +196,16 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <div class="prob">Seahawks destroy the Cardinals</div>
       <span class="lab airead">JESSE</span>
     </div>
+  </div>
+  <h3>Game day picks</h3>
+  <div class="fanpicks">
+    <div class="fanpick"><span>Jesse P.</span><b>SEA 24–10</b></div>
+    <div class="fanpick"><span>Kendall P.</span><b>SEA 24–6</b></div>
+    <div class="fanpick"><span>KC A.</span><b>SEA 24–10</b></div>
+    <div class="fanpick"><span>Matt M.</span><b>SEA 22–9</b></div>
+    <div class="fanpick"><span>Steve M.</span><b>SEA 19–13</b></div>
+    <div class="fanpick"><span>Barry P.</span><b>SEA 24–10</b></div>
+    <div class="fanpick"><span>HQ Model</span><b>SEA 22.8–18.6</b></div>
   </div>
 
   <div class="k">Why the model lands there</div>
@@ -217,6 +236,8 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 </section>
 
 <section id="cheat">
+  <div class="game-day-band"><div class="inner"><div class="k">Week 2 · Game day</div><h3>Game Day Prep Sheet</h3><p>Matchups, tendencies, stats and ten things to keep open while Seattle plays Arizona.</p><a href="#cheat-list">Open the 10 things to watch ↓</a></div></div>
+  <div id="cheat-list"></div>
   <h2>Game Prep Sheet<small>If you see this, watch this</small></h2>
   <p class="sub">Ten things to keep open during the game. Week 2 blends the 2025 baseline with what both teams showed in their 2026 openers.</p>
 
@@ -312,19 +333,19 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 </section>
 
 <section id="injuries">
-  <h2>Injury report<small>Thursday, September 17</small></h2>
-  <p class="sub">Sam Darnold is ruled out. Drew Lock starts. Friday's final game-status designations are still to come.</p>
+  <h2>Sunday morning injury report<small>Updated September 20</small></h2>
+  <p class="sub">Sam Darnold, Ty Okada and Anthony Bradford are out. Drew Lock starts. Nick Emmanwori remains questionable. Tory Horton, Cooper Kupp, Josh Jobe and Josh Jones carry no game designation.</p>
 
   <h3>Seattle</h3>
   <table class="pt">
     <tr><td><b>Sam Darnold</b> <span class="pos">QB · glute</span></td><td class="use"><span class="gone">OUT</span><br>Drew Lock starts</td></tr>
-    <tr><td><b>Ty Okada</b> <span class="pos">S · hamstring</span></td><td class="use"><span class="warn">DNP Thu</span></td></tr>
-    <tr><td><b>Anthony Bradford</b> <span class="pos">G · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
-    <tr><td><b>Nick Emmanwori</b> <span class="pos">S · ankle/hip</span></td><td class="use"><span class="warn">Limited</span></td></tr>
-    <tr><td><b>Josh Jones</b> <span class="pos">T · knee</span></td><td class="use"><span class="warn">Limited</span></td></tr>
-    <tr><td><b>Cooper Kupp</b> <span class="pos">WR · back</span></td><td class="use"><span class="new">Full Thu</span></td></tr>
-    <tr><td><b>Tory Horton</b> <span class="pos">WR · hamstring</span></td><td class="use"><span class="new">Full</span></td></tr>
-    <tr><td><b>Josh Jobe</b> <span class="pos">CB · wrist</span></td><td class="use"><span class="new">Full</span></td></tr>
+    <tr><td><b>Ty Okada</b> <span class="pos">S · hamstring</span></td><td class="use"><span class="gone">OUT</span></td></tr>
+    <tr><td><b>Anthony Bradford</b> <span class="pos">G · knee/hip</span></td><td class="use"><span class="gone">OUT</span><br>Christian Haynes next up</td></tr>
+    <tr><td><b>Nick Emmanwori</b> <span class="pos">S · ankle/hip</span></td><td class="use"><span class="warn">QUESTIONABLE</span></td></tr>
+    <tr><td><b>Josh Jones</b> <span class="pos">G/T · knee</span></td><td class="use"><span class="new">NO DESIGNATION</span></td></tr>
+    <tr><td><b>Cooper Kupp</b> <span class="pos">WR · back</span></td><td class="use"><span class="new">NO DESIGNATION</span></td></tr>
+    <tr><td><b>Tory Horton</b> <span class="pos">WR · hamstring</span></td><td class="use"><span class="new">NO DESIGNATION</span></td></tr>
+    <tr><td><b>Josh Jobe</b> <span class="pos">CB · wrist</span></td><td class="use"><span class="new">NO DESIGNATION</span></td></tr>
   </table>
 
   <h3 class="o">Arizona</h3>
@@ -400,6 +421,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <section id="coaches">
   <h2>The coaches<small>Established system versus a new Arizona era</small></h2>
+  <div class="coach-spot"><img src="https://res.cloudinary.com/ybmedia/image/upload/c_crop%2Ce_improve%2Ch_513%2Cw_770%2Cx_71%2Cy_0/c_fill%2Cf_auto%2Ch_1200%2Cq_auto%2Cw_1600/v1/m/b/4/b4c555ee0d182f15615f3b2c583c628949c25c7c/01kg0z52as9vhwd6q6vz.jpg" alt="Mike Macdonald on the Seahawks sideline"><div class="coach-copy"><div class="k">Mike Macdonald</div><div class="coach-quote">“Run it forward.”</div><div class="coach-name">Week 2 mindset</div></div></div>
   <div class="callgrid">
     <div class="callcard"><div class="k">Seattle</div><div class="cn2 s">Mike Macdonald</div><div class="prob">Year 3 in Seattle · defending Super Bowl champion · 1-0 in 2026</div></div>
     <div class="callcard"><div class="k">Arizona</div><div class="cn2 o">Mike LaFleur</div><div class="prob">1-0 as Arizona head coach · won debut 26-14 at LAC</div></div>
@@ -457,7 +479,7 @@ document.getElementById('share').addEventListener('click', async () => {
     <span class="lab derived">Derived</span><span>Calculations from public game data. Week 1 ranks and rates remain small-sample numbers.</span>
     <span class="lab airead">AI read</span><span>A matchup interpretation drawn from the numbers. Treat it as a theory to test while you watch.</span>
   </div>
-  <p>Sources: nflverse play-by-play and schedules; official Seahawks and Cardinals injury reports; NFL and team box scores. Built September 17, 2026.</p>
+  <p>Sources: nflverse play-by-play and schedules; official Seahawks and Cardinals injury reports; NFL and team box scores. Updated September 20, 2026.</p>
   <p><a href="https://www.seahawks.com/news/week-2-injury-report-seahawks-vs-cardinals" target="_blank" rel="noopener noreferrer">Seattle injury report</a> · <a href="https://www.azcardinals.com/news/injury-report-week-2-vs-seahawks" target="_blank" rel="noopener noreferrer">Arizona injury report</a> · <a href="https://www.seahawks.com/game-day/2026/reg-week2/seahawks-at-cardinals/" target="_blank" rel="noopener noreferrer">Official game center</a></p>
   <p>This is an independent fan project. Not affiliated with the NFL, the Seattle Seahawks or the Arizona Cardinals.</p>
 </footer>
