@@ -144,8 +144,8 @@ color:var(--dim);margin-top:6px}
 .game-hero-title b{color:var(--sea);font-weight:400}.game-hero-meta{font-family:var(--mono);font-size:11px;color:var(--mute);line-height:1.65;margin-top:8px}
 .game-hero-cta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--sea);color:#08111e;padding:11px 13px;border-radius:6px;white-space:nowrap;font-weight:700}
 .game-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 18px;background:var(--panel)}
-.game-strip div{padding:12px;text-align:center;border-right:1px solid var(--line)}.picks-strip{grid-template-columns:repeat(4,1fr);}.picks-strip div:nth-child(4){border-right:0}.picks-strip div:nth-child(n+5){border-top:1px solid var(--line)}.picks-strip b{font-size:20px}.picks-strip span{display:block;margin-top:4px}.game-strip div:last-child{border:0}.game-strip b{display:block;font-family:var(--disp);font-size:22px;color:#fff}.game-strip span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
-@media(max-width:560px){.picks-strip{grid-template-columns:repeat(2,1fr)}.picks-strip div:nth-child(n){border-right:1px solid var(--line);border-top:1px solid var(--line)}.picks-strip div:nth-child(-n+2){border-top:0}.picks-strip div:nth-child(even){border-right:0}.game-hero-info{grid-template-columns:1fr}.game-hero-cta{text-align:center}.game-hero-art{aspect-ratio:16/10}}
+.game-strip div{padding:12px;text-align:center;border-right:1px solid var(--line)}.predictions-title{margin:24px 0 10px}.predictions-title h2{margin:0;font-family:var(--disp);font-size:30px;text-transform:uppercase;color:#fff}.predictions-title p{margin:5px 0 0;font-family:var(--mono);font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}.picks-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;border:0;background:transparent;overflow:visible}.picks-strip div{border:1px solid var(--line)!important;border-radius:10px;background:var(--panel);padding:16px 10px}.picks-strip b{font-size:22px}.picks-strip span{display:block;margin-top:6px}.game-strip div:last-child{border:0}.game-strip b{display:block;font-family:var(--disp);font-size:22px;color:#fff}.game-strip span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+@media(max-width:560px){.picks-strip{grid-template-columns:repeat(2,1fr)}.picks-strip div:nth-child(n){border:1px solid var(--line)!important}.game-hero-info{grid-template-columns:1fr}.game-hero-cta{text-align:center}.game-hero-art{aspect-ratio:16/10}}
 .hero-card{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);
 border-radius:14px;padding:18px;margin:18px 0;transition:border-color .15s,transform .15s ease-out}
 .hero-card:hover{border-color:var(--sea)}
@@ -232,6 +232,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <span class="game-hero-cta">Open Game Day Prep →</span>
   </div>
 </a>
+<div class="predictions-title"><h2>Our Predictions</h2><p>Week 2 · Seahawks at Cardinals</p></div>
 <div class="game-strip picks-strip">
   <div><b>24-10</b><span>Jesse P.</span></div>
   <div><b>24-6</b><span>Kendall P.</span></div>
