@@ -136,6 +136,16 @@ margin:0;letter-spacing:.01em}
 .rec b{display:block;font-family:var(--disp);font-size:clamp(24px,7vw,34px);line-height:1;color:var(--sea)}
 .rec span{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
 color:var(--dim);margin-top:6px}
+.gameday-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin:20px 0 8px}
+.game-hero{display:block;position:relative;overflow:hidden;text-decoration:none;color:inherit;border:1px solid #315071;border-radius:16px;margin:10px 0 18px;background:#07111f}
+.game-hero-art{aspect-ratio:16/9;background-image:linear-gradient(180deg,transparent 48%,rgba(7,17,31,.9) 100%),url('/seahawks/week2-hero.webp');background-size:cover;background-position:center}
+.game-hero-info{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;padding:18px 20px;background:linear-gradient(180deg,#0b1728,#0a1220)}
+.game-hero-title{font-family:var(--disp);font-size:clamp(30px,8vw,48px);line-height:.95;text-transform:uppercase;color:#fff}
+.game-hero-title b{color:var(--sea);font-weight:400}.game-hero-meta{font-family:var(--mono);font-size:11px;color:var(--mute);line-height:1.65;margin-top:8px}
+.game-hero-cta{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--sea);color:#08111e;padding:11px 13px;border-radius:6px;white-space:nowrap;font-weight:700}
+.game-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:0 0 18px;background:var(--panel)}
+.game-strip div{padding:12px;text-align:center;border-right:1px solid var(--line)}.game-strip div:last-child{border:0}.game-strip b{display:block;font-family:var(--disp);font-size:22px;color:#fff}.game-strip span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+@media(max-width:560px){.game-hero-info{grid-template-columns:1fr}.game-hero-cta{text-align:center}.game-hero-art{aspect-ratio:16/10}}
 .hero-card{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);
 border-radius:14px;padding:18px;margin:18px 0;transition:border-color .15s,transform .15s ease-out}
 .hero-card:hover{border-color:var(--sea)}
@@ -204,7 +214,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <header class="brand">
   <h1><span>Seattle</span><br>Football HQ</h1>
-  <p>2026 season · updated Sep 17, 2026</p>
+  <p>2026 season · GAME DAY · updated Sep 20, 2026</p>
 </header>
 
 <div class="rec">
@@ -214,12 +224,15 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div><b>+3</b><span>Differential</span></div>
 </div>
 
-<a class="hero-card current" href="/seahawks/g/2026-w2">
-  <div class="tag">This week · Game Prep Sheet</div>
-  <div class="mu">SEA<span class="at">at</span><span class="o">ARI</span></div>
-  <div class="sub2">Week 2 · Sunday, Sep 20 · 1:25 pm PT<br>1-0 Seattle vs 1-0 Arizona · Drew Lock starts</div>
-  <span class="go">Open the Week 2 breakdown →</span>
+<div class="gameday-label">Game day · Week 2</div>
+<a class="game-hero" href="/seahawks/g/2026-w2">
+  <div class="game-hero-art" role="img" aria-label="Seattle Seahawks at Arizona Cardinals Week 2"></div>
+  <div class="game-hero-info">
+    <div><div class="game-hero-title">SEA <b>+4.2</b> AT ARIZONA</div><div class="game-hero-meta">Sunday, Sep 20 · 1:25 PM PT · State Farm Stadium<br>Seattle 1-0 · Arizona 1-0 · Drew Lock starts</div></div>
+    <span class="game-hero-cta">Open Game Day Prep →</span>
+  </div>
 </a>
+<div class="game-strip"><div><b>SEA 22.8</b><span>Model</span></div><div><b>SEA 24-10</b><span>Jesse</span></div><div><b>SEA 24-10</b><span>Barry P.</span></div></div>
 
 <a class="hero-card past" href="/seahawks/g/2026-w1-recap">
   <div class="tag">Last game · breakdown</div>
