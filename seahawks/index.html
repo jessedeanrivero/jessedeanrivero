@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seattle Football HQ · 2026</title>
-<meta name="description" content="Weekly Seahawks Game Prep Sheets and postgame breakdowns. 1-0 this season.">
+<meta name="description" content="Weekly Seahawks Game Prep Sheets and postgame breakdowns. Seattle is 2-0 in 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -202,6 +202,22 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .bar .val{font-family:var(--mono);font-size:12px;text-align:right}
 @media(prefers-reduced-motion:reduce){.hero-card,.helmet-link{transition:none}.hero-card.current:hover{transform:none}.helmet-link:hover{transform:rotate(var(--tilt))}}
 
+/* Week 2 postgame homepage */
+.postgame-hero{overflow:hidden;border:1px solid #315071;border-radius:16px;background:#07111f;margin:10px 0 18px}
+.postgame-hero-art{min-height:410px;display:flex;align-items:flex-end;padding:28px 24px;background-image:linear-gradient(90deg,rgba(5,13,24,.97) 0%,rgba(5,13,24,.76) 43%,rgba(5,13,24,.08) 75%),linear-gradient(180deg,transparent 50%,rgba(5,13,24,.9) 100%),url('/seahawks/jsn-week2-postgame.svg');background-size:cover;background-position:center}
+.postgame-copy{max-width:470px}.postgame-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea)}
+.postgame-script{font-size:clamp(25px,6vw,38px);font-weight:600;font-style:italic;line-height:1;color:var(--sea);margin:16px 0 4px;transform:rotate(-2deg);transform-origin:left center}
+.postgame-title{font-family:var(--disp);font-size:clamp(54px,13vw,88px);line-height:.86;text-transform:uppercase;color:#fff}.postgame-title b{color:var(--sea);font-weight:400}
+.postgame-copy p{max-width:400px;margin:16px 0;color:#e6edf7;font-size:18px;line-height:1.35}.postgame-copy a{display:inline-block;padding:11px 14px;border-radius:6px;background:var(--sea);color:#07111f;text-decoration:none;font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+.postgame-scorebar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 18px;background:#071522;border-top:1px solid #315071}
+.pg-final,.pg-note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}.pg-note{text-align:right}
+.postgame-scorebar strong{font-family:var(--disp);font-size:28px;font-weight:400;text-transform:uppercase}.postgame-scorebar strong b{color:var(--sea);font-weight:400}.postgame-scorebar strong i{color:var(--dim);font-style:normal;margin:0 8px}
+.diff-title{margin-top:26px}.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.diff-card{border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--panel)}.diff-card.closest{border-color:rgba(201,255,61,.6);background:linear-gradient(135deg,rgba(201,255,61,.12),var(--panel))}
+.diff-card span,.diff-card small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}.diff-card b{display:block;font-family:var(--disp);font-size:24px;font-weight:400;color:#fff;margin:3px 0}.diff-card.closest b{color:var(--sea)}.diff-card small{text-transform:none;letter-spacing:0;font-size:11px;color:var(--mute)}
+.diff-summary{margin-top:9px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);font-family:var(--mono);font-size:11px;color:var(--mute)}.diff-summary b{color:var(--sea);font-weight:500}.diff-summary span{color:var(--dim);margin:0 4px}
+@media(max-width:560px){.postgame-hero-art{min-height:500px;padding:24px 18px;background-image:linear-gradient(180deg,rgba(5,13,24,.06) 15%,rgba(5,13,24,.78) 54%,rgba(5,13,24,.98) 100%),url('/seahawks/jsn-week2-postgame.svg');background-position:62% center}.postgame-title{font-size:60px}.postgame-scorebar{grid-template-columns:1fr auto}.pg-final{grid-column:1/-1}.pg-note{display:none}}
+
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -214,59 +230,78 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <header class="brand">
   <h1><span>Seattle</span><br>Football HQ</h1>
-  <p>2026 season · GAME DAY · updated Sep 20, 2026</p>
+  <p>2026 season · POSTGAME · updated Sep 20, 2026</p>
 </header>
 
 <div class="rec">
-  <div><b>1-0</b><span>Record</span></div>
-  <div><b>13</b><span>Points for</span></div>
-  <div><b>10</b><span>Points against</span></div>
-  <div><b>+3</b><span>Differential</span></div>
+  <div><b>2-0</b><span>Record</span></div>
+  <div><b>44</b><span>Points for</span></div>
+  <div><b>17</b><span>Points against</span></div>
+  <div><b>+27</b><span>Differential</span></div>
 </div>
 
-<div class="gameday-label">Game day · Week 2</div>
-<a class="game-hero" href="/seahawks/g/2026-w2">
-  <div class="game-hero-art" role="img" aria-label="Seattle Seahawks at Arizona Cardinals Week 2"></div>
-  <div class="game-hero-info">
-    <div><div class="game-hero-title">SEA <b>+4.2</b> AT ARIZONA</div><div class="game-hero-meta">Sunday, Sep 20 · 1:25 PM PT · State Farm Stadium<br>Seattle 1-0 · Arizona 1-0 · Drew Lock starts</div></div>
-    <span class="game-hero-cta">Open Game Day Prep →</span>
+<div class="gameday-label">Postgame · Week 2</div>
+<article class="postgame-hero">
+  <div class="postgame-hero-art" role="img" aria-label="Jaxon Smith-Njigba celebrating after scoring against Arizona">
+    <div class="postgame-copy">
+      <div class="postgame-kicker">Seahawks · Postgame</div>
+      <div class="postgame-script">GIMME THAT BALL</div>
+      <div class="postgame-title"><b>3</b> TOUCHDOWNS</div>
+      <p>Seattle controlled possession and the game in the second half.</p>
+      <a href="/seahawks/g/2026-w2-recap">Read game recap →</a>
+    </div>
   </div>
-</a>
-<div class="predictions-title"><h2>Our Predictions</h2><p>Week 2 · Seahawks at Cardinals</p></div>
-<div class="game-strip picks-strip">
-  <div><b>24-10</b><span>Jesse P.</span></div>
-  <div><b>24-6</b><span>Kendall P.</span></div>
-  <div><b>24-10</b><span>KC A.</span></div>
-  <div><b>22-9</b><span>Matt M.</span></div>
-  <div><b>19-13</b><span>Steve M.</span></div>
-  <div><b>24-10</b><span>Barry P.</span></div>
-  <div><b>24-13</b><span>Josh F.</span></div>
-  <div class="model-pick"><b>22.8-18.6</b><span>Model</span></div>
-  <div class="group-pick"><b>23.0-10.1</b><span>Group Pick</span><small>Average fan prediction · SEA +12.9</small></div>
-</div>
+  <div class="postgame-scorebar">
+    <span class="pg-final">Final</span>
+    <strong><b>SEA 31</b><i>·</i> ARI 7</strong>
+    <span class="pg-note">24 unanswered after 7-7</span>
+  </div>
+</article>
 
-<a class="hero-card past" href="/seahawks/g/2026-w1-recap">
-  <div class="tag">Last game · breakdown</div>
-  <div class="mu">SEA 13<span class="at">–</span><span class="o">NE 10</span></div>
-  <div class="sub2">Week 1 · 2026-09-09<br>The defense called game</div>
-  <span class="go">Read Week 1 →</span>
-</a>
+<div class="predictions-title diff-title"><h2>Point Differential Recap</h2><p>Week 2 · actual margin SEA +24 · group tracker starts here</p></div>
+<div class="diff-grid">
+  <div class="diff-card"><span>Jesse P.</span><b>SEA +14</b><small>24-10 · off 10</small></div>
+  <div class="diff-card closest"><span>Kendall P. · closest</span><b>SEA +18</b><small>24-6 · off 6</small></div>
+  <div class="diff-card"><span>KC A.</span><b>SEA +14</b><small>24-10 · off 10</small></div>
+  <div class="diff-card"><span>Matt M.</span><b>SEA +13</b><small>22-9 · off 11</small></div>
+  <div class="diff-card"><span>Steve M.</span><b>SEA +6</b><small>19-13 · off 18</small></div>
+  <div class="diff-card"><span>Barry P.</span><b>SEA +14</b><small>24-10 · off 10</small></div>
+  <div class="diff-card"><span>Josh F.</span><b>SEA +11</b><small>24-13 · off 13</small></div>
+</div>
+<div class="diff-summary"><b>Group average:</b> SEA +12.9, off 11.1 <span>·</span> <b>HQ model:</b> SEA +4.2, off 19.8</div>
+
 <section id="wins">
-  <h2>Teams Seattle beat<small>Tap a helmet for the Game Prep Sheet</small></h2>
-  <ul class="helmet-stack"><li style="--z:1">
-  <a class="helmet-link" href="/seahawks/g/2026-w1" aria-label="Week 1 Game Prep Sheet: Seattle beat New England 13 to 10"
-     style="--shell:#c6c9cc;--stripe:#c60c30;--mask:#002244;--mark:#002244;--tilt:-3deg">
-    <svg viewBox="0 0 120 88" aria-hidden="true" focusable="false">
-      <path class="helmet-shell" d="M12 57V43C12 21 30 8 57 8c28 0 47 17 47 45v10H80c-2 8-9 14-19 14H39V63H18c-3 0-6-3-6-6Z"/>
-      <path class="helmet-stripe" d="M56 10c8 10 11 24 10 40"/>
-      <circle class="helmet-ear" cx="72" cy="55" r="10"/>
-      <path class="helmet-mask" d="M96 58h17v10H91v13H72"/>
-      <text class="helmet-mark" x="45" y="47">NE</text>
-    </svg>
-    <span class="helmet-score">W 13–10</span>
-    <span class="sr-only">Week 1 Game Prep Sheet: Seattle beat New England 13 to 10</span>
-  </a>
-</li></ul>
+  <h2>Game recaps<small>Tap a helmet for the postgame breakdown</small></h2>
+  <ul class="helmet-stack">
+    <li style="--z:2">
+      <a class="helmet-link" href="/seahawks/g/2026-w2-recap" aria-label="Week 2 recap: Seattle beat Arizona 31 to 7"
+         style="--shell:#97233f;--stripe:#ffffff;--mask:#ffffff;--mark:#ffffff;--tilt:3deg">
+        <svg viewBox="0 0 120 88" aria-hidden="true" focusable="false">
+          <path class="helmet-shell" d="M12 57V43C12 21 30 8 57 8c28 0 47 17 47 45v10H80c-2 8-9 14-19 14H39V63H18c-3 0-6-3-6-6Z"/>
+          <path class="helmet-stripe" d="M56 10c8 10 11 24 10 40"/>
+          <circle class="helmet-ear" cx="72" cy="55" r="10"/>
+          <path class="helmet-mask" d="M96 58h17v10H91v13H72"/>
+          <text class="helmet-mark" x="45" y="47">ARI</text>
+        </svg>
+        <span class="helmet-score">W 31–7</span>
+        <span class="sr-only">Week 2 recap: Seattle beat Arizona 31 to 7</span>
+      </a>
+    </li>
+    <li style="--z:1">
+      <a class="helmet-link" href="/seahawks/g/2026-w1-recap" aria-label="Week 1 recap: Seattle beat New England 13 to 10"
+         style="--shell:#c6c9cc;--stripe:#c60c30;--mask:#002244;--mark:#002244;--tilt:-3deg">
+        <svg viewBox="0 0 120 88" aria-hidden="true" focusable="false">
+          <path class="helmet-shell" d="M12 57V43C12 21 30 8 57 8c28 0 47 17 47 45v10H80c-2 8-9 14-19 14H39V63H18c-3 0-6-3-6-6Z"/>
+          <path class="helmet-stripe" d="M56 10c8 10 11 24 10 40"/>
+          <circle class="helmet-ear" cx="72" cy="55" r="10"/>
+          <path class="helmet-mask" d="M96 58h17v10H91v13H72"/>
+          <text class="helmet-mark" x="45" y="47">NE</text>
+        </svg>
+        <span class="helmet-score">W 13–10</span>
+        <span class="sr-only">Week 1 recap: Seattle beat New England 13 to 10</span>
+      </a>
+    </li>
+  </ul>
 </section>
 
 <section id="form">
@@ -278,15 +313,15 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <section id="calls">
   <h2>Prediction record<small>Model versus human, all season</small></h2>
   <div class="rec">
-    <div><b>1-0</b><span>Model</span></div>
-    <div><b>1-0</b><span>Jesse pick</span></div>
-    <div><b>0.1</b><span>Avg margin miss</span></div>
+    <div><b>2-0</b><span>Model</span></div>
+    <div><b>2-0</b><span>Jesse pick</span></div>
+    <div><b>10.0</b><span>Model avg margin miss</span></div>
   </div>
 </section>
 
 <section id="archive">
   <h2>Every week<small>Game Prep Sheets and breakdowns</small></h2>
-  <div class="arch"><a href="/seahawks/g/2026-w2"><div class="wk">Wk 2</div><div class="op">at Arizona<i>Game Prep Sheet</i></div><div class="sc up">Sep 20</div></a><a href="/seahawks/g/2026-w1-recap"><div class="wk">Wk 1</div><div class="op">vs New England<i>breakdown</i></div><div class="sc w">W 13-10</div></a><a href="/seahawks/g/2026-w1"><div class="wk">Wk 1</div><div class="op">vs New England<i>Game Prep Sheet</i></div><div class="sc w">W 13-10</div></a><a href="/seahawks/g/2025-sb-recap"><div class="wk">Super Bowl</div><div class="op">at New England<i>breakdown</i></div><div class="sc w">W 29-13</div></a><a href="/seahawks/g/2025-conf-recap"><div class="wk">Conf championship</div><div class="op">vs the Rams<i>breakdown</i></div><div class="sc w">W 31-27</div></a><a href="/seahawks/g/2025-div-recap"><div class="wk">Divisional</div><div class="op">vs San Francisco<i>breakdown</i></div><div class="sc w">W 41-6</div></a></div>
+  <div class="arch"><a href="/seahawks/g/2026-w2-recap"><div class="wk">Wk 2</div><div class="op">at Arizona<i>breakdown</i></div><div class="sc w">W 31-7</div></a><a href="/seahawks/g/2026-w2"><div class="wk">Wk 2</div><div class="op">at Arizona<i>Game Prep Sheet</i></div><div class="sc w">W 31-7</div></a><a href="/seahawks/g/2026-w1-recap"><div class="wk">Wk 1</div><div class="op">vs New England<i>breakdown</i></div><div class="sc w">W 13-10</div></a><a href="/seahawks/g/2026-w1"><div class="wk">Wk 1</div><div class="op">vs New England<i>Game Prep Sheet</i></div><div class="sc w">W 13-10</div></a><a href="/seahawks/g/2025-sb-recap"><div class="wk">Super Bowl</div><div class="op">at New England<i>breakdown</i></div><div class="sc w">W 29-13</div></a><a href="/seahawks/g/2025-conf-recap"><div class="wk">Conf championship</div><div class="op">vs the Rams<i>breakdown</i></div><div class="sc w">W 31-27</div></a><a href="/seahawks/g/2025-div-recap"><div class="wk">Divisional</div><div class="op">vs San Francisco<i>breakdown</i></div><div class="sc w">W 41-6</div></a></div>
 </section>
 
 <footer>
@@ -299,7 +334,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <p>Built from free public data: nflverse play-by-play, schedules, and rosters; plus FTN Data charting and
   Pro Football Reference snap counts when each feed publishes. A Game Prep Sheet goes up before each game and a breakdown goes up after.</p>
   <p>Independent fan project. Not affiliated with, endorsed by, or connected to the NFL or the Seattle Seahawks.
-  No logos, no player photos, just the numbers and a point of view.</p>
+  The numbers, the prep sheets, and a point of view.</p>
 </footer>
 </div>
 </body>
