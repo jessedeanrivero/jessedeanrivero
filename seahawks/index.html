@@ -209,9 +209,9 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .postgame-script{font-size:clamp(25px,6vw,38px);font-weight:600;font-style:italic;line-height:1;color:var(--sea);margin:16px 0 4px;transform:rotate(-2deg);transform-origin:left center}
 .postgame-title{font-family:var(--disp);font-size:clamp(54px,13vw,88px);line-height:.86;text-transform:uppercase;color:#fff}.postgame-title b{color:var(--sea);font-weight:400}
 .postgame-copy p{max-width:400px;margin:16px 0;color:#e6edf7;font-size:18px;line-height:1.35}.postgame-copy a{display:inline-block;padding:11px 14px;border-radius:6px;background:var(--sea);color:#07111f;text-decoration:none;font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.09em;text-transform:uppercase}
-.postgame-scorebar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 18px;background:#071522;border-top:1px solid #315071}
+.postgame-scorebar{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:14px 18px;background:#071522;border-top:1px solid #315071}
 .pg-final,.pg-note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}.pg-note{text-align:right}
-.postgame-scorebar strong{font-family:var(--disp);font-size:28px;font-weight:400;text-transform:uppercase}.postgame-scorebar strong b{color:var(--sea);font-weight:400}.postgame-scorebar strong i{color:var(--dim);font-style:normal;margin:0 8px}
+.postgame-scorebar strong{text-align:right;font-family:var(--disp);font-size:28px;font-weight:400;text-transform:uppercase}.postgame-scorebar strong b{color:var(--sea);font-weight:400}.postgame-scorebar strong i{color:var(--dim);font-style:normal;margin:0 8px}
 .diff-title{margin-top:26px}
 .pick-actual{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg2);font-family:var(--mono)}
 .pick-actual span{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}.pick-actual b{font-family:var(--disp);font-size:24px;font-weight:400;color:#fff}.pick-actual b:first-of-type{color:var(--sea)}.pick-actual small{margin-left:auto;font-size:10px;color:var(--mute)}
@@ -222,7 +222,7 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .lb-score{font-family:var(--disp);font-size:22px;color:#fff}.lb-delta{font-family:var(--mono);font-size:12px;color:var(--mute);text-align:center}.lb-total{font-family:var(--disp);font-size:30px;color:#fff;text-align:center;line-height:1}.lb-total small{display:block;font-family:var(--mono);font-size:7px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);margin-top:3px}
 .lb-row.leader{background:linear-gradient(90deg,rgba(201,255,61,.13),transparent 72%)}.lb-row.leader .lb-rank,.lb-row.leader .lb-name,.lb-row.leader .lb-total{color:var(--sea)}
 .lb-benchmarks{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}.lb-benchmark{padding:11px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg2);font-family:var(--mono);font-size:10px;color:var(--mute)}.lb-benchmark b{color:#fff}.lb-benchmark strong{color:var(--sea);font-weight:500}
-@media(max-width:560px){.lb-row{grid-template-columns:32px minmax(58px,1fr) 62px 46px 46px 52px;min-height:54px}.lb-row>div{padding:8px 4px}.lb-head{font-size:7px}.lb-rank{font-size:18px}.lb-score{font-size:18px}.lb-delta{font-size:10px}.lb-total{font-size:25px}.lb-name{font-size:13px}.lb-name small{display:none}.pick-actual small{width:100%;margin-left:0}.lb-benchmarks{grid-template-columns:1fr}.postgame-hero-art{min-height:500px;padding:24px 18px;background-image:linear-gradient(180deg,rgba(5,13,24,.06) 15%,rgba(5,13,24,.78) 54%,rgba(5,13,24,.98) 100%),url('/seahawks/6DD67930-9BD1-4833-86F0-61AAAD71B2DD.png');background-position:62% center}.postgame-title{font-size:60px}.postgame-scorebar{grid-template-columns:1fr auto}.pg-final{grid-column:1/-1}.pg-note{display:none}}
+@media(max-width:560px){.lb-row{grid-template-columns:32px minmax(58px,1fr) 62px 46px 46px 52px;min-height:54px}.lb-row>div{padding:8px 4px}.lb-head{font-size:7px}.lb-rank{font-size:18px}.lb-score{font-size:18px}.lb-delta{font-size:10px}.lb-total{font-size:25px}.lb-name{font-size:13px}.lb-name small{display:none}.pick-actual small{width:100%;margin-left:0}.lb-benchmarks{grid-template-columns:1fr}.postgame-hero-art{min-height:500px;padding:24px 18px;background-image:linear-gradient(180deg,rgba(5,13,24,.06) 15%,rgba(5,13,24,.78) 54%,rgba(5,13,24,.98) 100%),url('/seahawks/6DD67930-9BD1-4833-86F0-61AAAD71B2DD.png');background-position:62% center}.postgame-title{font-size:60px}.postgame-scorebar{grid-template-columns:auto 1fr}.pg-final{grid-column:auto}.pg-note{display:none}}
 
 </style>
 <script>
@@ -260,7 +260,6 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div class="postgame-scorebar">
     <span class="pg-final">Final</span>
     <strong><b>SEA 31</b><i>·</i> ARI 7</strong>
-    <span class="pg-note">24 unanswered after 7-7</span>
   </div>
 </article>
 
