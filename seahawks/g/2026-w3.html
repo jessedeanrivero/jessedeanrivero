@@ -150,8 +150,8 @@ footer p{margin:8px 0}
 @media(max-width:560px){.coach-spot{grid-template-columns:110px 1fr}.coach-quote{font-size:28px}.game-day-band{min-height:230px}}
 
 /* Week 3 matchup artwork slot. Add a URL to .matchup-art when Jesse supplies his hero image. */
-.matchup-art{position:relative;overflow:hidden;border:1px solid #34516b;border-radius:15px;min-height:270px;margin:18px 0 22px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;background:radial-gradient(ellipse at 4% 28%,rgba(201,255,61,.2),transparent 42%),radial-gradient(ellipse at 94% 84%,rgba(116,49,53,.42),transparent 40%),linear-gradient(125deg,#071c2c 5%,#11263b 50%,#251b30 100%);isolation:isolate}
-.matchup-art:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.28;background:repeating-linear-gradient(120deg,transparent 0,transparent 55px,rgba(201,255,61,.10) 56px,transparent 57px)}
+.matchup-art{position:relative;overflow:hidden;border:1px solid #34516b;border-radius:15px;min-height:clamp(290px,51vw,400px);margin:18px 0 22px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate;background-color:#0a1a2e;background-image:linear-gradient(180deg,rgba(5,13,24,.04) 15%,rgba(5,13,24,.16) 46%,rgba(5,13,24,.81) 100%),url('/seahawks/wk3-qb.jpg'),radial-gradient(ellipse at 4% 28%,rgba(201,255,61,.2),transparent 42%),linear-gradient(125deg,#071c2c 5%,#11263b 50%,#251b30 100%);background-size:cover,cover,cover,cover;background-position:center,center center,center,center;background-repeat:no-repeat}
+.matchup-art:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.055;background:repeating-linear-gradient(120deg,transparent 0,transparent 55px,rgba(201,255,61,.10) 56px,transparent 57px)}
 .matchup-art .art-label{font-family:var(--mono);font-size:10px;letter-spacing:.19em;text-transform:uppercase;color:var(--sea)}
 .matchup-art .art-title{display:flex;align-items:center;gap:clamp(8px,3vw,22px);font-family:var(--disp);font-size:clamp(57px,14vw,104px);line-height:1.02;color:#f4f6fa;letter-spacing:.012em;margin:10px 0}
 .matchup-art .art-title i{font-style:normal;font-size:.45em;color:var(--sea)}
@@ -179,6 +179,7 @@ footer p{margin:8px 0}
 .latest time{font-family:var(--mono);font-size:11px;color:var(--opp);display:block;margin-bottom:5px}
 @media(max-width:480px){.matchup-art{min-height:225px;padding:18px}.personnel{grid-template-columns:1fr 1fr}.personnel div:first-child{grid-column:span 2}.personnel strong{font-size:28px}.crew-await{grid-template-columns:1fr}}
 
+@media(max-width:560px){.matchup-art{min-height:315px;padding:18px;background-position:center,center,center,center}.matchup-art .art-title{font-size:clamp(58px,14vw,75px)}.matchup-art p{font-size:10px}}
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -195,7 +196,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <header class="hero">
   <p class="vs"><span class="s">SEA</span><span class="at">at</span><span class="o">WAS</span></p>
   <p class="meta"><span class="rec">Seattle 2–0</span><span class="rec">Washington 0–2</span><br><b>Sunday, September 27 · 10:00 am PT / noon CT / 1:00 pm ET</b> · Northwest Stadium · FOX<br>Mike Macdonald vs Dan Quinn · Quarterback watch: Darnold / Lock and Mariota</p>
-  <div class="matchup-art" role="img" aria-label="SEA versus WAS Week 3 gradient artwork placeholder, ready for Jesse's custom hero image">
+  <div class="matchup-art" role="img" aria-label="Seattle and Washington quarterbacks on a split blue-green and burgundy Week 3 backdrop">
     <div class="art-label">Week 3 · Scouting report</div><div class="art-title"><span>SEA</span><i>VS</i><span class="was">WAS</span></div><p>Two contrasting personnel stories. One early road test.</p>
   </div>
   <h1 class="hl">More muscle. More answers.</h1>
