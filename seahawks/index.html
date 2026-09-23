@@ -227,8 +227,8 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 
 /* Current Week 3 feature. Future custom hero artwork goes on .wk3-art. */
 .wk3-feature{border:1px solid #466745;border-radius:16px;overflow:hidden;background:var(--panel);margin:10px 0 25px}
-.wk3-art{position:relative;display:flex;align-items:flex-end;min-height:320px;padding:26px;background:radial-gradient(ellipse at -8% 20%,rgba(201,255,61,.25),transparent 50%),radial-gradient(ellipse at 105% 98%,rgba(132,46,47,.42),transparent 48%),linear-gradient(124deg,#061927,#14283e 54%,#301b2e);isolation:isolate}
-.wk3-art:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.20;background:repeating-linear-gradient(120deg,transparent 0,transparent 58px,rgba(201,255,61,.13) 60px,transparent 62px)}
+.wk3-art{position:relative;display:flex;align-items:flex-end;min-height:clamp(395px,85vw,560px);padding:26px;isolation:isolate;background-color:#091827;background-image:linear-gradient(180deg,rgba(5,13,24,.02) 0%,rgba(5,13,24,.06) 44%,rgba(5,13,24,.72) 76%,rgba(5,13,24,.94) 100%),url('/seahawks/wk3-wr.jpg'),radial-gradient(ellipse at -8% 20%,rgba(201,255,61,.25),transparent 50%),linear-gradient(124deg,#061927,#14283e 54%,#301b2e);background-size:cover,cover,cover,cover;background-position:center,center 35%,center,center;background-repeat:no-repeat}
+.wk3-art:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.055;background:repeating-linear-gradient(120deg,transparent 0,transparent 58px,rgba(201,255,61,.13) 60px,transparent 62px)}
 .wk3-eyebrow{font-family:var(--mono);color:var(--sea);text-transform:uppercase;letter-spacing:.17em;font-size:10px}
 .wk3-art-title{display:flex;align-items:center;gap:clamp(10px,3vw,24px);font-family:var(--disp);font-size:clamp(65px,17vw,113px);line-height:1.08;letter-spacing:.012em;color:#f6f9fc}
 .wk3-art-title i{font-style:normal;font-size:.44em;color:var(--sea)}
@@ -264,6 +264,7 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .wk3-groupcard b{color:var(--sea)}
 @media(max-width:390px){.wk3-forecast{padding:12px}.wk3-scorecard{padding:11px}}
 
+@media(max-width:560px){.wk3-art{min-height:clamp(340px,118vw,500px);padding:20px;background-position:center,center 30%,center,center}.wk3-art-title{font-size:clamp(58px,15vw,82px)}.wk3-art-sub{font-size:10px}}
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -288,7 +289,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <div class="gameday-label">Up next · Week 3 · September 27</div>
 <article class="wk3-feature" aria-labelledby="wk3-headline">
-  <div class="wk3-art" role="img" aria-label="SEA versus WAS Seattle-to-Washington gradient artwork placeholder">
+  <div class="wk3-art" role="img" aria-label="Seahawks and Commanders receivers in a split blue-green and burgundy Week 3 hero">
     <div><div class="wk3-eyebrow">Seattle Football HQ · Week 3</div><div class="wk3-art-title"><span>SEA</span><i>VS</i><span class="was">WAS</span></div><div class="wk3-art-sub">Sunday · 10 am PT / noon CT · FOX</div></div>
   </div>
   <div class="wk3-copy">
