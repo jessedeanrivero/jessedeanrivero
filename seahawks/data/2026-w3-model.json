@@ -76,6 +76,11 @@
       "name": "Kendall P.",
       "sea": 18,
       "was": 12
+    },
+    {
+      "name": "Barry P.",
+      "sea": 24,
+      "was": 9
     }
   ],
   "sources": [
@@ -87,9 +92,9 @@
     "https://www.nfeloapp.com/teams/was/2025/"
   ],
   "groupPick": {
-    "sea": 22.3,
-    "was": 10.3,
-    "margin": 12,
-    "submissions": 3
+    "sea": 22.8,
+    "was": 10,
+    "margin": 12.8,
+    "submissions": 4
   }
 }
