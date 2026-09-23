@@ -225,7 +225,7 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 @media(max-width:560px){.lb-row{grid-template-columns:32px minmax(58px,1fr) 62px 46px 46px 52px;min-height:54px}.lb-row>div{padding:8px 4px}.lb-head{font-size:7px}.lb-rank{font-size:18px}.lb-score{font-size:18px}.lb-delta{font-size:10px}.lb-total{font-size:25px}.lb-name{font-size:13px}.lb-name small{display:none}.pick-actual small{width:100%;margin-left:0}.lb-benchmarks{grid-template-columns:1fr}.postgame-hero-art{min-height:500px;padding:24px 18px;background-image:linear-gradient(180deg,rgba(5,13,24,.06) 15%,rgba(5,13,24,.78) 54%,rgba(5,13,24,.98) 100%),url('/seahawks/6DD67930-9BD1-4833-86F0-61AAAD71B2DD.png');background-position:62% center}.postgame-title{font-size:60px}.postgame-scorebar{grid-template-columns:auto 1fr}.pg-final{grid-column:auto}.pg-note{display:none}}
 
 
-/* Current Week 3 feature. Future custom hero artwork goes on .wk3-art. */
+
 .wk3-feature{border:1px solid #466745;border-radius:16px;overflow:hidden;background:var(--panel);margin:10px 0 25px}
 .wk3-art{position:relative;display:flex;align-items:flex-end;min-height:clamp(395px,85vw,560px);padding:26px;isolation:isolate;background-color:#091827;background-image:linear-gradient(180deg,rgba(5,13,24,.02) 0%,rgba(5,13,24,.06) 44%,rgba(5,13,24,.72) 76%,rgba(5,13,24,.94) 100%),url('/seahawks/E2E1165C-12F7-4A94-AD1A-C53B4CBF9DE4.png'),radial-gradient(ellipse at -8% 20%,rgba(201,255,61,.25),transparent 50%),linear-gradient(124deg,#061927,#14283e 54%,#301b2e);background-size:cover,cover,cover,cover;background-position:center,center 35%,center,center;background-repeat:no-repeat}
 .wk3-art:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.055;background:repeating-linear-gradient(120deg,transparent 0,transparent 58px,rgba(201,255,61,.13) 60px,transparent 62px)}
@@ -247,7 +247,7 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 @media(max-width:560px){.wk3-art{min-height:255px;padding:20px}.wk3-copy{padding:17px}.wk3-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.wk3-stats>div{padding:8px}}
 
 
-/* Week 3 score prediction cards. The data lives in /seahawks/data/2026-w3-model.json. */
+
 .wk3-forecast{margin:18px 0 23px;padding:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#142036,#0d1728)}
 .wk3-forecast h2{font:32px/1 var(--disp);margin:0 0 12px;text-transform:uppercase}
 .wk3-scoregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -309,7 +309,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <section class="wk3-forecast" aria-label="Week 3 score predictions">
 <h2>Our Week 3 predictions</h2>
 <div class="wk3-scoregrid">
- <div class="wk3-scorecard"><div class="k">HQ model · initial reconstruction</div><strong>SEA 25.3<br><span>WAS 16.8</span></strong><small>Seattle +8.5 · 74% estimate · provisional QB scenario</small></div>
+ <div class="wk3-scorecard"><div class="k">HQ model estimate</div><strong>SEA 25.3<br><span>WAS 16.8</span></strong><small>Seattle +8.5 · 74% estimate · assumes Lock/Mariota</small></div>
  <div class="wk3-scorecard jesse"><div class="k">Jesse's pick</div><strong>SEA 26<br><span>WAS 10</span></strong><small>Seahawks by 16 · Week 3</small></div>
 </div>
 <div class="wk3-picklist" id="wk3-home-picks"><div class="wk3-pickchip">Jesse P. <b>26–10</b></div><div class="wk3-pickchip">Matt M. <b>23–9</b></div><div class="wk3-pickchip">Kendall P. <b>18–12</b></div></div>
