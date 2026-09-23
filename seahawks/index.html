@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seattle Football HQ · 2026</title>
-<meta name="description" content="Week 3 Seahawks at Commanders scouting report, Brian Fleury personnel shift and Week 2 postgame prediction leaderboard.">
+<meta name="description" content="Week 3 Seahawks at Commanders model projection and Jesse’s 26–10 pick, Brian Fleury personnel scouting and the Week 2 prediction leaderboard.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
@@ -246,6 +246,24 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .wk3-after{font-family:var(--mono);font-size:10px;color:var(--mute);margin-top:9px;line-height:1.45}
 @media(max-width:560px){.wk3-art{min-height:255px;padding:20px}.wk3-copy{padding:17px}.wk3-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.wk3-stats>div{padding:8px}}
 
+
+/* Week 3 score prediction cards. The data lives in /seahawks/data/2026-w3-model.json. */
+.wk3-forecast{margin:18px 0 23px;padding:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#142036,#0d1728)}
+.wk3-forecast h2{font:32px/1 var(--disp);margin:0 0 12px;text-transform:uppercase}
+.wk3-scoregrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.wk3-scorecard{padding:15px;border:1px solid #2b3c5a;border-radius:10px;background:#0b182a}
+.wk3-scorecard.jesse{background:linear-gradient(150deg,#162a23,#0b182a);border-color:#506c38}
+.wk3-scorecard .k{margin:0 0 9px;color:var(--mute)}
+.wk3-scorecard strong{display:block;font:clamp(23px,6vw,32px)/1.08 var(--disp);color:var(--sea);letter-spacing:.015em}
+.wk3-scorecard strong span{color:#f0c5a4}
+.wk3-scorecard small{display:block;font:10px/1.5 var(--mono);color:var(--mute);margin-top:8px}
+.wk3-picklist{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.wk3-pickchip{border:1px solid #385032;border-radius:7px;background:#12241b;padding:8px 10px;font:11px var(--mono);color:#e3ecf4}
+.wk3-pickchip b{color:var(--sea)}
+.wk3-groupcard{margin-top:12px;border:1px dashed #476439;border-radius:8px;padding:10px 12px;font:11px/1.5 var(--mono);color:var(--mute)}
+.wk3-groupcard b{color:var(--sea)}
+@media(max-width:390px){.wk3-forecast{padding:12px}.wk3-scorecard{padding:11px}}
+
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -284,9 +302,34 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </div>
     <p><b style="color:var(--sea)">Jesse's note:</b> I told KC during preseason I expected 21+ and 13 personnel to have a role. Love seeing Fleury get the fullback involved. Now I want to watch how Washington responds when we show these heavier looks.</p>
     <a class="wk3-cta" href="/seahawks/g/2026-w3">Open the Week 3 scouting report →</a>
-    <div class="wk3-after">Ten game-day keys · Updated injury watch · Matchup numbers · Your picks coming soon</div>
+    <div class="wk3-after">Ten game-day keys · Updated injury watch · Matchup numbers · Jesse 26–10 · More picks this week</div>
   </div>
 </article>
+<section class="wk3-forecast" aria-label="Week 3 score predictions">
+<h2>Our Week 3 predictions</h2>
+<div class="wk3-scoregrid">
+ <div class="wk3-scorecard"><div class="k">HQ model · initial reconstruction</div><strong>SEA 25.3<br><span>WAS 16.8</span></strong><small>Seattle +8.5 · 74% estimate · provisional QB scenario</small></div>
+ <div class="wk3-scorecard jesse"><div class="k">Jesse's pick</div><strong>SEA 26<br><span>WAS 10</span></strong><small>Seahawks by 16 · Week 3</small></div>
+</div>
+<div class="wk3-picklist" id="wk3-home-picks"><div class="wk3-pickchip">Jesse P. <b>26–10</b></div></div>
+<div class="wk3-groupcard" id="wk3-home-group">1 submitted · Group pick appears once at least two predictions are in.</div>
+<a href="/seahawks/g/2026-w3#call" class="wk3-cta" style="margin-top:14px">Full model and game-day picks →</a>
+<script>
+(function(){
+ const list=document.getElementById('wk3-home-picks'),group=document.getElementById('wk3-home-group');
+ fetch('/seahawks/data/2026-w3-model.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Picks unavailable');return r.json()}).then(data=>{
+  const picks=Array.isArray(data.picks)?data.picks.filter(p=>typeof p.name==='string' && Number.isFinite(p.sea) && Number.isFinite(p.was)):[];
+  if(!picks.length)return;
+  list.replaceChildren();
+  picks.forEach(p=>{const chip=document.createElement('div');chip.className='wk3-pickchip';chip.append(document.createTextNode(p.name+' '));const score=document.createElement('b');score.textContent=p.sea+'–'+p.was;chip.append(score);list.append(chip)});
+  if(picks.length<2){group.textContent='1 submitted · Group pick appears once at least two predictions are in.';return}
+  const sea=picks.reduce((n,p)=>n+p.sea,0)/picks.length,was=picks.reduce((n,p)=>n+p.was,0)/picks.length;
+  group.replaceChildren();const bold=document.createElement('b');bold.textContent='Group pick: SEA '+sea.toFixed(1)+' · WAS '+was.toFixed(1);group.append(bold,document.createTextNode(' · '+picks.length+' submitted · SEA +'+(sea-was).toFixed(1)));
+ }).catch(()=>{});
+})();
+</script>
+</section>
+
 <div class="gameday-label">Last game · Week 2 postgame and picks</div>
 <article class="postgame-hero">
   <div class="postgame-hero-art" role="img" aria-label="Jaxon Smith-Njigba celebrating after scoring against Arizona">
