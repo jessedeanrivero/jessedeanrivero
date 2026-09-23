@@ -1,0 +1,79 @@
+{
+  "season": 2026,
+  "week": 3,
+  "matchup": "Seattle Seahawks at Washington Commanders",
+  "published": "2026-09-23",
+  "status": "Provisional, transparent reconstruction from Week 1 archived model; original trained fit and Elo state are not in repository",
+  "initialProjectionLocked": true,
+  "quarterbackAssumption": "Drew Lock (SEA), Marcus Mariota (WAS). Update in separate scenario if Darnold starts.",
+  "inputs": {
+    "sea2025": {
+      "off": 0.039,
+      "def": -0.111,
+      "pf": 28.4,
+      "pa": 17.2
+    },
+    "was2025": {
+      "net": -0.106,
+      "pf": 20.9,
+      "pa": 26.5
+    },
+    "sea2026": {
+      "off": 0.098,
+      "def": -0.17,
+      "pf": 22,
+      "pa": 8.5
+    },
+    "was2026": {
+      "off": 0.045,
+      "def": 0.131,
+      "pf": 21,
+      "pa": 30.5
+    },
+    "elo": {
+      "SEA": 1643,
+      "WAS": 1427
+    }
+  },
+  "calculation": {
+    "archivedFramework": "60/40 weighted 2025/2026 net EPA and matching matchup-scoring averages; 2025 archived coefficient reconstructed from Week 1; public nfelo rating as Elo proxy; provisional HFA and QB scenario assumptions",
+    "previousSeasonWeight": 0.6,
+    "currentSeasonWeight": 0.4,
+    "epaPointsPerUnit": 12.76595744680851,
+    "eloPointsPerRating": 0.02624113475177305,
+    "homeFieldPointsForSeattle": -0.7,
+    "qbPointsForSeattle": -1.2,
+    "qbPointsForWashington": -1,
+    "marginErrorScalePoints": 13,
+    "epaDelta2025": 0.256,
+    "epaDelta2026": 0.35400000000000004,
+    "teamContributionPoints": 3.77,
+    "eloContributionPoints": 5.67,
+    "homeContributionPoints": -0.7,
+    "qbNetContributionPoints": -0.2,
+    "matchupScoring2025": 46.5,
+    "matchupScoring2026": 41
+  },
+  "projection": {
+    "sea": 25.3,
+    "was": 16.8,
+    "total": 42.1,
+    "margin": 8.5,
+    "winProbability": 0.744
+  },
+  "picks": [
+    {
+      "name": "Jesse P.",
+      "sea": 26,
+      "was": 10
+    }
+  ],
+  "sources": [
+    "https://jessedeanrivero.com/seahawks/g/2026-w1",
+    "https://stats.innerpulse.net/team/SEA",
+    "https://stats.innerpulse.net/team/WAS",
+    "https://www.nfeloapp.com/teams/sea/2026/",
+    "https://www.nfeloapp.com/nfl-power-ratings/",
+    "https://www.nfeloapp.com/teams/was/2025/"
+  ]
+}
