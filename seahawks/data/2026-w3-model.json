@@ -91,6 +91,11 @@
       "name": "KC A.",
       "sea": 33,
       "was": 13
+    },
+    {
+      "name": "Steve M.",
+      "sea": 27,
+      "was": 10
     }
   ],
   "sources": [
@@ -102,9 +107,9 @@
     "https://www.nfeloapp.com/teams/was/2025/"
   ],
   "groupPick": {
-    "sea": 25.8,
-    "was": 10.5,
-    "margin": 15.3,
-    "submissions": 6
+    "sea": 26,
+    "was": 10.4,
+    "margin": 15.6,
+    "submissions": 7
   }
 }
