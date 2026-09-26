@@ -2,10 +2,10 @@
   "season": 2026,
   "week": 3,
   "matchup": "Seattle Seahawks at Washington Commanders",
-  "published": "2026-09-23",
-  "status": "Early-week model estimate using blended efficiency and a public Elo proxy",
-  "initialProjectionLocked": true,
-  "quarterbackAssumption": "SEA: Drew Lock; WAS: Marcus Mariota",
+  "published": "2026-09-26",
+  "status": "Updated Week 3 model estimate with Sam Darnold confirmed as Seattle's starter",
+  "initialProjectionLocked": false,
+  "quarterbackAssumption": "SEA: Sam Darnold; WAS: Marcus Mariota",
   "inputs": {
     "sea2025": {
       "off": 0.039,
@@ -42,7 +42,7 @@
     "epaPointsPerUnit": 12.76595744680851,
     "eloPointsPerRating": 0.02624113475177305,
     "homeFieldPointsForSeattle": -0.7,
-    "qbPointsForSeattle": -1.2,
+    "qbPointsForSeattle": 0,
     "qbPointsForWashington": -1,
     "marginErrorScalePoints": 13,
     "epaDelta2025": 0.256,
@@ -50,22 +50,22 @@
     "teamContributionPoints": 3.77,
     "eloContributionPoints": 5.67,
     "homeContributionPoints": -0.7,
-    "qbNetContributionPoints": -0.2,
+    "qbNetContributionPoints": 1,
     "matchupScoring2025": 46.5,
     "matchupScoring2026": 41
   },
   "projection": {
-    "sea": 25.3,
+    "sea": 26.5,
     "was": 16.8,
-    "total": 42.1,
-    "margin": 8.5,
-    "winProbability": 0.744
+    "total": 43.3,
+    "margin": 9.7,
+    "winProbability": 0.773
   },
   "picks": [
     {
       "name": "Jesse P.",
-      "sea": 26,
-      "was": 10
+      "sea": 31,
+      "was": 6
     },
     {
       "name": "Matt M.",
@@ -79,7 +79,7 @@
     },
     {
       "name": "Barry P.",
-      "sea": 24,
+      "sea": 31,
       "was": 9
     },
     {
@@ -104,12 +104,13 @@
     "https://stats.innerpulse.net/team/WAS",
     "https://www.nfeloapp.com/teams/sea/2026/",
     "https://www.nfeloapp.com/nfl-power-ratings/",
-    "https://www.nfeloapp.com/teams/was/2025/"
+    "https://www.nfeloapp.com/teams/was/2025/",
+    "https://www.seahawks.com/news/seahawks-qb-sam-darnold-ready-to-go-s-julian-love-ruled-out"
   ],
   "groupPick": {
-    "sea": 26,
-    "was": 10.4,
-    "margin": 15.6,
+    "sea": 27.7,
+    "was": 9.9,
+    "margin": 17.9,
     "submissions": 7
   }
 }
