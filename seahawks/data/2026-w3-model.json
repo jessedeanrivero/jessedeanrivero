@@ -96,6 +96,11 @@
       "name": "Steve M.",
       "sea": 27,
       "was": 10
+    },
+    {
+      "name": "Jeff C.",
+      "sea": 38,
+      "was": 7
     }
   ],
   "sources": [
@@ -108,9 +113,9 @@
     "https://www.seahawks.com/news/seahawks-qb-sam-darnold-ready-to-go-s-julian-love-ruled-out"
   ],
   "groupPick": {
-    "sea": 27.7,
-    "was": 9.9,
-    "margin": 17.9,
-    "submissions": 7
+    "sea": 29,
+    "was": 9.5,
+    "margin": 19.5,
+    "submissions": 8
   }
 }
