@@ -1,0 +1,112 @@
+{
+  "season": 2026,
+  "scoring": "Absolute Seahawks score error plus absolute opponent score error. Lowest cumulative total wins.",
+  "startsAtWeek": 2,
+  "newcomerPolicy": "New members receive the prior week's last-place error for missed weeks before joining.",
+  "weeks": {
+    "2": {
+      "opponent": "Arizona Cardinals",
+      "actual": {
+        "sea": 31,
+        "opp": 7
+      },
+      "errors": {
+        "Kendall P.": 8,
+        "Jesse P.": 10,
+        "KC A.": 10,
+        "Barry P.": 10,
+        "Matt M.": 11,
+        "Josh F.": 13,
+        "Steve M.": 18,
+        "Jeff C.": 18
+      },
+      "notes": {
+        "Jeff C.": "Assigned Week 2 baseline equal to the last-place score because he joined in Week 3."
+      }
+    },
+    "3": {
+      "opponent": "Washington Commanders",
+      "actual": {
+        "sea": 31,
+        "opp": 33
+      },
+      "errors": {
+        "KC A.": 22,
+        "Josh F.": 23,
+        "Barry P.": 24,
+        "Jesse P.": 27,
+        "Steve M.": 27,
+        "Matt M.": 32,
+        "Jeff C.": 33,
+        "Kendall P.": 34
+      }
+    }
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "name": "KC A.",
+      "week2": 10,
+      "week3": 22,
+      "total": 32,
+      "average": 16
+    },
+    {
+      "rank": 2,
+      "name": "Barry P.",
+      "week2": 10,
+      "week3": 24,
+      "total": 34,
+      "average": 17
+    },
+    {
+      "rank": 3,
+      "name": "Josh F.",
+      "week2": 13,
+      "week3": 23,
+      "total": 36,
+      "average": 18
+    },
+    {
+      "rank": 4,
+      "name": "Jesse P.",
+      "week2": 10,
+      "week3": 27,
+      "total": 37,
+      "average": 18.5
+    },
+    {
+      "rank": 5,
+      "name": "Kendall P.",
+      "week2": 8,
+      "week3": 34,
+      "total": 42,
+      "average": 21
+    },
+    {
+      "rank": 6,
+      "name": "Matt M.",
+      "week2": 11,
+      "week3": 32,
+      "total": 43,
+      "average": 21.5
+    },
+    {
+      "rank": 7,
+      "name": "Steve M.",
+      "week2": 18,
+      "week3": 27,
+      "total": 45,
+      "average": 22.5
+    },
+    {
+      "rank": 8,
+      "name": "Jeff C.",
+      "week2": 18,
+      "week3": 33,
+      "total": 51,
+      "average": 25.5,
+      "note": "Week 2 baseline assigned at prior last-place score"
+    }
+  ]
+}
