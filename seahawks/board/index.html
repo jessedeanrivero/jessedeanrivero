@@ -17,6 +17,29 @@
   --white:#fff;
   --ink:#071d2c;
   --link:#003f8f;
+  --title-ink:#fff;
+}
+body[data-theme="modern"]{
+  --royal:#002244;
+  --royal-dark:#001a2f;
+  --royal-deep:#00111f;
+  --apple:#69be28;
+  --silver:#a5acaf;
+  --silver-dark:#66737c;
+  --ink:#071d2c;
+  --link:#003b71;
+  --title-ink:#fff;
+}
+body[data-theme="color-rush"]{
+  --royal:#69be28;
+  --royal-dark:#4b841d;
+  --royal-deep:#17340a;
+  --apple:#002244;
+  --silver:#dff6c9;
+  --silver-dark:#5f8b39;
+  --ink:#061c2c;
+  --link:#002244;
+  --title-ink:#002244;
 }
 *{box-sizing:border-box}
 html{background:var(--royal-dark)}
@@ -47,7 +70,7 @@ a{color:var(--link)}
   gap:10px;
   padding:7px 9px;
   background:var(--royal);
-  color:#fff;
+  color:var(--title-ink);
   border-bottom:4px solid var(--apple);
 }
 .titlebar h1{
@@ -60,6 +83,7 @@ a{color:var(--link)}
 .navbar{
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   gap:2px;
   padding:4px;
   background:#b9c9d4;
@@ -76,7 +100,26 @@ a{color:var(--link)}
   border-right:1px solid #5f7687;
   border-bottom:1px solid #5f7687;
 }
-.navbar a.active{background:var(--apple);font-weight:700}
+.navbar a.active{background:var(--apple);color:var(--title-ink);font-weight:700}
+.theme-picker{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  padding:0 2px;
+  font:10px "Courier New",monospace;
+  color:#18384f;
+}
+.theme-picker select{
+  height:25px;
+  border-top:2px solid #526979;
+  border-left:2px solid #526979;
+  border-right:2px solid #fff;
+  border-bottom:2px solid #fff;
+  background:#fff;
+  color:#000;
+  font:11px Verdana,Arial,sans-serif;
+}
 .boardhead{
   display:flex;
   align-items:center;
@@ -208,6 +251,8 @@ a{color:var(--link)}
 }
 @media(max-width:650px){
   .shell{padding:4px}
+  .theme-picker{width:100%;margin:3px 0 0;padding-top:3px;border-top:1px solid #8aa0b0}
+  .theme-picker select{flex:1;max-width:150px}
   .titlebar{align-items:flex-start}
   .titlebar h1{font-size:17px}
   .titlebar small{display:none}
@@ -235,6 +280,13 @@ a{color:var(--link)}
       <a href="/seahawks/chat">LIVE CHAT</a>
       <a href="/seahawks/board" class="active">MESSAGE BOARD</a>
       <a href="/seahawks">SEAHAWKS HQ</a>
+      <label class="theme-picker">COLOR:
+        <select id="themeSelect" aria-label="Colorway">
+          <option value="throwback">Throwback</option>
+          <option value="modern">Modern</option>
+          <option value="color-rush">Color Rush</option>
+        </select>
+      </label>
     </nav>
 
     <section id="listView">
@@ -276,6 +328,18 @@ a{color:var(--link)}
 </div>
 
 <script>
+const THEME_KEY = 'seahawksColorway'
+const themeSelect = document.getElementById('themeSelect')
+const validThemes = new Set(['throwback','modern','color-rush'])
+function applyTheme(theme){
+  const next = validThemes.has(theme) ? theme : 'throwback'
+  document.body.dataset.theme = next
+  themeSelect.value = next
+  localStorage.setItem(THEME_KEY,next)
+}
+applyTheme(localStorage.getItem(THEME_KEY) || 'throwback')
+themeSelect.addEventListener('change',() => applyTheme(themeSelect.value))
+
 const REPO = 'jessedeanrivero/jessedeanrivero'
 const PREFIX = '[SEAHAWKS BOARD]'
 const API = 'https://api.github.com/repos/' + REPO
