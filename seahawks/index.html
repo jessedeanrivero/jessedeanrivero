@@ -267,6 +267,15 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 @media(max-width:390px){.wk3-forecast{padding:12px}.wk3-scorecard{padding:11px}}
 
 @media(max-width:560px){.wk3-art{min-height:clamp(340px,118vw,500px);padding:20px;background-position:center,center 30%,center,center}.wk3-art-title{font-size:clamp(58px,15vw,82px)}.wk3-art-sub{font-size:10px}}
+
+.chat-launch{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;margin:14px 0 20px;padding:13px 14px;border:1px solid rgba(201,255,61,.45);border-radius:10px;background:linear-gradient(135deg,rgba(201,255,61,.10),rgba(15,28,47,.98));color:var(--ink);text-decoration:none}
+.chat-launch:hover{border-color:var(--sea);background:linear-gradient(135deg,rgba(201,255,61,.16),rgba(15,28,47,.98))}
+.chat-launch-dot{width:10px;height:10px;border-radius:50%;background:var(--good);box-shadow:0 0 0 4px rgba(121,232,122,.10)}
+.chat-launch-copy strong{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+.chat-launch-copy span{display:block;margin-top:3px;font-family:var(--mono);font-size:10px;color:var(--mute);line-height:1.4}
+.chat-launch-go{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--sea);white-space:nowrap}
+@media(max-width:470px){.chat-launch{grid-template-columns:auto 1fr}.chat-launch-go{grid-column:2}}
+
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -288,6 +297,13 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div><b>50</b><span>Points against</span></div>
   <div><b>+25</b><span>Differential</span></div>
 </div>
+
+
+<a class="chat-launch" href="/seahawks/chat">
+  <span class="chat-launch-dot" aria-hidden="true"></span>
+  <span class="chat-launch-copy"><strong>Seahawks Online · Live Chat Beta</strong><span>Gameday, general, and overreaction rooms. Choose a screen name and enter.</span></span>
+  <span class="chat-launch-go">Enter chat →</span>
+</a>
 
 <div class="gameday-label">Latest · Week 3 postgame · September 27</div>
 <article class="postgame-hero">
