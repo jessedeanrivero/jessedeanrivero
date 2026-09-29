@@ -2,232 +2,403 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b2b4a">
-<title>Seahawks Online · Live Fan Chat</title>
-<meta name="description" content="A live peer-to-peer Seahawks fan chat room from Seattle Football HQ.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#008080">
+<title>Seahawks Chat Room</title>
+<meta name="description" content="An old-school live Seahawks fan chat room from Seattle Football HQ.">
 <style>
 :root{
-  --navy:#061c2f;--navy2:#0b2b4a;--blue:#1b4e78;--steel:#b9c6d2;--paper:#edf2f5;
-  --ink:#0b1722;--muted:#607183;--lime:#b9f34a;--green:#2b9d55;--line:#8fa2b3;
-  --win:#dfe7ec;--white:#fff;--shadow:#1a2d3d
+  --desktop:#008080;
+  --win:#c0c0c0;
+  --light:#ffffff;
+  --mid:#808080;
+  --dark:#404040;
+  --black:#000000;
+  --blue:#000080;
+  --green:#008000;
 }
 *{box-sizing:border-box}
-html{background:#07223a}
+html,body{margin:0;height:100%;background:var(--desktop)}
 body{
-  margin:0;
-  min-height:100vh;
-  color:var(--ink);
-  font-family:Tahoma,Verdana,Arial,sans-serif;
-  font-size:13px;
-  background:
-    radial-gradient(circle at 18% 10%,rgba(185,243,74,.12),transparent 22%),
-    linear-gradient(135deg,#061827,#0a3150 58%,#071e33);
+  color:#000;
+  font-family:"MS Sans Serif",Geneva,Tahoma,Arial,sans-serif;
+  font-size:12px;
+  overflow:hidden;
 }
-button,input{font:inherit}
+button,input{font:inherit;color:#000}
 button{cursor:pointer}
-a{color:#0645ad}
-.shell{width:min(1120px,100%);margin:0 auto;padding:18px}
-.top-link{margin:0 0 10px;font-size:11px}
-.top-link a{color:#dbe7f1;text-decoration:none}
+a{color:#0000ee}
+.shell{
+  width:min(1040px,100%);
+  height:100dvh;
+  margin:0 auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.backline{
+  flex:0 0 auto;
+  color:#fff;
+  font-size:11px;
+  text-shadow:1px 1px #004040;
+}
+.backline a{color:#fff}
 .window{
-  border:1px solid #020b12;
-  box-shadow:0 10px 32px rgba(0,0,0,.35),inset 0 0 0 1px #b8c9d6;
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
   background:var(--win);
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  box-shadow:1px 1px 0 #000;
 }
 .titlebar{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  min-height:34px;padding:6px 8px;
-  background:linear-gradient(#1d6294,#0a3760);
-  border-bottom:1px solid #061728;color:#fff;font-weight:700;
-  text-shadow:1px 1px #061728;
+  flex:0 0 auto;
+  min-height:24px;
+  padding:4px 6px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--blue);
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.1px;
 }
-.titlebar-left{display:flex;align-items:center;gap:7px}
-.app-icon{
-  width:18px;height:18px;display:grid;place-items:center;
-  background:var(--lime);border:1px solid #101c1e;color:#082337;
-  font-size:11px;text-shadow:none;font-weight:900
+.titlebar-right{
+  font-family:"Courier New",Courier,monospace;
+  font-size:11px;
+  font-weight:400;
 }
-.win-buttons{display:flex;gap:3px}
-.win-buttons span{
-  width:18px;height:16px;display:grid;place-items:center;
-  border:1px solid #08213a;background:#dbe5eb;color:#10253a;
-  box-shadow:inset 1px 1px #fff;font-size:10px;text-shadow:none
+.info-strip{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  align-items:center;
+  padding:5px 7px;
+  border-bottom:1px solid var(--mid);
+  background:#d4d0c8;
+  font-size:11px;
 }
-.menubar{
-  display:flex;gap:20px;padding:5px 9px;background:#edf2f4;
-  border-bottom:1px solid #93a4b1;color:#1c2d3a;font-size:11px
+.room-info{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
 }
-.brandbar{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:12px 14px;background:#fff;border-bottom:1px solid #9dacb7
-}
-.brand h1{margin:0;color:#082b49;font-size:25px;line-height:1;letter-spacing:-1px}
-.brand h1 span{color:#4e7912}
-.brand p{margin:4px 0 0;color:#647483;font-size:11px}
 .connection{
-  display:flex;align-items:center;gap:6px;white-space:nowrap;
-  color:#40515f;font-size:11px
+  display:flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+  font-family:"Courier New",Courier,monospace;
 }
-.dot{width:9px;height:9px;border-radius:50%;background:#8a959e;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
-.dot.live{background:#38aa5d}
-.toolbar{
-  display:flex;align-items:center;gap:6px;padding:7px 9px;
-  border-bottom:1px solid #9dacb7;background:linear-gradient(#f8fafb,#dbe4e9);
-  overflow-x:auto
+.dot{
+  width:8px;
+  height:8px;
+  border:1px solid #004000;
+  background:#777;
 }
-.room-btn{
-  min-width:104px;padding:6px 9px;border:1px solid #7c8f9e;background:#eef3f5;
-  box-shadow:inset 1px 1px #fff;color:#1b2c3b;text-align:left
+.dot.live{background:#00a000}
+.chat-grid{
+  flex:1;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 180px;
+  gap:4px;
+  padding:4px;
 }
-.room-btn.active{background:#d6e8f4;border-color:#315e7e;color:#062e50;font-weight:700}
-.room-btn small{display:block;margin-top:2px;color:#657887;font-size:9px;font-weight:400}
-.chat-grid{display:grid;grid-template-columns:minmax(0,1fr) 210px;min-height:560px}
-.main-panel{display:flex;flex-direction:column;min-width:0;border-right:1px solid #8fa0ad}
-.room-header{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:8px 10px;background:#f7f9fa;border-bottom:1px solid #a9b7c1
+.main-panel{
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
 }
-.room-title{font-weight:700;color:#17324a}
-.room-topic{color:#677885;font-size:11px;text-align:right}
 .messages{
-  flex:1;overflow-y:auto;padding:10px 12px;background:#fff;
-  min-height:420px;max-height:62vh
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:7px 8px;
+  background:#fff;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+  line-height:1.32;
 }
-.msg{padding:5px 0;line-height:1.45;overflow-wrap:anywhere}
-.msg .time{color:#8a98a3;font-size:10px;margin-right:5px}
-.msg .name{color:#075d9b;font-weight:700;margin-right:5px}
-.msg.mine .name{color:#497514}
-.msg .text{color:#16232d}
-.system{padding:5px 0;color:#7a8791;font-size:11px;font-style:italic}
-.system strong{color:#526471}
-.empty{
-  margin:18px 0;padding:14px;border:1px dotted #a9b5bf;background:#f6f8f9;
-  color:#63727e;text-align:center
+.msg,.system{margin:0 0 3px;overflow-wrap:anywhere}
+.time{color:#777}
+.nick{color:#000080;font-weight:700}
+.msg.mine .nick{color:#800000}
+.system{color:var(--green);font-weight:700}
+.system.leave{color:#777}
+.empty{color:#555;font-style:italic}
+.composer{
+  flex:0 0 auto;
+  padding-top:4px;
 }
-.composer{border-top:1px solid #98a8b5;background:#e7edf0;padding:9px}
-.compose-row{display:grid;grid-template-columns:1fr auto;gap:7px}
+.compose-row{
+  display:grid;
+  grid-template-columns:1fr 74px;
+  gap:4px;
+}
 #messageInput{
-  width:100%;min-height:42px;padding:8px 9px;border:1px solid #6f8392;
-  background:#fff;box-shadow:inset 1px 1px 2px rgba(0,0,0,.12);color:#0b1722
+  width:100%;
+  height:32px;
+  padding:4px 6px;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  background:#fff;
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+  outline:none;
 }
-#sendBtn{
-  min-width:82px;border:1px solid #375a75;background:linear-gradient(#f8fbfd,#cbdde8);
-  box-shadow:inset 1px 1px #fff;padding:0 14px;font-weight:700;color:#113854
+#messageInput:focus{outline:1px dotted #000;outline-offset:-4px}
+.win-btn{
+  height:32px;
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  background:var(--win);
+  font-weight:700;
 }
-#sendBtn:disabled{opacity:.55;cursor:not-allowed}
-.compose-meta{display:flex;justify-content:space-between;gap:10px;margin-top:5px;color:#71808b;font-size:10px}
-.sidebar{background:#eef2f4}
-.side-title{padding:8px 9px;background:#d8e1e6;border-bottom:1px solid #9dacb7;font-weight:700;color:#243a4b}
-.online-list{list-style:none;margin:0;padding:5px 0}
-.online-list li{display:flex;align-items:center;gap:7px;padding:5px 9px;color:#273b4b}
-.online-list .mini-dot{width:7px;height:7px;border-radius:50%;background:#37a85a}
-.you-tag{margin-left:auto;color:#6d7b86;font-size:9px;text-transform:uppercase}
-.side-note{margin:8px;padding:9px;background:#fff;border:1px solid #b0bdc6;color:#61717d;font-size:10px;line-height:1.5}
+.win-btn:active{
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  padding-top:2px;
+  padding-left:2px;
+}
+.win-btn:disabled{color:#777;cursor:default}
+.compose-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:3px 2px 0;
+  font-family:"Courier New",Courier,monospace;
+  font-size:10px;
+  color:#444;
+}
+.sidebar{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+.side-head{
+  flex:0 0 auto;
+  padding:3px 4px;
+  font-weight:700;
+}
+.online-list{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  list-style:none;
+  margin:0;
+  padding:3px;
+  background:#fff;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  font-family:"Courier New",Courier,monospace;
+}
+.online-list li{
+  padding:2px 3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.online-list li::before{content:"• ";color:#008000}
+.online-list .self::before{content:"@ ";color:#000080;font-weight:700}
 .statusbar{
-  display:grid;grid-template-columns:1fr auto;gap:12px;padding:5px 8px;
-  border-top:1px solid #9eacb6;background:#dce4e8;color:#586975;font-size:10px
+  flex:0 0 auto;
+  min-height:25px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:8px;
+  padding:3px 5px;
+  border-top:1px solid #fff;
+  background:var(--win);
+  font-size:10px;
+}
+.status-field{
+  min-width:0;
+  padding:2px 4px;
+  border-top:1px solid var(--mid);
+  border-left:1px solid var(--mid);
+  border-right:1px solid #fff;
+  border-bottom:1px solid #fff;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.change-name{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:#0000ee;
+  text-decoration:underline;
+  font-size:10px;
 }
 .login-wrap{
-  position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:18px;
-  background:rgba(2,13,22,.76);backdrop-filter:blur(3px)
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:grid;
+  place-items:center;
+  padding:12px;
+  background:rgba(0,0,0,.36);
 }
 .login-wrap.hidden{display:none}
-.login-box{width:min(460px,100%);background:#dfe7ec;border:1px solid #020b12;box-shadow:0 18px 60px rgba(0,0,0,.5)}
-.login-title{padding:7px 9px;background:linear-gradient(#1d6294,#0a3760);color:#fff;font-weight:700}
-.login-body{padding:18px}
-.login-body h2{margin:0 0 7px;color:#103650;font-size:20px}
-.login-body p{margin:0 0 14px;color:#526574;line-height:1.5}
-.login-body label{display:block;margin-bottom:5px;font-weight:700}
-#nameInput{width:100%;padding:9px;border:1px solid #718493;background:#fff}
-.login-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:12px}
-.primary,.secondary{
-  padding:7px 13px;border:1px solid #526b7d;box-shadow:inset 1px 1px #fff
+.login-box{
+  width:min(390px,100%);
+  background:var(--win);
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  box-shadow:2px 2px 0 #000;
 }
-.primary{background:linear-gradient(#f4fbff,#c7dce9);font-weight:700;color:#0b3857}
-.secondary{background:#edf1f3;color:#334957}
-.disclaimer{margin-top:12px;color:#75838d;font-size:10px;line-height:1.45}
-.mobile-users{display:none}
+.login-title{
+  padding:4px 6px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:700;
+}
+.login-body{padding:14px}
+.login-copy{
+  margin:0 0 12px;
+  line-height:1.4;
+}
+.login-body label{display:block;margin-bottom:4px;font-weight:700}
+#nameInput{
+  width:100%;
+  height:30px;
+  padding:4px 6px;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  background:#fff;
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+}
+.login-actions{display:flex;justify-content:flex-end;margin-top:12px}
+.login-actions .win-btn{min-width:104px}
+.login-note{
+  margin-top:11px;
+  padding-top:8px;
+  border-top:1px solid #888;
+  font-size:10px;
+  color:#444;
+}
+.mobile-count{display:none}
+
 @media(max-width:720px){
-  .shell{padding:8px}
-  .brandbar{align-items:flex-start}
-  .brand h1{font-size:21px}
-  .chat-grid{grid-template-columns:1fr;min-height:calc(100vh - 180px)}
+  .shell{
+    width:100%;
+    height:100dvh;
+    padding:max(4px,env(safe-area-inset-top)) 4px max(4px,env(safe-area-inset-bottom));
+    gap:3px;
+  }
+  .backline{font-size:10px;padding-left:2px}
+  .window{box-shadow:none}
+  .titlebar{min-height:22px;padding:3px 5px}
+  .titlebar-right{display:none}
+  .info-strip{padding:3px 5px;font-size:10px;grid-template-columns:1fr auto}
+  .room-info .desktop-topic{display:none}
+  .mobile-count{display:inline}
+  .chat-grid{grid-template-columns:1fr;padding:3px;gap:0}
   .sidebar{display:none}
-  .main-panel{border-right:0}
-  .messages{max-height:none;min-height:50vh}
-  .room-topic{display:none}
-  .mobile-users{display:inline}
+  .messages{
+    padding:6px;
+    font-size:13px;
+    line-height:1.28;
+  }
+  .compose-row{grid-template-columns:1fr 64px;gap:3px}
+  #messageInput{height:34px;font-size:16px}
+  .win-btn{height:34px}
+  .compose-meta{padding-top:2px}
+  .statusbar{min-height:22px;padding:2px 4px}
+}
+
+@media(max-height:560px){
+  .backline{display:none}
+  .shell{padding-top:4px}
 }
 </style>
 </head>
 <body>
 <div class="shell">
-  <div class="top-link"><a href="/seahawks">← Back to Seattle Football HQ</a></div>
-  <main class="window" aria-label="Seahawks Online fan chat">
+  <div class="backline"><a href="/seahawks">← Seattle Football HQ</a></div>
+
+  <main class="window" aria-label="Seahawks chat room">
     <div class="titlebar">
-      <div class="titlebar-left"><span class="app-icon">S</span><span>Seahawks Online</span></div>
-      <div class="win-buttons" aria-hidden="true"><span>_</span><span>□</span><span>×</span></div>
+      <span>Seattle Seahawks Chat Room</span>
+      <span class="titlebar-right">PEOPLE CONNECTION</span>
     </div>
-    <div class="menubar"><span>File</span><span>Rooms</span><span>Fans</span><span>Help</span></div>
-    <div class="brandbar">
-      <div class="brand">
-        <h1>SEAHAWKS <span>ONLINE</span></h1>
-        <p>Seattle Football HQ fan chat · live beta</p>
+
+    <div class="info-strip">
+      <div class="room-info">
+        <strong>Room:</strong> #seahawks
+        <span class="desktop-topic"> &nbsp;|&nbsp; <strong>Topic:</strong> Seahawks football, all week</span>
+        <span class="mobile-count"> &nbsp;|&nbsp; <span id="mobileOnline">1</span> here</span>
       </div>
-      <div class="connection"><span id="connectionDot" class="dot"></span><span id="connectionText">Waiting to join</span></div>
+      <div class="connection"><span id="connectionDot" class="dot"></span><span id="connectionText">offline</span></div>
     </div>
-    <nav class="toolbar" aria-label="Chat rooms">
-      <button class="room-btn active" data-room="gameday"># GAMEDAY<small>Live game talk</small></button>
-      <button class="room-btn" data-room="general"># GENERAL<small>Seahawks all week</small></button>
-      <button class="room-btn" data-room="overreaction"># OVERREACTION<small>Keep the takes here</small></button>
-    </nav>
+
     <div class="chat-grid">
       <section class="main-panel">
-        <header class="room-header">
-          <div class="room-title" id="roomTitle"># GAMEDAY <span class="mobile-users">· <span id="mobileOnline">1</span> online</span></div>
-          <div class="room-topic" id="roomTopic">Live reactions during Seahawks games</div>
-        </header>
         <div class="messages" id="messages" aria-live="polite"></div>
+
         <form class="composer" id="composer">
           <div class="compose-row">
-            <input id="messageInput" maxlength="250" autocomplete="off" placeholder="Type a message..." aria-label="Chat message">
-            <button id="sendBtn" type="submit">SEND</button>
+            <input id="messageInput" maxlength="250" autocomplete="off" placeholder="Type here..." aria-label="Chat message">
+            <button id="sendBtn" class="win-btn" type="submit">SEND</button>
           </div>
           <div class="compose-meta">
-            <span id="identityLine">Not signed in</span>
+            <span id="identityLine">not signed in</span>
             <span><span id="charCount">0</span>/250</span>
           </div>
         </form>
       </section>
+
       <aside class="sidebar">
-        <div class="side-title">FANS ONLINE · <span id="onlineCount">1</span></div>
+        <div class="side-head">People Here (<span id="onlineCount">1</span>)</div>
         <ul class="online-list" id="onlineList"></ul>
-        <div class="side-note">
-          Live peer-to-peer beta.<br><br>
-          Messages are shared directly between people currently in the room. This version does not keep a permanent public archive.
-        </div>
       </aside>
     </div>
+
     <div class="statusbar">
-      <span id="statusText">Choose a screen name to enter.</span>
-      <button id="changeNameBtn" class="secondary" type="button">Change screen name</button>
+      <div class="status-field" id="statusText">Choose a screen name to enter #seahawks.</div>
+      <button id="changeNameBtn" class="change-name" type="button">change screen name</button>
     </div>
   </main>
 </div>
 
 <div class="login-wrap" id="loginWrap">
   <section class="login-box" aria-labelledby="loginHeading">
-    <div class="login-title">Connect to Seahawks Online</div>
+    <div class="login-title">Enter #seahawks</div>
     <div class="login-body">
-      <h2 id="loginHeading">Choose a screen name</h2>
-      <p>No email, password, or account required. Your screen name stays on this device.</p>
-      <label for="nameInput">Screen name</label>
+      <p class="login-copy" id="loginHeading">Pick a screen name. No email, password, or account.</p>
+      <label for="nameInput">Screen name:</label>
       <input id="nameInput" maxlength="20" autocomplete="nickname" placeholder="SeahawksFan84">
       <div class="login-actions">
-        <button type="button" class="primary" id="enterBtn">ENTER CHAT</button>
+        <button type="button" class="win-btn" id="enterBtn">ENTER ROOM</button>
       </div>
-      <div class="disclaimer">Be normal. Text only for now. The live beta is intentionally simple while the room is tested.</div>
+      <div class="login-note">Your screen name stays on this device. Messages are peer-to-peer and this free prototype does not keep a permanent server archive.</div>
     </div>
   </section>
 </div>
@@ -236,14 +407,10 @@ a{color:#0645ad}
 import {joinRoom, selfId} from 'https://esm.run/trystero'
 
 const APP_ID = 'com.jessedeanrivero.seahawks-online.v1'
-const HISTORY_LIMIT = 80
+const ROOM_ID = 'seahawks-2026-general'
+const HISTORY_LIMIT = 100
 const MAX_MESSAGE = 250
 const COOLDOWN_MS = 1200
-const rooms = {
-  gameday: {label:'# GAMEDAY', topic:'Live reactions during Seahawks games'},
-  general: {label:'# GENERAL', topic:'Seahawks talk all week'},
-  overreaction: {label:'# OVERREACTION', topic:'A designated home for immediate takes'}
-}
 
 const els = {
   loginWrap: document.getElementById('loginWrap'),
@@ -259,28 +426,26 @@ const els = {
   onlineList: document.getElementById('onlineList'),
   onlineCount: document.getElementById('onlineCount'),
   mobileOnline: document.getElementById('mobileOnline'),
-  roomTitle: document.getElementById('roomTitle'),
-  roomTopic: document.getElementById('roomTopic'),
   connectionDot: document.getElementById('connectionDot'),
   connectionText: document.getElementById('connectionText'),
   statusText: document.getElementById('statusText')
 }
 
 let displayName = localStorage.getItem('seahawksChatName') || ''
-let currentChannel = 'gameday'
 let activeRoom = null
 let actions = null
 let peers = new Map()
+let announcedPeers = new Set()
 let messageHistory = []
 let systemEntries = []
 let lastSentAt = 0
 
 const cleanName = value => value.replace(/[<>]/g,'').replace(/\s+/g,' ').trim().slice(0,20)
 const cleanMessage = value => value.replace(/[<>]/g,'').trim().slice(0,MAX_MESSAGE)
-const historyKey = channel => 'seahawksChatHistory:' + channel
+const HISTORY_KEY = 'seahawksChatHistory:general'
 
 function formatTime(ts){
-  return new Intl.DateTimeFormat([], {hour:'numeric', minute:'2-digit'}).format(new Date(ts))
+  return new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(new Date(ts))
 }
 
 function validMessage(msg){
@@ -294,9 +459,9 @@ function validMessage(msg){
     msg.text.length <= MAX_MESSAGE
 }
 
-function loadHistory(channel){
+function loadHistory(){
   try{
-    const saved = JSON.parse(localStorage.getItem(historyKey(channel)) || '[]')
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]')
     return Array.isArray(saved) ? saved.filter(validMessage).slice(-HISTORY_LIMIT) : []
   }catch{
     return []
@@ -305,7 +470,7 @@ function loadHistory(channel){
 
 function saveHistory(){
   try{
-    localStorage.setItem(historyKey(currentChannel), JSON.stringify(messageHistory.slice(-HISTORY_LIMIT)))
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(messageHistory.slice(-HISTORY_LIMIT)))
   }catch{}
 }
 
@@ -318,9 +483,9 @@ function mergeHistory(incoming){
   renderMessages()
 }
 
-function addSystem(text){
-  systemEntries.push({id:crypto.randomUUID(), text, ts:Date.now()})
-  systemEntries = systemEntries.slice(-12)
+function addSystem(text, kind='join'){
+  systemEntries.push({id:crypto.randomUUID(),text,kind,ts:Date.now()})
+  systemEntries = systemEntries.slice(-20)
   renderMessages()
 }
 
@@ -335,8 +500,8 @@ function addMessage(msg){
 
 function renderMessages(){
   const combined = [
-    ...messageHistory.map(m => ({...m, kind:'message'})),
-    ...systemEntries.map(m => ({...m, kind:'system'}))
+    ...messageHistory.map(m => ({...m,kind:'message'})),
+    ...systemEntries.map(m => ({...m,kind:'system'}))
   ].sort((a,b) => a.ts - b.ts)
 
   els.messages.replaceChildren()
@@ -344,118 +509,125 @@ function renderMessages(){
   if(!combined.length){
     const empty = document.createElement('div')
     empty.className = 'empty'
-    empty.textContent = 'You are the first fan in this room right now.'
+    empty.textContent = 'No chat yet.'
     els.messages.appendChild(empty)
     return
   }
 
   combined.forEach(item => {
     const row = document.createElement('div')
+
     if(item.kind === 'system'){
-      row.className = 'system'
-      row.textContent = item.text
+      row.className = 'system' + (item.kindDetail === 'leave' || item.systemKind === 'leave' || item.text.includes(' left ') ? ' leave' : '')
+      row.textContent = '*** ' + item.text
     }else{
       row.className = 'msg' + (item.selfId === selfId ? ' mine' : '')
+
       const time = document.createElement('span')
       time.className = 'time'
-      time.textContent = '[' + formatTime(item.ts) + ']'
-      const name = document.createElement('span')
-      name.className = 'name'
-      name.textContent = item.name + ':'
+      time.textContent = '[' + formatTime(item.ts) + '] '
+
+      const nick = document.createElement('span')
+      nick.className = 'nick'
+      nick.textContent = '<' + item.name + '> '
+
       const text = document.createElement('span')
-      text.className = 'text'
       text.textContent = item.text
-      row.append(time,name,text)
+
+      row.append(time,nick,text)
     }
+
     els.messages.appendChild(row)
   })
+
   els.messages.scrollTop = els.messages.scrollHeight
 }
 
 function renderOnline(){
   els.onlineList.replaceChildren()
+
   const selfLi = document.createElement('li')
-  selfLi.innerHTML = '<span class="mini-dot"></span>'
-  const selfName = document.createElement('span')
-  selfName.textContent = displayName || 'You'
-  const selfTag = document.createElement('span')
-  selfTag.className = 'you-tag'
-  selfTag.textContent = 'you'
-  selfLi.append(selfName,selfTag)
+  selfLi.className = 'self'
+  selfLi.textContent = displayName || 'You'
   els.onlineList.appendChild(selfLi)
 
-  ;[...peers.entries()]
-    .sort((a,b) => (a[1].name || '').localeCompare(b[1].name || ''))
-    .forEach(([peerId,profile]) => {
+  ;[...peers.values()]
+    .map(profile => profile.name || 'connecting...')
+    .sort((a,b) => a.localeCompare(b))
+    .forEach(name => {
       const li = document.createElement('li')
-      const dot = document.createElement('span')
-      dot.className = 'mini-dot'
-      const name = document.createElement('span')
-      name.textContent = profile.name || 'Connecting…'
-      li.append(dot,name)
+      li.textContent = name
       els.onlineList.appendChild(li)
     })
 
   const count = peers.size + 1
   els.onlineCount.textContent = count
   els.mobileOnline.textContent = count
+  if(displayName) els.connectionText.textContent = count + (count === 1 ? ' person' : ' people')
 }
 
-function setConnection(text, live=false){
-  els.connectionText.textContent = text
-  els.connectionDot.classList.toggle('live', live)
+function setConnection(live){
+  els.connectionDot.classList.toggle('live',live)
+  if(!live) els.connectionText.textContent = 'offline'
 }
 
-function leaveActiveRoom(){
+function leaveRoom(){
   if(activeRoom){
-    try{ activeRoom.leave() }catch{}
+    try{activeRoom.leave()}catch{}
   }
   activeRoom = null
   actions = null
   peers = new Map()
+  announcedPeers = new Set()
+  renderOnline()
+  setConnection(false)
 }
 
-function joinChannel(channel){
+function announcePeer(peerId,name){
+  if(announcedPeers.has(peerId)) return
+  announcedPeers.add(peerId)
+  addSystem(name + ' has joined #seahawks')
+}
+
+function joinChat(){
   if(!displayName) return
-  leaveActiveRoom()
-  currentChannel = channel
-  messageHistory = loadHistory(channel)
+
+  leaveRoom()
+  messageHistory = loadHistory()
   systemEntries = []
   renderMessages()
   renderOnline()
 
-  document.querySelectorAll('.room-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.room === channel))
-  els.roomTitle.childNodes[0].nodeValue = rooms[channel].label + ' '
-  els.roomTopic.textContent = rooms[channel].topic
-  els.statusText.textContent = 'Opening ' + rooms[channel].label + '…'
-  setConnection('Connecting…', false)
+  els.identityLine.textContent = 'screen name: ' + displayName
+  els.statusText.textContent = 'Connecting to #seahawks...'
 
-  activeRoom = joinRoom({appId:APP_ID}, 'seahawks-2026-' + channel)
+  activeRoom = joinRoom({appId:APP_ID}, ROOM_ID)
+
   const messageAction = activeRoom.makeAction('chat')
   const profileAction = activeRoom.makeAction('profile')
   const historyAction = activeRoom.makeAction('history')
   actions = {messageAction,profileAction,historyAction}
 
-  messageAction.onMessage = (data,{peerId}) => {
-    if(!validMessage(data)) return
-    addMessage({...data, peerId})
+  messageAction.onMessage = data => {
+    if(validMessage(data)) addMessage(data)
   }
 
   profileAction.onMessage = (data,{peerId}) => {
     if(!data || typeof data.name !== 'string') return
     const name = cleanName(data.name)
     if(!name) return
-    const existed = peers.get(peerId)
+
     peers.set(peerId,{name})
-    if(!existed || !existed.name) addSystem(name + ' entered the room')
+    announcePeer(peerId,name)
     renderOnline()
   }
 
   historyAction.onMessage = data => mergeHistory(data)
 
   activeRoom.onPeerJoin = peerId => {
-    peers.set(peerId,{name:''})
+    if(!peers.has(peerId)) peers.set(peerId,{name:''})
     renderOnline()
+
     profileAction.send({name:displayName},{target:peerId})
     historyAction.send(messageHistory.slice(-HISTORY_LIMIT),{target:peerId})
   }
@@ -463,13 +635,15 @@ function joinChannel(channel){
   activeRoom.onPeerLeave = peerId => {
     const name = peers.get(peerId)?.name || 'A fan'
     peers.delete(peerId)
-    addSystem(name + ' left the room')
+    announcedPeers.delete(peerId)
+    addSystem(name + ' has left #seahawks','leave')
     renderOnline()
   }
 
-  els.identityLine.textContent = 'Signed in as ' + displayName
-  els.statusText.textContent = rooms[channel].label + ' is open. Messages are live while fans are connected.'
-  setConnection('Room open', true)
+  addSystem(displayName + ' has joined #seahawks')
+  setConnection(true)
+  renderOnline()
+  els.statusText.textContent = 'Connected to #seahawks as ' + displayName + '.'
 }
 
 function enterWithName(){
@@ -478,38 +652,40 @@ function enterWithName(){
     els.nameInput.focus()
     return
   }
+
   displayName = name
-  localStorage.setItem('seahawksChatName', displayName)
+  localStorage.setItem('seahawksChatName',displayName)
   els.loginWrap.classList.add('hidden')
-  joinChannel(currentChannel)
-  setTimeout(() => els.messageInput.focus(),100)
+  joinChat()
+  setTimeout(() => els.messageInput.focus(),80)
 }
 
-els.enterBtn.addEventListener('click', enterWithName)
-els.nameInput.addEventListener('keydown', e => {
+els.enterBtn.addEventListener('click',enterWithName)
+
+els.nameInput.addEventListener('keydown',e => {
   if(e.key === 'Enter') enterWithName()
 })
-els.changeNameBtn.addEventListener('click', () => {
+
+els.changeNameBtn.addEventListener('click',() => {
   els.nameInput.value = displayName
   els.loginWrap.classList.remove('hidden')
   setTimeout(() => els.nameInput.select(),50)
 })
-document.querySelectorAll('.room-btn').forEach(btn => btn.addEventListener('click', () => {
-  if(btn.dataset.room !== currentChannel) joinChannel(btn.dataset.room)
-}))
 
-els.messageInput.addEventListener('input', () => {
+els.messageInput.addEventListener('input',() => {
   els.charCount.textContent = els.messageInput.value.length
 })
 
-els.composer.addEventListener('submit', async e => {
+els.composer.addEventListener('submit',async e => {
   e.preventDefault()
   if(!actions) return
+
   const now = Date.now()
   if(now - lastSentAt < COOLDOWN_MS){
-    els.statusText.textContent = 'Give it a second before sending another message.'
+    els.statusText.textContent = 'Slow down for one second.'
     return
   }
+
   const text = cleanMessage(els.messageInput.value)
   if(!text) return
 
@@ -526,23 +702,28 @@ els.composer.addEventListener('submit', async e => {
   els.charCount.textContent = '0'
   addMessage(msg)
   els.sendBtn.disabled = true
-  els.statusText.textContent = 'Sending…'
+
   try{
     await actions.messageAction.send(msg)
-    els.statusText.textContent = 'Sent to ' + peers.size + (peers.size === 1 ? ' fan.' : ' fans.')
+    els.statusText.textContent = peers.size
+      ? 'Sent to ' + peers.size + (peers.size === 1 ? ' fan.' : ' fans.')
+      : 'Posted. You are the only fan here right now.'
   }catch{
-    els.statusText.textContent = 'Message stayed on this device because the room connection dropped.'
+    els.statusText.textContent = 'Connection dropped. Your message stayed on this device.'
   }
-  setTimeout(() => { els.sendBtn.disabled = false }, COOLDOWN_MS)
+
+  setTimeout(() => {els.sendBtn.disabled = false},COOLDOWN_MS)
 })
 
-window.addEventListener('beforeunload', leaveActiveRoom)
+window.addEventListener('beforeunload',leaveRoom)
 
 if(displayName){
   els.nameInput.value = displayName
   els.loginWrap.classList.add('hidden')
-  joinChannel(currentChannel)
+  joinChat()
 }else{
+  renderMessages()
+  renderOnline()
   els.nameInput.focus()
 }
 </script>
