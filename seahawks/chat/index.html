@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#008080">
+<title>Seahawks Chat Room</title>
+<meta name="description" content="An old-school live Seahawks fan chat room from Seattle Football HQ.">
+<style>
+:root{
+  --desktop:#003b71;
+  --win:#005596;
+  --light:#eef6fb;
+  --mid:#6f8fa7;
+  --dark:#002b4f;
+  --black:#000000;
+  --blue:#003b71;
+  --green:#69be28;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--desktop)}
+body{
+  color:#000;
+  font-family:"MS Sans Serif",Geneva,Tahoma,Arial,sans-serif;
+  font-size:12px;
+  overflow:hidden;
+}
+button,input{font:inherit;color:#000}
+button{cursor:pointer}
+a{color:#0000ee}
+.shell{
+  width:min(1040px,100%);
+  height:100dvh;
+  margin:0 auto;
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.backline{
+  flex:0 0 auto;
+  color:#fff;
+  font-size:11px;
+  text-shadow:1px 1px #004040;
+}
+.backline a{color:#fff}
+.window{
+  flex:1;
+  color:#071d2c;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  background:#d9e2e8;
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  box-shadow:1px 1px 0 #000;
+}
+.titlebar{
+  flex:0 0 auto;
+  min-height:24px;
+  padding:4px 6px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--blue);
+  color:#fff;
+  font-weight:700;
+  letter-spacing:.1px;
+}
+.titlebar-right{
+  font-family:"Courier New",Courier,monospace;
+  font-size:11px;
+  font-weight:400;
+}
+.info-strip{
+  flex:0 0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  align-items:center;
+  padding:5px 7px;
+  border-bottom:1px solid var(--mid);
+  background:#69be28;
+  font-size:11px;
+}
+.room-info{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.connection{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  white-space:nowrap;
+  font-family:"Courier New",Courier,monospace;
+}
+.dot{
+  width:8px;
+  height:8px;
+  border:1px solid #004000;
+  background:#777;
+}
+.dot.live{background:#00a000}
+.chat-grid{
+  flex:1;
+  background:#005596;
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 180px;
+  gap:4px;
+  padding:4px;
+}
+.main-panel{
+  min-width:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+.messages{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:7px 8px;
+  background:#fff;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+  line-height:1.32;
+}
+.msg,.system{margin:0 0 3px;overflow-wrap:anywhere}
+.time{color:#777}
+.nick{color:#000080;font-weight:700}
+.msg.mine .nick{color:#800000}
+.system{color:var(--green);font-weight:700}
+.system.leave{color:#777}
+.empty{color:#555;font-style:italic}
+.composer{
+  flex:0 0 auto;
+  padding-top:4px;
+}
+.compose-row{
+  display:grid;
+  grid-template-columns:1fr 74px;
+  gap:4px;
+}
+#messageInput{
+  width:100%;
+  height:32px;
+  padding:4px 6px;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  background:#fff;
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+  outline:none;
+}
+#messageInput:focus{outline:1px dotted #000;outline-offset:-4px}
+.win-btn{
+  height:32px;
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  background:#d9e2e8;
+  font-weight:700;
+}
+.win-btn:active{
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  padding-top:2px;
+  padding-left:2px;
+}
+.win-btn:disabled{color:#777;cursor:default}
+.compose-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:3px 2px 0;
+  font-family:"Courier New",Courier,monospace;
+  font-size:10px;
+  color:#16354f;
+}
+.sidebar{
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+}
+.side-head{
+  flex:0 0 auto;
+  color:#fff;
+  padding:3px 4px;
+  font-weight:700;
+}
+.online-list{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  list-style:none;
+  margin:0;
+  padding:3px;
+  background:#fff;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  font-family:"Courier New",Courier,monospace;
+}
+.online-list li{
+  padding:2px 3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.online-list li::before{content:"• ";color:#008000}
+.online-list .self::before{content:"@ ";color:#000080;font-weight:700}
+.statusbar{
+  flex:0 0 auto;
+  color:#071d2c;
+  min-height:25px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:8px;
+  padding:3px 5px;
+  border-top:1px solid #fff;
+  background:#d9e2e8;
+  font-size:10px;
+}
+.status-field{
+  min-width:0;
+  padding:2px 4px;
+  border-top:1px solid var(--mid);
+  border-left:1px solid var(--mid);
+  border-right:1px solid #fff;
+  border-bottom:1px solid #fff;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.change-name{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:#0000ee;
+  text-decoration:underline;
+  font-size:10px;
+}
+.login-wrap{
+  position:fixed;
+  inset:0;
+  z-index:20;
+  display:grid;
+  place-items:center;
+  padding:12px;
+  background:rgba(0,30,60,.52);
+}
+.login-wrap.hidden{display:none}
+.login-box{
+  width:min(390px,100%);
+  background:#d9e2e8;
+  border-top:2px solid var(--light);
+  border-left:2px solid var(--light);
+  border-right:2px solid var(--dark);
+  border-bottom:2px solid var(--dark);
+  box-shadow:2px 2px 0 #000;
+}
+.login-title{
+  padding:4px 6px;
+  background:var(--blue);
+  color:#fff;
+  font-weight:700;
+}
+.login-body{padding:14px}
+.login-copy{
+  margin:0 0 12px;
+  line-height:1.4;
+}
+.login-body label{display:block;margin-bottom:4px;font-weight:700}
+#nameInput{
+  width:100%;
+  height:30px;
+  padding:4px 6px;
+  border-top:2px solid var(--dark);
+  border-left:2px solid var(--dark);
+  border-right:2px solid var(--light);
+  border-bottom:2px solid var(--light);
+  background:#fff;
+  font-family:"Courier New",Courier,monospace;
+  font-size:14px;
+}
+.login-actions{display:flex;justify-content:flex-end;margin-top:12px}
+.login-actions .win-btn{min-width:104px}
+.login-note{
+  margin-top:11px;
+  padding-top:8px;
+  border-top:1px solid #888;
+  font-size:10px;
+  color:#16354f;
+}
+.mobile-count{display:none}
+
+@media(max-width:720px){
+  .shell{
+    width:100%;
+    height:100dvh;
+    padding:max(4px,env(safe-area-inset-top)) 4px max(4px,env(safe-area-inset-bottom));
+    gap:3px;
+  }
+  .backline{font-size:10px;padding-left:2px}
+  .window{box-shadow:none}
+  .titlebar{min-height:22px;padding:3px 5px}
+  .titlebar-right{display:none}
+  .info-strip{padding:3px 5px;font-size:10px;grid-template-columns:1fr auto}
+  .room-info .desktop-topic{display:none}
+  .mobile-count{display:inline}
+  .chat-grid{grid-template-columns:1fr;padding:3px;gap:0}
+  .sidebar{display:none}
+  .messages{
+    padding:6px;
+    font-size:13px;
+    line-height:1.28;
+  }
+  .compose-row{grid-template-columns:1fr 64px;gap:3px}
+  #messageInput{height:34px;font-size:16px}
+  .win-btn{height:34px}
+  .compose-meta{padding-top:2px}
+  .statusbar{min-height:22px;padding:2px 4px}
+}
+
+@media(max-height:560px){
+  .backline{display:none}
+  .shell{padding-top:4px}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="backline"><a href="/seahawks">← Seattle Football HQ</a> &nbsp;|&nbsp; <a href="/seahawks/board">Fan Board</a></div>
+
+  <main class="window" aria-label="Seahawks chat room">
+    <div class="titlebar">
+      <span>Seattle Seahawks Chat Room</span>
+      <span class="titlebar-right">PEOPLE CONNECTION</span>
+    </div>
+
+    <div class="info-strip">
+      <div class="room-info">
+        <strong>Room:</strong> #seahawks
+        <span class="desktop-topic"> &nbsp;|&nbsp; <strong>Topic:</strong> Seahawks football, all week</span>
+        <span class="mobile-count"> &nbsp;|&nbsp; <span id="mobileOnline">1</span> here</span>
+      </div>
+      <div class="connection"><span id="connectionDot" class="dot"></span><span id="connectionText">offline</span></div>
+    </div>
+
+    <div class="chat-grid">
+      <section class="main-panel">
+        <div class="messages" id="messages" aria-live="polite"></div>
+
+        <form class="composer" id="composer">
+          <div class="compose-row">
+            <input id="messageInput" maxlength="250" autocomplete="off" placeholder="Type here..." aria-label="Chat message">
+            <button id="sendBtn" class="win-btn" type="submit">SEND</button>
+          </div>
+          <div class="compose-meta">
+            <span id="identityLine">not signed in</span>
+            <span><span id="charCount">0</span>/250</span>
+          </div>
+        </form>
+      </section>
+
+      <aside class="sidebar">
+        <div class="side-head">People Here (<span id="onlineCount">1</span>)</div>
+        <ul class="online-list" id="onlineList"></ul>
+      </aside>
+    </div>
+
+    <div class="statusbar">
+      <div class="status-field" id="statusText">Choose a screen name to enter #seahawks.</div>
+      <button id="changeNameBtn" class="change-name" type="button">change screen name</button>
+    </div>
+  </main>
+</div>
+
+<div class="login-wrap" id="loginWrap">
+  <section class="login-box" aria-labelledby="loginHeading">
+    <div class="login-title">Enter #seahawks</div>
+    <div class="login-body">
+      <p class="login-copy" id="loginHeading">Pick a screen name. No email, password, or account.</p>
+      <label for="nameInput">Screen name:</label>
+      <input id="nameInput" maxlength="20" autocomplete="nickname" placeholder="SeahawksFan84">
+      <div class="login-actions">
+        <button type="button" class="win-btn" id="enterBtn">ENTER ROOM</button>
+      </div>
+      <div class="login-note">Your screen name stays on this device. Messages are peer-to-peer and this free prototype does not keep a permanent server archive.</div>
+    </div>
+  </section>
+</div>
+
+<script type="module">
+import {joinRoom, selfId} from 'https://esm.run/trystero'
+
+const APP_ID = 'com.jessedeanrivero.seahawks-online.v1'
+const ROOM_ID = 'seahawks-2026-general'
+const HISTORY_LIMIT = 100
+const MAX_MESSAGE = 250
+const COOLDOWN_MS = 1200
+
+const els = {
+  loginWrap: document.getElementById('loginWrap'),
+  nameInput: document.getElementById('nameInput'),
+  enterBtn: document.getElementById('enterBtn'),
+  changeNameBtn: document.getElementById('changeNameBtn'),
+  messages: document.getElementById('messages'),
+  composer: document.getElementById('composer'),
+  messageInput: document.getElementById('messageInput'),
+  sendBtn: document.getElementById('sendBtn'),
+  charCount: document.getElementById('charCount'),
+  identityLine: document.getElementById('identityLine'),
+  onlineList: document.getElementById('onlineList'),
+  onlineCount: document.getElementById('onlineCount'),
+  mobileOnline: document.getElementById('mobileOnline'),
+  connectionDot: document.getElementById('connectionDot'),
+  connectionText: document.getElementById('connectionText'),
+  statusText: document.getElementById('statusText')
+}
+
+let displayName = localStorage.getItem('seahawksChatName') || ''
+let activeRoom = null
+let actions = null
+let peers = new Map()
+let announcedPeers = new Set()
+let messageHistory = []
+let systemEntries = []
+let lastSentAt = 0
+
+const cleanName = value => value.replace(/[<>]/g,'').replace(/\s+/g,' ').trim().slice(0,20)
+const cleanMessage = value => value.replace(/[<>]/g,'').trim().slice(0,MAX_MESSAGE)
+const HISTORY_KEY = 'seahawksChatHistory:general'
+
+function formatTime(ts){
+  return new Intl.DateTimeFormat([], {hour:'numeric',minute:'2-digit'}).format(new Date(ts))
+}
+
+function validMessage(msg){
+  return msg && typeof msg === 'object' &&
+    typeof msg.id === 'string' &&
+    typeof msg.name === 'string' &&
+    typeof msg.text === 'string' &&
+    Number.isFinite(msg.ts) &&
+    msg.name.length <= 20 &&
+    msg.text.length > 0 &&
+    msg.text.length <= MAX_MESSAGE
+}
+
+function loadHistory(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]')
+    return Array.isArray(saved) ? saved.filter(validMessage).slice(-HISTORY_LIMIT) : []
+  }catch{
+    return []
+  }
+}
+
+function saveHistory(){
+  try{
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(messageHistory.slice(-HISTORY_LIMIT)))
+  }catch{}
+}
+
+function mergeHistory(incoming){
+  if(!Array.isArray(incoming)) return
+  const byId = new Map(messageHistory.map(m => [m.id,m]))
+  incoming.filter(validMessage).forEach(m => byId.set(m.id,m))
+  messageHistory = [...byId.values()].sort((a,b) => a.ts - b.ts).slice(-HISTORY_LIMIT)
+  saveHistory()
+  renderMessages()
+}
+
+function addSystem(text, kind='join'){
+  systemEntries.push({id:crypto.randomUUID(),text,systemKind:kind,ts:Date.now()})
+  systemEntries = systemEntries.slice(-20)
+  renderMessages()
+}
+
+function addMessage(msg){
+  if(!validMessage(msg) || messageHistory.some(m => m.id === msg.id)) return
+  messageHistory.push(msg)
+  messageHistory.sort((a,b) => a.ts - b.ts)
+  messageHistory = messageHistory.slice(-HISTORY_LIMIT)
+  saveHistory()
+  renderMessages()
+}
+
+function renderMessages(){
+  const combined = [
+    ...messageHistory.map(m => ({...m,kind:'message'})),
+    ...systemEntries.map(m => ({...m,kind:'system'}))
+  ].sort((a,b) => a.ts - b.ts)
+
+  els.messages.replaceChildren()
+
+  if(!combined.length){
+    const empty = document.createElement('div')
+    empty.className = 'empty'
+    empty.textContent = 'No chat yet.'
+    els.messages.appendChild(empty)
+    return
+  }
+
+  combined.forEach(item => {
+    const row = document.createElement('div')
+
+    if(item.kind === 'system'){
+      row.className = 'system' + (item.systemKind === 'leave' ? ' leave' : '')
+      row.textContent = '*** ' + item.text
+    }else{
+      row.className = 'msg' + (item.selfId === selfId ? ' mine' : '')
+
+      const time = document.createElement('span')
+      time.className = 'time'
+      time.textContent = '[' + formatTime(item.ts) + '] '
+
+      const nick = document.createElement('span')
+      nick.className = 'nick'
+      nick.textContent = '<' + item.name + '> '
+
+      const text = document.createElement('span')
+      text.textContent = item.text
+
+      row.append(time,nick,text)
+    }
+
+    els.messages.appendChild(row)
+  })
+
+  els.messages.scrollTop = els.messages.scrollHeight
+}
+
+function renderOnline(){
+  els.onlineList.replaceChildren()
+
+  const selfLi = document.createElement('li')
+  selfLi.className = 'self'
+  selfLi.textContent = displayName || 'You'
+  els.onlineList.appendChild(selfLi)
+
+  ;[...peers.values()]
+    .map(profile => profile.name || 'connecting...')
+    .sort((a,b) => a.localeCompare(b))
+    .forEach(name => {
+      const li = document.createElement('li')
+      li.textContent = name
+      els.onlineList.appendChild(li)
+    })
+
+  const count = peers.size + 1
+  els.onlineCount.textContent = count
+  els.mobileOnline.textContent = count
+  if(displayName) els.connectionText.textContent = count + (count === 1 ? ' person' : ' people')
+}
+
+function setConnection(live){
+  els.connectionDot.classList.toggle('live',live)
+  if(!live) els.connectionText.textContent = 'offline'
+}
+
+function leaveRoom(){
+  if(activeRoom){
+    try{activeRoom.leave()}catch{}
+  }
+  activeRoom = null
+  actions = null
+  peers = new Map()
+  announcedPeers = new Set()
+  renderOnline()
+  setConnection(false)
+}
+
+function announcePeer(peerId,name){
+  if(announcedPeers.has(peerId)) return
+  announcedPeers.add(peerId)
+  addSystem(name + ' has joined #seahawks')
+}
+
+function joinChat(){
+  if(!displayName) return
+
+  leaveRoom()
+  messageHistory = loadHistory()
+  systemEntries = []
+  renderMessages()
+  renderOnline()
+
+  els.identityLine.textContent = 'screen name: ' + displayName
+  els.statusText.textContent = 'Connecting to #seahawks...'
+
+  activeRoom = joinRoom({appId:APP_ID}, ROOM_ID)
+
+  const messageAction = activeRoom.makeAction('chat')
+  const profileAction = activeRoom.makeAction('profile')
+  const historyAction = activeRoom.makeAction('history')
+  actions = {messageAction,profileAction,historyAction}
+
+  messageAction.onMessage = data => {
+    if(validMessage(data)) addMessage(data)
+  }
+
+  profileAction.onMessage = (data,{peerId}) => {
+    if(!data || typeof data.name !== 'string') return
+    const name = cleanName(data.name)
+    if(!name) return
+
+    peers.set(peerId,{name})
+    announcePeer(peerId,name)
+    renderOnline()
+  }
+
+  historyAction.onMessage = data => mergeHistory(data)
+
+  activeRoom.onPeerJoin = peerId => {
+    if(!peers.has(peerId)) peers.set(peerId,{name:''})
+    renderOnline()
+
+    profileAction.send({name:displayName},{target:peerId})
+    historyAction.send(messageHistory.slice(-HISTORY_LIMIT),{target:peerId})
+  }
+
+  activeRoom.onPeerLeave = peerId => {
+    const name = peers.get(peerId)?.name || 'A fan'
+    peers.delete(peerId)
+    announcedPeers.delete(peerId)
+    addSystem(name + ' has left #seahawks','leave')
+    renderOnline()
+  }
+
+  addSystem(displayName + ' has joined #seahawks')
+  setConnection(true)
+  renderOnline()
+  els.statusText.textContent = 'Connected to #seahawks as ' + displayName + '.'
+}
+
+function enterWithName(){
+  const name = cleanName(els.nameInput.value)
+  if(!name){
+    els.nameInput.focus()
+    return
+  }
+
+  displayName = name
+  localStorage.setItem('seahawksChatName',displayName)
+  els.loginWrap.classList.add('hidden')
+  joinChat()
+  setTimeout(() => els.messageInput.focus(),80)
+}
+
+els.enterBtn.addEventListener('click',enterWithName)
+
+els.nameInput.addEventListener('keydown',e => {
+  if(e.key === 'Enter') enterWithName()
+})
+
+els.changeNameBtn.addEventListener('click',() => {
+  els.nameInput.value = displayName
+  els.loginWrap.classList.remove('hidden')
+  setTimeout(() => els.nameInput.select(),50)
+})
+
+els.messageInput.addEventListener('input',() => {
+  els.charCount.textContent = els.messageInput.value.length
+})
+
+els.composer.addEventListener('submit',async e => {
+  e.preventDefault()
+  if(!actions) return
+
+  const now = Date.now()
+  if(now - lastSentAt < COOLDOWN_MS){
+    els.statusText.textContent = 'Slow down for one second.'
+    return
+  }
+
+  const text = cleanMessage(els.messageInput.value)
+  if(!text) return
+
+  const msg = {
+    id:crypto.randomUUID(),
+    selfId,
+    name:displayName,
+    text,
+    ts:now
+  }
+
+  lastSentAt = now
+  els.messageInput.value = ''
+  els.charCount.textContent = '0'
+  addMessage(msg)
+  els.sendBtn.disabled = true
+
+  try{
+    await actions.messageAction.send(msg)
+    els.statusText.textContent = peers.size
+      ? 'Sent to ' + peers.size + (peers.size === 1 ? ' fan.' : ' fans.')
+      : 'Posted. You are the only fan here right now.'
+  }catch{
+    els.statusText.textContent = 'Connection dropped. Your message stayed on this device.'
+  }
+
+  setTimeout(() => {els.sendBtn.disabled = false},COOLDOWN_MS)
+})
+
+window.addEventListener('beforeunload',leaveRoom)
+
+if(displayName){
+  els.nameInput.value = displayName
+  els.loginWrap.classList.add('hidden')
+  joinChat()
+}else{
+  renderMessages()
+  renderOnline()
+  els.nameInput.focus()
+}
+</script>
+</body>
+</html>
