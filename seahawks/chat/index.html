@@ -484,7 +484,7 @@ function mergeHistory(incoming){
 }
 
 function addSystem(text, kind='join'){
-  systemEntries.push({id:crypto.randomUUID(),text,kind,ts:Date.now()})
+  systemEntries.push({id:crypto.randomUUID(),text,systemKind:kind,ts:Date.now()})
   systemEntries = systemEntries.slice(-20)
   renderMessages()
 }
@@ -518,7 +518,7 @@ function renderMessages(){
     const row = document.createElement('div')
 
     if(item.kind === 'system'){
-      row.className = 'system' + (item.kindDetail === 'leave' || item.systemKind === 'leave' || item.text.includes(' left ') ? ' leave' : '')
+      row.className = 'system' + (item.systemKind === 'leave' ? ' leave' : '')
       row.textContent = '*** ' + item.text
     }else{
       row.className = 'msg' + (item.selfId === selfId ? ' mine' : '')
