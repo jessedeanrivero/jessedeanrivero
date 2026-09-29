@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#003b71">
+<title>Seahawks Fan Board</title>
+<meta name="description" content="A throwback Seahawks fan message board for longer game thoughts and discussion.">
+<style>
+:root{
+  --royal:#005596;
+  --royal-dark:#003b71;
+  --royal-deep:#002b4f;
+  --apple:#69be28;
+  --silver:#d9e2e8;
+  --silver-dark:#8fa6b5;
+  --white:#fff;
+  --ink:#071d2c;
+  --link:#003f8f;
+}
+*{box-sizing:border-box}
+html{background:var(--royal-dark)}
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--royal-dark),#00294f 72%);
+  color:var(--ink);
+  font-family:Verdana,Arial,sans-serif;
+  font-size:12px;
+}
+a{color:var(--link)}
+.shell{width:min(980px,100%);margin:0 auto;padding:12px}
+.toplinks{margin:0 0 7px;color:#fff;font-size:11px}
+.toplinks a{color:#fff}
+.board{
+  background:var(--silver);
+  border-top:2px solid #fff;
+  border-left:2px solid #fff;
+  border-right:2px solid var(--royal-deep);
+  border-bottom:2px solid var(--royal-deep);
+  box-shadow:2px 2px 0 rgba(0,0,0,.45);
+}
+.titlebar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:7px 9px;
+  background:var(--royal);
+  color:#fff;
+  border-bottom:4px solid var(--apple);
+}
+.titlebar h1{
+  margin:0;
+  font-family:"Arial Black",Impact,Verdana,sans-serif;
+  font-size:20px;
+  letter-spacing:-.5px;
+}
+.titlebar small{font-family:"Courier New",monospace}
+.navbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2px;
+  padding:4px;
+  background:#b9c9d4;
+  border-bottom:1px solid #6f8fa7;
+}
+.navbar a{
+  display:inline-block;
+  padding:5px 8px;
+  color:#071d2c;
+  text-decoration:none;
+  background:#eaf0f4;
+  border-top:1px solid #fff;
+  border-left:1px solid #fff;
+  border-right:1px solid #5f7687;
+  border-bottom:1px solid #5f7687;
+}
+.navbar a.active{background:var(--apple);font-weight:700}
+.boardhead{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 10px;
+  background:#f8fbfd;
+  border-bottom:1px solid #9bb0bf;
+}
+.boardhead strong{font-size:13px}
+.boardhead span{color:#536b7d;font-size:10px}
+.newtopic{
+  display:inline-block;
+  padding:7px 10px;
+  background:var(--apple);
+  color:#06243c;
+  text-decoration:none;
+  font-weight:700;
+  border-top:2px solid #dfffbf;
+  border-left:2px solid #dfffbf;
+  border-right:2px solid #376b13;
+  border-bottom:2px solid #376b13;
+  white-space:nowrap;
+}
+.newtopic:active{
+  border-top-color:#376b13;
+  border-left-color:#376b13;
+  border-right-color:#dfffbf;
+  border-bottom-color:#dfffbf;
+}
+.loading,.error,.empty{
+  margin:12px;
+  padding:14px;
+  background:#fff;
+  border:1px solid #9bb0bf;
+  font-family:"Courier New",monospace;
+}
+.topic-table{width:100%;border-collapse:collapse;background:#fff}
+.topic-table th{
+  padding:6px 7px;
+  background:var(--royal-dark);
+  color:#fff;
+  border-right:1px solid #5e83a1;
+  font-family:"Courier New",monospace;
+  font-size:11px;
+  text-align:left;
+}
+.topic-table td{
+  padding:8px 7px;
+  border-bottom:1px solid #c7d2da;
+  vertical-align:top;
+}
+.topic-table tr:nth-child(even) td{background:#f2f6f8}
+.topic-table tr:hover td{background:#eef8e8}
+.topic-title{
+  font-weight:700;
+  color:#003f8f;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.topic-preview{
+  margin-top:3px;
+  color:#5f7280;
+  font-size:10px;
+  line-height:1.35;
+}
+.num{text-align:center;width:72px;font-family:"Courier New",monospace}
+.author{width:130px}
+.updated{width:130px;font-size:10px}
+.thread{display:none;background:#fff}
+.thread.open{display:block}
+.thread-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:8px;
+  background:#e8eff4;
+  border-bottom:1px solid #9bb0bf;
+}
+.back-btn{
+  border:0;
+  padding:0;
+  background:transparent;
+  color:#003f8f;
+  text-decoration:underline;
+  font:inherit;
+  cursor:pointer;
+}
+.post{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  border-bottom:1px solid #9bb0bf;
+}
+.post-user{
+  padding:10px;
+  background:#e5edf2;
+  border-right:1px solid #9bb0bf;
+  font-family:"Courier New",monospace;
+  font-size:11px;
+}
+.post-user strong{display:block;color:#003f8f;font-size:12px}
+.post-body{
+  padding:10px 12px;
+  white-space:pre-wrap;
+  line-height:1.55;
+  overflow-wrap:anywhere;
+}
+.post-meta{
+  display:block;
+  margin-bottom:7px;
+  color:#6a7d89;
+  font-family:"Courier New",monospace;
+  font-size:10px;
+}
+.replybar{
+  display:flex;
+  justify-content:flex-end;
+  padding:8px;
+  background:#d8e4eb;
+}
+.footer{
+  padding:7px 9px;
+  background:#b9c9d4;
+  border-top:1px solid #fff;
+  color:#344f62;
+  font-size:10px;
+  line-height:1.4;
+}
+@media(max-width:650px){
+  .shell{padding:4px}
+  .titlebar{align-items:flex-start}
+  .titlebar h1{font-size:17px}
+  .titlebar small{display:none}
+  .boardhead{align-items:flex-start}
+  .topic-table th:nth-child(3),.topic-table td:nth-child(3),
+  .topic-table th:nth-child(4),.topic-table td:nth-child(4){display:none}
+  .num{width:58px}
+  .post{grid-template-columns:1fr}
+  .post-user{border-right:0;border-bottom:1px solid #b8c7d1;padding:7px 9px}
+  .post-user strong{display:inline;margin-right:8px}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="toplinks"><a href="/seahawks">← Seattle Football HQ</a></div>
+
+  <main class="board">
+    <header class="titlebar">
+      <h1>SEAHAWKS FAN BOARD</h1>
+      <small>LONG-FORM FAN TALK</small>
+    </header>
+
+    <nav class="navbar">
+      <a href="/seahawks/chat">LIVE CHAT</a>
+      <a href="/seahawks/board" class="active">MESSAGE BOARD</a>
+      <a href="/seahawks">SEAHAWKS HQ</a>
+    </nav>
+
+    <section id="listView">
+      <div class="boardhead">
+        <div>
+          <strong>Seattle Seahawks Discussion</strong><br>
+          <span>Longer thoughts, postgame takes, questions, and threads.</span>
+        </div>
+        <a class="newtopic" id="newTopicLink" href="#" target="_blank" rel="noopener">POST NEW TOPIC</a>
+      </div>
+
+      <div id="loading" class="loading">Loading board topics...</div>
+
+      <table class="topic-table" id="topicTable" hidden>
+        <thead>
+          <tr>
+            <th>TOPIC</th>
+            <th class="num">REPLIES</th>
+            <th class="author">POSTED BY</th>
+            <th class="updated">LAST POST</th>
+          </tr>
+        </thead>
+        <tbody id="topicRows"></tbody>
+      </table>
+    </section>
+
+    <section id="threadView" class="thread">
+      <div class="thread-top">
+        <button class="back-btn" id="backToBoard" type="button">← Back to board</button>
+        <a class="newtopic" id="replyLink" href="#" target="_blank" rel="noopener">REPLY ON GITHUB</a>
+      </div>
+      <div id="threadPosts"></div>
+    </section>
+
+    <footer class="footer">
+      Board posts are stored permanently in GitHub Issues for this free prototype. Reading happens here. Posting and replies use a GitHub account so the board stays persistent without a paid database.
+    </footer>
+  </main>
+</div>
+
+<script>
+const REPO = 'jessedeanrivero/jessedeanrivero'
+const PREFIX = '[SEAHAWKS BOARD]'
+const API = 'https://api.github.com/repos/' + REPO
+const ISSUE_BASE = 'https://github.com/' + REPO + '/issues'
+const newTitle = encodeURIComponent(PREFIX + ' ')
+const newBody = encodeURIComponent('Share your Seahawks take here.\n\n')
+document.getElementById('newTopicLink').href = ISSUE_BASE + '/new?title=' + newTitle + '&body=' + newBody
+
+const els = {
+  loading:document.getElementById('loading'),
+  table:document.getElementById('topicTable'),
+  rows:document.getElementById('topicRows'),
+  listView:document.getElementById('listView'),
+  threadView:document.getElementById('threadView'),
+  threadPosts:document.getElementById('threadPosts'),
+  back:document.getElementById('backToBoard'),
+  reply:document.getElementById('replyLink')
+}
+
+function cleanTitle(title){
+  return title.replace(PREFIX,'').trim() || 'Untitled topic'
+}
+
+function fmtDate(value){
+  return new Intl.DateTimeFormat([],{
+    month:'short',day:'numeric',year:'numeric',
+    hour:'numeric',minute:'2-digit'
+  }).format(new Date(value))
+}
+
+function preview(text){
+  return (text || '').replace(/\s+/g,' ').trim().slice(0,120)
+}
+
+function renderPost(author,body,date,avatar){
+  const article = document.createElement('article')
+  article.className = 'post'
+
+  const user = document.createElement('div')
+  user.className = 'post-user'
+
+  const strong = document.createElement('strong')
+  strong.textContent = author || 'unknown'
+  const dateNode = document.createElement('span')
+  dateNode.textContent = fmtDate(date)
+
+  user.append(strong,dateNode)
+
+  const content = document.createElement('div')
+  content.className = 'post-body'
+  const meta = document.createElement('span')
+  meta.className = 'post-meta'
+  meta.textContent = 'Posted ' + fmtDate(date)
+  const text = document.createElement('div')
+  text.textContent = body || ''
+
+  content.append(meta,text)
+  article.append(user,content)
+  return article
+}
+
+async function loadTopics(){
+  try{
+    const response = await fetch(API + '/issues?state=open&per_page=50&sort=updated&direction=desc',{
+      headers:{'Accept':'application/vnd.github+json'}
+    })
+    if(!response.ok) throw new Error('GitHub returned ' + response.status)
+    const data = await response.json()
+    const issues = data.filter(i => !i.pull_request && i.title.startsWith(PREFIX))
+
+    els.loading.hidden = true
+    els.table.hidden = false
+    els.rows.replaceChildren()
+
+    if(!issues.length){
+      els.table.hidden = true
+      els.loading.hidden = false
+      els.loading.textContent = 'No board topics yet. Start the first one.'
+      return
+    }
+
+    issues.forEach(issue => {
+      const tr = document.createElement('tr')
+
+      const topic = document.createElement('td')
+      const title = document.createElement('a')
+      title.className = 'topic-title'
+      title.textContent = cleanTitle(issue.title)
+      title.href = '#thread-' + issue.number
+      title.addEventListener('click',e => {
+        e.preventDefault()
+        openThread(issue)
+      })
+      const pv = document.createElement('div')
+      pv.className = 'topic-preview'
+      pv.textContent = preview(issue.body)
+      topic.append(title,pv)
+
+      const replies = document.createElement('td')
+      replies.className = 'num'
+      replies.textContent = issue.comments
+
+      const author = document.createElement('td')
+      author.className = 'author'
+      author.textContent = issue.user?.login || 'unknown'
+
+      const updated = document.createElement('td')
+      updated.className = 'updated'
+      updated.textContent = fmtDate(issue.updated_at)
+
+      tr.append(topic,replies,author,updated)
+      els.rows.appendChild(tr)
+    })
+  }catch(err){
+    els.loading.className = 'error'
+    els.loading.textContent = 'The board could not load right now. ' + err.message
+  }
+}
+
+async function openThread(issue){
+  els.listView.style.display = 'none'
+  els.threadView.classList.add('open')
+  els.threadPosts.replaceChildren()
+
+  const titleBar = document.createElement('div')
+  titleBar.className = 'boardhead'
+  const strong = document.createElement('strong')
+  strong.textContent = cleanTitle(issue.title)
+  titleBar.appendChild(strong)
+  els.threadPosts.appendChild(titleBar)
+
+  els.threadPosts.appendChild(renderPost(
+    issue.user?.login,
+    issue.body,
+    issue.created_at,
+    issue.user?.avatar_url
+  ))
+
+  els.reply.href = issue.html_url
+
+  if(issue.comments > 0){
+    const loading = document.createElement('div')
+    loading.className = 'loading'
+    loading.textContent = 'Loading replies...'
+    els.threadPosts.appendChild(loading)
+
+    try{
+      const response = await fetch(issue.comments_url,{headers:{'Accept':'application/vnd.github+json'}})
+      if(!response.ok) throw new Error('GitHub returned ' + response.status)
+      const comments = await response.json()
+      loading.remove()
+      comments.forEach(comment => {
+        els.threadPosts.appendChild(renderPost(
+          comment.user?.login,
+          comment.body,
+          comment.created_at,
+          comment.user?.avatar_url
+        ))
+      })
+    }catch(err){
+      loading.className = 'error'
+      loading.textContent = 'Replies could not load right now.'
+    }
+  }
+
+  history.replaceState(null,'','#thread-' + issue.number)
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+
+els.back.addEventListener('click',() => {
+  els.threadView.classList.remove('open')
+  els.listView.style.display = ''
+  history.replaceState(null,'',location.pathname)
+})
+
+loadTopics()
+</script>
+</body>
+</html>
