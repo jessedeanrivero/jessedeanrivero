@@ -279,6 +279,18 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .w4-home-copy p{max-width:410px;margin:16px 0;color:#e6edf7;font-size:18px;line-height:1.35}
 .w4-home-copy a{display:inline-block;padding:11px 14px;border-radius:6px;background:var(--sea);color:#07111f;text-decoration:none;font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.09em;text-transform:uppercase}
 @media(max-width:560px){.w4-home-art{min-height:335px;padding:22px 18px}.w4-home-title{font-size:clamp(42px,13vw,62px)}}
+
+.predictions-panel{margin:24px 0 2px}
+.predictions-panel h2{margin-bottom:6px}
+.week-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}
+.week-pick{padding:13px 14px;border:1px solid rgba(201,255,61,.26);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.07),var(--panel))}
+.week-pick span{display:block;font:11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
+.week-pick b{display:block;font:25px/1 var(--disp);color:var(--sea);font-weight:400}
+.group-pick-card{margin-top:10px;padding:14px;border:1px solid rgba(201,255,61,.55);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.13),var(--panel))}
+.group-pick-card span{display:block;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.group-pick-card strong{display:block;margin-top:5px;font:31px/1 var(--disp);color:var(--sea);font-weight:400}
+.group-pick-card small{display:block;margin-top:6px;font:11px/1.5 var(--mono);color:var(--mute)}
+@media(max-width:440px){.week-picks{grid-template-columns:1fr 1fr}.week-pick{padding:11px}.week-pick b{font-size:22px}}
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -322,6 +334,20 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <h2>Why this sets up for Seattle</h2>
   <p style="margin:0;color:#d6dced;line-height:1.55">Seattle owns the NFL's No. 1 yardage defense through three games at 228.7 yards allowed per game. Los Angeles is scoring 14.7 per game. The danger is turnovers: the Chargers forced five in Buffalo, while Seattle gave Washington three giveaways that became 21 points.</p>
   <a href="/seahawks/g/2026-w4" class="wk3-cta" style="margin-top:14px">10 things to watch + full matchup stats →</a>
+</section>
+
+<section id="predictions" class="predictions-panel">
+<h2>Our predictions<small>Week 4 · Seahawks vs Chargers</small></h2>
+<p class="sub">Six picks are in. Everyone has Seattle.</p>
+<div class="week-picks">
+  <div class="week-pick"><span>Barry P.</span><b>SEA 30–16</b></div>
+  <div class="week-pick"><span>KC A.</span><b>SEA 31–10</b></div>
+  <div class="week-pick"><span>Jeff C.</span><b>SEA 27–20</b></div>
+  <div class="week-pick"><span>Matt M.</span><b>SEA 30–28</b></div>
+  <div class="week-pick"><span>Taylor C.</span><b>SEA 31–13</b></div>
+  <div class="week-pick"><span>Steve M.</span><b>SEA 33–16</b></div>
+</div>
+<div class="group-pick-card"><span>Group pick · 6 predictions</span><strong>SEA 30.3 · LAC 17.2</strong><small>Average margin: Seattle +13.2</small></div>
 </section>
 
 <div class="predictions-title diff-title"><h2>Season Prediction Leaderboard</h2><p>Cumulative score-prediction error · tracker begins Week 2 · lowest total wins</p></div>
