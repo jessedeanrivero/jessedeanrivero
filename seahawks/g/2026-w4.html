@@ -188,7 +188,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <style>
 .w4-photo{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid #34516b;border-radius:15px;margin:18px 0 18px;background:radial-gradient(circle at 20% 35%,rgba(201,255,61,.17),transparent 38%),radial-gradient(circle at 83% 35%,rgba(83,161,255,.2),transparent 38%),#07121f}
-.w4-photo img{width:100%;height:100%;display:block;object-fit:cover;opacity:0;transition:opacity .2s ease}
+.w4-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 45%;opacity:0;transition:opacity .2s ease}
 .w4-photo img.ready{opacity:1}
 .w4-photo:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(5,13,24,.42))}
 .pickline{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 0}
@@ -209,6 +209,16 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 .group-pick-card strong{display:block;margin-top:5px;font:31px/1 var(--disp);color:var(--sea);font-weight:400}
 .group-pick-card small{display:block;margin-top:6px;font:11px/1.5 var(--mono);color:var(--mute)}
 @media(max-width:440px){.week-picks{grid-template-columns:1fr 1fr}.week-pick{padding:11px}.week-pick b{font-size:22px}}
+
+/* Easier-to-scan Week 4 watch list */
+.watch-list{display:grid;gap:10px;margin-top:16px}
+.watch-item{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+.watch-item:first-child{border-top:0}
+.watch-num{font:34px/1 var(--disp);color:var(--sea);opacity:.9}
+.watch-item h3{margin:0 0 6px;font:24px/1.08 var(--disp);letter-spacing:.01em;text-transform:uppercase;color:#fff}
+.watch-item p{margin:0;color:var(--mute);font-size:16px;line-height:1.5}
+.watch-item p b{color:#eaf0f8;font-weight:600}
+@media(max-width:520px){.watch-item{grid-template-columns:40px 1fr;gap:10px;padding:14px 0}.watch-num{font-size:30px}.watch-item h3{font-size:22px}}
 </style>
 </head>
 
@@ -254,27 +264,29 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <section id="watch">
 <h2>10 things to watch<small>The Sunday cheat sheet</small></h2>
-<p class="sub">What matters most when the ball is kicked off.</p>
+<p class="sub">Ten quick reads for what matters most once the game starts.</p>
 
-<article class="card"><div class="cn">01</div><div class="cb"><div class="k">If you see</div><p class="see">Seattle playing clean with the football.</p><div class="k">Watch</div><p class="watch">The giveaway count before anything else.</p><div class="k">Why it matters</div><p class="why">Seattle gave Washington three turnovers, and all three became touchdowns. Los Angeles forced five takeaways in Buffalo. This is the fastest path for the Chargers to flip the matchup.</p><span class="lab verified">VERIFIED</span></div></article>
+<div class="watch-list">
+  <article class="watch-item"><div class="watch-num">01</div><div><h3>Protect the football</h3><p>Seattle's three turnovers in Washington became 21 points. The Chargers forced five takeaways in Buffalo, so <b>ball security is the cleanest way to keep Los Angeles from hanging around.</b></p></div></article>
 
-<article class="card"><div class="cn">02</div><div class="cb"><div class="k">If you see</div><p class="see">JSN lined up outside again.</p><div class="k">Watch</div><p class="watch">Whether the Chargers roll safety help toward him before the snap.</p><div class="k">Why it matters</div><p class="why">Jaxon Smith-Njigba leads the NFL with 405 receiving yards and six touchdowns. He had eight catches for 102 yards and both Week 3 scores from wide alignments.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">02</div><div><h3>How the Chargers cover JSN</h3><p>Jaxon Smith-Njigba leads the NFL with 405 receiving yards and six touchdowns. Watch whether Los Angeles rolls safety help his direction or trusts single coverage.</p></div></article>
 
-<article class="card"><div class="cn">03</div><div class="cb"><div class="k">If you see</div><p class="see">Justin Herbert holding the ball past the first read.</p><div class="k">Watch</div><p class="watch">Leonard Williams and the interior rush.</p><div class="k">Why it matters</div><p class="why">Herbert has been sacked eight times through three games. Williams has a sack in every game and leads Seattle with three sacks and five tackles for loss.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">03</div><div><h3>Leonard Williams vs. Justin Herbert</h3><p>Herbert has been sacked eight times through three games. Williams has a sack in every game, so Seattle's interior pressure has a chance to shape the entire afternoon.</p></div></article>
 
-<article class="card"><div class="cn">04</div><div class="cb"><div class="k">If you see</div><p class="see">Seattle getting back under center early.</p><div class="k">Watch</div><p class="watch">The run game after only 44 rushing yards in Washington.</p><div class="k">Why it matters</div><p class="why">The Chargers have allowed 349 rushing yards through three games. A steadier run game lets Brian Fleury get back to play action and heavier personnel.</p><span class="lab derived">DERIVED</span></div></article>
+  <article class="watch-item"><div class="watch-num">04</div><div><h3>Get the run game back</h3><p>Seattle ran for only 44 yards in Washington. The Chargers have allowed 349 rushing yards through three games, which gives Brian Fleury a good spot to reestablish play action and heavier personnel.</p></div></article>
 
-<article class="card"><div class="cn">05</div><div class="cb"><div class="k">If you see</div><p class="see">Herbert attacking outside the numbers.</p><div class="k">Watch</div><p class="watch">Seattle's disguise after the snap.</p><div class="k">Why it matters</div><p class="why">Seattle has allowed 686 total yards all season, best in the league by yardage through Week 3. Herbert still brings the arm talent to punish one coverage bust.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">05</div><div><h3>Make Herbert solve the disguise</h3><p>Seattle has allowed only 686 total yards all season. Herbert still has the arm talent to punish a coverage mistake, so the pre-snap and post-snap picture matters all game.</p></div></article>
 
-<article class="card"><div class="cn">06</div><div class="cb"><div class="k">If you see</div><p class="see">Ladd McConkey moving through the formation.</p><div class="k">Watch</div><p class="watch">Who handles him on third down, especially if Julian Love returns.</p><div class="k">Why it matters</div><p class="why">McConkey leads the Chargers with 12 catches for 183 yards and a touchdown. Love returned to practice Wednesday after missing Week 3 with a calf injury.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">06</div><div><h3>Find Ladd McConkey on third down</h3><p>McConkey leads the Chargers with 12 catches for 183 yards and a touchdown. If Julian Love returns, his presence should help Seattle handle motion, spacing and third-down communication.</p></div></article>
 
-<article class="card"><div class="cn">07</div><div class="cb"><div class="k">If you see</div><p class="see">Los Angeles reach the red zone.</p><div class="k">Watch</div><p class="watch">Whether Seattle forces field goals.</p><div class="k">Why it matters</div><p class="why">The Chargers went one-for-four on red-zone touchdown chances at Buffalo. They have scored 14, 14 and 16 points in their first three games.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">07</div><div><h3>Win in the red zone</h3><p>The Chargers went one-for-four on red-zone touchdown chances at Buffalo and have scored 14, 14 and 16 points in their first three games. Force field goals and the matchup tilts hard toward Seattle.</p></div></article>
 
-<article class="card"><div class="cn">08</div><div class="cb"><div class="k">If you see</div><p class="see">The Chargers defense flying to the ball.</p><div class="k">Watch</div><p class="watch">Ball security after the catch and in traffic.</p><div class="k">Why it matters</div><p class="why">Los Angeles lost in Buffalo despite taking the ball away five times. The defense is creating chances even while the team sits at 0–3.</p><span class="lab verified">VERIFIED</span></div></article>
+  <article class="watch-item"><div class="watch-num">08</div><div><h3>Respect the Chargers' takeaway ability</h3><p>Los Angeles lost in Buffalo despite forcing five turnovers. The defense has still created short fields, so Seattle needs to avoid giving them extra possessions.</p></div></article>
 
-<article class="card"><div class="cn">09</div><div class="cb"><div class="k">If you see</div><p class="see">A kickoff coming back out of the end zone.</p><div class="k">Watch</div><p class="watch">Seattle's lane discipline in coverage.</p><div class="k">Why it matters</div><p class="why">Special teams was one of the areas Mike Macdonald pointed toward after Washington. Hidden field position is the easiest place to give an 0–3 opponent life.</p><span class="lab airead">AI READ</span></div></article>
+  <article class="watch-item"><div class="watch-num">09</div><div><h3>Do not give away hidden yards</h3><p>Special teams was one of Mike Macdonald's post-Washington focus areas. Field position and kickoff coverage are easy ways to give an 0-3 opponent momentum.</p></div></article>
 
-<article class="card"><div class="cn">10</div><div class="cb"><div class="k">If you see</div><p class="see">Seattle gets an early two-score lead.</p><div class="k">Watch</div><p class="watch">Whether Macdonald keeps pressure on Herbert instead of going passive.</p><div class="k">Why it matters</div><p class="why">The Seahawks are back at Lumen Field in all-college navy after the 33–31 loss. The cleanest response is to force Los Angeles into a pass-heavy chase game.</p><span class="lab airead">AI READ</span></div></article>
+  <article class="watch-item"><div class="watch-num">10</div><div><h3>Step on them if Seattle gets ahead</h3><p>If the Seahawks build an early two-score lead, watch whether Macdonald keeps pressure on Herbert rather than backing off. <b>This is the spot to turn a response game into a comfortable win.</b></p></div></article>
+</div>
 </section>
 
 <section id="numbers">
