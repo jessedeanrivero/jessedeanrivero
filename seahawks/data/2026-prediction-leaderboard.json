@@ -2,7 +2,7 @@
   "season": 2026,
   "scoring": "Absolute Seahawks score error plus absolute opponent score error. Lowest cumulative total wins.",
   "startsAtWeek": 2,
-  "newcomerPolicy": "New members receive the prior week's last-place error for missed weeks before joining.",
+  "newcomerPolicy": "If someone joins after the tracker starts, each missed week is assigned that week's worst submitted score-prediction error.",
   "weeks": {
     "2": {
       "opponent": "Arizona Cardinals",
@@ -18,10 +18,12 @@
         "Matt M.": 11,
         "Josh F.": 13,
         "Steve M.": 18,
-        "Jeff C.": 18
+        "Jeff C.": 18,
+        "Mark P.": 18
       },
       "notes": {
-        "Jeff C.": "Assigned Week 2 baseline equal to the last-place score because he joined in Week 3."
+        "Jeff C.": "Missed Week 2, assigned that week's worst submitted error.",
+        "Mark P.": "Missed Week 2, assigned that week's worst submitted error."
       }
     },
     "3": {
@@ -38,7 +40,11 @@
         "Steve M.": 27,
         "Matt M.": 32,
         "Jeff C.": 33,
-        "Kendall P.": 34
+        "Kendall P.": 34,
+        "Mark P.": 34
+      },
+      "notes": {
+        "Mark P.": "Missed Week 3, assigned that week's worst submitted error."
       }
     }
   },
@@ -106,7 +112,16 @@
       "week3": 33,
       "total": 51,
       "average": 25.5,
-      "note": "Week 2 baseline assigned at prior last-place score"
+      "note": "Missed Week 2, assigned that week's worst submitted error."
+    },
+    {
+      "rank": 9,
+      "name": "Mark P.",
+      "week2": 18,
+      "week3": 34,
+      "total": 52,
+      "average": 26,
+      "note": "Joined Week 4. Missed Weeks 2 and 3 were assigned each week's worst submitted error."
     }
   ]
 }
