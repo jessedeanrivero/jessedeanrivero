@@ -121,6 +121,12 @@ footer p{margin:8px 0}
 .support-link:hover{background:#ddff80;box-shadow:0 10px 28px rgba(201,255,61,.2);transform:translateY(-2px)}
 @media(prefers-reduced-motion:reduce){.support-link{transition:none}.support-link:hover{transform:none}}
 .share{display:block;width:100%;background:transparent;cursor:pointer;text-align:center;margin:30px 0 0;padding:14px;border:1px dashed var(--line);border-radius:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.hero-actions a,.hero-share{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:11px 14px;border-radius:7px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.hero-actions a{background:var(--sea);color:#08111e}
+.hero-share{border:1px solid rgba(201,255,61,.5);background:rgba(201,255,61,.07);color:var(--sea)}
+.hero-share:hover{background:rgba(201,255,61,.13)}
+@media(max-width:520px){.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions a,.hero-share{width:100%}}
 
 
 .brand{padding:26px 0 6px;border-bottom:1px solid var(--line)}
@@ -323,7 +329,10 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="postgame-kicker">Seahawks · Week 4 Preview</div>
     <div class="w4-home-title">MAD MAC <b>RESPONSE WEEK</b></div>
     <p>Mike looks mad… and I feel bad for what the chargers are about to face. Seattle owns the NFL's No. 1 yardage defense through three games at 228.7 yards allowed per game. Los Angeles is scoring 14.7 per game. If we win the turnover battle, this game could get ugly for LA.</p>
-    <a href="g/2026-w4">10 things to watch + full matchup stats →</a>
+    <div class="hero-actions">
+      <a href="g/2026-w4">10 things to watch + full matchup stats →</a>
+      <button class="hero-share" id="home-share" type="button">↗ Send to a 12</button>
+    </div>
   </div>
   <div class="postgame-scorebar">
     <span class="pg-final">Sun · Oct 4 · 1:25 PT</span>
@@ -489,6 +498,15 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 </footer>
 </div>
 <script>
+const homeShare=document.getElementById('home-share');
+if(homeShare){
+  homeShare.addEventListener('click',async()=>{
+    const url='https://hawkswarroom.com/';
+    const shareData={title:'Hawks War Room · Seahawks vs Chargers',text:'Week 4 Seahawks prep: 10 things to watch, matchup stats, predictions, and more.',url};
+    try{if(navigator.share){await navigator.share(shareData);return}}catch(e){}
+    try{await navigator.clipboard.writeText(url);homeShare.textContent='✓ Link copied'}catch(e){}
+  });
+}
 fetch('assets/week4-chargers-preview.b64')
   .then(r=>r.text())
   .then(b64=>{const img=document.getElementById('w4-home-photo');if(!img)return;img.src='data:image/webp;base64,'+b64.trim();img.onload=()=>img.classList.add('ready')})
