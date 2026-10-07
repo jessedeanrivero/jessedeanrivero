@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Red Ring Light</title>
+  <style>
+    :root {
+      --brightness: 1;
+      --ring-size: min(78vw, 78vh);
+      --ring-thickness: clamp(22px, 5.5vw, 72px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .ring {
+      width: var(--ring-size);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      background: #000;
+      box-shadow:
+        0 0 calc(42px * var(--brightness)) rgba(255, 0, 0, calc(.56 * var(--brightness))),
+        0 0 calc(110px * var(--brightness)) rgba(255, 0, 0, calc(.38 * var(--brightness))),
+        0 0 calc(220px * var(--brightness)) rgba(255, 0, 0, calc(.2 * var(--brightness)));
+    }
+
+    .ring::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: var(--ring-thickness) solid rgb(
+        calc(120 + 135 * var(--brightness)),
+        0,
+        0
+      );
+      filter: brightness(calc(.55 + var(--brightness) * 1.5));
+      box-shadow:
+        inset 0 0 calc(24px * var(--brightness)) rgba(255, 80, 80, calc(.72 * var(--brightness))),
+        0 0 calc(28px * var(--brightness)) rgba(255, 20, 20, calc(.75 * var(--brightness)));
+    }
+
+    .controls {
+      position: fixed;
+      left: 50%;
+      bottom: calc(22px + env(safe-area-inset-bottom));
+      transform: translateX(-50%);
+      width: min(82vw, 460px);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      z-index: 2;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 32px;
+      margin: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.22);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 26px;
+      height: 26px;
+      margin-top: -10.5px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.18), 0 2px 12px rgba(0,0,0,.5);
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.22);
+    }
+
+    input[type="range"]::-moz-range-progress {
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255,0,0,.75);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 26px;
+      height: 26px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.5);
+    }
+
+    @media (max-width: 640px) {
+      :root {
+        --ring-size: min(88vw, 66vh);
+        --ring-thickness: clamp(18px, 7vw, 44px);
+      }
+
+      .ring {
+        transform: translateY(-3vh);
+      }
+
+      .controls {
+        width: 84vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="ring" aria-hidden="true"></main>
+
+  <div class="controls">
+    <input
+      id="brightness"
+      type="range"
+      min="5"
+      max="100"
+      value="78"
+      step="1"
+      aria-label="Ring light brightness"
+    />
+  </div>
+
+  <script>
+    const slider = document.getElementById('brightness');
+    const root = document.documentElement;
+
+    function setBrightness(value) {
+      const level = Math.max(0.05, Number(value) / 100);
+      root.style.setProperty('--brightness', level.toFixed(2));
+
+      const pct = Number(value);
+      slider.style.background =
+        'linear-gradient(90deg, rgba(255,0,0,.9) 0%, rgba(255,0,0,.9) ' +
+        pct + '%, transparent ' + pct + '%, transparent 100%)';
+    }
+
+    slider.addEventListener('input', e => setBrightness(e.target.value));
+    setBrightness(slider.value);
+  </script>
+</body>
+</html>
