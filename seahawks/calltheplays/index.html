@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07101d">
+<title>Call the Plays | Seahawks vs 49ers | Hawks War Room</title>
+<meta name="description" content="You have the headset. Call eight Seahawks plays against San Francisco as Mike Macdonald or Brian Fleury. Make decisions, beat the clock, and review your calls.">
+<link rel="canonical" href="https://www.hawkswarroom.com/calltheplays">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CALL THE PLAYS | Hawks War Room">
+<meta property="og:description" content="Hate Week. Seahawks vs 49ers. Be the coach, make the call, earn your grade.">
+<meta property="og:url" content="https://www.hawkswarroom.com/calltheplays">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#07101d;--ink:#f1f5fc;--muted:#a3b0ca;--dim:#70809e;--line:#293b55;--panel:#111e30;--panel2:#18283c;--green:#c9ff3d;--red:#f17d82;--gold:#f8ca6a;--sans:"Barlow",Arial,sans-serif;--mono:"IBM Plex Mono",monospace;--head:"Anton",Impact,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse 900px 600px at 90% -7%,#18352d 0,transparent 70%),radial-gradient(ellipse 750px 500px at -20% 60%,#172d46 0,transparent 75%),var(--bg);color:var(--ink);font:17px/1.5 var(--sans);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 49.7%,rgba(166,204,223,.018) 50%,transparent 50.3%),repeating-linear-gradient(0deg,transparent 0 83px,rgba(180,213,237,.018) 84px 85px);z-index:-1}
+a{color:var(--green)}
+button{font:inherit;cursor:pointer}
+button:disabled{cursor:default}
+:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+[hidden]{display:none!important}
+.shell{max-width:1100px;margin:auto;padding:0 clamp(18px,4vw,40px) 54px}
+.topbar{height:77px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line)}
+.identity{text-decoration:none;display:flex;align-items:center;gap:10px;color:var(--ink);text-transform:uppercase;font:21px/1 var(--head);letter-spacing:.035em}
+.mark{width:34px;height:34px;border:2px solid var(--green);color:var(--green);display:grid;place-items:center;clip-path:polygon(9% 0,100% 0,100% 82%,82% 100%,0 100%,0 18%);font:22px var(--head)}
+.siteback{font:600 11px var(--mono);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.siteback:hover{color:var(--green)}
+.status{display:flex;align-items:center;gap:8px;color:var(--green);font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.dot{height:7px;width:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(201,255,61,.5)}
+.matchbar{margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 20px;border:1px solid var(--line);border-radius:12px;background:#101d2f}
+.matchside{display:flex;align-items:center;gap:13px}
+.teamid{font:34px/.9 var(--head)}
+.teamid.sea{color:var(--green)}
+.teamid.sf{color:var(--red)}
+.teammeta{font:10px/1.6 var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.teammeta strong{display:block;color:var(--ink);font-size:11px}
+.mid{font:700 11px var(--mono);letter-spacing:.14em;text-align:center;color:var(--dim);text-transform:uppercase}
+.mid strong{color:var(--ink);display:block;margin-top:3px;font-size:12px}
+.kicker{display:flex;align-items:center;gap:10px;font:600 11px var(--mono);letter-spacing:.17em;color:var(--green);text-transform:uppercase}
+.kicker:before{content:"";height:1px;width:23px;background:var(--green)}
+.intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:36px;align-items:center;padding:52px 0 32px}
+h1,h2,h3,p{margin-top:0}
+h1,.bighead{font:clamp(70px,11vw,132px)/.88 var(--head);letter-spacing:.003em;text-transform:uppercase;margin:15px 0 21px}
+h1 span,.bighead span{color:var(--green);display:block}
+.lead{max-width:560px;font-size:clamp(18px,2.2vw,23px);line-height:1.45;color:#d6e0ee}
+.secondary{color:var(--muted);max-width:550px;font-size:15px}
+.chalk{height:285px;background:linear-gradient(135deg,#1b3540,#0d2531 60%,#122838);border:1px solid #3a6370;border-radius:14px;position:relative;overflow:hidden;box-shadow:0 24px 70px #0005}
+.chalk:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(20% - 1px),#c4e5de1a calc(20% - 1px) 20%);opacity:.8}
+.chalk:after{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:#c4e5de40}
+.chalk svg{position:absolute;inset:0;width:100%;height:100%}
+.chalk-label{position:absolute;top:14px;left:18px;color:#b4d6d9;font:600 10px var(--mono);letter-spacing:.18em}
+.chalk-foot{position:absolute;bottom:13px;right:16px;color:#b4d6d9;font:600 10px var(--mono);letter-spacing:.12em}
+.hint{display:flex;align-items:center;gap:8px;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:28px 0 16px}
+.hint:after{content:"";flex:1;height:1px;background:var(--line)}
+.modegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mode{position:relative;text-align:left;min-height:242px;padding:24px;border:1px solid #35516a;border-radius:14px;background:linear-gradient(145deg,#15273a,#101a2c 70%);color:var(--ink);overflow:hidden;transition:transform .15s,border-color .15s,background .15s}
+.mode:hover{transform:translateY(-3px);border-color:var(--green);background:linear-gradient(145deg,#1d3544,#111e2f 70%)}
+.mode:after{content:"↗";position:absolute;right:24px;top:21px;font:32px var(--head);color:var(--green)}
+.mode .num{font:600 11px var(--mono);color:var(--green);letter-spacing:.14em}
+.mode h2{font:clamp(31px,4vw,46px)/1 var(--head);letter-spacing:.02em;text-transform:uppercase;margin:26px 0 9px}
+.mode .coach{font:600 12px var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.08em;margin:0 0 12px}
+.mode p{color:var(--muted);font-size:15px;max-width:360px;margin:0}
+.ruleline{display:flex;gap:18px;flex-wrap:wrap;color:var(--dim);margin-top:18px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.055em}
+.ruleline b{color:var(--green);font-weight:700}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding:23px 0;color:var(--dim);font:12px/1.8 var(--mono)}
+.foot a{color:var(--muted)}
+.view{animation:reveal .24s ease-out}
+@keyframes reveal{from{opacity:.7;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.gamehead{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:30px 0 15px}
+.over{color:var(--green);font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.gamehead h2{font:clamp(30px,5vw,43px)/1 var(--head);text-transform:uppercase;margin:6px 0 0}
+.exit{background:transparent;border:1px solid var(--line);padding:10px 14px;color:var(--muted);border-radius:7px;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.07em}
+.exit:hover{color:var(--ink);border-color:var(--green)}
+.scoreboard{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;background:#101d2f;border:1px solid var(--line);border-radius:12px;padding:13px 18px;margin-top:9px}
+.scoreboard div{text-align:center;border-right:1px solid var(--line)}
+.scoreboard div:last-child{border:0}
+.scoreboard b{font:30px/1 var(--head);display:block;color:var(--ink)}
+.scoreboard span{color:var(--muted);font:600 10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.progress{height:4px;background:#26374e;margin:16px 0 26px;border-radius:4px;overflow:hidden}
+.progress span{display:block;width:0;height:100%;background:var(--green);transition:width .24s}
+.scenario{border:1px solid #39516a;border-radius:14px;overflow:hidden;background:linear-gradient(145deg,#14263b,#101c2e 80%)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line);background:#0c192a}
+.stats div{padding:13px 14px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats span{font:600 9px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--dim);display:block}
+.stats strong{font:700 15px var(--mono);color:var(--ink);display:block;margin-top:4px}
+.playbody{padding:clamp(21px,4vw,36px)}
+.playtop{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:13px}
+.playtag{font:700 10px var(--mono);color:var(--green);letter-spacing:.13em;text-transform:uppercase}
+.timer{height:67px;width:67px;display:grid;place-items:center;position:relative;flex:none;background:conic-gradient(var(--green) 100%,#243a4c 0);border-radius:50%;color:var(--ink);transition:background .15s}
+.timer:before{content:"";position:absolute;inset:6px;border-radius:50%;background:#13243a}
+.timer b{position:relative;font:700 18px var(--mono)}
+.timer small{position:absolute;bottom:12px;font:600 8px var(--mono);color:var(--dim);letter-spacing:.08em}
+.timer.low{color:var(--red)}
+.playbody h3{font:clamp(32px,5.7vw,55px)/1.04 var(--head);text-transform:uppercase;margin:9px 0 16px}
+.playbody p{color:#d2deec;font-size:clamp(17px,2vw,20px);line-height:1.5;max-width:770px}
+.playbody .question{font-weight:700;color:var(--ink);margin-bottom:0}
+.selectlabel{font:700 11px var(--mono);color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin:24px 0 12px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{display:flex;align-items:center;gap:13px;min-height:86px;padding:14px 18px;text-align:left;color:var(--ink);background:#112035;border:1px solid #324861;border-radius:10px;transition:background .15s,border-color .15s}
+.choice:hover:not(:disabled){background:#21364b;border-color:var(--green)}
+.choice small{color:var(--green);font:600 13px var(--mono);align-self:flex-start;margin-top:2px}
+.choice span{flex:1;font:700 clamp(15px,1.7vw,18px)/1.26 var(--sans)}
+.choice b{color:var(--dim);font-size:18px}
+.choice.selected{border-color:var(--green);background:#223e36}
+.choice.best{border-color:var(--green)}
+.choice:disabled:not(.selected):not(.best){opacity:.59}
+.review{margin-top:16px;padding:25px 27px;border:1px solid #496c50;background:linear-gradient(130deg,#20392e,#142432 80%);border-radius:12px}
+.review-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.review .badge{font:700 11px var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.12em}
+.review h3{font:34px/1 var(--head);text-transform:uppercase;margin:6px 0 12px}
+.review .points{font:40px/1 var(--head);color:var(--green);text-align:right}
+.review .points span{font:10px var(--mono);color:var(--muted);display:block}
+.review p{color:#d0dddf;font-size:16px;margin-bottom:10px}
+.review .principle{border-top:1px solid #426050;padding-top:13px;margin-top:14px;color:#a6bbc4}
+.review .principle b{color:var(--ink)}
+.next{background:var(--green);border:1px solid var(--green);border-radius:8px;color:#07101d;font:800 13px var(--mono);text-transform:uppercase;letter-spacing:.055em;padding:17px 24px;min-height:54px;margin-top:15px;transition:background .15s,transform .15s}
+.next:hover{background:#e1ff8c;transform:translateY(-1px)}
+.end{text-align:center;padding:55px 10px 12px}
+.end .bighead{font-size:clamp(65px,10vw,108px)}
+.grade{font:clamp(96px,20vw,180px)/1 var(--head);color:var(--green);margin:12px 0}
+.endscore{font:17px var(--mono);color:var(--muted);margin-bottom:24px}
+.endscore b{color:var(--ink)}
+.endcards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px auto 30px;max-width:670px}
+.endcards div{border:1px solid var(--line);background:#111e30;border-radius:12px;padding:16px 10px}
+.endcards b{display:block;font:40px/1 var(--head)}
+.endcards span{font:10px var(--mono);letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.endactions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.endactions .next{margin:0}
+.secondarybtn{color:var(--ink);border:1px solid #415674;background:#152438;border-radius:8px;font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:14px 20px;min-height:54px}
+.secondarybtn:hover{border-color:var(--green)}
+.instruction{font:12px var(--mono);color:var(--dim);max-width:680px;margin:22px auto 0}
+@media(max-width:790px){.intro{grid-template-columns:1fr;padding:35px 0 24px;gap:15px}.chalk{height:180px;max-width:460px}.modegrid{grid-template-columns:1fr}.mode{min-height:210px}.mode h2{margin-top:18px}.ruleline{line-height:1.6}}
+@media(max-width:540px){.topbar{height:64px}.identity{font-size:18px}.siteback{font-size:10px}.matchbar{padding:12px;gap:8px}.teamid{font-size:29px}.teammeta{font-size:9px}.teammeta strong{font-size:9px}.matchside{gap:8px}.mid{font-size:9px}.mid strong{font-size:10px}h1{font-size:clamp(62px,17vw,94px)}.chalk{height:165px}.gamehead{padding-top:25px}.scoreboard{padding:12px 4px}.scoreboard b{font-size:27px}.stats{grid-template-columns:repeat(3,1fr)}.stats div{padding:10px;border-bottom:1px solid var(--line)}.stats div:nth-child(3){border-right:0}.stats div:nth-child(4),.stats div:nth-child(5){border-bottom:0}.stats strong{font-size:13px}.playbody{padding:19px}.playbody h3{font-size:34px}.playbody p{font-size:17px}.choices{grid-template-columns:1fr}.choice{min-height:65px;padding:13px}.review{padding:18px}.review h3{font-size:28px}.review .points{font-size:31px}.endcards{gap:6px}.endcards div{padding:12px 5px}.endcards b{font-size:32px}.endcards span{font-size:9px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="topbar">
+  <a class="identity" href="/" aria-label="Hawks War Room home"><span class="mark">12</span><span>HAWKS WAR ROOM</span></a>
+  <a class="siteback" href="/">← Back to the War Room</a>
+</header>
+<div class="matchbar" aria-label="Week five, Seahawks against 49ers">
+  <div class="matchside"><span class="teamid sea">SEA</span><div class="teammeta"><strong>3-1</strong>Seattle</div></div>
+  <div class="mid">HATE WEEK<strong>WEEK 05 · 2026</strong></div>
+  <div class="matchside"><div class="teammeta" style="text-align:right"><strong>4-0</strong>San Francisco</div><span class="teamid sf">SF</span></div>
+</div>
+<main>
+<section id="landing" class="view" aria-labelledby="landing-title">
+  <div class="intro">
+    <div>
+      <div class="kicker">The headset is yours</div>
+      <h1 id="landing-title">CALL THE <span>PLAYS.</span></h1>
+      <p class="lead">It's Seattle vs. San Francisco. You have the call sheet. You have the clock. What would you dial up?</p>
+      <p class="secondary">Eight original Seahawks scenarios per side. Choose offense or defense, make your reads against this week's opponent, and review the coaching logic behind every decision.</p>
+      <div class="ruleline"><span><b>01</b> Read the situation</span><span><b>02</b> Beat 25 seconds</span><span><b>03</b> Review your call</span></div>
+    </div>
+    <div class="chalk" aria-hidden="true">
+      <div class="chalk-label">WAR ROOM / WHITEBOARD 05</div>
+      <svg viewBox="0 0 460 285" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#bad6d2" opacity=".34" stroke-width="1"><path d="M0 70H460M0 215H460"/><path d="M80 0V285M230 0V285M380 0V285"/></g>
+        <g fill="#c9ff3d"><circle cx="130" cy="191" r="8"/><circle cx="190" cy="191" r="8"/><circle cx="250" cy="191" r="8"/><circle cx="310" cy="191" r="8"/><circle cx="230" cy="231" r="9"/></g>
+        <g stroke="#e3f6f0" stroke-width="3" stroke-linecap="round"><path d="M130 175V90L112 111M130 90L150 111"/><path d="M310 175V100L285 125M310 100L335 125"/><path d="M190 178Q165 126 202 89L192 99M202 89L187 90"/><path d="M250 178Q290 122 264 76L279 83M264 76L259 92"/></g>
+        <g stroke="#f17d82" stroke-width="3"><path d="M178 48L198 68M198 48L178 68M268 48L288 68M288 48L268 68M105 122L125 142M125 122L105 142M330 125L350 145M350 125L330 145"/></g>
+        <path d="M229 220Q230 149 350 88" stroke="#c9ff3d" stroke-width="3" stroke-dasharray="7 8"/>
+        <path d="M343 88L355 87L353 100" stroke="#c9ff3d" stroke-width="3"/>
+      </svg>
+      <div class="chalk-foot">SEA // SF</div>
+    </div>
+  </div>
+  <div class="hint">Choose your side of the ball</div>
+  <div class="modegrid">
+    <button class="mode" id="start-defense" type="button">
+      <span class="num">01 / DEFENSE</span>
+      <h2>BE MIKE MACDONALD</h2>
+      <div class="coach">Head Coach · Defensive Mind</div>
+      <p>Disguise coverages. Set the edge. Decide when to bring pressure and when to make the Niners earn every yard.</p>
+    </button>
+    <button class="mode" id="start-offense" type="button">
+      <span class="num">02 / OFFENSE</span>
+      <h2>BE BRIAN FLEURY</h2>
+      <div class="coach">Offensive Coordinator</div>
+      <p>Set the personnel. Find the mismatch. Manage the clock and decide how Seattle attacks San Francisco.</p>
+    </button>
+  </div>
+  <p class="instruction">Scenarios are fictional coaching exercises inspired by Seahawks vs. 49ers football, not live play predictions or official team calls. Grades reflect the assumptions provided. Reasonable coaches may disagree.</p>
+</section>
+<section id="game" class="view" hidden aria-labelledby="game-title">
+  <div class="gamehead"><div><div class="over" id="game-over">Your sideline</div><h2 id="game-title">THE CALL SHEET</h2></div><button type="button" class="exit" id="exit-game">← Exit game</button></div>
+  <div class="scoreboard">
+    <div><b id="play-number">01 / 08</b><span>Call</span></div>
+    <div><b id="current-score" aria-live="polite">0</b><span>Points</span></div>
+    <div><b id="current-streak">0</b><span>Best-call streak</span></div>
+  </div>
+  <div class="progress" role="progressbar" aria-label="Game progress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="progress"><span id="progress-fill"></span></div>
+  <div class="scenario">
+    <div class="stats">
+      <div><span>Quarter</span><strong id="s-quarter"></strong></div>
+      <div><span>Clock</span><strong id="s-clock"></strong></div>
+      <div><span>Down</span><strong id="s-down"></strong></div>
+      <div><span>Ball on</span><strong id="s-ball"></strong></div>
+      <div><span>Score</span><strong id="s-score"></strong></div>
+    </div>
+    <div class="playbody">
+      <div class="playtop"><span class="playtag" id="s-tag"></span><div class="timer" id="timer" role="timer" aria-label="Seconds left to call the play"><b id="time-left">25</b><small>SEC</small></div></div>
+      <h3 id="s-title"></h3>
+      <p id="s-story"></p>
+      <p class="question" id="s-question"></p>
+    </div>
+  </div>
+  <div class="selectlabel" id="choose-label">Make the call / Four options</div>
+  <div class="choices" id="choices" role="group" aria-labelledby="choose-label"></div>
+  <div class="review" id="review" hidden aria-live="polite">
+    <div class="review-top"><div><span class="badge" id="review-badge"></span><h3 id="review-title"></h3></div><div class="points" id="review-points"></div></div>
+    <p id="review-description"></p>
+    <p class="principle" id="review-principle"></p>
+    <button class="next" id="next-play" type="button">Next call →</button>
+  </div>
+</section>
+<section id="finish" class="view end" hidden aria-labelledby="finish-title">
+  <div class="kicker" style="justify-content:center">Final whistle / Film room grade</div>
+  <h2 class="bighead" id="finish-title">CALL SHEET <span>COMPLETE.</span></h2>
+  <div class="grade" id="final-grade">A</div>
+  <p class="endscore" id="final-subtitle"></p>
+  <div class="endcards">
+    <div><b id="final-score"></b><span>Total points</span></div>
+    <div><b id="final-best"></b><span>Best calls</span></div>
+    <div><b id="final-streak"></b><span>Longest streak</span></div>
+  </div>
+  <div class="endactions">
+    <button class="next" type="button" id="share-results">Share your score ↗</button>
+    <button class="secondarybtn" type="button" id="play-again">Run it back ↻</button>
+    <button class="secondarybtn" type="button" id="switch-sides">Switch sides</button>
+  </div>
+  <p class="instruction" id="personal-best"></p>
+  <p class="instruction">Unofficial strategy game. Film-room grades are opinions based on each fictional game situation.</p>
+</section>
+</main>
+<footer class="foot"><a href="/">HAWKS WAR ROOM</a> · Independent Seahawks fan project. Not affiliated with the NFL or Seattle Seahawks. No login, no payments, and no personal data sent to a server. Results are saved only in your browser.</footer>
+</div>
+<script>
+(function(){
+"use strict";
+// Update MATCHUP and both playbooks when a new opponent becomes the weekly focus.
+const MATCHUP={season:2026,week:5,opponent:"49ers",opponentCode:"SF",url:"https://www.hawkswarroom.com/calltheplays"};
+const LIMIT=25;
+const GRADE_POINTS={best:100,smart:65,gamble:25,miss:0};
+const GRADE_NAMES={best:"THE CALL",smart:"GOOD ADJUSTMENT",gamble:"HIGH-RISK READ",miss:"BACK TO THE BOARD"};
+const PLAYS={
+  defense:[
+    {title:"SET THE EDGE",tag:"RUN FIT / PERSONNEL",quarter:"Q1",clock:"13:18",down:"1st & 10",ball:"SF 25",score:"SEA 0 · SF 0",
+     story:"The Niners open in 21 personnel. A back motions wide, then comes back into the formation. The line is shaded for outside zone, but they have a keeper off the same action.",
+     question:"Where is your defensive priority before the snap?",
+     choices:[
+       {label:"Set a firm edge and keep backside contain",grade:"best",note:"The wide-zone action asks your edge players to overrun it. Firm force and backside discipline defend both the handoff and the keeper."},
+       {label:"Load everyone inside to stop the cutback",grade:"miss",note:"It helps against an interior cutback, but leaves the perimeter and the keeper exposed."},
+       {label:"Send a corner blitz into the motion",grade:"gamble",note:"A timed pressure might work, but motion and misdirection can leave a big alley behind it."},
+       {label:"Drop both safeties deep at the snap",grade:"smart",note:"It limits an explosive pass, but makes the initial run fit lighter than you want against this look."}],
+     principle:"Against Shanahan-style run action, edge integrity comes before chasing motion."},
+    {title:"CROSSERS IN TRAFFIC",tag:"THIRD DOWN / COVERAGE",quarter:"Q1",clock:"06:29",down:"3rd & 6",ball:"SF 44",score:"SEA 3 · SF 0",
+     story:"San Francisco condenses the formation, stacking two receivers. Pre-snap motion suggests a crossing concept designed to make defenders run through traffic.",
+     question:"What do you show the quarterback?",
+     choices:[
+       {label:"Press-man across the board with no help",grade:"gamble",note:"Press can disrupt timing, but stacks and rub routes create traffic with no safety net."},
+       {label:"Two-high shell, rotate a robber into the crossing lane",grade:"best",note:"The late rotation muddies the quarterback's read while the robber occupies the shallow-to-intermediate window."},
+       {label:"Cover 4 and concede anything underneath",grade:"smart",note:"You cap explosive throws, though giving easy access to short crossers is less useful on third and six."},
+       {label:"All-out zero blitz every eligible receiver",grade:"miss",note:"A pressure hit is possible, but a quick crosser against zero is the offense's preferred answer."}],
+     principle:"Disguise before the snap, then place help where the route concept wants the ball."},
+    {title:"IGNORE THE EYE CANDY",tag:"MOTION / RUN-PASS CONFLICT",quarter:"Q2",clock:"09:06",down:"2nd & 3",ball:"SEA 38",score:"SEA 3 · SF 7",
+     story:"A receiver jets across the formation. The tight end sifts behind the line. You expect an inside-zone look with a possible pop pass into the space a linebacker vacates.",
+     question:"How do you handle the motion?",
+     choices:[
+       {label:"Everyone chases the jet motion",grade:"miss",note:"The offense wins if your second level abandons its run fits to follow decoration."},
+       {label:"Keep gap fits sound, communicate one force adjustment",grade:"best",note:"Only the necessary force and coverage players adjust. The rest keep the box intact against the give and pop pass."},
+       {label:"Check to prevent with three deep safeties",grade:"gamble",note:"It protects space behind the defense, but second-and-short is a poor time to empty the box."},
+       {label:"Exchange edge responsibilities with a late safety rotation",grade:"smart",note:"A disciplined exchange is workable as long as everyone shares the same fit and nobody doubles one gap."}],
+     principle:"Motion changes assignments, not your obligation to account for every gap."},
+    {title:"SEVEN YARDS TO SURVIVE",tag:"RED ZONE / PLAY ACTION",quarter:"Q2",clock:"01:02",down:"1st & Goal",ball:"SEA 7",score:"SEA 10 · SF 7",
+     story:"San Francisco comes out in a heavy formation. Your defense has seen the same surface produce downhill runs, boots, and tight-end leaks.",
+     question:"What is your first-down answer?",
+     choices:[
+       {label:"Run blitz every linebacker into the A-gaps",grade:"gamble",note:"This hits an inside run, but the tight-end leak and edge boot have favorable answers."},
+       {label:"Play disciplined goal-line fits with a defender on the leak",grade:"best",note:"You protect the goal line without losing the tight end or the bootleg. The offense still needs to execute."},
+       {label:"Give a free release to both tight ends",grade:"miss",note:"Those are exactly the players the heavy look wants you to forget in coverage."},
+       {label:"Bracket the tight end and rush four",grade:"smart",note:"The passing matchup improves, although the defense needs to account for the extra run gap created by the heavy surface."}],
+     principle:"Heavy personnel demands run-first discipline without forgetting eligible receivers."},
+    {title:"DO NOT GIVE UP SIX",tag:"LONG YARDAGE / FIELD POSITION",quarter:"Q3",clock:"11:13",down:"3rd & 12",ball:"SF 18",score:"SEA 13 · SF 13",
+     story:"The Niners are backed up. They need twelve yards and have a screen alert built into their protection. You do not need a heroic play to win this down.",
+     question:"Which call puts the odds in Seattle's favor?",
+     choices:[
+       {label:"Six-man blitz, no underneath safety",grade:"miss",note:"A screen into vacated space could turn a favorable down into an explosive."},
+       {label:"Four-man rush, sticks coverage, rally to the checkdown",grade:"best",note:"Protect the line to gain, rush with lane discipline, and tackle the underneath throw before it becomes a conversion."},
+       {label:"Drop eight, keep eyes on screens and routes",grade:"smart",note:"A valid conservative call, though a three-man rush gives the passer longer to uncover a second option."},
+       {label:"Play tight zero-man and hunt the sack",grade:"gamble",note:"High upside, but a quick beater or missed tackle hands the offense the big gain it needs."}],
+     principle:"On third and long, winning the down is more important than winning a highlight."},
+    {title:"FOURTH AND TWO",tag:"GOTTA HAVE IT / TEMPO",quarter:"Q3",clock:"02:18",down:"4th & 2",ball:"SEA 46",score:"SEA 16 · SF 13",
+     story:"San Francisco stays on the field in 11 personnel and rushes to the line. The slot tightens his split, signaling quick-game or a rub against man coverage.",
+     question:"What is your check at the line?",
+     choices:[
+       {label:"Press zero with no communication",grade:"miss",note:"A quick slant or rub beats a disorganized all-out look before the rush matters."},
+       {label:"Show pressure, bail into tight underneath match rules",grade:"best",note:"The offense must process the rotating picture while defenders sit on immediate separation at the line to gain."},
+       {label:"Soft off coverage at eight yards",grade:"gamble",note:"This gives up the two-yard throw for free unless someone makes an exceptional downhill tackle."},
+       {label:"Tight zone with a four-man rush",grade:"smart",note:"Sound and repeatable, although the simulated pressure adds another layer for a hurried quarterback to solve."}],
+     principle:"Against hurry-up fourth down, communication and leverage matter more than a complicated blitz."},
+    {title:"RED ZONE DISCIPLINE",tag:"LATE GAME / RUSH LANES",quarter:"Q4",clock:"04:24",down:"2nd & 8",ball:"SEA 27",score:"SEA 23 · SF 19",
+     story:"The Niners bunch three receivers to the right. Your edge defender wants to crash hard, but the back is positioned for a screen or delayed release left.",
+     question:"What protects the four-point lead?",
+     choices:[
+       {label:"Keep four rush lanes, check the back release, match the bunch",grade:"best",note:"It defends the screen and scramble while giving the coverage a clear answer to the bunch releases."},
+       {label:"Overload all six rushers toward the bunch",grade:"gamble",note:"Pressure may arrive, but the backside outlet has open grass if the ball gets out."},
+       {label:"Play goal-line defense from the 27",grade:"miss",note:"It concedes the middle of the field and invites easy progress into scoring range."},
+       {label:"Rush three, bracket the inside bunch receiver",grade:"smart",note:"A sensible protective call if the coverage communicates. It trades some rush for an extra coverage player."}],
+     principle:"Defending a lead is about removing cheap answers while preserving rush-lane discipline."},
+    {title:"ONE SNAP FOR THE WIN",tag:"GOAL LINE / ENDGAME",quarter:"Q4",clock:"00:16",down:"3rd & Goal",ball:"SEA 5",score:"SEA 27 · SF 23",
+     story:"No timeouts for San Francisco. A field goal does nothing. The quarterback has room to scramble, and a receiver is aligned to run an inside pick route.",
+     question:"What is Macdonald's final call?",
+     choices:[
+       {label:"Vacate the middle and blitz both edge players",grade:"miss",note:"The scramble and immediate inside throw are both live when you surrender the short middle."},
+       {label:"Match inside routes with help and keep rush-lane integrity",grade:"best",note:"You force a contested end-zone throw while taking away the clean QB escape and cheap pick-route touchdown."},
+       {label:"Play deep prevent at the back of the end zone",grade:"gamble",note:"Five yards is enough for a quick score underneath your coverage."},
+       {label:"Man coverage with a dedicated QB spy",grade:"smart",note:"The spy addresses the scramble. It works if defenders communicate the pick and maintain leverage at the goal line."}],
+     principle:"A four-point lead means defend the end zone, not the field goal. Remove easy touchdown throws first."}
+  ],
+  offense:[
+    {title:"MAKE THEM FIT IT",tag:"OPENING SCRIPT / PERSONNEL",quarter:"Q1",clock:"10:18",down:"1st & 10",ball:"SEA 38",score:"SEA 0 · SF 0",
+     story:"The Niners show a two-high shell with six defenders in the box. Seattle has 12 personnel on the field and the defense is staying light against the run.",
+     question:"What is Brian Fleury dialing up?",
+     choices:[
+       {label:"Wide zone with tight-end motion to identify the fit",grade:"best",note:"Motion clarifies how the defense adjusts, and a six-man box gives Seattle a favorable run count."},
+       {label:"Four-verticals from empty, no back protection",grade:"gamble",note:"It attacks space, but abandons the run advantage and demands a longer protection window."},
+       {label:"Inside run away from the shaded front",grade:"smart",note:"Taking the available box is sound. The motion-driven wide-zone call adds a useful leverage read."},
+       {label:"Throw a screen into the cornerback sitting at the line",grade:"miss",note:"A squat corner gives the screen a poor starting angle without an added blocker."}],
+     principle:"When the defense stays light, use personnel and motion to make it prove it can fit the run."},
+    {title:"THIRD AND SHORT",tag:"DOWN AND DISTANCE / MISDIRECTION",quarter:"Q1",clock:"03:40",down:"3rd & 2",ball:"SF 46",score:"SEA 3 · SF 0",
+     story:"San Francisco crowds the interior gaps and brings a safety toward the box. Seattle has a fullback available, and the Niners have been triggering downhill against early motion.",
+     question:"How do you move the chains?",
+     choices:[
+       {label:"Duo straight into the stacked A-gaps",grade:"gamble",note:"A physical run can work, but it hits the strongest part of this defensive look."},
+       {label:"Motion the fullback, boot to a tight end in the flat",grade:"best",note:"You use the downhill reaction against the defense and give the quarterback a fast throw with a run/pass conflict."},
+       {label:"Shot play with seven-step drop and five-man protection",grade:"miss",note:"Third and two does not require a slow-developing concept against a crowded front."},
+       {label:"Quick slant away from the rotating safety",grade:"smart",note:"The slant has a clean conversion path if the leverage is right. It is a reasonable shorter answer."}],
+     principle:"Third-and-short still rewards manipulation. Make the defense wrong about where the ball is headed."},
+    {title:"BEAT THE PRESSURE",tag:"TWO-MINUTE / HOT ANSWER",quarter:"Q2",clock:"01:47",down:"2nd & 8",ball:"SEA 23",score:"SEA 10 · SF 13",
+     story:"Seattle has two timeouts. The Niners present mugged linebackers in both A-gaps, with nickel pressure threatening from the slot.",
+     question:"What is your protection and route answer?",
+     choices:[
+       {label:"Quick-game concept with a built-in hot read",grade:"best",note:"A built-in answer punishes extra rushers, protects the quarterback, and lets a receiver work after the catch."},
+       {label:"Seven-step deep dig with no hot route",grade:"miss",note:"The defense is advertising a way to put a free runner on the quarterback before the dig develops."},
+       {label:"Check to a screen with a blocker to the pressure side",grade:"smart",note:"A well-timed screen can exploit aggression, as long as the linebacker or nickel does not sniff it out."},
+       {label:"Have the quarterback retreat and improvise",grade:"gamble",note:"An improvised escape may work, but it gives the pressure design its intended effect."}],
+     principle:"Every aggressive protection look deserves a quick answer before the snap."},
+    {title:"DO YOU GO?",tag:"FOURTH DOWN / DECISION",quarter:"Q2",clock:"00:55",down:"4th & 1",ball:"SF 44",score:"SEA 10 · SF 14",
+     story:"Seattle is down four with three timeouts before halftime. The offense has converted short-yardage runs and the 49ers have shown a lighter box against motion.",
+     question:"What is the call?",
+     choices:[
+       {label:"Punt and give up the possession",grade:"gamble",note:"A punt protects field position, but it gives up a short conversion opportunity while trailing across midfield."},
+       {label:"Stay on the field, use motion and a short-yardage run",grade:"best",note:"On the stated facts, a one-yard attempt keeps a scoring possession alive with a favorable field position and time situation."},
+       {label:"Throw a low-percentage deep corner route",grade:"miss",note:"You need one yard, and a long throw adds unnecessary risk on a high-leverage down."},
+       {label:"QB sneak if the center has a clean leverage matchup",grade:"smart",note:"A sneak is a sensible conversion call if the interior is available. The defense's alignment makes the motion run a slightly better read here."}],
+     principle:"A fourth-down choice weighs conversion probability, field position, time, and score, not courage alone."},
+    {title:"SEVEN YARDS",tag:"RED ZONE / PERSONNEL",quarter:"Q3",clock:"05:41",down:"1st & Goal",ball:"SF 7",score:"SEA 17 · SF 14",
+     story:"Seattle shows 13 personnel. The 49ers pinch the interior and their linebackers step forward whenever the tight ends insert into the run fit.",
+     question:"What is the red-zone call?",
+     choices:[
+       {label:"Boot action with a tight end slipping into the flat",grade:"best",note:"Heavy personnel sells the run. A tight end releasing behind aggressive linebackers creates a short touchdown window."},
+       {label:"Run inside zone into the pinched front twice",grade:"gamble",note:"You may gain yards, but the defense is giving you a specific alignment cue to attack elsewhere."},
+       {label:"Spread to empty and ask for a fade to the back corner",grade:"smart",note:"It creates a one-on-one, though the heavier look offers a better run-pass conflict near the goal line."},
+       {label:"Take a knee to reset the series",grade:"miss",note:"That burns a down and yardage with no game-management benefit."}],
+     principle:"Red-zone space is compressed. Use heavy personnel to create movement and a quick throw window."},
+    {title:"POINTS ARE AVAILABLE",tag:"THIRD DOWN / BALL SECURITY",quarter:"Q3",clock:"01:14",down:"3rd & 9",ball:"SF 31",score:"SEA 20 · SF 21",
+     story:"Seattle trails by one and is already in field-goal range. San Francisco shows edge pressure with deep help and a defender waiting to jump the first underneath route.",
+     question:"Which pass concept fits the moment?",
+     choices:[
+       {label:"A layered concept with a protected checkdown and a throwaway",grade:"best",note:"The quarterback reads the intermediate window, takes a safe outlet if covered, and keeps a field-goal attempt alive."},
+       {label:"Blindly throw the first underneath route",grade:"miss",note:"The defense has advertised a trap. An interception or loss erases available points."},
+       {label:"Max protect and look for a receiver past the sticks",grade:"smart",note:"A valid aggressive option if protection holds. The layered call preserves more responses to coverage."},
+       {label:"Have the quarterback hold the ball until a deep post opens",grade:"gamble",note:"A sack is costly here and can push Seattle outside practical field-goal range."}],
+     principle:"Being aggressive does not mean abandoning points already on the board."},
+    {title:"FINISH THE DRIVE",tag:"FOURTH QUARTER / CLOCK",quarter:"Q4",clock:"05:20",down:"2nd & 3",ball:"SEA 45",score:"SEA 27 · SF 21",
+     story:"Seattle leads by six. San Francisco has two timeouts. Its defense starts crowding the line, expecting a conservative run to drain clock.",
+     question:"How do you keep the drive alive?",
+     choices:[
+       {label:"Play-action with a fast high-percentage outlet",grade:"best",note:"It attacks defenders selling out for the run without risking a slow-developing throw. A completion can move the chains and keep the clock manageable."},
+       {label:"Run between the tackles into a seven-man box",grade:"smart",note:"A run keeps the clock moving and can earn the three yards. The look makes a safe play-action answer attractive."},
+       {label:"Launch a deep jump ball into double coverage",grade:"miss",note:"An incompletion stops the clock, and a turnover gives away control."},
+       {label:"Snap the ball immediately to surprise the defense",grade:"gamble",note:"Surprise is not worth surrendering valuable play-clock time while protecting a lead."}],
+     principle:"The best clock management keeps getting first downs, with the right level of risk."},
+    {title:"FOUR POINTS DOWN",tag:"RED ZONE / MUST SCORE",quarter:"Q4",clock:"00:31",down:"3rd & 4",ball:"SF 18",score:"SEA 27 · SF 31",
+     story:"Seattle has one timeout and needs a touchdown. San Francisco guards the goal line but gives space underneath. The quarterback has a quick boundary route and a middle option.",
+     question:"What is the priority on third down?",
+     choices:[
+       {label:"Kick a field goal now",grade:"miss",note:"A field goal leaves Seattle trailing by one without a guaranteed additional possession."},
+       {label:"Take an available first down, then attack the end zone",grade:"best",note:"With 31 seconds and a timeout, a clean conversion preserves the drive. The defense cannot win by conceding a short first down."},
+       {label:"Force a low-percentage end-zone fade regardless of leverage",grade:"gamble",note:"A shot is not automatically wrong, but forcing a covered throw ignores an available conversion."},
+       {label:"Use a quick boundary route at the sticks",grade:"smart",note:"This can be the exact high-percentage conversion. The key is reading leverage and not forcing the ball outside if the middle opens."}],
+     principle:"When four points down, preserve a path to a touchdown. You are not obligated to score on this snap."}
+  ]
+};
+const els={landing:document.getElementById("landing"),game:document.getElementById("game"),finish:document.getElementById("finish"),choices:document.getElementById("choices"),review:document.getElementById("review"),timer:document.getElementById("timer")};
+const byId=id=>document.getElementById(id);
+const state={mode:"defense",index:0,points:0,streak:0,longest:0,bestCalls:0,clock:LIMIT,locked:false,interval:null};
+function setText(id,val){byId(id).textContent=String(val);}
+function show(screen){
+ for(const k of ["landing","game","finish"])els[k].hidden=(k!==screen);
+ window.scrollTo({top:0,behavior:"instant"});
+}
+function stopTimer(){if(state.interval){clearInterval(state.interval);state.interval=null;}}
+function paintTimer(){
+ setText("time-left",state.clock);
+ const pct=100*state.clock/LIMIT;
+ const color=state.clock<=7?"#f17d82":"#c9ff3d";
+ els.timer.style.background="conic-gradient("+color+" "+pct+"%,#243a4c "+pct+"%)";
+ els.timer.classList.toggle("low",state.clock<=7);
+}
+function start(mode){
+ stopTimer();state.mode=mode;state.index=0;state.points=0;state.streak=0;state.longest=0;state.bestCalls=0;
+ setText("game-over",mode==="defense"?"Defense / Mike Macdonald":"Offense / Brian Fleury");
+ setText("game-title",mode==="defense"?"DEFEND THE NORTHWEST":"MOVE THE CHAINS");
+ show("game");renderPlay();
+}
+function renderPlay(){
+ stopTimer();state.locked=false;state.clock=LIMIT;
+ const item=PLAYS[state.mode][state.index];
+ setText("play-number",String(state.index+1).padStart(2,"0")+" / "+String(PLAYS[state.mode].length).padStart(2,"0"));
+ setText("current-score",state.points);setText("current-streak",state.streak);
+ byId("progress").setAttribute("aria-valuemax",PLAYS[state.mode].length);
+ byId("progress").setAttribute("aria-valuenow",state.index);
+ byId("progress-fill").style.width=(100*state.index/PLAYS[state.mode].length)+"%";
+ for(const [key,id] of [["quarter","s-quarter"],["clock","s-clock"],["down","s-down"],["ball","s-ball"],["score","s-score"],["tag","s-tag"],["title","s-title"],["story","s-story"],["question","s-question"]])setText(id,item[key]);
+ els.review.hidden=true;els.choices.replaceChildren();els.choices.hidden=false;
+ setText("choose-label","Make the call / Four options");
+ item.choices.forEach((option,i)=>{
+   const btn=document.createElement("button");btn.type="button";btn.className="choice";btn.dataset.index=String(i);
+   const number=document.createElement("small");number.textContent=String(i+1).padStart(2,"0");
+   const label=document.createElement("span");label.textContent=option.label;
+   const arrow=document.createElement("b");arrow.setAttribute("aria-hidden","true");arrow.textContent="↗";
+   btn.append(number,label,arrow);btn.addEventListener("click",()=>answer(i));els.choices.append(btn);
+ });
+ paintTimer();
+ state.interval=setInterval(()=>{
+   if(state.locked||document.hidden)return;
+   state.clock--;paintTimer();
+   if(state.clock<=0)answer(-1);
+ },1000);
+}
+function answer(choiceIndex){
+ if(state.locked)return;
+ state.locked=true;stopTimer();
+ const item=PLAYS[state.mode][state.index];
+ const selected=choiceIndex<0?null:item.choices[choiceIndex];
+ const grade=selected?selected.grade:"miss";
+ const base=selected?GRADE_POINTS[grade]:0;
+ const bonus=grade==="best"?state.clock:0;
+ const awarded=base+bonus;
+ state.points+=awarded;
+ if(grade==="best"){state.bestCalls++;state.streak++;state.longest=Math.max(state.longest,state.streak);}else state.streak=0;
+ setText("current-score",state.points);setText("current-streak",state.streak);
+ const preferred=item.choices.find(v=>v.grade==="best");
+ Array.from(els.choices.children).forEach((btn,i)=>{
+   btn.disabled=true;btn.classList.toggle("selected",i===choiceIndex);
+   btn.classList.toggle("best",item.choices[i].grade==="best");
+   const marker=btn.querySelector("b");
+   marker.textContent=item.choices[i].grade==="best"?"✓":i===choiceIndex?"●":"";
+ });
+ setText("review-badge",selected?GRADE_NAMES[grade]:"PLAY CLOCK EXPIRED");
+ setText("review-title",selected?(grade==="best"?"YOU READ IT RIGHT.":grade==="smart"?"SOUND FOOTBALL.":grade==="gamble"?"HIGH RISK.":"BACK TO THE BOARD."):"DELAY OF GAME.");
+ setText("review-points","+"+awarded);
+ byId("review-points").replaceChildren(document.createTextNode("+"+awarded),Object.assign(document.createElement("span"),{textContent:"POINTS THIS CALL"}));
+ setText("review-description",selected?selected.note:"No call before the clock hit zero. The preferred read was: "+preferred.label+". "+preferred.note);
+ setText("review-principle","FILM ROOM: "+item.principle+(grade!=="best"?" Preferred call: "+preferred.label+".":""));
+ byId("next-play").textContent=state.index===PLAYS[state.mode].length-1?"See my final grade →":"Next call →";
+ els.review.hidden=false;
+ els.review.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+function next(){
+ if(!state.locked)return;
+ state.index++;
+ if(state.index<PLAYS[state.mode].length){renderPlay();byId("game-title").scrollIntoView({behavior:"smooth",block:"start"});}
+ else finish();
+}
+function safeGet(key){try{return Number(localStorage.getItem(key))||0}catch(e){return 0}}
+function safeSet(key,value){try{localStorage.setItem(key,String(value))}catch(e){}}
+function finish(){
+ stopTimer();show("finish");
+ const total=PLAYS[state.mode].length;
+ const letter=state.bestCalls>=7?"A":state.bestCalls>=5?"B":state.bestCalls>=3?"C":"D";
+ const rank=letter==="A"?"War Room mastermind":letter==="B"?"Headset ready":letter==="C"?"Solid film-study session":"Back to the film room";
+ const key="hawkswarroom-calltheplays-"+MATCHUP.season+"-"+MATCHUP.week+"-"+state.mode;
+ const prior=safeGet(key),best=Math.max(prior,state.points);
+ if(best>prior)safeSet(key,best);
+ setText("final-grade",letter);
+ setText("final-subtitle",rank+" · "+(state.mode==="defense"?"Mike Macdonald / Defense":"Brian Fleury / Offense"));
+ setText("final-score",state.points);setText("final-best",state.bestCalls+" / "+total);setText("final-streak",state.longest);
+ setText("personal-best","Your best score on this device: "+best+" points. Take the other headset and see how you do.");
+}
+async function share(){
+ const side=state.mode==="defense"?"Mike Macdonald's defense":"Brian Fleury's offense";
+ const message="I scored "+state.points+" points and made "+state.bestCalls+"/"+PLAYS[state.mode].length+" best calls running "+side+" against the 49ers. Think you can beat me? "+MATCHUP.url;
+ const btn=byId("share-results");
+ try{
+   if(navigator.share){await navigator.share({title:"Call the Plays · Hawks War Room",text:message,url:MATCHUP.url});return;}
+   if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(message);btn.textContent="Score copied ✓";return;}
+ }catch(e){if(e.name==="AbortError")return;}
+ window.prompt("Copy and share your score:",message);
+}
+byId("start-defense").addEventListener("click",()=>start("defense"));
+byId("start-offense").addEventListener("click",()=>start("offense"));
+byId("exit-game").addEventListener("click",()=>{stopTimer();show("landing");});
+byId("next-play").addEventListener("click",next);
+byId("play-again").addEventListener("click",()=>start(state.mode));
+byId("switch-sides").addEventListener("click",()=>start(state.mode==="defense"?"offense":"defense"));
+byId("share-results").addEventListener("click",share);
+})();
+</script>
+</body>
+</html>
