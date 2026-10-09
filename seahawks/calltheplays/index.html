@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07101d">
 <title>Call the Plays | Seahawks vs 49ers | Hawks War Room</title>
-<meta name="description" content="You have the headset. Call eight Seahawks plays against San Francisco as Mike Macdonald or Brian Fleury. Make decisions, beat the clock, and review your calls.">
+<meta name="description" content="Read the situation at your own pace, then tap Pick Play and make a Seahawks coaching decision in 20 seconds against the 49ers.">
 <link rel="canonical" href="https://www.hawkswarroom.com/calltheplays">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CALL THE PLAYS | Hawks War Room">
@@ -111,6 +111,17 @@ h1 span,.bighead span{color:var(--green);display:block}
 .choice.selected{border-color:var(--green);background:#223e36}
 .choice.best{border-color:var(--green)}
 .choice:disabled:not(.selected):not(.best){opacity:.59}
+.prep-panel{margin-top:18px;padding:23px 25px;border:1px solid rgba(201,255,61,.38);border-radius:13px;background:linear-gradient(125deg,rgba(201,255,61,.09),rgba(17,30,48,.96) 75%)}
+.prep-panel .prep-over{font:700 10px var(--mono);letter-spacing:.15em;color:var(--green);text-transform:uppercase;margin-bottom:9px}
+.prep-panel h3{font:clamp(26px,4vw,37px)/1.05 var(--head);text-transform:uppercase;margin:0 0 9px}
+.prep-panel p{color:#cad7e7;font-size:16px;margin:0 0 14px;max-width:670px}
+.prep-instructions{display:flex;flex-wrap:wrap;gap:8px 17px;font:600 11px/1.6 var(--mono);text-transform:uppercase;color:var(--muted)}
+.prep-instructions span b{color:var(--green)}
+.prep-button{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:63px;margin-top:20px;border:1px solid var(--green);border-radius:8px;color:#08101c;background:var(--green);font:700 16px var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.prep-button:hover{background:#e1ff8c}
+.prep-button small{font:700 10px var(--mono);letter-spacing:.03em}
+.prep-status{border:1px solid #47664a;color:var(--green);border-radius:99px;padding:8px 11px;font:700 10px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.active-hint{font:600 12px var(--mono);color:var(--green);margin:15px 0 12px;letter-spacing:.03em}
 .review{margin-top:16px;padding:25px 27px;border:1px solid #496c50;background:linear-gradient(130deg,#20392e,#142432 80%);border-radius:12px}
 .review-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
 .review .badge{font:700 11px var(--mono);color:var(--green);text-transform:uppercase;letter-spacing:.12em}
@@ -137,7 +148,7 @@ h1 span,.bighead span{color:var(--green);display:block}
 .secondarybtn:hover{border-color:var(--green)}
 .instruction{font:12px var(--mono);color:var(--dim);max-width:680px;margin:22px auto 0}
 @media(max-width:790px){.intro{grid-template-columns:1fr;padding:35px 0 24px;gap:15px}.chalk{height:180px;max-width:460px}.modegrid{grid-template-columns:1fr}.mode{min-height:210px}.mode h2{margin-top:18px}.ruleline{line-height:1.6}}
-@media(max-width:540px){.topbar{height:64px}.identity{font-size:18px}.siteback{font-size:10px}.matchbar{padding:12px;gap:8px}.teamid{font-size:29px}.teammeta{font-size:9px}.teammeta strong{font-size:9px}.matchside{gap:8px}.mid{font-size:9px}.mid strong{font-size:10px}h1{font-size:clamp(62px,17vw,94px)}.chalk{height:165px}.gamehead{padding-top:25px}.scoreboard{padding:12px 4px}.scoreboard b{font-size:27px}.stats{grid-template-columns:repeat(3,1fr)}.stats div{padding:10px;border-bottom:1px solid var(--line)}.stats div:nth-child(3){border-right:0}.stats div:nth-child(4),.stats div:nth-child(5){border-bottom:0}.stats strong{font-size:13px}.playbody{padding:19px}.playbody h3{font-size:34px}.playbody p{font-size:17px}.choices{grid-template-columns:1fr}.choice{min-height:65px;padding:13px}.review{padding:18px}.review h3{font-size:28px}.review .points{font-size:31px}.endcards{gap:6px}.endcards div{padding:12px 5px}.endcards b{font-size:32px}.endcards span{font-size:9px}}
+@media(max-width:540px){.prep-panel{padding:18px}.prep-instructions{flex-direction:column;gap:3px}.prep-button{min-height:60px}.prep-status{font-size:9px}.topbar{height:64px}.identity{font-size:18px}.siteback{font-size:10px}.matchbar{padding:12px;gap:8px}.teamid{font-size:29px}.teammeta{font-size:9px}.teammeta strong{font-size:9px}.matchside{gap:8px}.mid{font-size:9px}.mid strong{font-size:10px}h1{font-size:clamp(62px,17vw,94px)}.chalk{height:165px}.gamehead{padding-top:25px}.scoreboard{padding:12px 4px}.scoreboard b{font-size:27px}.stats{grid-template-columns:repeat(3,1fr)}.stats div{padding:10px;border-bottom:1px solid var(--line)}.stats div:nth-child(3){border-right:0}.stats div:nth-child(4),.stats div:nth-child(5){border-bottom:0}.stats strong{font-size:13px}.playbody{padding:19px}.playbody h3{font-size:34px}.playbody p{font-size:17px}.choices{grid-template-columns:1fr}.choice{min-height:65px;padding:13px}.review{padding:18px}.review h3{font-size:28px}.review .points{font-size:31px}.endcards{gap:6px}.endcards div{padding:12px 5px}.endcards b{font-size:32px}.endcards span{font-size:9px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -159,8 +170,8 @@ h1 span,.bighead span{color:var(--green);display:block}
       <div class="kicker">The headset is yours</div>
       <h1 id="landing-title">CALL THE <span>PLAYS.</span></h1>
       <p class="lead">It's Seattle vs. San Francisco. You have the call sheet. You have the clock. What would you dial up?</p>
-      <p class="secondary">Eight original Seahawks scenarios per side. Choose offense or defense, make your reads against this week's opponent, and review the coaching logic behind every decision.</p>
-      <div class="ruleline"><span><b>01</b> Read the situation</span><span><b>02</b> Beat 25 seconds</span><span><b>03</b> Review your call</span></div>
+      <p class="secondary">Eight original Seahawks scenarios per side. Read each situation at your own pace, then start a 20-second play clock when you're ready to choose.</p>
+      <div class="ruleline"><span><b>01</b> Read with no timer</span><span><b>02</b> Tap Pick Play</span><span><b>03</b> Choose in 20 seconds</span><span><b>04</b> Review the call</span></div>
     </div>
     <div class="chalk" aria-hidden="true">
       <div class="chalk-label">WAR ROOM / WHITEBOARD 05</div>
@@ -209,14 +220,22 @@ h1 span,.bighead span{color:var(--green);display:block}
       <div><span>Score</span><strong id="s-score"></strong></div>
     </div>
     <div class="playbody">
-      <div class="playtop"><span class="playtag" id="s-tag"></span><div class="timer" id="timer" role="timer" aria-label="Seconds left to call the play"><b id="time-left">25</b><small>SEC</small></div></div>
+      <div class="playtop"><span class="playtag" id="s-tag"></span><span class="prep-status" id="prep-status">No clock yet</span><div class="timer" id="timer" role="timer" aria-label="Seconds left to call the play" hidden><b id="time-left">20</b><small>SEC</small></div></div>
       <h3 id="s-title"></h3>
       <p id="s-story"></p>
       <p class="question" id="s-question"></p>
     </div>
   </div>
-  <div class="selectlabel" id="choose-label">Make the call / Four options</div>
-  <div class="choices" id="choices" role="group" aria-labelledby="choose-label"></div>
+  <div class="prep-panel" id="prep-panel">
+    <div class="prep-over">Your briefing · No time limit</div>
+    <h3>STUDY THE SITUATION.</h3>
+    <p>Read the down, distance, and coaching challenge above. When you're ready, hit <strong>Pick Play</strong> to see your four calls. Only then does your 20-second clock start.</p>
+    <div class="prep-instructions" aria-label="How to play"><span><b>01</b> Read the situation</span><span><b>02</b> Tap Pick Play</span><span><b>03</b> Choose one of four calls within 20 seconds</span></div>
+    <button class="prep-button" id="begin-pick" type="button">PICK PLAY <small>20 SEC ↗</small></button>
+  </div>
+  <div class="selectlabel" id="choose-label" hidden>Make the call / 20 seconds / Four options</div>
+  <p class="active-hint" id="active-hint" hidden>The play clock is running. Pick your call.</p>
+  <div class="choices" id="choices" role="group" aria-labelledby="choose-label" hidden></div>
   <div class="review" id="review" hidden aria-live="polite">
     <div class="review-top"><div><span class="badge" id="review-badge"></span><h3 id="review-title"></h3></div><div class="points" id="review-points"></div></div>
     <p id="review-description"></p>
@@ -250,7 +269,7 @@ h1 span,.bighead span{color:var(--green);display:block}
 "use strict";
 // Update MATCHUP and both playbooks when a new opponent becomes the weekly focus.
 const MATCHUP={season:2026,week:5,opponent:"49ers",opponentCode:"SF",url:"https://www.hawkswarroom.com/calltheplays"};
-const LIMIT=25;
+const LIMIT=20;
 const GRADE_POINTS={best:100,smart:65,gamble:25,miss:0};
 const GRADE_NAMES={best:"THE CALL",smart:"GOOD ADJUSTMENT",gamble:"HIGH-RISK READ",miss:"BACK TO THE BOARD"};
 const PLAYS={
@@ -405,7 +424,7 @@ const PLAYS={
 };
 const els={landing:document.getElementById("landing"),game:document.getElementById("game"),finish:document.getElementById("finish"),choices:document.getElementById("choices"),review:document.getElementById("review"),timer:document.getElementById("timer")};
 const byId=id=>document.getElementById(id);
-const state={mode:"defense",index:0,points:0,streak:0,longest:0,bestCalls:0,clock:LIMIT,locked:false,interval:null};
+const state={mode:"defense",index:0,points:0,streak:0,longest:0,bestCalls:0,clock:LIMIT,phase:"read",locked:false,interval:null};
 function setText(id,val){byId(id).textContent=String(val);}
 function show(screen){
  for(const k of ["landing","game","finish"])els[k].hidden=(k!==screen);
@@ -426,7 +445,8 @@ function start(mode){
  show("game");renderPlay();
 }
 function renderPlay(){
- stopTimer();state.locked=false;state.clock=LIMIT;
+ stopTimer();state.phase="read";state.locked=false;state.clock=LIMIT;
+ byId("prep-panel").hidden=false;byId("prep-status").hidden=false;byId("active-hint").hidden=true;els.timer.hidden=true;byId("choose-label").hidden=true;
  const item=PLAYS[state.mode][state.index];
  setText("play-number",String(state.index+1).padStart(2,"0")+" / "+String(PLAYS[state.mode].length).padStart(2,"0"));
  setText("current-score",state.points);setText("current-streak",state.streak);
@@ -434,8 +454,8 @@ function renderPlay(){
  byId("progress").setAttribute("aria-valuenow",state.index);
  byId("progress-fill").style.width=(100*state.index/PLAYS[state.mode].length)+"%";
  for(const [key,id] of [["quarter","s-quarter"],["clock","s-clock"],["down","s-down"],["ball","s-ball"],["score","s-score"],["tag","s-tag"],["title","s-title"],["story","s-story"],["question","s-question"]])setText(id,item[key]);
- els.review.hidden=true;els.choices.replaceChildren();els.choices.hidden=false;
- setText("choose-label","Make the call / Four options");
+ els.review.hidden=true;els.choices.replaceChildren();els.choices.hidden=true;
+ setText("choose-label","Make the call / 20 seconds / Four options");
  item.choices.forEach((option,i)=>{
    const btn=document.createElement("button");btn.type="button";btn.className="choice";btn.dataset.index=String(i);
    const number=document.createElement("small");number.textContent=String(i+1).padStart(2,"0");
@@ -444,15 +464,23 @@ function renderPlay(){
    btn.append(number,label,arrow);btn.addEventListener("click",()=>answer(i));els.choices.append(btn);
  });
  paintTimer();
+}
+function beginPick(){
+ if(state.phase!=="read"||state.locked)return;
+ state.phase="pick";
+ byId("prep-panel").hidden=true;byId("prep-status").hidden=true;byId("active-hint").hidden=false;
+ byId("choose-label").hidden=false;els.choices.hidden=false;els.timer.hidden=false;
+ state.clock=LIMIT;paintTimer();
+ els.choices.scrollIntoView({behavior:"instant",block:"center"});
  state.interval=setInterval(()=>{
-   if(state.locked||document.hidden)return;
+   if(state.phase!=="pick"||state.locked||document.hidden)return;
    state.clock--;paintTimer();
    if(state.clock<=0)answer(-1);
  },1000);
 }
 function answer(choiceIndex){
- if(state.locked)return;
- state.locked=true;stopTimer();
+ if(state.phase!=="pick"||state.locked)return;
+ state.phase="review";state.locked=true;stopTimer();
  const item=PLAYS[state.mode][state.index];
  const selected=choiceIndex<0?null:item.choices[choiceIndex];
  const grade=selected?selected.grade:"miss";
@@ -476,6 +504,7 @@ function answer(choiceIndex){
  setText("review-description",selected?selected.note:"No call before the clock hit zero. The preferred read was: "+preferred.label+". "+preferred.note);
  setText("review-principle","FILM ROOM: "+item.principle+(grade!=="best"?" Preferred call: "+preferred.label+".":""));
  byId("next-play").textContent=state.index===PLAYS[state.mode].length-1?"See my final grade →":"Next call →";
+ byId("active-hint").hidden=true;
  els.review.hidden=false;
  els.review.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
@@ -510,6 +539,7 @@ async function share(){
  }catch(e){if(e.name==="AbortError")return;}
  window.prompt("Copy and share your score:",message);
 }
+byId("begin-pick").addEventListener("click",beginPick);
 byId("start-defense").addEventListener("click",()=>start("defense"));
 byId("start-offense").addEventListener("click",()=>start("offense"));
 byId("exit-game").addEventListener("click",()=>{stopTimer();show("landing");});
