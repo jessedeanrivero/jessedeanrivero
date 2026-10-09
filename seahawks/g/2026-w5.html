@@ -18,6 +18,17 @@ section{padding-top:36px;scroll-margin-top:62px}h2{font-family:var(--disp);font-
 .stats{display:grid;grid-template-columns:1fr 76px 76px;align-items:center;border-top:1px solid var(--line)}.stats div{padding:10px 8px;border-bottom:1px solid var(--line)}.stats .lab{padding-left:0;color:var(--mute)}.stats .sea{text-align:center;color:var(--sea);font-weight:600}.stats .lac{text-align:center;color:var(--opp);font-weight:600}.stats.head{font:9px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--dim);border-top:0}.stats.head div{border-bottom:1px solid #41516f}
 .injury{padding:15px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}.injury b{color:#fff}.injury p{margin:7px 0 0;color:var(--mute)}
 .season-note{padding:16px;border:1px solid rgba(201,255,61,.3);border-radius:11px;background:linear-gradient(145deg,rgba(201,255,61,.07),var(--panel))}.season-note b{font-family:var(--disp);font-size:26px;font-weight:400;color:var(--sea);text-transform:uppercase}.season-note p{margin:7px 0 0;color:var(--mute)}
+
+.pick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 10px}
+.pick-card{padding:14px;border:1px solid rgba(201,255,61,.27);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.06),var(--panel))}
+.pick-card span{display:block;color:var(--mute);font:11px var(--mono);letter-spacing:.035em;margin-bottom:7px}
+.pick-card b{display:block;color:var(--sea);font:25px/1.1 var(--disp);letter-spacing:.01em}
+.pick-card.ai-pick{border-color:#8659ba;background:linear-gradient(145deg,rgba(141,93,194,.18),var(--panel))}
+.pick-card.ai-pick b{color:#d6b7ff}
+.pick-summary{padding:15px;border:1px solid rgba(201,255,61,.6);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.12),var(--panel))}
+.pick-summary span,.pick-summary small{display:block;color:var(--mute);font:11px/1.5 var(--mono)}
+.pick-summary strong{display:block;color:var(--sea);font:30px/1.1 var(--disp);margin:6px 0}
+@media(max-width:440px){.pick-card{padding:11px}.pick-card b{font-size:22px}.pick-grid{gap:8px}}
 .share{width:100%;margin:30px 0 0;padding:12px;border:1px solid var(--sea);border-radius:8px;background:transparent;color:var(--sea);font:11px var(--mono);letter-spacing:.07em;text-transform:uppercase;cursor:pointer}footer{margin-top:42px;padding-top:20px;border-top:1px solid var(--line);color:var(--dim);font-size:12px}footer a{color:var(--mute)}
 @media(max-width:600px){.wrap{padding-left:14px;padding-right:14px}.quick{grid-template-columns:repeat(2,1fr)}.quick div:nth-child(2){border-right:0}.quick div:nth-child(-n+2){border-bottom:1px solid var(--line)}.takeaways{grid-template-columns:1fr}.scorebar b{font-size:28px}.watch-top{grid-template-columns:34px 1fr}.verdict{grid-column:2;justify-self:start}.stats{grid-template-columns:1fr 66px 66px}.pred-row{grid-template-columns:30px 1fr auto}}
 
@@ -61,7 +72,23 @@ section{padding-top:36px;scroll-margin-top:62px}h2{font-family:var(--disp);font-
 <div class="injury"><h3>Seattle</h3><ul><li><strong>Leonard Williams, ankle:</strong> limited. Watch his workload and interior push.</li><li><strong>George Holani, ribs, and Beau Stephens, knee:</strong> limited. Backfield depth and right-guard availability matter.</li><li><strong>Tyrice Knight and Nehemiah Pritchett, ankles:</strong> limited. <strong>Chazz Surratt, calf:</strong> did not practice.</li><li><strong>Zach Charbonnet, knee:</strong> limited while on PUP. Macdonald said he will not play this week.</li><li><strong>JSN:</strong> rest day, not an injury absence. <strong>Ty Okada and Patrick O’Connell:</strong> full participants.</li></ul></div>
 <div class="injury"><h3>San Francisco</h3><ul><li><strong>Nick Bosa, knee/calf, and Kyle Juszczyk, knee:</strong> did not practice. Shanahan does not expect Bosa back this week and expects Juszczyk to miss a few weeks.</li><li><strong>Marques Sigle, ankle, Upton Stout, shoulder, and James Thompson, ankle:</strong> did not practice.</li><li><strong>Mike Evans, ribs, and Mykel Williams, knee:</strong> limited. Williams’ potential return depends on his progress.</li><li><strong>McCaffrey, Trent Williams and Dre Greenlaw:</strong> rest days, not injury absences.</li></ul></div>
 <p class="source-note">Sources: <a href="https://www.seahawks.com/news/week-5-injury-report-seahawks-vs-49ers">official Wednesday report</a> · <a href="https://www.49ers.com/news/kyle-shanahan-provides-injury-updates-following-week-4-win-over-broncos">Shanahan’s availability update</a> · <a href="https://www.reuters.com/sports/seahawks-rb-zach-charbonnet-wont-play-vs-49ers--flm-2026-10-05/">Charbonnet update</a>.</p></section>
-<section id="predictions"><h2>Our predictions<small>Coming before kickoff</small></h2><div class="season-note"><b>Jesse + the group</b><p>Score picks will appear here once submitted. No Week 5 scores have been entered yet.</p></div><p class="sub" style="margin-top:14px"><a href="/#predictions">Week 4 results and season standings</a></p></section>
+<section id="predictions">
+<h2>Our predictions<small>Week 5 · 7 human picks + the War Room AI</small></h2>
+<p class="sub">The Hawks group chat has six Seahawks wins and one 49ers win. Every score is listed with Seattle first.</p>
+<div class="pick-grid">
+<div class="pick-card"><span>Jesse P. · Seattle</span><b>SEA 27–17 SF</b></div>
+<div class="pick-card"><span>Kendall P. · Seattle</span><b>SEA 31–3 SF</b></div>
+<div class="pick-card"><span>Barry P. · Seattle</span><b>SEA 27–23 SF</b></div>
+<div class="pick-card"><span>Matt M. · Seattle</span><b>SEA 17–10 SF</b></div>
+<div class="pick-card"><span>KC A. · Seattle</span><b>SEA 24–17 SF</b></div>
+<div class="pick-card"><span>Jeff C. · Seattle</span><b>SEA 24–23 SF</b></div>
+<div class="pick-card"><span>Steve M. · San Francisco</span><b>SEA 24–28 SF</b></div>
+<div class="pick-card ai-pick"><span>War Room AI · Seattle</span><b>SEA 24–21 SF</b></div>
+</div>
+<div class="pick-summary"><span>Group average · 7 human predictions · AI excluded</span><strong>SEA 24.9 · SF 17.3</strong><small>Seattle by 7.6 on average · 6 picking Seattle, 1 picking the 49ers</small></div>
+<p class="sub" style="margin-top:14px">AI read: Seattle 24, San Francisco 21. An editorial matchup estimate informed by the teams' first four games, Seattle's defense and home field. Not a fresh run of the historical ratings model.</p>
+<p class="sub" style="margin-top:14px"><a href="/#predictions">Week 4 results and season standings</a></p>
+</section>
 <button class="share" id="share" type="button">Send Hate Week to a 12</button>
-<footer id="sources"><h2>Sources &amp; method</h2><p>Published October 8, 2026. Team records and results run through Week 4. Injury information reflects the October 7 report. Matchup conclusions and the ten game-day checks are War Room analysis, not measured probabilities or a score model.</p><p>The official schedules, team reports and press conferences linked beside each section support the facts. No betting line or unverified advanced-stat ranking is presented as a forecast.</p><p><a href="/">Hawks War Room home</a></p><p>Independent fan project. Not affiliated with the NFL, Seattle Seahawks or San Francisco 49ers.</p></footer></main>
+<footer id="sources"><h2>Sources &amp; method</h2><p>Published October 8, 2026. Team records and results run through Week 4. Injury information reflects the October 7 report. Matchup conclusions and the ten game-day checks are War Room analysis. The new AI score pick is an editorial matchup estimate rather than a calibrated statistical forecast.</p><p>The official schedules, team reports and press conferences linked beside each section support the facts. No betting line or unverified advanced-stat ranking is presented as a forecast.</p><p><a href="/">Hawks War Room home</a></p><p>Independent fan project. Not affiliated with the NFL, Seattle Seahawks or San Francisco 49ers.</p></footer></main>
 <script>document.getElementById('share').addEventListener('click',async function(){const url='https://www.hawkswarroom.com/g/2026-w5';try{if(navigator.share){await navigator.share({title:'Hate Week · Hawks War Room',url});return}}catch(e){if(e.name==='AbortError')return}try{await navigator.clipboard.writeText(url);this.textContent='Link copied'}catch(e){this.textContent=url}});</script></body></html>
