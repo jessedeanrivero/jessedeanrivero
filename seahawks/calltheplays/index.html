@@ -111,6 +111,10 @@ h1 span,.bighead span{color:var(--green);display:block}
 .choice.selected{border-color:var(--green);background:#223e36}
 .choice.best{border-color:var(--green)}
 .choice:disabled:not(.selected):not(.best){opacity:.59}
+.pick-toolbar{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:17px 0 10px;padding:11px 15px;border:1px solid #48654a;border-radius:10px;background:#152638;box-shadow:0 7px 20px #07101d80}
+.pick-toolbar .selectlabel{margin:0;color:var(--green);font-weight:700}
+.pick-toolbar .timer{width:58px;height:58px}
+.pick-toolbar .timer small{bottom:10px}
 .prep-panel{margin-top:18px;padding:23px 25px;border:1px solid rgba(201,255,61,.38);border-radius:13px;background:linear-gradient(125deg,rgba(201,255,61,.09),rgba(17,30,48,.96) 75%)}
 .prep-panel .prep-over{font:700 10px var(--mono);letter-spacing:.15em;color:var(--green);text-transform:uppercase;margin-bottom:9px}
 .prep-panel h3{font:clamp(26px,4vw,37px)/1.05 var(--head);text-transform:uppercase;margin:0 0 9px}
@@ -220,7 +224,7 @@ h1 span,.bighead span{color:var(--green);display:block}
       <div><span>Score</span><strong id="s-score"></strong></div>
     </div>
     <div class="playbody">
-      <div class="playtop"><span class="playtag" id="s-tag"></span><span class="prep-status" id="prep-status">No clock yet</span><div class="timer" id="timer" role="timer" aria-label="Seconds left to call the play" hidden><b id="time-left">20</b><small>SEC</small></div></div>
+      <div class="playtop"><span class="playtag" id="s-tag"></span><span class="prep-status" id="prep-status">No clock yet</span></div>
       <h3 id="s-title"></h3>
       <p id="s-story"></p>
       <p class="question" id="s-question"></p>
@@ -233,7 +237,7 @@ h1 span,.bighead span{color:var(--green);display:block}
     <div class="prep-instructions" aria-label="How to play"><span><b>01</b> Read the situation</span><span><b>02</b> Tap Pick Play</span><span><b>03</b> Choose one of four calls within 20 seconds</span></div>
     <button class="prep-button" id="begin-pick" type="button">PICK PLAY <small>20 SEC ↗</small></button>
   </div>
-  <div class="selectlabel" id="choose-label" hidden>Make the call / 20 seconds / Four options</div>
+  <div class="pick-toolbar" id="pick-toolbar" hidden><div class="selectlabel" id="choose-label" hidden>Make the call / Four options</div><div class="timer" id="timer" role="timer" aria-label="Seconds left to call the play" hidden><b id="time-left">20</b><small>SEC</small></div></div>
   <p class="active-hint" id="active-hint" hidden>The play clock is running. Pick your call.</p>
   <div class="choices" id="choices" role="group" aria-labelledby="choose-label" hidden></div>
   <div class="review" id="review" hidden aria-live="polite">
@@ -446,7 +450,7 @@ function start(mode){
 }
 function renderPlay(){
  stopTimer();state.phase="read";state.locked=false;state.clock=LIMIT;
- byId("prep-panel").hidden=false;byId("prep-status").hidden=false;byId("active-hint").hidden=true;els.timer.hidden=true;byId("choose-label").hidden=true;
+ byId("prep-panel").hidden=false;byId("prep-status").hidden=false;byId("active-hint").hidden=true;byId("pick-toolbar").hidden=true;els.timer.hidden=true;byId("choose-label").hidden=true;
  const item=PLAYS[state.mode][state.index];
  setText("play-number",String(state.index+1).padStart(2,"0")+" / "+String(PLAYS[state.mode].length).padStart(2,"0"));
  setText("current-score",state.points);setText("current-streak",state.streak);
@@ -455,7 +459,7 @@ function renderPlay(){
  byId("progress-fill").style.width=(100*state.index/PLAYS[state.mode].length)+"%";
  for(const [key,id] of [["quarter","s-quarter"],["clock","s-clock"],["down","s-down"],["ball","s-ball"],["score","s-score"],["tag","s-tag"],["title","s-title"],["story","s-story"],["question","s-question"]])setText(id,item[key]);
  els.review.hidden=true;els.choices.replaceChildren();els.choices.hidden=true;
- setText("choose-label","Make the call / 20 seconds / Four options");
+ setText("choose-label","Make the call / Four options");
  item.choices.forEach((option,i)=>{
    const btn=document.createElement("button");btn.type="button";btn.className="choice";btn.dataset.index=String(i);
    const number=document.createElement("small");number.textContent=String(i+1).padStart(2,"0");
@@ -469,9 +473,9 @@ function beginPick(){
  if(state.phase!=="read"||state.locked)return;
  state.phase="pick";
  byId("prep-panel").hidden=true;byId("prep-status").hidden=true;byId("active-hint").hidden=false;
- byId("choose-label").hidden=false;els.choices.hidden=false;els.timer.hidden=false;
+ byId("pick-toolbar").hidden=false;byId("choose-label").hidden=false;els.choices.hidden=false;els.timer.hidden=false;
  state.clock=LIMIT;paintTimer();
- els.choices.scrollIntoView({behavior:"instant",block:"center"});
+ byId("pick-toolbar").scrollIntoView({behavior:"instant",block:"start"});
  state.interval=setInterval(()=>{
    if(state.phase!=="pick"||state.locked||document.hidden)return;
    state.clock--;paintTimer();
@@ -504,7 +508,7 @@ function answer(choiceIndex){
  setText("review-description",selected?selected.note:"No call before the clock hit zero. The preferred read was: "+preferred.label+". "+preferred.note);
  setText("review-principle","FILM ROOM: "+item.principle+(grade!=="best"?" Preferred call: "+preferred.label+".":""));
  byId("next-play").textContent=state.index===PLAYS[state.mode].length-1?"See my final grade →":"Next call →";
- byId("active-hint").hidden=true;
+ byId("active-hint").hidden=true;setText("choose-label","Call locked / Film room review");
  els.review.hidden=false;
  els.review.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
