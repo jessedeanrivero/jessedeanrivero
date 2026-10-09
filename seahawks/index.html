@@ -321,6 +321,13 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .hero-share{
   font:700 11px/1.15 var(--mono);
 }
+.play-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:18px 0 4px;padding:20px 22px;border:1px solid rgba(201,255,61,.52);border-radius:12px;background:linear-gradient(115deg,rgba(201,255,61,.13),rgba(17,30,51,.96) 75%);text-decoration:none;color:var(--ink);transition:background .2s,transform .2s}
+.play-cta:hover{background:linear-gradient(115deg,rgba(201,255,61,.23),rgba(17,30,51,.96) 75%);transform:translateY(-2px)}
+.play-cta .pc-k{display:block;color:var(--sea);font:700 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;margin-bottom:5px}
+.play-cta strong{display:block;font:clamp(27px,6vw,36px)/1 var(--disp);text-transform:uppercase;letter-spacing:.02em}
+.play-cta p{font-size:15px;color:var(--mute);line-height:1.35;margin:6px 0 0}
+.play-cta .pc-arrow{font:36px var(--disp);color:var(--sea);flex:none}
+@media(max-width:500px){.play-cta{padding:16px}.play-cta p{font-size:14px}}
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -354,6 +361,9 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   </div>
   <div class="postgame-scorebar"><span class="pg-final">Oct 11 · FOX</span><strong><b>SEA 3-1</b><i>·</i> SF 4-0</strong></div>
 </article>
+<a class="play-cta" href="/calltheplays" aria-label="Play Call the Plays, an interactive Seahawks versus 49ers coaching game">
+  <div><span class="pc-k">New · Interactive game · Hate Week</span><strong>CALL THE PLAYS</strong><p>Take Mike Macdonald's or Brian Fleury's headset. Eight decisions. One 49ers matchup. How would you call it?</p></div><span class="pc-arrow" aria-hidden="true">↗</span>
+</a>
 <section class="predictions-panel" id="week5-predictions"><h2>Week 5 predictions<small>Our picks are coming</small></h2><p class="sub">Jesse and the group will add their score predictions before kickoff.</p></section>
 
 <section id="predictions" class="predictions-panel">
