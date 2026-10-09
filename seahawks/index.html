@@ -294,6 +294,7 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .week-pick{padding:13px 14px;border:1px solid rgba(201,255,61,.26);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.07),var(--panel))}
 .week-pick span{display:block;font:11px var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--mute);margin-bottom:5px}
 .week-pick b{display:block;font:25px/1 var(--disp);color:var(--sea);font-weight:400}
+.week-pick.ai-model{border-color:#8659ba;background:linear-gradient(145deg,rgba(141,93,194,.18),var(--panel))}.week-pick.ai-model b{color:#d6b7ff}
 .group-pick-card{margin-top:10px;padding:14px;border:1px solid rgba(201,255,61,.55);border-radius:10px;background:linear-gradient(145deg,rgba(201,255,61,.13),var(--panel))}
 .group-pick-card span{display:block;font:10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .group-pick-card strong{display:block;margin-top:5px;font:31px/1 var(--disp);color:var(--sea);font-weight:400}
@@ -364,7 +365,22 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 <a class="play-cta" href="/calltheplays" aria-label="Play Call the Plays, an interactive Seahawks versus 49ers coaching game">
   <div><span class="pc-k">New · Interactive game · Hate Week</span><strong>CALL THE PLAYS</strong><p>Take Mike Macdonald's or Brian Fleury's headset. Eight decisions. One 49ers matchup. How would you call it?</p></div><span class="pc-arrow" aria-hidden="true">↗</span>
 </a>
-<section class="predictions-panel" id="week5-predictions"><h2>Week 5 predictions<small>Our picks are coming</small></h2><p class="sub">Jesse and the group will add their score predictions before kickoff.</p></section>
+<section class="predictions-panel" id="week5-predictions">
+<h2>Week 5 predictions<small>Hate Week · 7 human picks + the AI read</small></h2>
+<p class="sub">Six of seven in the Hawks group chat are taking Seattle. The AI pick is tracked separately from the group average.</p>
+<div class="week-picks">
+  <div class="week-pick"><span>Jesse P. · Seahawks pick</span><b>SEA 27–17 SF</b></div>
+  <div class="week-pick"><span>Kendall P. · Seahawks pick</span><b>SEA 31–3 SF</b></div>
+  <div class="week-pick"><span>Barry P. · Seahawks pick</span><b>SEA 27–23 SF</b></div>
+  <div class="week-pick"><span>Matt M. · Seahawks pick</span><b>SEA 17–10 SF</b></div>
+  <div class="week-pick"><span>KC A. · Seahawks pick</span><b>SEA 24–17 SF</b></div>
+  <div class="week-pick"><span>Jeff C. · Seahawks pick</span><b>SEA 24–23 SF</b></div>
+  <div class="week-pick"><span>Steve M. · 49ers pick</span><b>SEA 24–28 SF</b></div>
+  <div class="week-pick ai-model"><span>War Room AI · Seahawks pick</span><b>SEA 24–21 SF</b></div>
+</div>
+<div class="group-pick-card"><span>Group average · 7 human picks · AI excluded</span><strong>SEA 24.9 · SF 17.3</strong><small>Seattle by 7.6 on average · 6 Seattle picks, 1 San Francisco pick</small></div>
+<p class="sub" style="margin-top:12px">War Room AI: Seahawks 24, 49ers 21. Editorial pregame estimate, not a new statistical model run. Week 5 accuracy will be scored after the game.</p>
+</section>
 
 <section id="predictions" class="predictions-panel">
 <h2>Week 4 prediction results<small>Actual · Seahawks 30, Chargers 23</small></h2>
