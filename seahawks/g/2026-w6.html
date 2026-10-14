@@ -79,6 +79,18 @@ section>h2 small{max-width:680px;margin:8px auto 0;line-height:1.55;letter-spaci
  .headline{font-size:clamp(36px,11.5vw,44px)}
 }
 
+
+/* Week 6 crew score predictions */
+.crew-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.crew-pick{min-width:0;padding:16px 17px;border:1px solid rgba(201,255,61,.25);border-radius:10px;background:linear-gradient(140deg,rgba(201,255,61,.06),var(--panel))}
+.crew-pick span{display:block;font:11px/1.45 var(--mono);letter-spacing:.045em;text-transform:uppercase;color:var(--muted)}
+.crew-pick strong{display:block;margin-top:7px;font:clamp(21px,4.8vw,28px)/1.12 var(--display);color:var(--lime);white-space:normal}
+.crew-average{border:1px solid rgba(201,255,61,.50);border-radius:11px;padding:18px;text-align:center;background:linear-gradient(125deg,rgba(201,255,61,.11),var(--panel));margin:13px 0}
+.crew-average span{display:block;font:10px/1.5 var(--mono);letter-spacing:.045em;color:var(--muted);text-transform:uppercase}
+.crew-average strong{display:block;margin:7px 0;color:var(--lime);font:clamp(28px,6.5vw,42px)/1.12 var(--display);font-variant-numeric:tabular-nums}
+.crew-average small{display:block;margin:6px auto 0;max-width:530px;font:11px/1.6 var(--mono);color:var(--muted)}
+@media(max-width:420px){.crew-picks{gap:8px}.crew-pick{padding:13px 11px}.crew-pick strong{font-size:clamp(18px,5vw,23px)}}
+@media(max-width:340px){.crew-picks{grid-template-columns:1fr}}
 </style></head>
 <body><main class="wrap">
 <a class="back" href="/">← Back to Hawks War Room</a>
@@ -114,9 +126,19 @@ section>h2 small{max-width:680px;margin:8px auto 0;line-height:1.55;letter-spaci
 <section id="injuries"><h2>Injury Watch<small>Latest available: estimated Tuesday, October 13 participation. Wednesday statuses pending.</small></h2>
 <div class="columns"><div class="column"><h3>Seattle</h3><p><strong>Did not participate:</strong> LB Drake Thomas (ankle), LB Chazz Surratt (calf).</p><p><strong>Limited:</strong> WR Jaxon Smith-Njigba (ankle), DT Leonard Williams (ankle), RB Zach Charbonnet (knee), QB Drew Lock (forearm).</p><p><strong>Full:</strong> Beau Stephens, George Holani, Irv Charles.</p><p class="note">Macdonald says a Week 6 Charbonnet return is unlikely. Short-week reports are practice estimates.</p></div><div class="column den"><h3>Denver</h3><p><strong>Did not participate:</strong> CB Patrick Surtain II (ankle), S Talanoa Hufanga (ankle).</p><p><strong>Limited:</strong> CB Riley Moss (ribs).</p><p><strong>Full:</strong> S Brandon Jones, DE Sai'vion Jones, G Ben Powers.</p><p class="note">Surtain missed Week 5. Hufanga left the Chargers game injured. Monitor game-status designations.</p></div></div>
 <p class="note">Check final official status before kickoff: <a href="https://www.seahawks.com/news/week-6-injury-report-seahawks-at-broncos">Seahawks</a> · <a href="https://www.denverbroncos.com/news/injuryreport/injury-report-cb-riley-moss-remains-limited-practice-participant-ahead-of-week-6-game-vs-seahawks">Broncos</a>.</p></section>
-<section id="predictions"><h2>Score Predictions<small>War Room projection · group submissions coming soon</small></h2>
-<div class="prediction"><div><small>Seattle</small><b>27</b></div><div class="dash">:</div><div><small>Denver</small><b>17</b></div></div>
-<p class="note">War Room AI scouting estimate, not a betting line: SEA 27, DEN 17. It assumes a cleaner turnover game and some exploitation of Denver's secondary injuries. Game-time availability will affect the call.</p><div class="box"><h3>Jesse and the crew</h3><p>Week 6 picks are open. Jesse P. and the group will appear here in first-name, last-initial format after the scores come in. Existing season leaderboard totals remain intact until the final.</p><p><a href="/#predictions">See the Week 5 results and season prediction leaderboard</a>.</p></div></section>
+<section id="predictions"><h2>Week 6 Score Predictions<small>Seahawks at Broncos · 6 crew picks in · More coming</small></h2>
+<div class="crew-picks" aria-label="Week 6 Seahawks Broncos score predictions">
+<div class="crew-pick"><span>Jesse P.</span><strong>SEA 27 · DEN 17</strong></div>
+<div class="crew-pick"><span>Matt M.</span><strong>SEA 16 · DEN 6</strong></div>
+<div class="crew-pick"><span>Mark P.</span><strong>SEA 28 · DEN 10</strong></div>
+<div class="crew-pick"><span>Barry P.</span><strong>SEA 27 · DEN 20</strong></div>
+<div class="crew-pick"><span>Jeff C.</span><strong>SEA 17 · DEN 14</strong></div>
+<div class="crew-pick"><span>KC A.</span><strong>SEA 24 · DEN 10</strong></div>
+</div>
+<div class="crew-average"><span>Current group average · 6 Seahawks picks</span><strong>SEA 23.2 · DEN 12.8</strong><small>Live submissions through October 14. Scores are Seahawks first, Broncos second. No rankings until the final.</small></div>
+<div class="box"><h3>War Room AI · Separate</h3><div class="prediction" aria-label="War Room AI prediction, Seattle 27, Denver 17"><div><small>Seattle</small><b>27</b></div><div class="dash">:</div><div><small>Denver</small><b>17</b></div></div>
+<p class="note">Model scouting estimate: SEA 27, DEN 17. Kept separate from the crew's picks and the human season leaderboard.</p></div>
+<p class="note">More picks will be added as they arrive. <a href="/#predictions">See the current picks, Week 5 results and season leaderboard on the homepage</a>.</p></section>
 <section id="last"><h2>Game Day Cheat Sheet<small>What decides it in real time</small></h2>
 <div class="box"><p><strong>Offense:</strong> Track giveaways, sacks, red-zone TD rate, JSN targets and heavy-personnel snaps.</p><p><strong>Defense:</strong> Track first-down run defense, Nix escapes, pressure without blitzing, third-down stops and Denver field position.</p><p><strong>Winning formula:</strong> No free points, secure the edges, attack backup coverages, and turn red-zone trips into six.</p></div></section>
 <button class="share" id="share" type="button">Share this Game Prep Sheet with a 12</button>
