@@ -19,11 +19,13 @@
         "Josh F.": 13,
         "Steve M.": 18,
         "Jeff C.": 18,
-        "Mark P.": 18
+        "Mark P.": 18,
+        "Taylor C.": 18
       },
       "notes": {
         "Jeff C.": "Missed Week 2, assigned that week's worst submitted error.",
-        "Mark P.": "Missed Week 2, assigned that week's worst submitted error."
+        "Mark P.": "Missed Week 2, assigned that week's worst submitted error.",
+        "Taylor C.": "Missed Week 2, assigned that week's worst submitted error."
       }
     },
     "3": {
@@ -41,10 +43,12 @@
         "Matt M.": 32,
         "Jeff C.": 33,
         "Kendall P.": 34,
-        "Mark P.": 34
+        "Mark P.": 34,
+        "Taylor C.": 34
       },
       "notes": {
-        "Mark P.": "Missed Week 3, assigned that week's worst submitted error."
+        "Mark P.": "Missed Week 3, assigned that week's worst submitted error.",
+        "Taylor C.": "Missed Week 3, assigned that week's worst submitted error."
       }
     },
     "4": {
@@ -239,11 +243,13 @@
     },
     {
       "name": "Taylor C.",
+      "week2": 18,
+      "week3": 34,
       "week4": 11,
       "week5": 34,
       "week6": 21,
-      "total": null,
-      "average": null,
+      "total": 118,
+      "average": 23.6,
       "rank": 9
     },
     {
