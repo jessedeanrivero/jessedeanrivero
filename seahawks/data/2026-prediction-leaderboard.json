@@ -46,82 +46,218 @@
       "notes": {
         "Mark P.": "Missed Week 3, assigned that week's worst submitted error."
       }
+    },
+    "4": {
+      "opponent": "Los Angeles Chargers",
+      "actual": {
+        "sea": 30,
+        "opp": 23
+      },
+      "errors": {
+        "Barry P.": 7,
+        "Steve M.": 10,
+        "KC A.": 14,
+        "Jesse P.": 15,
+        "Jeff C.": 6,
+        "Matt M.": 5,
+        "Josh F.": 15,
+        "Kendall P.": 15,
+        "Taylor C.": 11,
+        "Mark P.": 14
+      },
+      "notes": {}
+    },
+    "5": {
+      "opponent": "San Francisco 49ers",
+      "actual": {
+        "sea": 29,
+        "opp": 32
+      },
+      "errors": {
+        "Barry P.": 11,
+        "Steve M.": 9,
+        "KC A.": 20,
+        "Jesse P.": 17,
+        "Jeff C.": 14,
+        "Matt M.": 34,
+        "Josh F.": 34,
+        "Kendall P.": 31,
+        "Taylor C.": 34,
+        "Mark P.": 34
+      },
+      "notes": {
+        "Josh F.": "Missed Week 5, assigned 34.",
+        "Taylor C.": "Missed Week 5, assigned 34.",
+        "Mark P.": "Missed Week 5, assigned 34."
+      }
+    },
+    "6": {
+      "opponent": "Denver Broncos",
+      "actual": {
+        "sea": 14,
+        "opp": 17
+      },
+      "errors": {
+        "Barry P.": 16,
+        "Steve M.": 21,
+        "KC A.": 17,
+        "Jesse P.": 13,
+        "Jeff C.": 6,
+        "Matt M.": 13,
+        "Josh F.": 21,
+        "Kendall P.": 21,
+        "Taylor C.": 21,
+        "Mark P.": 21
+      },
+      "predictions": {
+        "Jesse P.": {
+          "sea": 27,
+          "opp": 17
+        },
+        "Matt M.": {
+          "sea": 16,
+          "opp": 6
+        },
+        "Mark P.": {
+          "sea": 28,
+          "opp": 10
+        },
+        "Barry P.": {
+          "sea": 27,
+          "opp": 20
+        },
+        "Jeff C.": {
+          "sea": 17,
+          "opp": 14
+        },
+        "KC A.": {
+          "sea": 24,
+          "opp": 10
+        }
+      },
+      "aiPrediction": {
+        "sea": 27,
+        "opp": 17,
+        "error": 13
+      },
+      "notes": {
+        "Steve M.": "Missed Week 6, assigned 21.",
+        "Josh F.": "Missed Week 6, assigned 21.",
+        "Kendall P.": "Missed Week 6, assigned 21.",
+        "Taylor C.": "Missed Week 6, assigned 21."
+      }
     }
   },
   "standings": [
     {
-      "rank": 1,
-      "name": "KC A.",
-      "week2": 10,
-      "week3": 22,
-      "total": 32,
-      "average": 16
-    },
-    {
-      "rank": 2,
       "name": "Barry P.",
       "week2": 10,
       "week3": 24,
-      "total": 34,
-      "average": 17
+      "week4": 7,
+      "week5": 11,
+      "week6": 16,
+      "total": 68,
+      "average": 13.6,
+      "rank": 1
     },
     {
-      "rank": 3,
-      "name": "Josh F.",
-      "week2": 13,
-      "week3": 23,
-      "total": 36,
-      "average": 18
-    },
-    {
-      "rank": 4,
-      "name": "Jesse P.",
-      "week2": 10,
-      "week3": 27,
-      "total": 37,
-      "average": 18.5
-    },
-    {
-      "rank": 5,
-      "name": "Kendall P.",
-      "week2": 8,
-      "week3": 34,
-      "total": 42,
-      "average": 21
-    },
-    {
-      "rank": 6,
-      "name": "Matt M.",
-      "week2": 11,
-      "week3": 32,
-      "total": 43,
-      "average": 21.5
-    },
-    {
-      "rank": 7,
-      "name": "Steve M.",
-      "week2": 18,
-      "week3": 27,
-      "total": 45,
-      "average": 22.5
-    },
-    {
-      "rank": 8,
       "name": "Jeff C.",
       "week2": 18,
       "week3": 33,
-      "total": 51,
-      "average": 25.5,
-      "note": "Missed Week 2, assigned that week's worst submitted error."
+      "week4": 6,
+      "week5": 14,
+      "week6": 6,
+      "total": 77,
+      "average": 15.4,
+      "rank": 2
     },
     {
-      "rank": 9,
+      "name": "Jesse P.",
+      "week2": 10,
+      "week3": 27,
+      "week4": 15,
+      "week5": 17,
+      "week6": 13,
+      "total": 82,
+      "average": 16.4,
+      "rank": 3
+    },
+    {
+      "name": "KC A.",
+      "week2": 10,
+      "week3": 22,
+      "week4": 14,
+      "week5": 20,
+      "week6": 17,
+      "total": 83,
+      "average": 16.6,
+      "rank": 4
+    },
+    {
+      "name": "Steve M.",
+      "week2": 18,
+      "week3": 27,
+      "week4": 10,
+      "week5": 9,
+      "week6": 21,
+      "total": 85,
+      "average": 17,
+      "rank": 5
+    },
+    {
+      "name": "Matt M.",
+      "week2": 11,
+      "week3": 32,
+      "week4": 5,
+      "week5": 34,
+      "week6": 13,
+      "total": 95,
+      "average": 19,
+      "rank": 6
+    },
+    {
+      "name": "Josh F.",
+      "week2": 13,
+      "week3": 23,
+      "week4": 15,
+      "week5": 34,
+      "week6": 21,
+      "total": 106,
+      "average": 21.2,
+      "rank": 7
+    },
+    {
+      "name": "Kendall P.",
+      "week2": 8,
+      "week3": 34,
+      "week4": 15,
+      "week5": 31,
+      "week6": 21,
+      "total": 109,
+      "average": 21.8,
+      "rank": 8
+    },
+    {
+      "name": "Taylor C.",
+      "week4": 11,
+      "week5": 34,
+      "week6": 21,
+      "total": null,
+      "average": null,
+      "rank": 9
+    },
+    {
       "name": "Mark P.",
       "week2": 18,
       "week3": 34,
-      "total": 52,
-      "average": 26,
-      "note": "Joined Week 4. Missed Weeks 2 and 3 were assigned each week's worst submitted error."
+      "week4": 14,
+      "week5": 34,
+      "week6": 21,
+      "total": 121,
+      "average": 24.2,
+      "rank": 10
     }
-  ]
+  ],
+  "lastUpdated": "2026-10-16",
+  "currentWeek": 6
 }
