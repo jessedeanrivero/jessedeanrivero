@@ -150,6 +150,46 @@
         "Kendall P.": "Missed Week 6, assigned 21.",
         "Taylor C.": "Missed Week 6, assigned 21."
       }
+    },
+    "7": {
+      "opponent": "Kansas City Chiefs",
+      "date": "2026-10-25",
+      "status": "upcoming",
+      "predictions": {
+        "Jesse P.": {
+          "sea": 23,
+          "opp": 20
+        },
+        "Barry P.": {
+          "sea": 31,
+          "opp": 27
+        },
+        "Kendall P.": {
+          "sea": 24,
+          "opp": 21
+        },
+        "Steve M.": {
+          "sea": 17,
+          "opp": 19
+        },
+        "KC A.": {
+          "sea": 21,
+          "opp": 17
+        }
+      },
+      "aiPrediction": {
+        "sea": 24,
+        "opp": 23,
+        "note": "Editorial scouting pick, excluded from crew rankings"
+      },
+      "notes": {
+        "Taylor C.": "Discussed matchup, no numeric score submitted as of October 23."
+      },
+      "crewAverage": {
+        "sea": 23.2,
+        "opp": 20.8
+      },
+      "humanPicksCount": 5
     }
   },
   "standings": [
@@ -264,6 +304,7 @@
       "rank": 10
     }
   ],
-  "lastUpdated": "2026-10-16",
-  "currentWeek": 6
+  "lastUpdated": "2026-10-23",
+  "currentWeek": 7,
+  "standingsThroughWeek": 6
 }
