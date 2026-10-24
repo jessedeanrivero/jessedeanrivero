@@ -359,6 +359,22 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .week7-home-hero img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto}
 .week7-home-hero:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
 
+
+/* Featured Call the Plays card: always below the current week's main story. */
+.play-feature{display:block;overflow:hidden;margin:16px 0 25px;padding:0;border:1px solid rgba(201,255,61,.5);border-radius:15px;background:#0e1829;transition:border-color .2s,transform .2s}
+.play-feature:hover{background:#0e1829;border-color:var(--sea);transform:translateY(-2px)}
+.play-feature .pc-cover{display:block;width:100%;line-height:0;overflow:hidden;background:#07111e}
+.play-feature .pc-cover img{display:block;width:100%;height:auto;max-width:100%;aspect-ratio:auto;object-fit:contain}
+.play-feature .pc-content{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px 23px 22px;background:linear-gradient(115deg,#162b3d,#0e1829)}
+.play-feature .pc-copy{display:block;min-width:0}
+.play-feature .pc-k{margin-bottom:10px}
+.play-feature strong{color:#fff;font-size:clamp(29px,6vw,41px)}
+.play-feature .pc-desc{display:block;max-width:650px;margin:9px 0 11px;color:#b8c8dc;font:15px/1.5 var(--sans)}
+.play-feature .pc-link{display:inline-block;color:var(--sea);font:700 11px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.play-feature .pc-arrow{color:var(--sea);align-self:center}
+.play-feature:focus-visible{outline:3px solid var(--sea);outline-offset:3px}
+@media(max-width:520px){.play-feature .pc-content{padding:17px 15px 19px;gap:12px}.play-feature .pc-arrow{font-size:28px}.play-feature .pc-desc{font-size:14px}}
+
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -392,6 +408,22 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div class="primetime-details"><span>Sunday, October 25</span><span>5:20 PM PT / 7:20 PM CT</span><span>Lumen Field · Seattle</span></div>
   <div class="hero-actions"><a href="/g/2026-w7">Read the Week 7 Game Prep →</a><a href="#week7-predictions">See the crew picks</a></div>
 </article>
+
+<!-- Weekly publish rule: keep this single Call the Plays feature immediately below the current week's lead post, above that week's predictions. Update the matchup label as the active game changes. -->
+<a id="call-the-plays-feature" class="play-cta play-feature" href="/calltheplays" aria-label="Play Call the Plays, the Seahawks versus Chiefs interactive coaching game">
+  <span class="pc-cover">
+    <img src="/assets/181214BC-0238-47D3-8C47-FF579B284B53.png" alt="Call the Plays interactive Seahawks coaching game cover artwork" loading="lazy" decoding="async">
+  </span>
+  <span class="pc-content">
+    <span class="pc-copy">
+      <span class="pc-k">Week 7 · Seahawks vs. Chiefs · Interactive game</span>
+      <strong>CALL THE PLAYS</strong>
+      <span class="pc-desc">Step into Mike Macdonald's or Brian Fleury's shoes. Make the calls on offense or defense, with 20 seconds to choose each play.</span>
+      <span class="pc-link">Play the game <span aria-hidden="true">→</span></span>
+    </span>
+    <span class="pc-arrow" aria-hidden="true">↗</span>
+  </span>
+</a>
 <section class="predictions-panel" id="week7-predictions" aria-label="Week 7 Chiefs Seahawks group predictions">
   <h2>Week 7 Score Predictions<small>5 crew submissions · 4 picks for Seattle, 1 for Kansas City</small></h2>
   <p class="sub">Seahawks score first. The AI stays separate. Rankings begin after the final.</p>
@@ -439,9 +471,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   </div>
   <div class="postgame-scorebar"><span class="pg-final">Week 5 · Final</span><strong><b>SEA 29</b><i>·</i> SF 32</strong></div>
 </article>
-<a class="play-cta" href="/calltheplays" aria-label="Play Call the Plays, an interactive Seahawks versus Chiefs coaching game">
-  <div><span class="pc-k">Week 7 · Interactive game · Sunday Night Football</span><strong>CALL THE PLAYS</strong><p>Take Mike Macdonald's or Brian Fleury's headset. Eight decisions. One Chiefs matchup. How would you call it?</p></div><span class="pc-arrow" aria-hidden="true">↗</span>
-</a>
+
 <section class="predictions-panel" id="week5-results">
 <h2>Week 5 prediction results<small>49ers 32, Seahawks 29 · Steve M. wins the week</small></h2>
 <p class="sub">Score error = missed Seattle points + missed San Francisco points. The AI stays separate from human rankings.</p>
