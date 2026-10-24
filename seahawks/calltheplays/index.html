@@ -154,6 +154,25 @@ h1 span,.bighead span{color:var(--green);display:block}
 @media(max-width:790px){.intro{grid-template-columns:1fr;padding:35px 0 24px;gap:15px}.chalk{height:180px;max-width:460px}.modegrid{grid-template-columns:1fr}.mode{min-height:210px}.mode h2{margin-top:18px}.ruleline{line-height:1.6}}
 @media(max-width:540px){.prep-panel{padding:18px}.prep-instructions{flex-direction:column;gap:3px}.prep-button{min-height:60px}.prep-status{font-size:9px}.topbar{height:64px}.identity{font-size:18px}.siteback{font-size:10px}.matchbar{padding:12px;gap:8px}.teamid{font-size:29px}.teammeta{font-size:9px}.teammeta strong{font-size:9px}.matchside{gap:8px}.mid{font-size:9px}.mid strong{font-size:10px}h1{font-size:clamp(62px,17vw,94px)}.chalk{height:165px}.gamehead{padding-top:25px}.scoreboard{padding:12px 4px}.scoreboard b{font-size:27px}.stats{grid-template-columns:repeat(3,1fr)}.stats div{padding:10px;border-bottom:1px solid var(--line)}.stats div:nth-child(3){border-right:0}.stats div:nth-child(4),.stats div:nth-child(5){border-bottom:0}.stats strong{font-size:13px}.playbody{padding:19px}.playbody h3{font-size:34px}.playbody p{font-size:17px}.choices{grid-template-columns:1fr}.choice{min-height:65px;padding:13px}.review{padding:18px}.review h3{font-size:28px}.review .points{font-size:31px}.endcards{gap:6px}.endcards div{padding:12px 5px}.endcards b{font-size:32px}.endcards span{font-size:9px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* Coach selection cards: full coach photos, responsive and uncropped. */
+.modegrid{align-items:stretch}
+.mode.mode-with-image{display:flex;flex-direction:column;min-width:0;min-height:0;padding:0;border-radius:14px;text-align:left;cursor:pointer;isolation:isolate;background:#111e30}
+.mode.mode-with-image:hover{background:#111e30}
+.mode.mode-with-image:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.mode.mode-with-image:after{content:none}
+.mode-cover{display:flex;align-items:center;justify-content:center;flex:none;width:100%;height:clamp(190px,23vw,290px);padding:0;overflow:hidden;background:radial-gradient(ellipse at 50% 60%,#254253,#091526 76%)}
+.mode-cover img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;object-position:center center}
+.mode-body{display:flex;flex-direction:column;align-items:flex-start;flex:1;min-width:0;padding:20px 22px 22px}
+.mode-with-image .num{display:block;font:600 11px var(--mono);color:var(--green);letter-spacing:.14em}
+.mode-with-image .mode-heading{display:block;margin:15px 0 9px;font:clamp(29px,3.8vw,42px)/1.05 var(--head);letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.mode-with-image .coach{display:block;margin:0 0 12px;font:600 11px/1.5 var(--mono);color:var(--green);letter-spacing:.055em;text-transform:uppercase}
+.mode-with-image .mode-description{display:block;margin:0 0 18px;color:var(--muted);font:15px/1.45 var(--sans)}
+.mode-with-image .mode-action{display:block;margin-top:auto;border-top:1px solid #30475c;padding-top:12px;width:100%;font:700 11px/1.35 var(--mono);color:var(--green);letter-spacing:.075em}
+.mode-with-image:hover .mode-action{color:#e6ff9b}
+@media(max-width:790px){.mode-cover{height:clamp(190px,54vw,310px)}.mode-with-image .mode-heading{font-size:clamp(30px,7vw,44px)}}
+@media(max-width:430px){.mode-cover{height:clamp(180px,61vw,250px)}.mode-body{padding:18px 17px 20px}.mode-with-image .mode-description{font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -192,17 +211,29 @@ h1 span,.bighead span{color:var(--green);display:block}
   </div>
   <div class="hint">Choose your side of the ball</div>
   <div class="modegrid">
-    <button class="mode" id="start-defense" type="button">
-      <span class="num">01 / DEFENSE</span>
-      <h2>BE MIKE MACDONALD</h2>
-      <div class="coach">Head Coach · Defensive Mind</div>
-      <p>Disguise coverages. Set the edge. Decide when to bring pressure and when to make the Chiefs earn every yard.</p>
+    <button class="mode mode-with-image" id="start-defense" type="button">
+      <span class="mode-cover">
+        <img src="/assets/6F237224-251F-4E0A-8A9D-241DEBD05AF6.png" alt="Mike Macdonald, Seahawks head coach" loading="eager" decoding="async">
+      </span>
+      <span class="mode-body">
+        <span class="num">01 / DEFENSE</span>
+        <span class="mode-heading">BE MIKE MACDONALD</span>
+        <span class="coach">Head Coach · Defensive Mind</span>
+        <span class="mode-description">Disguise coverages. Set the edge. Decide when to bring pressure and when to make the Chiefs earn every yard.</span>
+        <span class="mode-action">CALL THE DEFENSE <span aria-hidden="true">→</span></span>
+      </span>
     </button>
-    <button class="mode" id="start-offense" type="button">
-      <span class="num">02 / OFFENSE</span>
-      <h2>BE BRIAN FLEURY</h2>
-      <div class="coach">Offensive Coordinator</div>
-      <p>Set the personnel. Find the mismatch. Manage the clock and decide how Seattle attacks Kansas City.</p>
+    <button class="mode mode-with-image" id="start-offense" type="button">
+      <span class="mode-cover">
+        <img src="/assets/1E0262D9-87B5-4CB9-B742-77B3C951A2B3.png" alt="Brian Fleury, Seahawks offensive coordinator" loading="eager" decoding="async">
+      </span>
+      <span class="mode-body">
+        <span class="num">02 / OFFENSE</span>
+        <span class="mode-heading">BE BRIAN FLEURY</span>
+        <span class="coach">Offensive Coordinator</span>
+        <span class="mode-description">Set the personnel. Find the mismatch. Manage the clock and decide how Seattle attacks Kansas City.</span>
+        <span class="mode-action">CALL THE OFFENSE <span aria-hidden="true">→</span></span>
+      </span>
     </button>
   </div>
   <p class="instruction">Scenarios are fictional coaching exercises inspired by Seahawks vs. Chiefs football, not live play predictions or official team calls. Grades reflect the assumptions provided. Reasonable coaches may disagree.</p>
