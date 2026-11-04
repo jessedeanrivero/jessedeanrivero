@@ -2,12 +2,19 @@
 // Reads and writes the "Judah's Star Jar" Airtable base.
 // Env vars (Vercel > Project > Settings > Environment Variables):
 //   AIRTABLE_TOKEN  personal access token scoped to only this base
-//   FAMILY_PIN      PIN parents type once per phone to give/remove stars
-// Reading the jar is open (so Judah can look); every write needs the PIN.
+//   FAMILY_USERS    who can log in, as Name:PIN pairs, e.g. "Jesse:1111,Kendall:2222"
+// Every request (reading included) needs a name and PIN from FAMILY_USERS.
+// PINs live only in Vercel, never in this public repo.
 
 const BASE_ID = process.env.AIRTABLE_BASE_ID || "app9GXLbY0cAAIYCJ";
 const TOKEN = process.env.AIRTABLE_TOKEN;
-const PIN = process.env.FAMILY_PIN;
+const USERS = String(process.env.FAMILY_USERS || "")
+  .split(",")
+  .map(pair => {
+    const i = pair.lastIndexOf(":");
+    return i > 0 ? { name: pair.slice(0, i).trim(), pin: pair.slice(i + 1).trim() } : null;
+  })
+  .filter(u => u && u.name && u.pin);
 const GOAL = 100;
 
 const STARS = "tblfcTqngMikUHywA";
@@ -106,6 +113,14 @@ function publicState({ settings, stars }) {
   return { ...rest, goal: GOAL, stars };
 }
 
+function login(name, pin) {
+  if (!USERS.length) throw new HttpError(503, "setup", "Logins aren't set up yet.");
+  const n = String(name || "").trim().toLowerCase();
+  const u = USERS.find(x => x.name.toLowerCase() === n);
+  if (!u || u.pin !== String(pin || "").trim()) throw new HttpError(401, "login", "That name and PIN didn't match.");
+  return u.name;
+}
+
 const clean = (v, max) => String(v == null ? "" : v).replace(/\s+/g, " ").trim().slice(0, max);
 
 async function patchSettings(id, fields) {
@@ -117,29 +132,32 @@ module.exports = async (req, res) => {
   try {
     if (!TOKEN) throw new HttpError(503, "setup", "The Airtable token isn't set up yet.");
 
-    if (req.method === "GET") return res.status(200).json(publicState(await getState()));
+    if (req.method === "GET") {
+      const h = req.headers || {};
+      login(h["x-star-user"], h["x-star-pin"]);
+      return res.status(200).json(publicState(await getState()));
+    }
     if (req.method !== "POST") throw new HttpError(405, "method", "Not allowed.");
 
     let body = req.body;
     if (typeof body === "string") { try { body = JSON.parse(body); } catch (_) { body = {}; } }
     body = body || {};
 
-    if (!PIN) throw new HttpError(503, "setup", "The family PIN isn't set up yet.");
-    if (String(body.pin || "") !== String(PIN)) throw new HttpError(401, "pin", "That PIN didn't match.");
+    const user = login(body.user, body.pin);
 
     const action = body.action;
     let state = await getState();
     const { settings, stars } = state;
 
     if (action === "check") {
-      // PIN is fine, just return the jar
+      // login is fine, just return the jar plus the name as stored
     } else if (action === "give") {
       const room = GOAL - stars.length;
       if (room <= 0) throw new HttpError(409, "full", "The jar is full! Start a new jar first.");
       const n = Math.min(Math.max(1, Math.floor(Number(body.count) || 1)), 99, room);
       const carried = n > 1 || !!body.carried;
       const reason = clean(body.reason, 60) || (carried ? "Carried over" : "A star");
-      const by = clean(body.by, 30);
+      const by = user;
       const now = Date.now();
       const records = Array.from({ length: n }, (_, i) => ({
         fields: {
@@ -172,7 +190,7 @@ module.exports = async (req, res) => {
     }
 
     if (action !== "check") state = await getState();
-    return res.status(200).json(publicState(state));
+    return res.status(200).json({ ...publicState(state), user });
   } catch (e) {
     const status = e instanceof HttpError ? e.status : 500;
     const code = e instanceof HttpError ? e.code : "server";

@@ -152,8 +152,6 @@ details.tools[open] summary::after{content:"–"}
 .chip svg path{fill:var(--gold)}
 .chip span{min-width:0;overflow-wrap:anywhere}
 .chip:active,.chip.on{background:var(--gold);color:#3a2300}
-.who{display:flex;gap:8px;flex-wrap:wrap}
-.who .chip{flex:1;justify-content:center;text-align:center;min-width:90px}
 .err{color:var(--danger);font-weight:800;font-size:14px;margin:0;min-height:1.2em}
 
 .party{position:fixed;inset:0;z-index:30;background:rgba(10,11,36,.92);display:flex;align-items:center;justify-content:center;padding:24px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px))}
@@ -167,6 +165,16 @@ details.tools[open] summary::after{content:"–"}
 .party-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
 @keyframes spin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
 
+.gate{position:fixed;inset:0;z-index:50;background:var(--sky);display:flex;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+.gate-card{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;text-align:center}
+.gate-star{width:84px;height:84px;margin:0 auto 4px;filter:drop-shadow(0 0 18px rgba(255,200,58,.5))}
+.gate-star path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
+.gate h2{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.05;margin:0}
+.gate h2 em{font-style:normal;color:var(--gold)}
+.gate .hint{margin:0 0 6px;color:var(--muted);font-weight:700}
+.gate .field{flex:none;width:100%;text-align:center;font-size:18px;padding:14px 12px}
+.gate .btn{width:100%}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--mint);color:#063325;font-weight:900;padding:12px 18px;border-radius:999px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:calc(100% - 32px);text-align:center;animation:rise .2s ease-out both}
 
 @media (max-width:420px){.jar-wrap{padding:0 30px 0 4px}.tally .num{font-size:56px}}
@@ -204,7 +212,6 @@ details.tools[open] summary::after{content:"–"}
     <button class="btn btn-gold wide" id="giveBtn" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>Give Judah a star</button>
     <button class="btn btn-pink" id="celebrateBtn" hidden>The jar is full! Celebrate</button>
     <div class="status" id="status" role="status">Opening the jar…</div>
-    <button class="link" id="unlockBtn" hidden>Parent? Unlock giving stars</button>
   </div>
 
   <section class="panel" aria-labelledby="logTitle">
@@ -242,8 +249,8 @@ details.tools[open] summary::after{content:"–"}
     </div>
     <div class="tool">
       <h3>This phone</h3>
-      <p id="whoLine">Stars from this phone show as given by a parent.</p>
-      <div class="row"><button class="btn btn-ghost btn-small" id="lockBtn" type="button">Lock this phone</button></div>
+      <p id="whoLine">Logged in.</p>
+      <div class="row"><button class="btn btn-ghost btn-small" id="logoutBtn" type="button">Log out</button></div>
     </div>
   </details>
 </main>
@@ -260,19 +267,17 @@ details.tools[open] summary::after{content:"–"}
   </div>
 </div>
 
-<div class="backdrop" id="unlockWrap" hidden>
-  <form class="sheet" id="unlockForm" role="dialog" aria-modal="true" aria-labelledby="unlockTitle">
-    <div class="sheet-head"><h2 id="unlockTitle">Parent unlock</h2><button class="link" id="unlockClose" type="button">Close</button></div>
-    <p class="hint">Do this once on each parent's phone. Judah can still look without it.</p>
-    <input class="field" id="pinInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Family PIN">
-    <div class="eyebrow" style="text-align:left">Who's on this phone?</div>
-    <div class="who" id="whoChips">
-      <button type="button" class="chip" data-who="Dad">Dad</button>
-      <button type="button" class="chip" data-who="Mom">Mom</button>
-    </div>
-    <input class="field" id="whoOther" maxlength="30" placeholder="Or type a name" autocomplete="off">
-    <p class="err" id="unlockErr"></p>
-    <button class="btn btn-gold" type="submit" id="unlockSubmit">Unlock</button>
+<div class="gate" id="gate" hidden>
+  <form class="gate-card" id="loginForm" aria-labelledby="gateTitle">
+    <svg class="gate-star" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+    <h2 id="gateTitle"><em>Judah's</em> Star Jar</h2>
+    <p class="hint">Log in once on this phone and it'll remember you.</p>
+    <label class="sr" for="loginName">Name</label>
+    <input class="field" id="loginName" placeholder="Name" autocomplete="username" autocapitalize="words" spellcheck="false">
+    <label class="sr" for="loginPin">PIN</label>
+    <input class="field" id="loginPin" type="password" inputmode="numeric" placeholder="PIN" autocomplete="current-password">
+    <p class="err" id="loginErr" role="alert"></p>
+    <button class="btn btn-gold" type="submit" id="loginSubmit">Log in</button>
   </form>
 </div>
 
@@ -303,8 +308,8 @@ details.tools[open] summary::after{content:"–"}
   /* ---------- per-phone storage ---------- */
   function load(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function save(k,v){ try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k,v); } catch(e){} }
+  var user = load("sj_user");
   var pin = load("sj_pin");
-  var who = load("sj_who") || "";
 
   var state = null;          // {jar, prize, challenges, jarsFilled, stars}
   var lastCount = null, lastJar = null;
@@ -346,7 +351,7 @@ details.tools[open] summary::after{content:"–"}
     if (diff < 7) return d.toLocaleDateString([], { weekday: "long" }) + " " + t;
     return d.toLocaleDateString([], { month: "short", day: "numeric" });
   }
-  function isParent(){ return !!pin; }
+  function isParent(){ return !!(user && pin); }
   function stars(){ return state ? state.stars : []; }
 
   /* ---------- sound ---------- */
@@ -376,10 +381,10 @@ details.tools[open] summary::after{content:"–"}
 
   /* ---------- API ---------- */
   function apiGet(){
-    return fetch(API, { cache: "no-store" }).then(readJson);
+    return fetch(API, { cache: "no-store", headers: { "x-star-user": user || "", "x-star-pin": pin || "" } }).then(readJson);
   }
   function apiPost(body){
-    body.pin = pin;
+    body.user = user; body.pin = pin;
     return fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(readJson);
   }
   function readJson(r){
@@ -389,9 +394,8 @@ details.tools[open] summary::after{content:"–"}
     });
   }
   function handleError(e){
-    if (e && e.code === "pin") {
-      pin = null; save("sj_pin", null); applyMode();
-      toast("The PIN changed. Unlock this phone again.");
+    if (e && e.code === "login") {
+      logout("Your login changed. Log in again.");
     } else if (e && e.code === "full") {
       toast("The jar is full! Start a new jar first.");
     } else if (e && e.code === "setup") {
@@ -536,9 +540,9 @@ details.tools[open] summary::after{content:"–"}
     if (!state || !isParent()) return;
     if (state.stars.length >= GOAL) { toast("The jar is full! Start a new jar first."); return; }
     // show it right away, then sync with what the server saved
-    state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: who, at: Date.now(), carried: false }]);
+    state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: user, at: Date.now(), carried: false }]);
     react(); render();
-    write({ action: "give", reason: reason, by: who }).catch(function(){
+    write({ action: "give", reason: reason }).catch(function(){
       state.stars = state.stars.filter(function(t){ return t.id !== "tmp"; });
       lastCount = state.stars.length; render();
     });
@@ -584,7 +588,7 @@ details.tools[open] summary::after{content:"–"}
     if (room <= 0) { toast("The jar is full already."); return; }
     n = Math.min(n, room);
     $("bulkBtn").disabled = true; setStatus("Adding " + n + " stars…");
-    write({ action: "give", count: n, carried: true, reason: $("bulkReason").value.trim() || "Carried over", by: who })
+    write({ action: "give", count: n, carried: true, reason: $("bulkReason").value.trim() || "Carried over" })
       .then(function(){ $("bulkReason").value = ""; })
       .catch(function(){})
       .then(function(){ $("bulkBtn").disabled = false; setStatus(""); });
@@ -606,48 +610,42 @@ details.tools[open] summary::after{content:"–"}
   $("newJarBtn").addEventListener("click", function(e){ startNewJar(e.currentTarget); });
   $("partyNewJar").addEventListener("click", function(e){ startNewJar(e.currentTarget); });
 
-  /* ---------- parent unlock ---------- */
-  var pickedWho = who;
-  function syncWhoChips(){
-    Array.prototype.forEach.call($("whoChips").children, function(b){ b.classList.toggle("on", b.dataset.who === pickedWho); });
-  }
-  $("whoChips").addEventListener("click", function(e){
-    var b = e.target.closest("[data-who]"); if (!b) return;
-    pickedWho = b.dataset.who; $("whoOther").value = ""; syncWhoChips();
-  });
-  $("whoOther").addEventListener("input", function(){ pickedWho = $("whoOther").value.trim(); syncWhoChips(); });
-  $("unlockBtn").addEventListener("click", function(){
-    $("unlockErr").textContent = ""; $("pinInput").value = ""; syncWhoChips();
-    $("unlockWrap").hidden = false; setTimeout(function(){ $("pinInput").focus(); }, 50);
-  });
-  $("unlockClose").addEventListener("click", function(){ $("unlockWrap").hidden = true; });
-  $("unlockForm").addEventListener("submit", function(e){
+  /* ---------- login (remembered on this phone) ---------- */
+  $("loginForm").addEventListener("submit", function(e){
     e.preventDefault();
-    var p = $("pinInput").value.trim();
-    if (!p) { $("unlockErr").textContent = "Type the family PIN."; return; }
-    if (!pickedWho) { $("unlockErr").textContent = "Pick who's on this phone so stars show who gave them."; return; }
-    $("unlockSubmit").disabled = true; $("unlockErr").textContent = "";
-    var prev = pin; pin = p;
+    var n = $("loginName").value.trim(), p = $("loginPin").value.trim();
+    if (!n || !p) { $("loginErr").textContent = "Type your name and PIN."; return; }
+    $("loginSubmit").disabled = true; $("loginErr").textContent = "";
+    user = n; pin = p;
     apiPost({ action: "check" }).then(function(d){
-      save("sj_pin", p); who = pickedWho; save("sj_who", who);
-      $("unlockWrap").hidden = true; setState(d); applyMode();
-      toast("Unlocked! Hi " + who + ".");
+      user = d.user || n;
+      save("sj_user", user); save("sj_pin", p);
+      $("loginPin").value = "";
+      lastCount = null; setState(d); applyMode(); setStatus("");
+      toast("Hi " + user + "!");
     }).catch(function(err){
-      pin = prev;
-      $("unlockErr").textContent = err.code === "pin" ? "That PIN didn't match." : err.code === "setup" ? err.message : "Couldn't check right now. Try again.";
-    }).then(function(){ $("unlockSubmit").disabled = false; });
+      user = null; pin = null;
+      $("loginErr").textContent = err.code === "login" ? "That name and PIN didn't match."
+        : err.code === "setup" ? "Almost ready. " + err.message
+        : "Couldn't check right now. Try again.";
+    }).then(function(){ $("loginSubmit").disabled = false; });
   });
-  $("lockBtn").addEventListener("click", function(){
-    pin = null; save("sj_pin", null); applyMode(); toast("This phone is locked. Judah can still look.");
-  });
+  function logout(msg){
+    user = null; pin = null; state = null; lastCount = null;
+    save("sj_user", null); save("sj_pin", null);
+    applyMode();
+    $("loginErr").textContent = msg || "";
+  }
+  $("logoutBtn").addEventListener("click", function(){ logout(""); });
   function applyMode(){
-    var parent = isParent();
-    $("unlockBtn").hidden = parent;
-    $("tools").hidden = !parent;
-    $("prize").disabled = !parent;
-    $("prize").placeholder = parent ? "Tap to pick a prize" : "Not picked yet";
-    $("partyNewJar").hidden = !parent;
-    $("whoLine").textContent = "Stars from this phone show as given by " + (who || "a parent") + ".";
+    var inn = isParent();
+    $("gate").hidden = inn;
+    $("tools").hidden = !inn;
+    $("prize").disabled = !inn;
+    $("prize").placeholder = "Tap to pick a prize";
+    $("partyNewJar").hidden = !inn;
+    $("whoLine").textContent = "Logged in as " + (user || "") + ". Stars from this phone show your name.";
+    if (!inn) { closeSheet(); closeParty(); setTimeout(function(){ $("loginName").focus(); }, 50); }
     render();
   }
 
@@ -686,19 +684,20 @@ details.tools[open] summary::after{content:"–"}
   $("partyClose").addEventListener("click", closeParty);
   $("celebrateBtn").addEventListener("click", function(){ unlockAudio(); openParty(); });
   document.addEventListener("keydown", function(e){
-    if (e.key === "Escape") { closeSheet(); closeParty(); $("unlockWrap").hidden = true; }
+    if (e.key === "Escape") { closeSheet(); closeParty(); }
   });
 
   /* ---------- sync ---------- */
   var refreshing = false;
   function refresh(){
-    if (refreshing || writing) return;
+    if (refreshing || writing || !isParent()) return;
     refreshing = true;
     apiGet().then(function(d){
-      if (!writing) setState(d);
+      if (!writing && isParent()) setState(d);
       setStatus("");
     }).catch(function(e){
-      if (e && e.code === "setup") setStatus("Almost ready. " + e.message);
+      if (e && e.code === "login") logout("Your login changed. Log in again.");
+      else if (e && e.code === "setup") setStatus("Almost ready. " + e.message);
       else if (e && e.code === "token") setStatus("The Airtable connection needs a fresh token.");
       else setStatus(state ? "Can't reach the jar right now. Showing the last stars we saw." : "Can't reach the jar right now. Check your connection.");
     }).then(function(){ refreshing = false; });
