@@ -32,7 +32,7 @@ html{background:var(--sky);-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--sky);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
   padding-top:calc(18px + env(safe-area-inset-top,0px));
-  padding-bottom:calc(48px + env(safe-area-inset-bottom,0px));
+  padding-bottom:calc(120px + env(safe-area-inset-bottom,0px));
   padding-left:max(16px,env(safe-area-inset-left,0px));
   padding-right:max(16px,env(safe-area-inset-right,0px));
   min-height:100vh;-webkit-tap-highlight-color:transparent;
@@ -165,6 +165,27 @@ details.tools[open] summary::after{content:"–"}
 .party-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
 @keyframes spin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
 
+/* bottom dock: +1..+5 under the thumb, -1 set apart */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;
+  padding:18px max(16px,env(safe-area-inset-right,0px)) calc(14px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  background:linear-gradient(180deg,rgba(20,22,57,0) 0,var(--sky) 16px)}
+.dock-inner{max-width:540px;margin:0 auto;display:flex;align-items:stretch;gap:10px}
+.dock-label{display:block;max-width:540px;margin:0 auto 6px;font:800 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.plus{flex:1;min-width:0;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.pbtn,.mbtn{height:58px;border-radius:16px;border:0;cursor:pointer;font:400 23px/1 var(--display);letter-spacing:.02em;touch-action:manipulation;transition:transform .1s ease}
+.pbtn{background:var(--gold);color:#3a2300;box-shadow:0 4px 0 var(--gold-deep)}
+.pbtn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--gold-deep)}
+.pbtn small{font-size:.62em;vertical-align:.18em;margin-right:1px}
+.dock-gap{width:1.5px;background:rgba(206,212,255,.18);border-radius:2px;margin:6px 0}
+.mbtn{flex:none;width:58px;background:transparent;color:var(--danger);box-shadow:inset 0 0 0 2px var(--danger)}
+.mbtn:active{transform:translateY(2px);background:rgba(255,139,152,.12)}
+.pbtn:focus-visible,.mbtn:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.pbtn[disabled],.mbtn[disabled]{opacity:.35;cursor:default;transform:none}
+.log .ico.minus path{fill:var(--danger);stroke:none}
+.log .badge{font:400 16px/1 var(--display);color:var(--gold);font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+.log .badge.neg{color:var(--danger)}
+.log li.taken .what{color:var(--danger)}
+.btn-danger{background:var(--danger);color:#2b0008;box-shadow:0 5px 0 #d4566a}
 .gate{position:fixed;inset:0;z-index:50;background:var(--sky);display:flex;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
 .gate-card{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;text-align:center}
 .gate-star{width:84px;height:84px;margin:0 auto 4px;filter:drop-shadow(0 0 18px rgba(255,200,58,.5))}
@@ -175,7 +196,7 @@ details.tools[open] summary::after{content:"–"}
 .gate .field{flex:none;width:100%;text-align:center;font-size:18px;padding:14px 12px}
 .gate .btn{width:100%}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--mint);color:#063325;font-weight:900;padding:12px 18px;border-radius:999px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:calc(100% - 32px);text-align:center;animation:rise .2s ease-out both}
+.toast{position:fixed;left:50%;bottom:calc(104px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--mint);color:#063325;font-weight:900;padding:12px 18px;border-radius:999px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:calc(100% - 32px);text-align:center;animation:rise .2s ease-out both}
 
 @media (max-width:420px){.jar-wrap{padding:0 30px 0 4px}.tally .num{font-size:56px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
@@ -209,7 +230,6 @@ details.tools[open] summary::after{content:"–"}
   </section>
 
   <div class="give-row">
-    <button class="btn btn-gold wide" id="giveBtn" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>Give Judah a star</button>
     <button class="btn btn-pink" id="celebrateBtn" hidden>The jar is full! Celebrate</button>
     <div class="status" id="status" role="status">Opening the jar…</div>
   </div>
@@ -255,14 +275,38 @@ details.tools[open] summary::after{content:"–"}
   </details>
 </main>
 
+<nav class="dock" id="dock" hidden aria-label="Give or take away stars">
+  <span class="dock-label">Give stars</span>
+  <div class="dock-inner">
+    <div class="plus">
+      <button class="pbtn" type="button" data-n="1" aria-label="Give 1 star"><small>+</small>1</button>
+      <button class="pbtn" type="button" data-n="2" aria-label="Give 2 stars"><small>+</small>2</button>
+      <button class="pbtn" type="button" data-n="3" aria-label="Give 3 stars"><small>+</small>3</button>
+      <button class="pbtn" type="button" data-n="4" aria-label="Give 4 stars"><small>+</small>4</button>
+      <button class="pbtn" type="button" data-n="5" aria-label="Give 5 stars"><small>+</small>5</button>
+    </div>
+    <span class="dock-gap" aria-hidden="true"></span>
+    <button class="mbtn" type="button" id="minusBtn" aria-label="Take away 1 star">−1</button>
+  </div>
+</nav>
+
+<div class="backdrop" id="minusWrap" hidden>
+  <form class="sheet" id="minusForm" role="dialog" aria-modal="true" aria-labelledby="minusTitle">
+    <div class="sheet-head"><h2 id="minusTitle">Take away a star</h2><button class="link" id="minusClose" type="button">Close</button></div>
+    <p class="hint">What happened? This shows up in the log.</p>
+    <input class="field" id="minusReason" maxlength="60" placeholder="Reason (optional)" autocomplete="off">
+    <button class="btn btn-danger" type="submit">Take away 1 star</button>
+  </form>
+</div>
+
 <div class="backdrop" id="sheetWrap" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
     <div class="sheet-head"><h2 id="sheetTitle">What's the star for?</h2><button class="link" id="sheetClose" type="button">Close</button></div>
-    <p class="hint">Tap one and the star goes straight in the jar.</p>
+    <p class="hint" id="sheetHint">Tap a reason and it goes straight in the jar.</p>
     <div class="chips" id="chips"></div>
     <form class="row" id="customForm">
       <input class="field" id="customReason" maxlength="60" placeholder="Something else…" autocomplete="off">
-      <button class="btn btn-gold btn-small" type="submit">Give star</button>
+      <button class="btn btn-gold btn-small" type="submit" id="customBtn">Give star</button>
     </form>
   </div>
 </div>
@@ -425,31 +469,45 @@ details.tools[open] summary::after{content:"–"}
     react();
     render();
   }
+  // Walk the log in order: a given star goes in, a taken-away row removes the top one.
+  function jarContents(list){
+    var inJar = [];
+    list.forEach(function(s){ if (s.taken) inJar.pop(); else inJar.push(s); });
+    return inJar;
+  }
+  function netCount(){ return jarContents(stars()).length; }
+
   function react(){
-    var n = state.stars.length;
+    var n = netCount();
     if (lastCount === null || lastJar !== state.jar) { lastCount = n; lastJar = state.jar; return; }
     if (n > lastCount) {
-      var idx = Math.min(n, GOAL) - 1, el = slots[idx];
-      if (el) { el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); setTimeout(function(){ el.classList.remove("pop"); }, 800); }
+      var from = Math.max(lastCount, Math.min(n, GOAL) - 5), to = Math.min(n, GOAL);
+      for (var i = from; i < to; i++) (function(el, delay){
+        if (!el) return;
+        setTimeout(function(){
+          el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
+          setTimeout(function(){ el.classList.remove("pop"); }, 800);
+        }, delay);
+      })(slots[i], (i - from) * 110);
       if (n >= GOAL && lastCount < GOAL) openParty();
       else {
         chime();
-        if (n - lastCount > 1) toast("Added " + (n - lastCount) + " stars!");
-        else if (n >= 75 && lastCount < 75) toast("75 stars! Almost there!");
+        if (n >= 75 && lastCount < 75) toast("75 stars! Almost there!");
         else if (n >= 50 && lastCount < 50) toast("Halfway there!");
         else if (n >= 25 && lastCount < 25) toast("25 stars! Nice start!");
         else if (n === GOAL - 1) toast("One more star to go!");
+        else if (n - lastCount > 1) toast("+" + (n - lastCount) + " stars!");
       }
     }
     lastCount = n;
   }
 
   function render(){
-    var list = stars(), n = list.length, shown = Math.min(n, GOAL), full = shown >= GOAL;
+    var list = stars(), inJar = jarContents(list), n = inJar.length, shown = Math.min(n, GOAL), full = shown >= GOAL;
     var parent = isParent();
     slots.forEach(function(el, i){
       el.classList.toggle("filled", i < shown);
-      el.classList.toggle("carried", i < shown && !!list[i].carried);
+      el.classList.toggle("carried", i < shown && !!inJar[i].carried);
       el.classList.toggle("next", i === shown && parent && !full);
     });
     marks.forEach(function(m){ m.el.classList.toggle("hit", shown >= m.v); });
@@ -462,53 +520,81 @@ details.tools[open] summary::after{content:"–"}
       $("partyPrize").textContent = state.prize ? "Prize: " + state.prize : "Prize time!";
       $("statFilled").textContent = state.jarsFilled;
     }
-    $("giveBtn").hidden = !parent || !state || full;
+    Array.prototype.forEach.call(document.querySelectorAll(".pbtn"), function(b){ b.disabled = !state || full; });
+    $("minusBtn").disabled = !state || n <= 0;
     $("celebrateBtn").hidden = !full;
     renderLog(list);
     renderChallenges();
+  }
+
+  // Rows given together (one tap of +3, or a carry-over) show as one log line.
+  function groupLog(list){
+    var groups = [];
+    list.forEach(function(s){
+      var g = groups[groups.length - 1];
+      if (g && !s.taken && !g.taken && g.reason === s.reason && g.by === s.by && g.carried === !!s.carried && Math.abs(s.at - g.last) < 5000) {
+        g.items.push(s); g.last = s.at;
+      } else {
+        groups.push({ items: [s], reason: s.reason, by: s.by, carried: !!s.carried, taken: !!s.taken, at: s.at, last: s.at });
+      }
+    });
+    return groups;
   }
 
   var armedRemove = null;
   function renderLog(list){
     var ul = $("log"); ul.textContent = "";
     $("logEmpty").hidden = list.length > 0;
-    $("logEmpty").textContent = isParent() ? "No stars in this jar yet. Tap the gold button to give the first one." : "No stars in this jar yet.";
-    list.map(function(s, i){ return { s: s, i: i }; }).slice(-15).reverse().forEach(function(o){
-      var s = o.s, li = document.createElement("li");
+    $("logEmpty").textContent = "No stars in this jar yet. Tap a gold button below to give the first ones.";
+    groupLog(list).slice(-15).reverse().forEach(function(g){
+      var li = document.createElement("li");
+      if (g.taken) li.className = "taken";
       var ico = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      ico.setAttribute("viewBox", "0 0 24 24"); ico.setAttribute("class", "ico");
-      ico.innerHTML = '<path d="' + STAR_PATH + '"/>';
+      ico.setAttribute("viewBox", "0 0 24 24");
+      ico.setAttribute("class", g.taken ? "ico minus" : "ico");
+      ico.innerHTML = g.taken ? '<path d="M5 10.5h14a1.5 1.5 0 0 1 0 3H5a1.5 1.5 0 0 1 0-3z"/>' : '<path d="' + STAR_PATH + '"/>';
       var what = document.createElement("div"); what.className = "what";
-      what.textContent = s.reason || "A star";
+      what.textContent = g.reason || (g.taken ? "Lost a star" : "A star");
       var meta = document.createElement("span"); meta.className = "meta";
-      meta.textContent = (s.by ? s.by + " · " : "") + when(s.at);
+      meta.textContent = (g.by ? g.by + " · " : "") + when(g.at);
       what.appendChild(meta);
       var right = document.createElement("div"); right.className = "right";
-      var num = document.createElement("span"); num.className = "n"; num.textContent = "#" + (o.i + 1);
-      right.appendChild(num);
-      if (isParent() && s.id && s.id.indexOf("rec") === 0) {
+      var badge = document.createElement("span");
+      badge.className = g.taken ? "badge neg" : "badge";
+      badge.textContent = g.taken ? "−1" : "+" + g.items.length;
+      right.appendChild(badge);
+      var ids = g.items.map(function(t){ return t.id; }).filter(function(id){ return id && id.indexOf("rec") === 0; });
+      if (isParent() && ids.length === g.items.length) {
+        var key = ids[0];
         var x = document.createElement("button"); x.type = "button"; x.className = "x";
-        var armed = armedRemove === s.id;
+        var armed = armedRemove === key;
         x.textContent = armed ? "Remove?" : "✕";
-        x.setAttribute("aria-label", armed ? "Confirm remove star" : "Remove this star");
+        x.setAttribute("aria-label", armed ? "Confirm remove" : "Remove this entry (for mistakes)");
         if (armed) x.classList.add("confirm");
         x.addEventListener("click", function(){
-          if (armedRemove !== s.id) {
-            armedRemove = s.id; render();
-            setTimeout(function(){ if (armedRemove === s.id) { armedRemove = null; render(); } }, 4000);
+          if (armedRemove !== key) {
+            armedRemove = key; render();
+            setTimeout(function(){ if (armedRemove === key) { armedRemove = null; render(); } }, 4000);
             return;
           }
           armedRemove = null;
-          lastCount = Math.max(0, (lastCount || 1) - 1);
-          state.stars = state.stars.filter(function(t){ return t.id !== s.id; });
-          render();
-          write({ action: "remove", id: s.id }, "Star removed").catch(function(){});
+          removeIds(ids);
         });
         right.appendChild(x);
       }
       li.appendChild(ico); li.appendChild(what); li.appendChild(right);
       ul.appendChild(li);
     });
+  }
+
+  function removeIds(ids){
+    state.stars = state.stars.filter(function(t){ return ids.indexOf(t.id) === -1; });
+    lastCount = netCount(); render();
+    var chunks = [];
+    for (var i = 0; i < ids.length; i += 10) chunks.push(ids.slice(i, i + 10));
+    chunks.reduce(function(p, chunk, idx){
+      return p.then(function(){ return write({ action: "remove", ids: chunk }, idx === chunks.length - 1 ? "Removed" : null); });
+    }, Promise.resolve()).catch(function(){});
   }
 
   function renderChallenges(){
@@ -518,7 +604,7 @@ details.tools[open] summary::after{content:"–"}
       var b = document.createElement("button"); b.type = "button"; b.className = "chip";
       b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + STAR_PATH + '"/></svg>';
       var sp = document.createElement("span"); sp.textContent = c; b.appendChild(sp);
-      b.addEventListener("click", function(){ closeSheet(); giveStar(c); });
+      b.addEventListener("click", function(){ closeSheet(); giveStars(c, pendingN); });
       chips.appendChild(b);
     });
     var ed = $("editChips"); ed.textContent = "";
@@ -536,27 +622,63 @@ details.tools[open] summary::after{content:"–"}
   }
 
   /* ---------- actions ---------- */
-  function giveStar(reason){
+  var pendingN = 1;
+  function giveStars(reason, count){
     if (!state || !isParent()) return;
-    if (state.stars.length >= GOAL) { toast("The jar is full! Start a new jar first."); return; }
-    // show it right away, then sync with what the server saved
-    state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: user, at: Date.now(), carried: false }]);
+    var room = GOAL - netCount();
+    if (room <= 0) { toast("The jar is full! Start a new jar first."); return; }
+    var n = Math.min(count || 1, room), now = Date.now(), add = [];
+    for (var i = 0; i < n; i++) add.push({ id: "tmp", reason: reason, by: user, at: now + i, carried: false });
+    // show them right away, then sync with what the server saved
+    state.stars = state.stars.concat(add);
     react(); render();
-    write({ action: "give", reason: reason }).catch(function(){
+    write({ action: "give", reason: reason, count: n }).catch(function(){
       state.stars = state.stars.filter(function(t){ return t.id !== "tmp"; });
-      lastCount = state.stars.length; render();
+      lastCount = netCount(); render();
     });
   }
 
-  function openSheet(){ $("sheetWrap").hidden = false; $("customReason").value = ""; }
+  function takeStar(reason){
+    if (!state || !isParent() || netCount() <= 0) return;
+    state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: user, at: Date.now(), taken: true }]);
+    lastCount = netCount(); render();
+    write({ action: "take", reason: reason }, "1 star taken away").catch(function(){
+      state.stars = state.stars.filter(function(t){ return t.id !== "tmp"; });
+      lastCount = netCount(); render();
+    });
+  }
+
+  function openSheet(n){
+    pendingN = n;
+    $("sheetTitle").textContent = n === 1 ? "+1 star for…" : "+" + n + " stars for…";
+    $("sheetHint").textContent = "Tap a reason and " + (n === 1 ? "the star goes" : "all " + n + " go") + " straight in the jar.";
+    $("customBtn").textContent = n === 1 ? "Give star" : "Give " + n;
+    $("customReason").value = "";
+    $("sheetWrap").hidden = false;
+  }
   function closeSheet(){ $("sheetWrap").hidden = true; }
-  $("giveBtn").addEventListener("click", openSheet);
+  Array.prototype.forEach.call(document.querySelectorAll(".pbtn"), function(b){
+    b.addEventListener("click", function(){ openSheet(Number(b.dataset.n) || 1); });
+  });
   $("sheetClose").addEventListener("click", closeSheet);
   $("sheetWrap").addEventListener("click", function(e){ if (e.target === $("sheetWrap")) closeSheet(); });
   $("customForm").addEventListener("submit", function(e){
     e.preventDefault();
     var v = $("customReason").value.trim();
-    closeSheet(); giveStar(v || "A star");
+    closeSheet(); giveStars(v || "A star", pendingN);
+  });
+
+  function closeMinus(){ $("minusWrap").hidden = true; }
+  $("minusBtn").addEventListener("click", function(){
+    $("minusReason").value = ""; $("minusWrap").hidden = false;
+    setTimeout(function(){ $("minusReason").focus(); }, 50);
+  });
+  $("minusClose").addEventListener("click", closeMinus);
+  $("minusWrap").addEventListener("click", function(e){ if (e.target === $("minusWrap")) closeMinus(); });
+  $("minusForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = $("minusReason").value.trim();
+    closeMinus(); takeStar(v);
   });
 
   $("prize").addEventListener("change", function(){
@@ -582,7 +704,7 @@ details.tools[open] summary::after{content:"–"}
   $("bulkForm").addEventListener("submit", function(e){
     e.preventDefault();
     if (!state) return;
-    var room = GOAL - state.stars.length;
+    var room = GOAL - netCount();
     var n = Math.floor(Number($("bulkCount").value) || 0);
     if (n < 1) { toast("Pick how many stars to add."); return; }
     if (room <= 0) { toast("The jar is full already."); return; }
@@ -640,12 +762,13 @@ details.tools[open] summary::after{content:"–"}
   function applyMode(){
     var inn = isParent();
     $("gate").hidden = inn;
+    $("dock").hidden = !inn;
     $("tools").hidden = !inn;
     $("prize").disabled = !inn;
     $("prize").placeholder = "Tap to pick a prize";
     $("partyNewJar").hidden = !inn;
     $("whoLine").textContent = "Logged in as " + (user || "") + ". Stars from this phone show your name.";
-    if (!inn) { closeSheet(); closeParty(); setTimeout(function(){ $("loginName").focus(); }, 50); }
+    if (!inn) { closeSheet(); closeMinus(); closeParty(); setTimeout(function(){ $("loginName").focus(); }, 50); }
     render();
   }
 
@@ -684,7 +807,7 @@ details.tools[open] summary::after{content:"–"}
   $("partyClose").addEventListener("click", closeParty);
   $("celebrateBtn").addEventListener("click", function(){ unlockAudio(); openParty(); });
   document.addEventListener("keydown", function(e){
-    if (e.key === "Escape") { closeSheet(); closeParty(); }
+    if (e.key === "Escape") { closeSheet(); closeMinus(); closeParty(); }
   });
 
   /* ---------- sync ---------- */

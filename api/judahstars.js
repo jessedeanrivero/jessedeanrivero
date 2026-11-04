@@ -25,6 +25,7 @@ const F = {
   at: "fldUVOpNS0WYbqTmy",
   jar: "fld56AJf3QNx3VvtP",
   carried: "fld0N6aGI4QXgktsz",
+  taken: "fldhTK80RRqMj4qnF",
 };
 const S = {
   name: "fldirMjdjHRnNZXMn",
@@ -94,12 +95,20 @@ async function getStars(jar) {
         by: typeof f[F.by] === "string" ? f[F.by] : "",
         at: Date.parse(f[F.at] || rec.createdTime) || 0,
         carried: !!f[F.carried],
+        taken: !!f[F.taken],
       });
     }
     offset = d.offset;
   } while (offset && out.length < 400);
   out.sort((a, b) => a.at - b.at);
   return out;
+}
+
+// Stars left in the jar: given minus taken away, never below zero.
+function netCount(stars) {
+  let n = 0;
+  for (const s of stars) n = s.taken ? Math.max(0, n - 1) : n + 1;
+  return n;
 }
 
 async function getState() {
@@ -148,14 +157,15 @@ module.exports = async (req, res) => {
     const action = body.action;
     let state = await getState();
     const { settings, stars } = state;
+    const net = netCount(stars);
 
     if (action === "check") {
       // login is fine, just return the jar plus the name as stored
     } else if (action === "give") {
-      const room = GOAL - stars.length;
+      const room = GOAL - net;
       if (room <= 0) throw new HttpError(409, "full", "The jar is full! Start a new jar first.");
       const n = Math.min(Math.max(1, Math.floor(Number(body.count) || 1)), 99, room);
-      const carried = n > 1 || !!body.carried;
+      const carried = !!body.carried;
       const reason = clean(body.reason, 60) || (carried ? "Carried over" : "A star");
       const by = user;
       const now = Date.now();
@@ -171,17 +181,31 @@ module.exports = async (req, res) => {
       for (let i = 0; i < records.length; i += 10) {
         await airtable(STARS, { method: "POST", body: JSON.stringify({ records: records.slice(i, i + 10) }) });
       }
+    } else if (action === "take") {
+      if (net <= 0) throw new HttpError(409, "empty", "There are no stars to take away.");
+      await airtable(STARS, {
+        method: "POST",
+        body: JSON.stringify({ records: [{ fields: {
+          [F.reason]: clean(body.reason, 60) || "Lost a star",
+          [F.by]: user,
+          [F.at]: new Date().toISOString(),
+          [F.jar]: settings.jar,
+          [F.taken]: true,
+        } }] }),
+      });
     } else if (action === "remove") {
-      const id = String(body.id || "");
-      if (!/^rec[A-Za-z0-9]{14}$/.test(id)) throw new HttpError(400, "bad", "That star couldn't be found.");
-      await airtable(`${STARS}/${id}`, { method: "DELETE" });
+      const ids = (Array.isArray(body.ids) ? body.ids : [body.id]).map(String).filter(id => /^rec[A-Za-z0-9]{14}$/.test(id)).slice(0, 10);
+      if (!ids.length) throw new HttpError(400, "bad", "That entry couldn't be found.");
+      const q = new URLSearchParams();
+      ids.forEach(id => q.append("records[]", id));
+      await airtable(`${STARS}?${q}`, { method: "DELETE" });
     } else if (action === "prize") {
       await patchSettings(settings.id, { [S.prize]: clean(body.prize, 60) });
     } else if (action === "challenges") {
       const list = Array.isArray(body.challenges) ? body.challenges.map(c => clean(c, 50)).filter(Boolean).slice(0, 30) : [];
       await patchSettings(settings.id, { [S.challenges]: list.join("\n") });
     } else if (action === "newjar") {
-      const full = stars.length >= GOAL;
+      const full = net >= GOAL;
       const fields = { [S.jar]: settings.jar + 1, [S.filled]: settings.jarsFilled + (full ? 1 : 0) };
       if (full) fields[S.prize] = "";
       await patchSettings(settings.id, fields);
