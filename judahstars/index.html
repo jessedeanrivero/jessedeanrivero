@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Judah's Star Jar</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#141639">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Star Jar">
+<link rel="manifest" href="/judahstars/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/judahstars/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/judahstars/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* One column on a night sky: a glass jar fills with gold stars from the bottom up, give button under it, log and parent tools below. */
+:root{
+  --sky:#141639; --sky-2:#232866; --panel:#1e2256; --panel-2:#272c6b;
+  --ink:#f4f2ff; --muted:#aeacdc;
+  --gold:#ffc83a; --gold-deep:#f0951c; --lid:#ff8fab; --lid-deep:#e2607f; --mint:#78eec4;
+  --glass:rgba(196,204,255,.13); --glass-edge:rgba(206,214,255,.5); --slot:rgba(206,212,255,.24); --danger:#ff8b98;
+  --display:"Lilita One","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{background:var(--sky);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--sky);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;
+  padding-top:calc(18px + env(safe-area-inset-top,0px));
+  padding-bottom:calc(48px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  min-height:100vh;-webkit-tap-highlight-color:transparent;
+}
+[hidden]{display:none!important}
+.sky{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(1.5px 1.5px at 12% 18%,rgba(255,255,255,.8),transparent 60%),
+    radial-gradient(1px 1px at 28% 72%,rgba(255,255,255,.6),transparent 60%),
+    radial-gradient(1.5px 1.5px at 44% 9%,rgba(255,255,255,.7),transparent 60%),
+    radial-gradient(1px 1px at 63% 33%,rgba(255,255,255,.55),transparent 60%),
+    radial-gradient(2px 2px at 81% 14%,rgba(255,236,170,.8),transparent 60%),
+    radial-gradient(1px 1px at 90% 58%,rgba(255,255,255,.6),transparent 60%),
+    radial-gradient(1.5px 1.5px at 7% 52%,rgba(255,255,255,.55),transparent 60%),
+    radial-gradient(1px 1px at 54% 88%,rgba(255,255,255,.5),transparent 60%),
+    radial-gradient(1.5px 1.5px at 74% 80%,rgba(255,255,255,.6),transparent 60%),
+    radial-gradient(1px 1px at 36% 40%,rgba(255,255,255,.45),transparent 60%),
+    radial-gradient(120% 70% at 50% 0%,var(--sky-2),var(--sky) 70%);
+}
+.wrap{max-width:540px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.top{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.eyebrow{font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(30px,8vw,42px);line-height:1.05;margin:0;letter-spacing:.01em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--gold)}
+.tally{display:flex;align-items:baseline;justify-content:center;gap:8px;margin-top:6px;font-variant-numeric:tabular-nums}
+.tally .num{font-family:var(--display);font-size:64px;line-height:1;color:var(--gold);text-shadow:0 0 24px rgba(255,200,58,.35)}
+.tally .of{font-family:var(--display);font-size:26px;color:var(--muted)}
+.togo{font-weight:800;color:var(--muted);font-size:15px;min-height:1.4em}
+.prize{display:flex;align-items:center;gap:10px;background:var(--panel);border:1.5px dashed rgba(255,143,171,.55);border-radius:14px;padding:10px 14px;margin-top:10px;width:100%;max-width:400px}
+.prize svg{flex:none;width:26px;height:26px}
+.prize label{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--lid);white-space:nowrap}
+.prize input{flex:1;min-width:0;background:transparent;border:0;color:var(--ink);font:800 17px/1.2 var(--body);padding:4px 2px;border-bottom:1.5px solid transparent;border-radius:0}
+.prize input:focus{outline:none;border-bottom-color:var(--lid)}
+.prize input::placeholder{color:var(--muted);font-weight:700}
+.prize input:disabled{opacity:1;-webkit-text-fill-color:var(--ink)}
+
+.jar-wrap{position:relative;margin:4px auto 0;width:100%;max-width:440px;padding:0 34px}
+.lid{height:24px;margin:0 7%;border-radius:8px 8px 4px 4px;background:repeating-linear-gradient(90deg,var(--lid) 0 10px,var(--lid-deep) 10px 12px);box-shadow:0 3px 0 rgba(0,0,0,.25)}
+.rim{height:10px;margin:0 4%;border:3px solid var(--glass-edge);border-top:0;border-bottom:0;background:var(--glass)}
+.jar{position:relative;border:3px solid var(--glass-edge);border-radius:14px 14px 40px 40px;padding:14px 12px 20px;background:linear-gradient(90deg,var(--glass),rgba(196,204,255,.04) 28%,rgba(196,204,255,.02) 70%,var(--glass))}
+.jar::before{content:"";position:absolute;left:10px;top:18px;bottom:40px;width:7px;border-radius:7px;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.02));pointer-events:none}
+.grid{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.slot{aspect-ratio:1;max-width:100%;display:grid;place-items:center}
+.slot svg{width:100%;height:100%;overflow:visible}
+.slot path{fill:none;stroke:var(--slot);stroke-width:1.4;stroke-linejoin:round;transition:fill .25s,stroke .25s}
+.slot.filled path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1.2}
+.slot.filled svg{filter:drop-shadow(0 0 4px rgba(255,200,58,.45))}
+.slot.carried path{fill:#ffe08a}
+.slot.next path{stroke:var(--gold);stroke-dasharray:3 2.2;animation:breathe 1.6s ease-in-out infinite}
+.slot.pop svg{animation:pop .7s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{0%{transform:scale(0) rotate(-60deg)}60%{transform:scale(1.5) rotate(12deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes breathe{50%{opacity:.35}}
+.mark{position:absolute;right:-34px;display:flex;align-items:center;gap:3px;transform:translateY(50%);pointer-events:none}
+.mark i{display:block;width:12px;height:2px;background:var(--glass-edge);border-radius:2px}
+.mark span{font:800 11px/1 var(--body);color:var(--muted);font-variant-numeric:tabular-nums}
+.mark.hit span{color:var(--gold)}
+
+.give-row{display:flex;flex-direction:column;align-items:center;gap:10px}
+.btn{font:900 18px/1 var(--body);border:0;border-radius:999px;cursor:pointer;padding:16px 26px;display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:transform .12s ease;touch-action:manipulation}
+.btn:active{transform:scale(.96)}
+.btn:focus-visible,.chip:focus-visible,.link:focus-visible,.x:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.btn-gold{background:var(--gold);color:#3a2300;box-shadow:0 5px 0 var(--gold-deep),0 10px 28px rgba(255,200,58,.25)}
+.btn-gold.wide{width:100%;max-width:400px;font-size:21px;padding:18px 26px}
+.btn-gold:active{box-shadow:0 2px 0 var(--gold-deep)}
+.btn-gold svg{width:26px;height:26px}
+.btn-gold svg path{fill:#3a2300}
+.btn-pink{background:var(--lid);color:#3d0d1b;box-shadow:0 5px 0 var(--lid-deep)}
+.btn-ghost{background:var(--panel-2);color:var(--ink)}
+.btn-small{font-size:15px;padding:11px 18px}
+.btn[disabled]{opacity:.5;cursor:default}
+.status{text-align:center;color:var(--muted);font-weight:700;font-size:14px;min-height:1.3em}
+.link{background:none;border:0;color:var(--muted);font:800 15px/1 var(--body);cursor:pointer;padding:8px;border-radius:8px;text-decoration:underline;text-underline-offset:3px}
+
+.panel{background:var(--panel);border-radius:18px;padding:16px 16px 12px}
+.panel h2{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 8px;letter-spacing:.01em}
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.log li{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(206,212,255,.1)}
+.log li:first-child{border-top:0}
+.log .ico{width:20px;height:20px}
+.log .ico path{fill:var(--gold);stroke:var(--gold-deep);stroke-linejoin:round}
+.log .what{min-width:0;font-weight:800;overflow-wrap:anywhere}
+.log .meta{display:block;font-weight:600;font-size:13px;color:var(--muted)}
+.log .right{display:flex;align-items:center;gap:4px}
+.log .n{font:800 12px/1 var(--body);color:var(--muted);font-variant-numeric:tabular-nums}
+.x{background:transparent;border:0;color:var(--muted);font:800 13px/1 var(--body);padding:8px 6px;cursor:pointer;border-radius:8px}
+.x.confirm{color:#2b0008;background:var(--danger);padding:8px 10px}
+.empty{color:var(--muted);font-weight:600;padding:6px 0 10px;margin:0}
+
+details.tools summary{cursor:pointer;font-family:var(--display);font-size:19px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.tools summary::-webkit-details-marker{display:none}
+details.tools summary::after{content:"+";font-family:var(--body);font-weight:900;color:var(--muted);font-size:22px}
+details.tools[open] summary::after{content:"–"}
+.tool{padding:14px 0;border-top:1px solid rgba(206,212,255,.1);display:flex;flex-direction:column;gap:10px}
+.tool:first-of-type{margin-top:10px}
+.tool h3{margin:0;font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tool p{margin:0;color:var(--muted);font-size:14px;font-weight:600}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.field{flex:1;min-width:0;background:var(--sky);border:1.5px solid rgba(206,212,255,.22);border-radius:12px;color:var(--ink);font:700 16px/1.2 var(--body);padding:11px 12px}
+.field:focus{outline:none;border-color:var(--mint)}
+.field.num{flex:0 0 84px;font-variant-numeric:tabular-nums}
+.edit-chips{display:flex;flex-wrap:wrap;gap:6px}
+.edit-chips span{display:inline-flex;align-items:center;gap:4px;background:var(--panel-2);border-radius:999px;padding:5px 6px 5px 12px;font-weight:700;font-size:14px}
+.edit-chips button{background:transparent;border:0;color:var(--muted);font:900 16px/1 var(--body);cursor:pointer;width:24px;height:24px;border-radius:50%}
+.stats{display:flex;gap:18px;font-weight:700;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.stats b{color:var(--ink);font-size:18px}
+
+.backdrop{position:fixed;inset:0;background:rgba(6,7,24,.66);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet{width:100%;max-width:560px;background:var(--panel);border-radius:24px 24px 0 0;padding:18px max(18px,env(safe-area-inset-right,0px)) calc(22px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:14px;max-height:88vh;overflow:auto;animation:rise .22s ease-out both}
+@keyframes rise{from{transform:translateY(40px);opacity:0}}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sheet h2{font-family:var(--display);font-weight:400;font-size:24px;margin:0}
+.sheet .hint{margin:-8px 0 0;color:var(--muted);font-weight:600;font-size:14px}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.chip{background:var(--panel-2);color:var(--ink);border:1.5px solid rgba(255,200,58,.28);border-radius:14px;padding:13px 12px;font:800 15px/1.25 var(--body);text-align:left;cursor:pointer;display:flex;gap:8px;align-items:center;min-width:0;touch-action:manipulation}
+.chip svg{flex:none;width:18px;height:18px}
+.chip svg path{fill:var(--gold)}
+.chip span{min-width:0;overflow-wrap:anywhere}
+.chip:active,.chip.on{background:var(--gold);color:#3a2300}
+.who{display:flex;gap:8px;flex-wrap:wrap}
+.who .chip{flex:1;justify-content:center;text-align:center;min-width:90px}
+.err{color:var(--danger);font-weight:800;font-size:14px;margin:0;min-height:1.2em}
+
+.party{position:fixed;inset:0;z-index:30;background:rgba(10,11,36,.92);display:flex;align-items:center;justify-content:center;padding:24px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px))}
+.party canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.party-card{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;max-width:420px}
+.party-card .big-star{width:120px;height:120px;animation:spin 2.4s ease-in-out infinite}
+.party-card .big-star path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
+.party-card h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,12vw,64px);line-height:1;margin:6px 0 0;color:var(--gold);text-shadow:0 0 30px rgba(255,200,58,.5)}
+.party-card p{margin:0;font-size:19px;font-weight:800}
+.party-card .prize-line{font-size:22px;color:var(--lid);font-weight:900;overflow-wrap:anywhere}
+.party-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+@keyframes spin{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--mint);color:#063325;font-weight:900;padding:12px 18px;border-radius:999px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:calc(100% - 32px);text-align:center;animation:rise .2s ease-out both}
+
+@media (max-width:420px){.jar-wrap{padding:0 30px 0 4px}.tally .num{font-size:56px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 2.8l2.85 5.8 6.4.93-4.63 4.5 1.1 6.37L12 17.4l-5.72 3l1.1-6.37-4.63-4.5 6.4-.93z"/></symbol>
+</svg>
+<div class="sky" aria-hidden="true"></div>
+
+<main class="wrap">
+  <header class="top">
+    <div class="eyebrow" id="jarNo">Jar 1</div>
+    <h1><em>Judah's</em> Star Jar</h1>
+    <div class="tally" aria-live="polite"><span class="num" id="count">0</span><span class="of">/ 100</span></div>
+    <div class="togo" id="togo">&nbsp;</div>
+    <div class="prize">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5" rx="2" fill="var(--lid)"/><rect x="2.5" y="6.5" width="19" height="4" rx="1.5" fill="var(--lid-deep)"/><rect x="10.6" y="6.5" width="2.8" height="14" fill="var(--gold)"/><path d="M12 6.5c-1.5-3.2-5-3.6-5-1.5 0 1.4 2.6 1.5 5 1.5zm0 0c1.5-3.2 5-3.6 5-1.5 0 1.4-2.6 1.5-5 1.5z" fill="none" stroke="var(--gold)" stroke-width="1.6"/></svg>
+      <label for="prize">Prize at 100</label>
+      <input id="prize" maxlength="60" placeholder="Not picked yet" autocomplete="off" disabled>
+    </div>
+  </header>
+
+  <section aria-label="Star jar">
+    <div class="jar-wrap">
+      <div class="lid"></div>
+      <div class="rim"></div>
+      <div class="jar"><div class="grid" id="grid"></div></div>
+    </div>
+  </section>
+
+  <div class="give-row">
+    <button class="btn btn-gold wide" id="giveBtn" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>Give Judah a star</button>
+    <button class="btn btn-pink" id="celebrateBtn" hidden>The jar is full! Celebrate</button>
+    <div class="status" id="status" role="status">Opening the jar…</div>
+    <button class="link" id="unlockBtn" hidden>Parent? Unlock giving stars</button>
+  </div>
+
+  <section class="panel" aria-labelledby="logTitle">
+    <h2 id="logTitle">Latest stars</h2>
+    <ul class="log" id="log"></ul>
+    <p class="empty" id="logEmpty">No stars in this jar yet.</p>
+  </section>
+
+  <details class="panel tools" id="tools" hidden>
+    <summary>Parent tools</summary>
+    <div class="tool">
+      <h3>Challenges</h3>
+      <p>These show up as one-tap buttons when you give a star.</p>
+      <div class="edit-chips" id="editChips"></div>
+      <form class="row" id="addChallengeForm">
+        <input class="field" id="newChallenge" maxlength="50" placeholder="Add a challenge" autocomplete="off">
+        <button class="btn btn-ghost btn-small" type="submit">Add</button>
+      </form>
+    </div>
+    <div class="tool">
+      <h3>Add several stars</h3>
+      <p>Bring over stars from the old Notes tally, or give a big bonus.</p>
+      <form class="row" id="bulkForm">
+        <input class="field num" id="bulkCount" type="number" min="1" max="99" value="5" inputmode="numeric">
+        <input class="field" id="bulkReason" maxlength="60" placeholder="Reason (optional)" autocomplete="off">
+        <button class="btn btn-ghost btn-small" type="submit" id="bulkBtn">Add stars</button>
+      </form>
+    </div>
+    <div class="tool">
+      <h3>Jars</h3>
+      <div class="stats"><span><b id="statFilled">0</b> jars filled</span></div>
+      <div class="row">
+        <button class="btn btn-ghost btn-small" id="newJarBtn" type="button">Start a new jar</button>
+      </div>
+    </div>
+    <div class="tool">
+      <h3>This phone</h3>
+      <p id="whoLine">Stars from this phone show as given by a parent.</p>
+      <div class="row"><button class="btn btn-ghost btn-small" id="lockBtn" type="button">Lock this phone</button></div>
+    </div>
+  </details>
+</main>
+
+<div class="backdrop" id="sheetWrap" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-head"><h2 id="sheetTitle">What's the star for?</h2><button class="link" id="sheetClose" type="button">Close</button></div>
+    <p class="hint">Tap one and the star goes straight in the jar.</p>
+    <div class="chips" id="chips"></div>
+    <form class="row" id="customForm">
+      <input class="field" id="customReason" maxlength="60" placeholder="Something else…" autocomplete="off">
+      <button class="btn btn-gold btn-small" type="submit">Give star</button>
+    </form>
+  </div>
+</div>
+
+<div class="backdrop" id="unlockWrap" hidden>
+  <form class="sheet" id="unlockForm" role="dialog" aria-modal="true" aria-labelledby="unlockTitle">
+    <div class="sheet-head"><h2 id="unlockTitle">Parent unlock</h2><button class="link" id="unlockClose" type="button">Close</button></div>
+    <p class="hint">Do this once on each parent's phone. Judah can still look without it.</p>
+    <input class="field" id="pinInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Family PIN">
+    <div class="eyebrow" style="text-align:left">Who's on this phone?</div>
+    <div class="who" id="whoChips">
+      <button type="button" class="chip" data-who="Dad">Dad</button>
+      <button type="button" class="chip" data-who="Mom">Mom</button>
+    </div>
+    <input class="field" id="whoOther" maxlength="30" placeholder="Or type a name" autocomplete="off">
+    <p class="err" id="unlockErr"></p>
+    <button class="btn btn-gold" type="submit" id="unlockSubmit">Unlock</button>
+  </form>
+</div>
+
+<div class="party" id="party" hidden>
+  <canvas id="confetti"></canvas>
+  <div class="party-card">
+    <svg class="big-star" viewBox="0 0 24 24" aria-hidden="true"><use href="#star"/></svg>
+    <h2>100 STARS!</h2>
+    <p>Judah filled the whole jar.</p>
+    <p class="prize-line" id="partyPrize">Prize time!</p>
+    <div class="party-actions">
+      <button class="btn btn-gold btn-small" id="partyNewJar" type="button" hidden>Start a new jar</button>
+      <button class="btn btn-ghost btn-small" id="partyClose" type="button">Keep looking</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  "use strict";
+  var API = "/api/judahstars";
+  var GOAL = 100;
+  var STAR_PATH = "M12 2.8l2.85 5.8 6.4.93-4.63 4.5 1.1 6.37L12 17.4l-5.72 3l1.1-6.37-4.63-4.5 6.4-.93z";
+  var $ = function(id){ return document.getElementById(id); };
+
+  /* ---------- per-phone storage ---------- */
+  function load(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function save(k,v){ try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k,v); } catch(e){} }
+  var pin = load("sj_pin");
+  var who = load("sj_who") || "";
+
+  var state = null;          // {jar, prize, challenges, jarsFilled, stars}
+  var lastCount = null, lastJar = null;
+  var writing = 0;
+
+  /* ---------- jar grid ---------- */
+  var grid = $("grid"), slots = [];
+  for (var i = 0; i < GOAL; i++) {
+    var s = document.createElement("span");
+    s.className = "slot";
+    s.style.gridRow = String(10 - Math.floor(i / 10));
+    s.style.gridColumn = String((i % 10) + 1);
+    s.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + STAR_PATH + '"/></svg>';
+    grid.appendChild(s); slots.push(s);
+  }
+  var marks = [25,50,75,100].map(function(v){
+    var m = document.createElement("div");
+    m.className = "mark"; m.style.bottom = v + "%";
+    m.innerHTML = "<i></i><span>" + v + "</span>";
+    grid.appendChild(m); return { v: v, el: m };
+  });
+
+  /* ---------- small helpers ---------- */
+  function setStatus(t){ $("status").textContent = t || ""; }
+  var toastTimer;
+  function toast(t){
+    var el = $("toast"); el.textContent = t; el.hidden = false;
+    el.style.animation = "none"; void el.offsetWidth; el.style.animation = "";
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ el.hidden = true; }, 2600);
+  }
+  function when(ms){
+    if (!ms) return "";
+    var d = new Date(ms), now = new Date();
+    var t = d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+    function day(x){ return new Date(x.getFullYear(), x.getMonth(), x.getDate()).getTime(); }
+    var diff = Math.round((day(now) - day(d)) / 86400000);
+    if (diff === 0) return "Today " + t;
+    if (diff === 1) return "Yesterday " + t;
+    if (diff < 7) return d.toLocaleDateString([], { weekday: "long" }) + " " + t;
+    return d.toLocaleDateString([], { month: "short", day: "numeric" });
+  }
+  function isParent(){ return !!pin; }
+  function stars(){ return state ? state.stars : []; }
+
+  /* ---------- sound ---------- */
+  var audio = null, lastChime = 0;
+  function unlockAudio(){
+    if (audio) { if (audio.state === "suspended") audio.resume().catch(function(){}); return; }
+    try { audio = new (window.AudioContext || window.webkitAudioContext)(); } catch(e){ audio = null; }
+  }
+  document.addEventListener("pointerdown", unlockAudio, { capture: true });
+  function note(f, start, dur, vol){
+    var o = audio.createOscillator(), g = audio.createGain(), t0 = audio.currentTime + start;
+    o.type = "triangle"; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(vol, t0 + 0.02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(audio.destination); o.start(t0); o.stop(t0 + dur + 0.05);
+  }
+  function chime(){
+    if (!audio || audio.state !== "running") return;
+    var now = performance.now(); if (now - lastChime < 200) return; lastChime = now;
+    note(1318.5, 0, 0.25, 0.18); note(1975.5, 0.09, 0.4, 0.15);
+  }
+  function fanfare(){
+    if (!audio || audio.state !== "running") return;
+    [523.3, 659.3, 784, 1046.5, 784, 1046.5].forEach(function(f, i){ note(f, i * 0.13, i === 5 ? 0.9 : 0.3, 0.16); });
+  }
+
+  /* ---------- API ---------- */
+  function apiGet(){
+    return fetch(API, { cache: "no-store" }).then(readJson);
+  }
+  function apiPost(body){
+    body.pin = pin;
+    return fetch(API, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(readJson);
+  }
+  function readJson(r){
+    return r.json().catch(function(){ return {}; }).then(function(d){
+      if (!r.ok) { var e = new Error(d.message || "Something went wrong."); e.code = d.error || "server"; e.status = r.status; throw e; }
+      return d;
+    });
+  }
+  function handleError(e){
+    if (e && e.code === "pin") {
+      pin = null; save("sj_pin", null); applyMode();
+      toast("The PIN changed. Unlock this phone again.");
+    } else if (e && e.code === "full") {
+      toast("The jar is full! Start a new jar first.");
+    } else if (e && e.code === "setup") {
+      toast("Almost ready. " + e.message);
+    } else if (e && e.code === "token") {
+      toast("The Airtable connection needs a fresh token.");
+    } else {
+      toast(navigator.onLine === false ? "You're offline. Try again when you're connected." : "Couldn't save that. Try again.");
+    }
+  }
+  function write(body, okMsg){
+    writing++;
+    return apiPost(body).then(function(d){
+      writing--; setState(d); if (okMsg) toast(okMsg); return d;
+    }).catch(function(e){ writing--; handleError(e); refresh(); throw e; });
+  }
+
+  /* ---------- state + reactions ---------- */
+  function setState(d){
+    state = {
+      jar: Number(d.jar) || 1,
+      prize: typeof d.prize === "string" ? d.prize : "",
+      challenges: Array.isArray(d.challenges) ? d.challenges : [],
+      jarsFilled: Number(d.jarsFilled) || 0,
+      stars: Array.isArray(d.stars) ? d.stars : []
+    };
+    react();
+    render();
+  }
+  function react(){
+    var n = state.stars.length;
+    if (lastCount === null || lastJar !== state.jar) { lastCount = n; lastJar = state.jar; return; }
+    if (n > lastCount) {
+      var idx = Math.min(n, GOAL) - 1, el = slots[idx];
+      if (el) { el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); setTimeout(function(){ el.classList.remove("pop"); }, 800); }
+      if (n >= GOAL && lastCount < GOAL) openParty();
+      else {
+        chime();
+        if (n - lastCount > 1) toast("Added " + (n - lastCount) + " stars!");
+        else if (n >= 75 && lastCount < 75) toast("75 stars! Almost there!");
+        else if (n >= 50 && lastCount < 50) toast("Halfway there!");
+        else if (n >= 25 && lastCount < 25) toast("25 stars! Nice start!");
+        else if (n === GOAL - 1) toast("One more star to go!");
+      }
+    }
+    lastCount = n;
+  }
+
+  function render(){
+    var list = stars(), n = list.length, shown = Math.min(n, GOAL), full = shown >= GOAL;
+    var parent = isParent();
+    slots.forEach(function(el, i){
+      el.classList.toggle("filled", i < shown);
+      el.classList.toggle("carried", i < shown && !!list[i].carried);
+      el.classList.toggle("next", i === shown && parent && !full);
+    });
+    marks.forEach(function(m){ m.el.classList.toggle("hit", shown >= m.v); });
+    $("count").textContent = shown;
+    if (state) {
+      $("jarNo").textContent = "Jar " + state.jar;
+      var left = GOAL - shown;
+      $("togo").textContent = left <= 0 ? "Jar full! Prize time." : left === 1 ? "Just 1 more star!" : left + " stars to go";
+      if (document.activeElement !== $("prize")) $("prize").value = state.prize || "";
+      $("partyPrize").textContent = state.prize ? "Prize: " + state.prize : "Prize time!";
+      $("statFilled").textContent = state.jarsFilled;
+    }
+    $("giveBtn").hidden = !parent || !state || full;
+    $("celebrateBtn").hidden = !full;
+    renderLog(list);
+    renderChallenges();
+  }
+
+  var armedRemove = null;
+  function renderLog(list){
+    var ul = $("log"); ul.textContent = "";
+    $("logEmpty").hidden = list.length > 0;
+    $("logEmpty").textContent = isParent() ? "No stars in this jar yet. Tap the gold button to give the first one." : "No stars in this jar yet.";
+    list.map(function(s, i){ return { s: s, i: i }; }).slice(-15).reverse().forEach(function(o){
+      var s = o.s, li = document.createElement("li");
+      var ico = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      ico.setAttribute("viewBox", "0 0 24 24"); ico.setAttribute("class", "ico");
+      ico.innerHTML = '<path d="' + STAR_PATH + '"/>';
+      var what = document.createElement("div"); what.className = "what";
+      what.textContent = s.reason || "A star";
+      var meta = document.createElement("span"); meta.className = "meta";
+      meta.textContent = (s.by ? s.by + " · " : "") + when(s.at);
+      what.appendChild(meta);
+      var right = document.createElement("div"); right.className = "right";
+      var num = document.createElement("span"); num.className = "n"; num.textContent = "#" + (o.i + 1);
+      right.appendChild(num);
+      if (isParent() && s.id && s.id.indexOf("rec") === 0) {
+        var x = document.createElement("button"); x.type = "button"; x.className = "x";
+        var armed = armedRemove === s.id;
+        x.textContent = armed ? "Remove?" : "✕";
+        x.setAttribute("aria-label", armed ? "Confirm remove star" : "Remove this star");
+        if (armed) x.classList.add("confirm");
+        x.addEventListener("click", function(){
+          if (armedRemove !== s.id) {
+            armedRemove = s.id; render();
+            setTimeout(function(){ if (armedRemove === s.id) { armedRemove = null; render(); } }, 4000);
+            return;
+          }
+          armedRemove = null;
+          lastCount = Math.max(0, (lastCount || 1) - 1);
+          state.stars = state.stars.filter(function(t){ return t.id !== s.id; });
+          render();
+          write({ action: "remove", id: s.id }, "Star removed").catch(function(){});
+        });
+        right.appendChild(x);
+      }
+      li.appendChild(ico); li.appendChild(what); li.appendChild(right);
+      ul.appendChild(li);
+    });
+  }
+
+  function renderChallenges(){
+    var list = state ? state.challenges : [];
+    var chips = $("chips"); chips.textContent = "";
+    list.forEach(function(c){
+      var b = document.createElement("button"); b.type = "button"; b.className = "chip";
+      b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + STAR_PATH + '"/></svg>';
+      var sp = document.createElement("span"); sp.textContent = c; b.appendChild(sp);
+      b.addEventListener("click", function(){ closeSheet(); giveStar(c); });
+      chips.appendChild(b);
+    });
+    var ed = $("editChips"); ed.textContent = "";
+    list.forEach(function(c, idx){
+      var sp = document.createElement("span"); sp.textContent = c;
+      var rm = document.createElement("button"); rm.type = "button"; rm.textContent = "×";
+      rm.setAttribute("aria-label", "Remove challenge " + c);
+      rm.addEventListener("click", function(){
+        var next = list.slice(); next.splice(idx, 1);
+        state.challenges = next; render();
+        write({ action: "challenges", challenges: next }).catch(function(){});
+      });
+      sp.appendChild(rm); ed.appendChild(sp);
+    });
+  }
+
+  /* ---------- actions ---------- */
+  function giveStar(reason){
+    if (!state || !isParent()) return;
+    if (state.stars.length >= GOAL) { toast("The jar is full! Start a new jar first."); return; }
+    // show it right away, then sync with what the server saved
+    state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: who, at: Date.now(), carried: false }]);
+    react(); render();
+    write({ action: "give", reason: reason, by: who }).catch(function(){
+      state.stars = state.stars.filter(function(t){ return t.id !== "tmp"; });
+      lastCount = state.stars.length; render();
+    });
+  }
+
+  function openSheet(){ $("sheetWrap").hidden = false; $("customReason").value = ""; }
+  function closeSheet(){ $("sheetWrap").hidden = true; }
+  $("giveBtn").addEventListener("click", openSheet);
+  $("sheetClose").addEventListener("click", closeSheet);
+  $("sheetWrap").addEventListener("click", function(e){ if (e.target === $("sheetWrap")) closeSheet(); });
+  $("customForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = $("customReason").value.trim();
+    closeSheet(); giveStar(v || "A star");
+  });
+
+  $("prize").addEventListener("change", function(){
+    if (!state || !isParent()) return;
+    var v = $("prize").value.trim();
+    if (v === (state.prize || "")) return;
+    state.prize = v; render();
+    write({ action: "prize", prize: v }, v ? "Prize saved" : null).catch(function(){});
+  });
+  $("prize").addEventListener("keydown", function(e){ if (e.key === "Enter") { e.preventDefault(); $("prize").blur(); } });
+
+  $("addChallengeForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = $("newChallenge").value.trim();
+    if (!v || !state) return;
+    var next = state.challenges.slice();
+    if (next.indexOf(v) === -1) next.push(v);
+    $("newChallenge").value = "";
+    state.challenges = next; render();
+    write({ action: "challenges", challenges: next }).catch(function(){});
+  });
+
+  $("bulkForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!state) return;
+    var room = GOAL - state.stars.length;
+    var n = Math.floor(Number($("bulkCount").value) || 0);
+    if (n < 1) { toast("Pick how many stars to add."); return; }
+    if (room <= 0) { toast("The jar is full already."); return; }
+    n = Math.min(n, room);
+    $("bulkBtn").disabled = true; setStatus("Adding " + n + " stars…");
+    write({ action: "give", count: n, carried: true, reason: $("bulkReason").value.trim() || "Carried over", by: who })
+      .then(function(){ $("bulkReason").value = ""; })
+      .catch(function(){})
+      .then(function(){ $("bulkBtn").disabled = false; setStatus(""); });
+  });
+
+  var newJarArmed = false;
+  function startNewJar(btn){
+    if (!newJarArmed) {
+      newJarArmed = true; var old = btn.textContent;
+      btn.textContent = "Tap again to start a fresh jar";
+      setTimeout(function(){ newJarArmed = false; btn.textContent = old; }, 4000);
+      return;
+    }
+    newJarArmed = false;
+    closeParty();
+    btn.textContent = "Start a new jar";
+    write({ action: "newjar" }, "New jar ready! Pick the next prize.").catch(function(){});
+  }
+  $("newJarBtn").addEventListener("click", function(e){ startNewJar(e.currentTarget); });
+  $("partyNewJar").addEventListener("click", function(e){ startNewJar(e.currentTarget); });
+
+  /* ---------- parent unlock ---------- */
+  var pickedWho = who;
+  function syncWhoChips(){
+    Array.prototype.forEach.call($("whoChips").children, function(b){ b.classList.toggle("on", b.dataset.who === pickedWho); });
+  }
+  $("whoChips").addEventListener("click", function(e){
+    var b = e.target.closest("[data-who]"); if (!b) return;
+    pickedWho = b.dataset.who; $("whoOther").value = ""; syncWhoChips();
+  });
+  $("whoOther").addEventListener("input", function(){ pickedWho = $("whoOther").value.trim(); syncWhoChips(); });
+  $("unlockBtn").addEventListener("click", function(){
+    $("unlockErr").textContent = ""; $("pinInput").value = ""; syncWhoChips();
+    $("unlockWrap").hidden = false; setTimeout(function(){ $("pinInput").focus(); }, 50);
+  });
+  $("unlockClose").addEventListener("click", function(){ $("unlockWrap").hidden = true; });
+  $("unlockForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    var p = $("pinInput").value.trim();
+    if (!p) { $("unlockErr").textContent = "Type the family PIN."; return; }
+    if (!pickedWho) { $("unlockErr").textContent = "Pick who's on this phone so stars show who gave them."; return; }
+    $("unlockSubmit").disabled = true; $("unlockErr").textContent = "";
+    var prev = pin; pin = p;
+    apiPost({ action: "check" }).then(function(d){
+      save("sj_pin", p); who = pickedWho; save("sj_who", who);
+      $("unlockWrap").hidden = true; setState(d); applyMode();
+      toast("Unlocked! Hi " + who + ".");
+    }).catch(function(err){
+      pin = prev;
+      $("unlockErr").textContent = err.code === "pin" ? "That PIN didn't match." : err.code === "setup" ? err.message : "Couldn't check right now. Try again.";
+    }).then(function(){ $("unlockSubmit").disabled = false; });
+  });
+  $("lockBtn").addEventListener("click", function(){
+    pin = null; save("sj_pin", null); applyMode(); toast("This phone is locked. Judah can still look.");
+  });
+  function applyMode(){
+    var parent = isParent();
+    $("unlockBtn").hidden = parent;
+    $("tools").hidden = !parent;
+    $("prize").disabled = !parent;
+    $("prize").placeholder = parent ? "Tap to pick a prize" : "Not picked yet";
+    $("partyNewJar").hidden = !parent;
+    $("whoLine").textContent = "Stars from this phone show as given by " + (who || "a parent") + ".";
+    render();
+  }
+
+  /* ---------- party ---------- */
+  var confettiRaf = null;
+  function openParty(){
+    $("party").hidden = false;
+    fanfare();
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var c = $("confetti"), ctx = c.getContext("2d");
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), W = c.clientWidth, H = c.clientHeight;
+    c.width = W * dpr; c.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var colors = ["#ffc83a", "#ff8fab", "#78eec4", "#ffffff", "#f0951c"];
+    var bits = [];
+    for (var k = 0; k < 140; k++) bits.push({ x: Math.random() * W, y: -20 - Math.random() * H, r: 5 + Math.random() * 8, vy: 1.5 + Math.random() * 3, vx: -1 + Math.random() * 2, a: Math.random() * 6, va: -0.1 + Math.random() * 0.2, col: colors[(Math.random() * colors.length) | 0] });
+    function starPath(x, y, r, a){
+      ctx.beginPath();
+      for (var j = 0; j < 10; j++) { var rr = j % 2 ? r * 0.45 : r, t = a + j * Math.PI / 5; ctx.lineTo(x + Math.cos(t) * rr, y + Math.sin(t) * rr); }
+      ctx.closePath();
+    }
+    var start = performance.now();
+    cancelAnimationFrame(confettiRaf);
+    function tick(now){
+      ctx.clearRect(0, 0, W, H);
+      var t = now - start;
+      bits.forEach(function(b){
+        b.y += b.vy; b.x += b.vx + Math.sin((b.y + b.a * 40) / 40) * 0.6; b.a += b.va;
+        if (b.y > H + 20 && t < 4500) { b.y = -20; b.x = Math.random() * W; }
+        ctx.fillStyle = b.col; starPath(b.x, b.y, b.r, b.a); ctx.fill();
+      });
+      if (t < 9000 && !$("party").hidden) confettiRaf = requestAnimationFrame(tick); else ctx.clearRect(0, 0, W, H);
+    }
+    confettiRaf = requestAnimationFrame(tick);
+  }
+  function closeParty(){ $("party").hidden = true; cancelAnimationFrame(confettiRaf); }
+  $("partyClose").addEventListener("click", closeParty);
+  $("celebrateBtn").addEventListener("click", function(){ unlockAudio(); openParty(); });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape") { closeSheet(); closeParty(); $("unlockWrap").hidden = true; }
+  });
+
+  /* ---------- sync ---------- */
+  var refreshing = false;
+  function refresh(){
+    if (refreshing || writing) return;
+    refreshing = true;
+    apiGet().then(function(d){
+      if (!writing) setState(d);
+      setStatus("");
+    }).catch(function(e){
+      if (e && e.code === "setup") setStatus("Almost ready. " + e.message);
+      else if (e && e.code === "token") setStatus("The Airtable connection needs a fresh token.");
+      else setStatus(state ? "Can't reach the jar right now. Showing the last stars we saw." : "Can't reach the jar right now. Check your connection.");
+    }).then(function(){ refreshing = false; });
+  }
+  setInterval(function(){ if (document.visibilityState === "visible") refresh(); }, 8000);
+  document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "visible") refresh(); });
+  window.addEventListener("online", refresh);
+
+  applyMode();
+  refresh();
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function(){
+      navigator.serviceWorker.register("/judahstars/sw.js", { scope: "/judahstars" }).catch(function(){});
+    });
+  }
+})();
+</script>
+</body>
+</html>

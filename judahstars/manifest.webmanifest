@@ -1,0 +1,17 @@
+{
+  "name": "Judah's Star Jar",
+  "short_name": "Star Jar",
+  "description": "Judah's 100-star reward jar.",
+  "id": "/judahstars",
+  "start_url": "/judahstars",
+  "scope": "/judahstars",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141639",
+  "theme_color": "#141639",
+  "icons": [
+    { "src": "/judahstars/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/judahstars/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/judahstars/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
