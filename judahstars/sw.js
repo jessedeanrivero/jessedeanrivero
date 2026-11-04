@@ -1,6 +1,6 @@
 // Judah's Star Jar service worker: keeps the app shell available offline.
 // Star data (/api/judahstars) is never cached so the jar is always live.
-const CACHE = "judahstars-v3";
+const CACHE = "judahstars-v4";
 const SHELL = [
   "/judahstars",
   "/judahstars/manifest.webmanifest",

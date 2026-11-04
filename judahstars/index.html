@@ -62,19 +62,25 @@ h1 em{font-style:normal;color:var(--gold)}
 .tally .num{font-family:var(--display);font-size:64px;line-height:1;color:var(--gold);text-shadow:0 0 24px rgba(255,200,58,.35)}
 .tally .of{font-family:var(--display);font-size:26px;color:var(--muted)}
 .togo{font-weight:800;color:var(--muted);font-size:15px;min-height:1.4em}
-.prize{display:flex;align-items:center;gap:10px;background:var(--panel);border:1.5px dashed rgba(255,143,171,.55);border-radius:14px;padding:10px 14px;margin-top:10px;width:100%;max-width:400px}
-.prize svg{flex:none;width:26px;height:26px}
-.prize label{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--lid);white-space:nowrap}
-.prize input{flex:1;min-width:0;background:transparent;border:0;color:var(--ink);font:800 17px/1.2 var(--body);padding:4px 2px;border-bottom:1.5px solid transparent;border-radius:0}
-.prize input:focus{outline:none;border-bottom-color:var(--lid)}
-.prize input::placeholder{color:var(--muted);font-weight:700}
-.prize input:disabled{opacity:1;-webkit-text-fill-color:var(--ink)}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;min-height:28px}
+.pill{font:900 13px/1 var(--body);padding:7px 12px;border-radius:999px;background:rgba(120,238,196,.14);color:var(--mint);font-variant-numeric:tabular-nums}
+.pill.goal-line{background:rgba(255,200,58,.13);color:var(--gold)}
+/* the prize is the motivator, so it gets its own card */
+.goal{display:flex;align-items:center;gap:14px;background:var(--panel);border:2px dashed rgba(255,143,171,.5);border-radius:20px;padding:12px 16px;margin-top:10px;width:100%;max-width:400px;text-align:left}
+.goal svg{flex:none;width:44px;height:44px}
+.goal-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.goal-text label{font:900 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--lid)}
+.goal input{width:100%;min-width:0;background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;color:var(--ink);font:400 23px/1.15 var(--display);letter-spacing:.01em;padding:2px 0}
+.goal input:focus{outline:none;border-bottom-color:var(--lid)}
+.goal input::placeholder{color:var(--muted);opacity:.85}
+.goal input:disabled{opacity:1;-webkit-text-fill-color:var(--ink)}
 
-.jar-wrap{position:relative;margin:4px auto 0;width:100%;max-width:440px;padding:0 34px}
-.lid{height:24px;margin:0 7%;border-radius:8px 8px 4px 4px;background:repeating-linear-gradient(90deg,var(--lid) 0 10px,var(--lid-deep) 10px 12px);box-shadow:0 3px 0 rgba(0,0,0,.25)}
-.rim{height:10px;margin:0 4%;border:3px solid var(--glass-edge);border-top:0;border-bottom:0;background:var(--glass)}
+.jar-wrap{position:relative;margin:2px auto 0;width:100%;max-width:440px;padding:0 32px}
+.lid{position:relative;height:26px;margin:0 8%;border-radius:10px 10px 5px 5px;background:repeating-linear-gradient(90deg,var(--lid) 0 10px,var(--lid-deep) 10px 12px);box-shadow:0 3px 0 rgba(0,0,0,.28)}
+.lid::after{content:"";position:absolute;left:8%;right:8%;top:5px;height:4px;border-radius:4px;background:rgba(255,255,255,.35)}
+.rim{height:12px;margin:0 11%;border:3px solid var(--glass-edge);border-top:0;border-bottom:0;background:var(--glass)}
 .jar{position:relative;border:3px solid var(--glass-edge);border-radius:14px 14px 40px 40px;padding:14px 12px 20px;background:linear-gradient(90deg,var(--glass),rgba(196,204,255,.04) 28%,rgba(196,204,255,.02) 70%,var(--glass))}
-.jar::before{content:"";position:absolute;left:10px;top:18px;bottom:40px;width:7px;border-radius:7px;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.02));pointer-events:none}
+.jar::before{content:"";position:absolute;left:4px;top:18px;bottom:40px;width:5px;border-radius:7px;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,.02));pointer-events:none}
 .grid{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
 .slot{aspect-ratio:1;max-width:100%;display:grid;place-items:center}
 .slot svg{width:100%;height:100%;overflow:visible}
@@ -86,8 +92,8 @@ h1 em{font-style:normal;color:var(--gold)}
 .slot.pop svg{animation:pop .7s cubic-bezier(.2,1.6,.4,1) both}
 @keyframes pop{0%{transform:scale(0) rotate(-60deg)}60%{transform:scale(1.5) rotate(12deg)}100%{transform:scale(1) rotate(0)}}
 @keyframes breathe{50%{opacity:.35}}
-.mark{position:absolute;right:-34px;display:flex;align-items:center;gap:3px;transform:translateY(50%);pointer-events:none}
-.mark i{display:block;width:12px;height:2px;background:var(--glass-edge);border-radius:2px}
+.mark{position:absolute;left:calc(100% + 17px);display:flex;align-items:center;gap:3px;transform:translateY(50%);pointer-events:none}
+.mark i{display:block;width:7px;height:2px;background:var(--glass-edge);border-radius:2px}
 .mark span{font:800 11px/1 var(--body);color:var(--muted);font-variant-numeric:tabular-nums}
 .mark.hit span{color:var(--gold)}
 
@@ -118,8 +124,8 @@ h1 em{font-style:normal;color:var(--gold)}
 .log .meta{display:block;font-weight:600;font-size:13px;color:var(--muted)}
 .log .right{display:flex;align-items:center;gap:4px}
 .log .n{font:800 12px/1 var(--body);color:var(--muted);font-variant-numeric:tabular-nums}
-.x{background:transparent;border:0;color:var(--muted);font:800 13px/1 var(--body);padding:8px 6px;cursor:pointer;border-radius:8px}
-.x.confirm{color:#2b0008;background:var(--danger);padding:8px 10px}
+.x{min-width:40px;min-height:40px;display:inline-grid;place-items:center;background:transparent;border:0;color:var(--muted);font:800 14px/1 var(--body);padding:0 8px;cursor:pointer;border-radius:10px}
+.x.confirm{color:#2b0008;background:var(--danger)}
 .empty{color:var(--muted);font-weight:600;padding:6px 0 10px;margin:0}
 
 details.tools summary{cursor:pointer;font-family:var(--display);font-size:19px;list-style:none;display:flex;justify-content:space-between;align-items:center}
@@ -133,6 +139,7 @@ details.tools[open] summary::after{content:"–"}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .field{flex:1;min-width:0;background:var(--sky);border:1.5px solid rgba(206,212,255,.22);border-radius:12px;color:var(--ink);font:700 16px/1.2 var(--body);padding:11px 12px}
 .field:focus{outline:none;border-color:var(--mint)}
+.field::placeholder{color:var(--muted);opacity:.75}
 .field.num{flex:0 0 84px;font-variant-numeric:tabular-nums}
 .edit-chips{display:flex;flex-wrap:wrap;gap:6px}
 .edit-chips span{display:inline-flex;align-items:center;gap:4px;background:var(--panel-2);border-radius:999px;padding:5px 6px 5px 12px;font-weight:700;font-size:14px}
@@ -158,7 +165,7 @@ details.tools[open] summary::after{content:"–"}
 .party canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .party-card{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;max-width:420px}
 .party-card .big-star{width:120px;height:120px;animation:spin 2.4s ease-in-out infinite}
-.party-card .big-star path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
+.party-card .big-star{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
 .party-card h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,12vw,64px);line-height:1;margin:6px 0 0;color:var(--gold);text-shadow:0 0 30px rgba(255,200,58,.5)}
 .party-card p{margin:0;font-size:19px;font-weight:800}
 .party-card .prize-line{font-size:22px;color:var(--lid);font-weight:900;overflow-wrap:anywhere}
@@ -189,7 +196,7 @@ details.tools[open] summary::after{content:"–"}
 .gate{position:fixed;inset:0;z-index:50;background:var(--sky);display:flex;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
 .gate-card{width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px;text-align:center}
 .gate-star{width:84px;height:84px;margin:0 auto 4px;filter:drop-shadow(0 0 18px rgba(255,200,58,.5))}
-.gate-star path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
+.gate-star{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
 .gate h2{font-family:var(--display);font-weight:400;font-size:34px;line-height:1.05;margin:0}
 .gate h2 em{font-style:normal;color:var(--gold)}
 .gate .hint{margin:0 0 6px;color:var(--muted);font-weight:700}
@@ -198,7 +205,26 @@ details.tools[open] summary::after{content:"–"}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:calc(104px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--mint);color:#063325;font-weight:900;padding:12px 18px;border-radius:999px;z-index:40;box-shadow:0 8px 24px rgba(0,0,0,.35);max-width:calc(100% - 32px);text-align:center;animation:rise .2s ease-out both}
 
-@media (max-width:420px){.jar-wrap{padding:0 30px 0 4px}.tally .num{font-size:56px}}
+/* a new star flies from the button into its spot */
+.slot.filled.incoming path{fill:none;stroke:var(--slot)}
+.slot.filled.incoming svg{filter:none}
+.slot.twinkle svg{animation:twinkle .9s ease-in-out}
+@keyframes twinkle{50%{transform:scale(1.28) rotate(14deg);filter:drop-shadow(0 0 8px rgba(255,226,140,.95))}}
+.slot.poof svg{animation:poof .7s ease-out both}
+.slot.poof path{fill:var(--danger);stroke:var(--danger)}
+@keyframes poof{0%{transform:scale(1.2)}100%{transform:scale(.1) rotate(-120deg);opacity:0}}
+.flyer{position:fixed;left:0;top:0;width:30px;height:30px;z-index:26;pointer-events:none;will-change:transform}
+.flyer path{fill:var(--gold);stroke:var(--gold-deep);stroke-width:1;stroke-linejoin:round}
+.flyer svg{width:100%;height:100%;filter:drop-shadow(0 0 6px rgba(255,200,58,.8))}
+.cheer{position:fixed;left:0;right:0;top:calc(14vh + env(safe-area-inset-top,0px));z-index:25;display:flex;justify-content:center;pointer-events:none;padding:0 16px}
+.cheer-card{min-width:200px;max-width:340px;background:var(--gold);color:#3a2300;border-radius:26px;padding:14px 28px 16px;text-align:center;box-shadow:0 8px 0 var(--gold-deep),0 24px 60px rgba(0,0,0,.45);animation:cheerIn 2.2s cubic-bezier(.2,1.3,.4,1) both}
+.cheer-n{font:400 60px/1 var(--display);letter-spacing:.02em}
+.cheer-word{font:400 27px/1.1 var(--display);margin-top:2px}
+.cheer-why{font-weight:800;font-size:15px;margin-top:6px;opacity:.78;overflow-wrap:anywhere}
+.cheer.neg .cheer-card{background:var(--panel-2);color:var(--ink);box-shadow:0 8px 0 #12143a,0 24px 60px rgba(0,0,0,.45)}
+.cheer.neg .cheer-n{color:var(--danger)}
+@keyframes cheerIn{0%{transform:scale(.3) rotate(-8deg);opacity:0}14%{transform:scale(1.08) rotate(3deg);opacity:1}22%{transform:scale(1) rotate(0)}82%{transform:scale(1);opacity:1}100%{transform:translateY(-24px) scale(.92);opacity:0}}
+@media (max-width:420px){.jar-wrap{padding:0 30px}.tally .num{font-size:58px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -214,10 +240,13 @@ details.tools[open] summary::after{content:"–"}
     <h1><em>Judah's</em> Star Jar</h1>
     <div class="tally" aria-live="polite"><span class="num" id="count">0</span><span class="of">/ 100</span></div>
     <div class="togo" id="togo">&nbsp;</div>
-    <div class="prize">
+    <div class="pills" id="pills"></div>
+    <div class="goal">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="9" width="17" height="11.5" rx="2" fill="var(--lid)"/><rect x="2.5" y="6.5" width="19" height="4" rx="1.5" fill="var(--lid-deep)"/><rect x="10.6" y="6.5" width="2.8" height="14" fill="var(--gold)"/><path d="M12 6.5c-1.5-3.2-5-3.6-5-1.5 0 1.4 2.6 1.5 5 1.5zm0 0c1.5-3.2 5-3.6 5-1.5 0 1.4-2.6 1.5-5 1.5z" fill="none" stroke="var(--gold)" stroke-width="1.6"/></svg>
-      <label for="prize">Prize at 100</label>
-      <input id="prize" maxlength="60" placeholder="Not picked yet" autocomplete="off" disabled>
+      <div class="goal-text">
+        <label for="prize">Prize at 100 stars</label>
+        <input id="prize" maxlength="60" placeholder="Pick a prize!" autocomplete="off" disabled>
+      </div>
     </div>
   </header>
 
@@ -229,13 +258,13 @@ details.tools[open] summary::after{content:"–"}
     </div>
   </section>
 
-  <div class="give-row">
+  <div class="give-row" id="giveRow">
     <button class="btn btn-pink" id="celebrateBtn" hidden>The jar is full! Celebrate</button>
     <div class="status" id="status" role="status">Opening the jar…</div>
   </div>
 
   <section class="panel" aria-labelledby="logTitle">
-    <h2 id="logTitle">Latest stars</h2>
+    <h2 id="logTitle">Star log</h2>
     <ul class="log" id="log"></ul>
     <p class="empty" id="logEmpty">No stars in this jar yet.</p>
   </section>
@@ -339,6 +368,14 @@ details.tools[open] summary::after{content:"–"}
   </div>
 </div>
 
+<div class="cheer" id="cheer" hidden aria-live="polite">
+  <div class="cheer-card" id="cheerCard">
+    <div class="cheer-n" id="cheerN">+1</div>
+    <div class="cheer-word" id="cheerWord">Superstar!</div>
+    <div class="cheer-why" id="cheerWhy"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast" hidden></div>
 
 <script>
@@ -377,7 +414,8 @@ details.tools[open] summary::after{content:"–"}
   });
 
   /* ---------- small helpers ---------- */
-  function setStatus(t){ $("status").textContent = t || ""; }
+  function setStatus(t){ var el = $("status"); el.textContent = t || ""; el.hidden = !t; syncGiveRow(); }
+  function syncGiveRow(){ $("giveRow").hidden = $("status").hidden && $("celebrateBtn").hidden; }
   var toastTimer;
   function toast(t){
     var el = $("toast"); el.textContent = t; el.hidden = false;
@@ -417,6 +455,15 @@ details.tools[open] summary::after{content:"–"}
     if (!audio || audio.state !== "running") return;
     var now = performance.now(); if (now - lastChime < 200) return; lastChime = now;
     note(1318.5, 0, 0.25, 0.18); note(1975.5, 0.09, 0.4, 0.15);
+  }
+  function sparkle(k){
+    if (!audio || audio.state !== "running") return;
+    var scale = [1046.5, 1174.7, 1318.5, 1568, 1760, 2093, 2349.3, 2637];
+    note(scale[Math.min(k, scale.length - 1)], 0, 0.22, 0.14);
+  }
+  function softBonk(){
+    if (!audio || audio.state !== "running") return;
+    note(392, 0, 0.18, 0.12); note(311.1, 0.12, 0.3, 0.1);
   }
   function fanfare(){
     if (!audio || audio.state !== "running") return;
@@ -477,30 +524,112 @@ details.tools[open] summary::after{content:"–"}
   }
   function netCount(){ return jarContents(stars()).length; }
 
+  var REDUCE = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  var CHEERS = ["Awesome!", "Superstar!", "Way to go!", "Nailed it!", "Boom!", "Amazing!", "Star power!", "You rock!", "Yes, Judah!"];
+  var pendingOrigin = null;   // where the tapped +N button was, so stars fly out of it
+
+  function lastReason(taken){
+    var list = stars();
+    for (var i = list.length - 1; i >= 0; i--) if (!!list[i].taken === taken) return list[i].reason || "";
+    return "";
+  }
+
+  var cheerTimer;
+  function showCheer(num, word, why, neg){
+    var c = $("cheer");
+    $("cheerN").textContent = num; $("cheerWord").textContent = word; $("cheerWhy").textContent = why || "";
+    $("cheerWhy").hidden = !why;
+    c.classList.toggle("neg", !!neg);
+    c.hidden = false;
+    var card = $("cheerCard"); card.style.animation = "none"; void card.offsetWidth; card.style.animation = "";
+    clearTimeout(cheerTimer); cheerTimer = setTimeout(function(){ c.hidden = true; }, 2250);
+  }
+
+  function popSlot(el){
+    if (!el) return;
+    el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
+    setTimeout(function(){ el.classList.remove("pop"); }, 800);
+  }
+
+  // Scroll the jar into view first (the dock may be tapped from down in the log).
+  function withJarInView(cb){
+    var r = $("grid").getBoundingClientRect(), dockTop = $("dock").hidden ? innerHeight : $("dock").getBoundingClientRect().top;
+    if (r.top < 0 || r.bottom > dockTop) {
+      $("grid").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "center" });
+      setTimeout(cb, REDUCE ? 0 : 480);
+    } else cb();
+  }
+
+  function flyStars(targets, origin, done){
+    if (REDUCE || !targets.length || !Element.prototype.animate) {
+      targets.forEach(function(el){ el.classList.remove("incoming"); popSlot(el); });
+      if (done) done(); return;
+    }
+    var finished = 0;
+    targets.forEach(function(el, k){
+      var r = el.getBoundingClientRect();
+      var tx = r.left + r.width / 2 - 15, ty = r.top + r.height / 2 - 15;
+      var sx = (origin ? origin.x : innerWidth / 2) - 15, sy = (origin ? origin.y : -40) - 15;
+      var mx = (sx + tx) / 2 + (k % 2 ? 40 : -40), my = Math.min(sy, ty) - 90;
+      var f = document.createElement("div"); f.className = "flyer";
+      f.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + STAR_PATH + '"/></svg>';
+      document.body.appendChild(f);
+      var anim = f.animate([
+        { transform: "translate(" + sx + "px," + sy + "px) scale(.7) rotate(0deg)" },
+        { transform: "translate(" + mx + "px," + my + "px) scale(1.5) rotate(200deg)", offset: .5 },
+        { transform: "translate(" + tx + "px," + ty + "px) scale(.85) rotate(360deg)" }
+      ], { duration: 720, delay: k * 150, easing: "cubic-bezier(.45,0,.3,1)", fill: "both" });
+      var landed = false;
+      function land(){
+        if (landed) return; landed = true;
+        f.remove(); el.classList.remove("incoming"); popSlot(el); sparkle(k);
+        if (++finished === targets.length && done) done();
+      }
+      anim.onfinish = land;
+      setTimeout(land, 720 + k * 150 + 400); // safety net if the tab is backgrounded
+    });
+  }
+
   function react(){
     var n = netCount();
     if (lastCount === null || lastJar !== state.jar) { lastCount = n; lastJar = state.jar; return; }
     if (n > lastCount) {
-      var from = Math.max(lastCount, Math.min(n, GOAL) - 5), to = Math.min(n, GOAL);
-      for (var i = from; i < to; i++) (function(el, delay){
-        if (!el) return;
-        setTimeout(function(){
-          el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop");
-          setTimeout(function(){ el.classList.remove("pop"); }, 800);
-        }, delay);
-      })(slots[i], (i - from) * 110);
-      if (n >= GOAL && lastCount < GOAL) openParty();
-      else {
-        chime();
-        if (n >= 75 && lastCount < 75) toast("75 stars! Almost there!");
-        else if (n >= 50 && lastCount < 50) toast("Halfway there!");
-        else if (n >= 25 && lastCount < 25) toast("25 stars! Nice start!");
-        else if (n === GOAL - 1) toast("One more star to go!");
-        else if (n - lastCount > 1) toast("+" + (n - lastCount) + " stars!");
-      }
+      var prev = lastCount, gained = n - prev;
+      var from = Math.max(prev, Math.min(n, GOAL) - 8), to = Math.min(n, GOAL);
+      var targets = slots.slice(from, to);
+      targets.forEach(function(el){ el.classList.add("incoming"); });
+      var origin = pendingOrigin && Date.now() - pendingOrigin.t < 30000 ? pendingOrigin : null;
+      pendingOrigin = null;
+      var word = n >= GOAL ? "Jar full!"
+        : (n >= 75 && prev < 75) ? "Past the 75 line!"
+        : (n >= 50 && prev < 50) ? "Halfway there!"
+        : (n >= 25 && prev < 25) ? "25 stars!"
+        : n === GOAL - 1 ? "One more to go!"
+        : CHEERS[Math.floor(Math.random() * CHEERS.length)];
+      if (n < GOAL || prev >= GOAL) showCheer("+" + gained, word, lastReason(false));
+      withJarInView(function(){
+        flyStars(targets, origin, function(){
+          chime();
+          if (n >= GOAL && prev < GOAL) setTimeout(openParty, 250);
+        });
+      });
+    } else if (n < lastCount) {
+      var gone = slots[Math.min(n, GOAL - 1)];
+      if (gone && !REDUCE) { gone.classList.add("poof"); setTimeout(function(){ gone.classList.remove("poof"); }, 750); }
+      showCheer("−1", "Let's try again", lastReason(true), true);
+      softBonk();
     }
     lastCount = n;
   }
+
+  // a filled star twinkles now and then so the jar feels alive
+  if (!REDUCE) setInterval(function(){
+    if (document.visibilityState !== "visible") return;
+    var lit = slots.filter(function(el){ return el.classList.contains("filled") && !el.classList.contains("incoming"); });
+    if (!lit.length) return;
+    var el = lit[Math.floor(Math.random() * lit.length)];
+    el.classList.add("twinkle"); setTimeout(function(){ el.classList.remove("twinkle"); }, 950);
+  }, 1700);
 
   function render(){
     var list = stars(), inJar = jarContents(list), n = inJar.length, shown = Math.min(n, GOAL), full = shown >= GOAL;
@@ -516,6 +645,7 @@ details.tools[open] summary::after{content:"–"}
       $("jarNo").textContent = "Jar " + state.jar;
       var left = GOAL - shown;
       $("togo").textContent = left <= 0 ? "Jar full! Prize time." : left === 1 ? "Just 1 more star!" : left + " stars to go";
+      renderPills(list, shown);
       if (document.activeElement !== $("prize")) $("prize").value = state.prize || "";
       $("partyPrize").textContent = state.prize ? "Prize: " + state.prize : "Prize time!";
       $("statFilled").textContent = state.jarsFilled;
@@ -523,8 +653,28 @@ details.tools[open] summary::after{content:"–"}
     Array.prototype.forEach.call(document.querySelectorAll(".pbtn"), function(b){ b.disabled = !state || full; });
     $("minusBtn").disabled = !state || n <= 0;
     $("celebrateBtn").hidden = !full;
+    syncGiveRow();
     renderLog(list);
     renderChallenges();
+  }
+
+  function renderPills(list, shown){
+    var box = $("pills"); box.textContent = "";
+    var dayStart = new Date(); dayStart.setHours(0, 0, 0, 0);
+    var today = 0;
+    list.forEach(function(s){ if (s.at >= dayStart.getTime()) today += s.taken ? -1 : 1; });
+    if (today > 0) {
+      var p = document.createElement("span"); p.className = "pill";
+      p.textContent = "+" + today + " today"; box.appendChild(p);
+    }
+    var next = [25, 50, 75].filter(function(v){ return v > shown; })[0];
+    if (shown === 0) {
+      var z = document.createElement("span"); z.className = "pill goal-line";
+      z.textContent = "First star starts the jar!"; box.appendChild(z);
+    } else if (next) {
+      var q = document.createElement("span"); q.className = "pill goal-line";
+      q.textContent = (next - shown) + " to the " + next + " line"; box.appendChild(q);
+    }
   }
 
   // Rows given together (one tap of +3, or a carry-over) show as one log line.
@@ -641,8 +791,8 @@ details.tools[open] summary::after{content:"–"}
   function takeStar(reason){
     if (!state || !isParent() || netCount() <= 0) return;
     state.stars = state.stars.concat([{ id: "tmp", reason: reason, by: user, at: Date.now(), taken: true }]);
-    lastCount = netCount(); render();
-    write({ action: "take", reason: reason }, "1 star taken away").catch(function(){
+    react(); render();
+    write({ action: "take", reason: reason }).catch(function(){
       state.stars = state.stars.filter(function(t){ return t.id !== "tmp"; });
       lastCount = netCount(); render();
     });
@@ -658,7 +808,11 @@ details.tools[open] summary::after{content:"–"}
   }
   function closeSheet(){ $("sheetWrap").hidden = true; }
   Array.prototype.forEach.call(document.querySelectorAll(".pbtn"), function(b){
-    b.addEventListener("click", function(){ openSheet(Number(b.dataset.n) || 1); });
+    b.addEventListener("click", function(){
+      var r = b.getBoundingClientRect();
+      pendingOrigin = { x: r.left + r.width / 2, y: r.top + r.height / 2, t: Date.now() };
+      openSheet(Number(b.dataset.n) || 1);
+    });
   });
   $("sheetClose").addEventListener("click", closeSheet);
   $("sheetWrap").addEventListener("click", function(e){ if (e.target === $("sheetWrap")) closeSheet(); });
