@@ -192,8 +192,8 @@ h1 span,.bighead span{color:var(--green);display:block}
     <div>
       <div class="kicker">The headset is yours</div>
       <h1 id="landing-title">CALL THE <span>PLAYS.</span></h1>
-      <p class="lead">It's Seattle vs. Arizona. You have the call sheet. You have the clock. What would you dial up?</p>
-      <p class="secondary">Eight original Seahawks scenarios per side. Read each situation at your own pace, then start a 20-second play clock when you're ready to choose.</p>
+      <p class="lead">Lock's starting again, and the line looks a little more familiar this week. Think you can call a better game against Arizona?</p>
+      <p class="secondary">Eight situations on offense and eight on defense. Read first, then hit Pick Play. You'll have 20 seconds.</p>
       <div class="ruleline"><span><b>01</b> Read with no timer</span><span><b>02</b> Tap Pick Play</span><span><b>03</b> Choose in 20 seconds</span><span><b>04</b> Review the call</span></div>
     </div>
     <div class="chalk" aria-hidden="true">
@@ -219,7 +219,7 @@ h1 span,.bighead span{color:var(--green);display:block}
         <span class="num">01 / DEFENSE</span>
         <span class="mode-heading">BE MIKE MACDONALD</span>
         <span class="coach">Head Coach · Defensive Mind</span>
-        <span class="mode-description">Disguise coverages. Set the edge. Decide when to bring pressure and when to make the Cardinals earn every yard.</span>
+        <span class="mode-description">Minshew and McBride are coming to town. How would you slow them down?</span>
         <span class="mode-action">CALL THE DEFENSE <span aria-hidden="true">→</span></span>
       </span>
     </button>
@@ -231,7 +231,7 @@ h1 span,.bighead span{color:var(--green);display:block}
         <span class="num">02 / OFFENSE</span>
         <span class="mode-heading">BE BRIAN FLEURY</span>
         <span class="coach">Offensive Coordinator</span>
-        <span class="mode-description">Set the personnel. Find the mismatch. Manage the clock and decide how Seattle attacks Arizona.</span>
+        <span class="mode-description">Lock's back. The line has changed again. Let's see what you'd call.</span>
         <span class="mode-action">CALL THE OFFENSE <span aria-hidden="true">→</span></span>
       </span>
     </button>
@@ -966,7 +966,7 @@ function finish(){
 }
 async function share(){
  const side=state.mode==="defense"?"Mike Macdonald's defense":"Brian Fleury's offense";
- const message="I scored "+state.points+" points and made "+state.bestCalls+"/"+PLAYS[state.mode].length+" best calls running "+side+" against the Cardinals. Think you can beat me? "+MATCHUP.url;
+ const message="I got "+state.points+" points calling "+side+" against Arizona. I went "+state.bestCalls+"/"+PLAYS[state.mode].length+" on best calls. Your turn. "+MATCHUP.url;
  const btn=byId("share-results");
  try{
    if(navigator.share){await navigator.share({title:"Call the Plays · Hawks War Room",text:message,url:MATCHUP.url});return;}
