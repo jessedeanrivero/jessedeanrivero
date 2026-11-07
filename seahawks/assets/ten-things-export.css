@@ -1,0 +1,30 @@
+
+/* Shared share/export module for Hawks War Room weekly scouting lists. */
+.watch-export-actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;margin:-5px 0 22px}
+.watch-export-actions button,.watch-exp-btn{appearance:none;border:1px solid #49637a;background:#17283b;color:#eaf2ff;border-radius:9px;padding:11px 15px;font:600 12px/1.2 "IBM Plex Mono",monospace;letter-spacing:.005em;cursor:pointer;min-height:44px;transition:border-color .15s,background .15s}
+.watch-export-actions button:hover,.watch-exp-btn:hover{border-color:#c9ff3d;background:#23394a}
+.watch-export-actions button:focus-visible,.watch-exp-btn:focus-visible{outline:3px solid #c9ff3d;outline-offset:3px}
+.watch-export-actions .watch-export-primary,.watch-exp-btn.watch-exp-primary{background:#c9ff3d;color:#0a1422;border-color:#c9ff3d;font-weight:700}
+.watch-export-actions .watch-export-primary:hover,.watch-exp-btn.watch-exp-primary:hover{background:#e4ff9c;color:#0a1422}
+.watch-export-actions button:disabled,.watch-exp-btn:disabled{opacity:.5;cursor:wait}
+.watch-export-feedback{min-height:19px;text-align:center;color:#c9ff3d;font:12px/1.45 "IBM Plex Mono",monospace;margin:-13px 0 19px}
+.watch-export-dialog{width:min(970px,calc(100vw - 28px));max-height:min(92dvh,1050px);margin:auto;border:1px solid #516b82;border-radius:17px;background:#101c2d;color:#eef5fc;padding:0;box-shadow:0 25px 95px rgba(0,0,0,.68);overflow:auto}
+.watch-export-dialog::backdrop{background:rgba(1,7,16,.86);backdrop-filter:blur(5px)}
+.watch-exp-top{padding:22px clamp(17px,3vw,32px) 18px;border-bottom:1px solid #344b63;display:flex;align-items:start;justify-content:space-between;gap:16px}
+.watch-exp-kicker{color:#c9ff3d;font:11px/1.4 "IBM Plex Mono",monospace;letter-spacing:.09em;text-transform:uppercase}
+.watch-exp-top h2{font:clamp(25px,5vw,35px)/1.1 Anton,Impact,sans-serif;text-transform:uppercase;text-align:left;margin:5px 0 7px;color:#f5f8fe}
+.watch-exp-top p{font:14px/1.5 Barlow,Arial,sans-serif;color:#abbdd0;max-width:590px;margin:0}
+.watch-exp-close{border:1px solid #49637a;color:#eaf2ff;background:#213349;border-radius:8px;padding:10px 13px;min-width:72px;cursor:pointer;font:12px "IBM Plex Mono",monospace;min-height:42px}
+.watch-exp-close:focus-visible{outline:3px solid #c9ff3d;outline-offset:2px}
+.watch-exp-body{padding:20px clamp(16px,3vw,32px) 29px}
+.watch-exp-toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.watch-exp-status{font:12px/1.5 "IBM Plex Mono",monospace;color:#b8cae0;min-height:22px;margin:12px 0 13px}
+.watch-exp-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px;align-items:start}
+.watch-exp-card{min-width:0;background:#192b41;border:1px solid #344e67;border-radius:11px;padding:9px}
+.watch-exp-card img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:contain;background:#0a1627;border-radius:5px}
+.watch-exp-card-foot{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:11px 0 0}
+.watch-exp-card-foot span{font:11px/1.3 "IBM Plex Mono",monospace;color:#a9bed4}
+.watch-exp-card-foot .watch-exp-btn{font-size:11px;padding:8px 11px;min-height:38px}
+.watch-exp-hint{font:12px/1.5 Barlow,Arial,sans-serif;color:#b9c8d8;margin:14px 0 0}
+@media(max-width:540px){.watch-export-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}.watch-export-actions .watch-export-primary{grid-column:1/-1;grid-row:1}.watch-export-actions button{padding:12px 6px;font-size:11px}.watch-exp-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.watch-exp-card{padding:5px}.watch-exp-card-foot{flex-wrap:wrap}.watch-exp-card-foot .watch-exp-btn{width:100%}.watch-exp-toolbar .watch-exp-btn{flex:1;min-width:120px}.watch-exp-top{padding:17px 15px}.watch-exp-top p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.watch-export-actions button,.watch-exp-btn{transition:none}}
