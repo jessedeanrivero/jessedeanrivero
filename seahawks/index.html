@@ -387,8 +387,8 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 
 /* Week 9 home hero: preserve the original PNG dimensions, with a useful fallback until uploaded. */
 .week9-home-art{display:flex;align-items:center;justify-content:center;position:relative;min-height:245px;background:radial-gradient(circle at 72% 22%,rgba(201,255,61,.24),transparent 50%),linear-gradient(120deg,#1c314b,#0a101f)!important;overflow:hidden}
-.week9-home-art:before{content:"WEEK 9 · ARIZONA AT SEATTLE";display:block;color:var(--sea);font:clamp(21px,6vw,38px)/1.1 var(--disp);text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:40px 18px}
-.week9-home-art img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto}
+.week9-home-art:before{content:"WEEK 9 · ARIZONA AT SEATTLE";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--sea);font:clamp(21px,6vw,38px)/1.1 var(--disp);text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:40px 18px}
+.week9-home-art img{position:relative;z-index:1;display:block;flex:0 0 100%;width:100%;height:auto;max-width:100%;object-fit:contain;aspect-ratio:auto}
 .week9-pending{border:1px solid rgba(201,255,61,.35);border-radius:11px;background:linear-gradient(110deg,rgba(201,255,61,.06),var(--panel));padding:17px 19px}
 .week9-pending b{display:block;color:var(--sea);font:clamp(24px,5vw,32px)/1.12 var(--disp)}
 .week9-pending small{display:block;color:var(--mute);margin-top:7px;font:11px/1.55 var(--mono)}
