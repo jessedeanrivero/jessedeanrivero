@@ -394,6 +394,16 @@ overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!import
 .week9-pending b{display:block;color:var(--sea);font:clamp(24px,5vw,32px)/1.12 var(--disp)}
 .week9-pending small{display:block;color:var(--mute);margin-top:7px;font:11px/1.55 var(--mono)}
 .primetime-match.week9-match span:nth-child(2){color:var(--sea)}
+
+/* All-time Seahawks franchise mode feature */
+.the53-card{display:flex;flex-direction:column;gap:7px;margin:15px 0 24px;padding:clamp(18px,4.5vw,27px);border:1px solid rgba(201,255,61,.5);border-radius:13px;background:radial-gradient(340px 180px at 100% 0,rgba(201,255,61,.14),transparent 80%),linear-gradient(120deg,#172b38,#11192b);text-decoration:none;color:var(--ink);transition:border-color .18s,transform .18s}
+.the53-card:hover{border-color:var(--sea);transform:translateY(-2px)}
+.the53-card .the53-k{font:10px var(--mono);letter-spacing:.14em;color:var(--sea)}
+.the53-card strong{font:clamp(34px,9vw,53px)/1 var(--disp);letter-spacing:.01em;text-transform:uppercase}
+.the53-card strong em{font-style:normal;color:var(--sea)}
+.the53-card .the53-desc{max-width:540px;color:#c3d0df;font:16px/1.44 var(--sans)}
+.the53-card .the53-cta{margin-top:6px;color:var(--sea);font:700 11px var(--mono);letter-spacing:.06em}
+@media(prefers-reduced-motion:reduce){.the53-card{transition:none}.the53-card:hover{transform:none}}
 </style>
 <script>
 window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -444,6 +454,12 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </span>
     <span class="pc-arrow" aria-hidden="true">↗</span>
   </span>
+</a>
+<a href="/the53" class="the53-card" aria-label="Play Build the 53 all-time Seahawks roster game">
+  <span class="the53-k">NEW GAME · ALL-TIME SEAHAWKS</span>
+  <strong>BUILD THE <em>53</em></strong>
+  <span class="the53-desc">Select your all-time 53-man roster, add a 17-player practice squad, and simulate a 17-game season. Who makes your cut?</span>
+  <span class="the53-cta">ENTER THE DRAFT ROOM →</span>
 </a>
 <div class="gameday-label">Previous · Week 9 · Cardinals postgame review and predictions</div>
 <div class="gameday-label">Week 9 postgame · NFC West · Sunday, November 8</div>
