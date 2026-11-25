@@ -1,0 +1,8 @@
+{
+  "name": "hawks-war-room-studio",
+  "private": true,
+  "description": "Renders Hawks War Room motion graphics (graphics/render.cjs)",
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

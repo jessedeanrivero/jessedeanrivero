@@ -1,0 +1,7 @@
+{
+  "root": "~/Documents/07 Seahawks",
+  "repo": "~/Documents/07 Seahawks/Studio/site",
+  "whisper_model": "medium.en",
+  "workers": 4,
+  "video_args": ["-c:v", "libx264", "-preset", "medium", "-crf", "18"]
+}

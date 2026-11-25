@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Hawks War Room graphics</title>
+<style>
+@font-face{font-family:"Anton";src:url("../fonts/Anton-Regular.ttf")}
+@font-face{font-family:"Barlow";font-weight:400;src:url("../fonts/Barlow-Regular.ttf")}
+@font-face{font-family:"Barlow";font-weight:600;src:url("../fonts/Barlow-SemiBold.ttf")}
+@font-face{font-family:"Barlow";font-weight:700;src:url("../fonts/Barlow-Bold.ttf")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url("../fonts/IBMPlexMono-Regular.ttf")}
+@font-face{font-family:"IBM Plex Mono";font-weight:600;src:url("../fonts/IBMPlexMono-SemiBold.ttf")}
+:root{--bg:#0a0f1c;--panel:#141e33;--panel2:#1b2742;--line:#283654;--ink:#eff3f7;--muted:#9eabc2;--lime:#c9ff3d;--orange:#ffb347;--bad:#ff8e85;
+--display:"Anton",Impact,sans-serif;--body:"Barlow",sans-serif;--mono:"IBM Plex Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:transparent;overflow:hidden;color:var(--ink);font-family:var(--body)}
+body.still{background:var(--bg)}
+#stage{position:absolute;inset:0}
+.panel{position:absolute;background:rgba(10,15,28,.92);border:2px solid var(--line);border-radius:18px;box-shadow:0 18px 60px rgba(0,0,0,.45);overflow:hidden}
+.kicker{font:600 22px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--lime)}
+.display{font-family:var(--display);text-transform:uppercase;line-height:1;letter-spacing:.01em}
+.bar{position:absolute;left:0;top:0;bottom:0;width:12px;background:var(--lime);transform-origin:top}
+.muted{color:var(--muted)}
+/* thing */
+.thing{left:96px;bottom:110px;width:900px;padding:30px 40px 34px 52px;display:flex;gap:30px;align-items:center}
+.thing .num{font:150px/0.86 var(--display);color:var(--lime)}
+.thing .title{font-size:72px;margin-top:12px}
+/* call */
+.call{left:96px;right:96px;bottom:84px;padding:30px 44px 32px 52px;display:flex;align-items:center;gap:34px}
+.call .tag{flex:none;background:var(--lime);color:#091324;font:600 24px/1 var(--mono);letter-spacing:.14em;padding:14px 16px;border-radius:8px}
+.call .text{flex:1;font-weight:600;font-size:50px;line-height:1.15}
+.call .stamp{flex:none}
+/* stat */
+.stat{right:96px;top:170px;width:620px;padding:38px 44px 40px 52px}
+.stat .value{font:170px/0.95 var(--display);color:var(--lime);margin:16px 0 8px}
+.stat .label{font-weight:600;font-size:40px;line-height:1.15}
+.stat .note{font:500 30px/1.2 var(--body);color:var(--orange);margin-top:14px}
+.src{font:400 18px/1.3 var(--mono);color:var(--muted);margin-top:22px}
+/* compare */
+.compare{right:96px;top:150px;width:720px;padding:36px 44px 38px 52px}
+.compare .title{font-size:52px;margin:14px 0 26px}
+.row{margin:0 0 22px}
+.row .lab{display:flex;justify-content:space-between;font:600 30px/1 var(--body);margin-bottom:10px}
+.row .lab b{font:46px/1 var(--display);font-weight:400}
+.track{height:30px;background:var(--panel2);border-radius:6px;overflow:hidden}
+.fill{height:100%;border-radius:6px;transform-origin:left}
+/* name / crew lower third */
+.name{left:96px;bottom:110px;min-width:620px;max-width:1100px;padding:26px 46px 30px 52px}
+.name .who{font-size:68px;margin:12px 0 8px}
+.name .role{font-size:34px;font-weight:600;color:var(--muted)}
+.name .q{font-size:32px;font-weight:600;margin-top:14px;color:var(--ink);max-width:980px}
+/* matchup */
+.matchup{left:96px;right:96px;top:118px;padding:26px 44px 28px 52px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.matchup .teams{display:flex;align-items:baseline;gap:22px}
+.matchup .team{font-size:76px}
+.matchup .rec{font:600 28px/1 var(--mono);color:var(--muted)}
+.matchup .at{font:600 34px/1 var(--mono);color:var(--lime)}
+.matchup .meta{text-align:right;font:600 26px/1.5 var(--mono);color:var(--ink)}
+/* verdict stamp */
+.stampbox{position:absolute;right:140px;top:200px;transform-origin:center}
+.stampword{border:10px solid currentColor;border-radius:16px;padding:18px 34px 14px;font:120px/1 var(--display);text-transform:uppercase;background:rgba(10,15,28,.86);box-shadow:0 18px 60px rgba(0,0,0,.45)}
+.stampline{margin-top:16px;text-align:center;font:600 30px/1.2 var(--body);max-width:700px;background:rgba(10,15,28,.86);padding:12px 18px;border-radius:10px}
+.v-called{color:var(--lime)}.v-partly{color:var(--orange)}.v-missed{color:var(--bad)}.v-none{color:var(--muted)}
+.call .stampword{font-size:44px;border-width:5px;padding:10px 16px 6px;border-radius:10px;box-shadow:none}
+/* bug */
+.bug{position:absolute;right:56px;top:44px;font:600 22px/1 var(--mono);letter-spacing:.2em;color:var(--ink);background:rgba(10,15,28,.72);border:2px solid var(--line);border-radius:10px;padding:12px 16px}
+.bug b{color:var(--lime);font-weight:600}
+/* reels */
+.hook{left:70px;right:70px;top:210px;padding:40px 44px 44px 56px}
+.hook .text{font-size:96px}
+.hook .text em,.thumb h1 em,.call .text em,.stampline em{font-style:normal;color:var(--lime)}
+.endcard{position:absolute;inset:0;background:rgba(10,15,28,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:36px}
+.endcard .brand{font-size:120px}
+.endcard .cta{font:600 46px/1.3 var(--body)}
+.endcard .url{font:600 38px/1 var(--mono);color:var(--lime);letter-spacing:.08em}
+.crewcard{position:absolute;inset:0;background:radial-gradient(1200px 700px at 85% -10%,#203e40,transparent 65%),var(--bg);display:flex;flex-direction:column;justify-content:center;padding:0 9%}
+.crewcard .who{font-size:min(15vw,190px);margin:28px 0 22px}
+.crewcard .q{font:600 min(4.2vw,52px)/1.25 var(--body);max-width:1300px;color:var(--ink)}
+.crewcard .wave{display:flex;gap:10px;align-items:center;height:120px;margin-top:56px}
+.crewcard .wave i{display:block;width:14px;border-radius:7px;background:var(--lime);opacity:.85}
+/* thumbnail (still) */
+.thumb{position:absolute;inset:0;background-size:cover;background-position:center}
+.thumb .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,28,.96) 0%,rgba(10,15,28,.8) 42%,rgba(10,15,28,.05) 75%)}
+.thumb .copy{position:absolute;left:58px;top:60px;bottom:56px;width:700px;display:flex;flex-direction:column;justify-content:space-between}
+.thumb h1{font:110px/0.95 var(--display);text-transform:uppercase}
+.thumb .tagline{font:600 26px/1 var(--mono);letter-spacing:.16em;color:var(--lime)}
+.thumb .brandline{font:600 24px/1 var(--mono);letter-spacing:.2em}
+</style></head>
+<body><div id="stage"></div>
+<script>
+const clamp=x=>Math.max(0,Math.min(1,x));
+const easeOut=x=>1-Math.pow(1-clamp(x),3);
+const easeIn=x=>Math.pow(clamp(x),2);
+const back=x=>{x=clamp(x);const c=1.5;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// *word* in text marks a lime highlight
+const hi=s=>esc(s).replace(/\*([^*]+)\*/g,'<em>$1</em>');
+const VERDICT={called:'We called it',partly:'Partly right',missed:'Missed it',none:'Not enough evidence'};
+let S={};
+function fit(el,maxH,minPx){let fs=parseFloat(getComputedStyle(el).fontSize);while(el.scrollHeight>maxH&&fs>minPx){fs-=2;el.style.fontSize=fs+'px'}}
+function stamp(v,small){const k=VERDICT[v]?v:'none';return `<div class="stampword v-${k}">${esc(VERDICT[k])}</div>`}
+window.init=function(type,d,dur,w,h){
+  S={type,d,dur,w,h,el:{}};const st=document.getElementById('stage');let html='';
+  switch(type){
+  case 'thing':html=`<div class="panel thing"><i class="bar"></i><div class="num">${esc(String(d.num).padStart(2,'0'))}</div><div><div class="kicker">${esc(d.kicker||'Thing to watch')}</div><div class="display title">${esc(d.title)}</div></div></div>`;break;
+  case 'call':html=`<div class="panel call"><i class="bar"></i><div class="tag">${esc(d.label||'THE CALL')}${d.num?' #'+esc(d.num):''}</div><div class="text">${hi(d.call)}</div>${d.verdict?`<div class="stamp">${stamp(d.verdict,true)}</div>`:''}</div>`;break;
+  case 'stat':html=`<div class="panel stat"><i class="bar"></i><div class="kicker">${esc(d.kicker||'By the numbers')}</div><div class="value display" data-v="${esc(d.value)}">${esc(d.value)}</div><div class="label">${esc(d.label)}</div>${d.note?`<div class="note">${esc(d.note)}</div>`:''}${d.source?`<div class="src">SOURCE: ${esc(d.source)}</div>`:''}</div>`;break;
+  case 'compare':{const max=Math.max(...d.rows.map(r=>+r.value))||1;
+    html=`<div class="panel compare"><i class="bar"></i><div class="kicker">${esc(d.kicker||'Head to head')}</div><div class="display title">${esc(d.title)}</div>${d.rows.map((r,i)=>`<div class="row"><div class="lab"><span>${esc(r.label)}</span><b>${esc(r.display??r.value)}</b></div><div class="track"><div class="fill" data-i="${i}" style="width:${100*(+r.value)/max}%;background:${r.color==='opp'?'var(--orange)':r.color==='muted'?'var(--muted)':'var(--lime)'}"></div></div></div>`).join('')}${d.source?`<div class="src">SOURCE: ${esc(d.source)}</div>`:''}</div>`;break;}
+  case 'name':case 'crew':html=`<div class="panel name"><i class="bar"></i><div class="kicker">${esc(d.kicker||(type==='crew'?'From the crew':''))}</div><div class="display who">${esc(d.name)}</div>${d.role?`<div class="role">${esc(d.role)}</div>`:''}${d.question?`<div class="q">“${esc(d.question)}”</div>`:''}</div>`;break;
+  case 'matchup':html=`<div class="panel matchup"><i class="bar"></i><div><div class="kicker">${esc(d.kicker||'')}</div><div class="teams" style="margin-top:14px"><span class="display team">${esc(d.left.name)}</span><span class="rec">${esc(d.left.record||'')}</span><span class="at">${esc(d.joiner||'AT')}</span><span class="display team">${esc(d.right.name)}</span><span class="rec">${esc(d.right.record||'')}</span></div></div><div class="meta">${(d.meta||[]).map(esc).join('<br>')}</div></div>`;break;
+  case 'verdict':html=`<div class="stampbox">${stamp(d.verdict)}${d.line?`<div class="stampline">${hi(d.line)}</div>`:''}</div>`;break;
+  case 'bug':html=`<div class="bug">HAWKS <b>WAR ROOM</b></div>`;break;
+  case 'hook':html=`<div class="panel hook"><i class="bar"></i><div class="kicker">${esc(d.kicker||'Hawks War Room')}</div><div class="display text" style="margin-top:18px">${hi(d.text)}</div></div>`;break;
+  case 'endcard':html=`<div class="endcard"><div class="kicker">${esc(d.kicker||'Full episode')}</div><div class="display brand">HAWKS <span style="color:var(--lime)">WAR ROOM</span></div><div class="cta">${esc(d.cta||'Watch the full episode on YouTube')}</div><div class="url">${esc(d.url||'HAWKSWARROOM.COM')}</div></div>`;break;
+  case 'crewcard':document.body.classList.add('still');html=`<div class="crewcard"><div class="kicker" style="font-size:30px">${esc(d.kicker||'From the crew')}</div><div class="display who">${esc(d.name)}</div>${d.question?`<div class="q">“${esc(d.question)}”</div>`:''}<div class="wave">${[30,70,110,60,95,40,120,80,50,100,65,35,90,55,25].map(h=>`<i style="height:${h}px"></i>`).join('')}</div></div>`;break;
+  case 'thumbnail':document.body.classList.add('still');html=`<div class="thumb" style="background-image:url('${d.image}')"><div class="shade"></div><div class="copy"><div class="tagline">${esc(d.tag||'')}</div><h1>${hi(d.text)}</h1><div class="brandline">HAWKS <span style="color:var(--lime)">WAR ROOM</span></div></div></div>`;break;
+  default:throw new Error('unknown graphic type '+type);
+  }
+  st.innerHTML=html;
+  const q=s=>st.querySelector(s);
+  S.el={panel:q('.panel')||q('.stampbox')||q('.bug')||q('.endcard')||q('.crewcard'),bar:q('.bar'),value:q('.value'),fills:[...st.querySelectorAll('.fill')],text:q('.text'),stamp:q('.call .stamp')};
+  if(S.el.text&&type==='call')fit(S.el.text,180,30);
+  if(S.el.text&&type==='hook')fit(S.el.text,560,56);
+  const t1=q('.thing .title');if(t1)fit(t1,160,40);
+  const tt=q('.thumb h1');if(tt)fit(tt,480,60);
+  return true;
+};
+// t in seconds; graphics animate in over ~0.5s and out over the last ~0.4s
+window.frame=function(t){
+  const {type,dur,el}=S;const outLen=0.4,o=easeIn((t-(dur-outLen))/outLen);
+  const p=el.panel;if(!p)return;
+  if(type==='bug'||type==='thumbnail'||type==='crewcard'){p.style.opacity=1;return}
+  if(type==='endcard'){p.style.opacity=easeOut(t/0.35)*(1-o);return}
+  if(type==='verdict'){const k=back(t/0.45);p.style.opacity=clamp(t/0.15)*(1-o);p.style.transform=`rotate(${-8+2*k}deg) scale(${1.6-0.6*k})`;return}
+  const k=easeOut(t/0.5);
+  const fromRight=(type==='stat'||type==='compare');
+  const fromTop=(type==='matchup'||type==='hook');
+  const dx=fromRight?(1-k)*140:fromTop?0:-(1-k)*140, dy=fromTop?-(1-k)*90:0;
+  p.style.opacity=k*(1-o);p.style.transform=`translate(${dx}px,${dy+o*30}px)`;
+  if(el.bar)el.bar.style.transform=`scaleY(${easeOut((t-0.15)/0.45)})`;
+  if(el.value){const raw=el.value.dataset.v,m=raw.match(/^([^0-9-]*)(-?[\d,]*\.?\d+)(.*)$/);
+    if(m){const target=parseFloat(m[2].replace(/,/g,'')),dec=(m[2].split('.')[1]||'').length,kk=easeOut((t-0.25)/0.9);
+      let v=(target*kk).toFixed(dec);if(m[2].includes(','))v=Number(v).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec});
+      el.value.textContent=m[1]+v+m[3]}}
+  el.fills.forEach((f,i)=>{f.style.transform=`scaleX(${easeOut((t-0.35-i*0.15)/0.8)})`});
+  if(el.stamp){const s=back((t-0.9)/0.4);el.stamp.style.opacity=clamp((t-0.9)/0.1);el.stamp.style.transform=`rotate(-6deg) scale(${2-s})`}
+};
+</script></body></html>
