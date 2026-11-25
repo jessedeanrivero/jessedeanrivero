@@ -39,6 +39,7 @@ This folder is not part of the website: `seahawks/.vercelignore` excludes it.
 - `whisper_model`: `medium.en` by default. `small.en` is faster but less accurate on names.
 - `video_args`: on Apple Silicon, `["-c:v", "h264_videotoolbox", "-b:v", "12M"]` encodes much faster than the libx264 default.
 - `pause_max` / `pause_keep`: pauses longer than `pause_max` seconds get shortened to `pause_keep`.
+- `caption_font` / `caption_active`: reel captions. The default is Jesse's approved style, Montserrat Black with a yellow active word.
 - `vocab.txt`: names Whisper should spell correctly. Add each week's opponent names.
 
 ## Test

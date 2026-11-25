@@ -45,6 +45,11 @@ def load_config():
         'zoom': 1.12,
         'loudness': -16,
         'reel_loudness': -14,
+        # Jesse's approved caption style: Montserrat Black, yellow active word
+        'caption_font': 'Montserrat Black',
+        'caption_size': 92,
+        'caption_color': '#FFFFFF',
+        'caption_active': '#FFD60A',
     }
     p = HERE / 'config.json'
     if p.exists():
@@ -558,7 +563,12 @@ def ass_time(t):
     return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
 
 
-def write_ass(path, mw):
+def ass_color(hexrgb):
+    h = hexrgb.lstrip('#')
+    return f"&H00{h[4:6]}{h[2:4]}{h[0:2]}&".upper()
+
+
+def write_ass(path, mw, cfg):
     head = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -567,17 +577,20 @@ WrapStyle: 2
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Cap,Anton,104,&H00FFFFFF,&H00FFFFFF,&H00141E0A,&H64000000,0,0,0,0,100,100,1,0,1,7,3,2,70,70,520,1
+Style: Cap,{font},{size},{base},{base},&H00141E0A,&H64000000,0,0,0,0,100,100,1,0,1,7,3,2,70,70,520,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
+    base, active = ass_color(cfg['caption_color']), ass_color(cfg['caption_active'])
+    head = (head.replace('{font}', cfg['caption_font']).replace('{size}', str(cfg['caption_size']))
+            .replace('{base}', base.rstrip('&')))
     ev = []
     for g in caption_groups(mw):
         for i, w in enumerate(g):
             s = w['s']
             e = g[i + 1]['s'] if i + 1 < len(g) else max(w['e'], s + 0.3)
-            txt = ' '.join(('{\\c&H3DFFC9&}' + x['w'].upper() + '{\\c&HFFFFFF&}') if j == i else x['w'].upper()
+            txt = ' '.join(('{\\c' + active + '}' + x['w'].upper() + '{\\c' + base + '}') if j == i else x['w'].upper()
                            for j, x in enumerate(g))
             ev.append(f"Dialogue: 0,{ass_time(s)},{ass_time(e)},Cap,,0,0,0,,{txt}")
     path.write_text(head + '\n'.join(ev) + '\n')
@@ -614,7 +627,7 @@ def render_reels(cfg, ep, plan, srcs, trs):
         lst = encode_segments(cfg, srcs, [(x, a, b, None) for x, a, b in rk], work / f"reel{n:02d}", 'r',
                               1080, 1920, vf, cards.get)
         ass = work / f"reel{n:02d}.ass"
-        write_ass(ass, mapped_words(trs, rk))
+        write_ass(ass, mapped_words(trs, rk), cfg)
         hook_d, end_d = 3.2, 2.6
         gj = [{'type': 'hook', 'data': {'text': r.get('hook', ''), 'kicker': r.get('kicker', 'Hawks War Room')},
                'w': 1080, 'h': 1920, 'dur': hook_d, 'out': str(work / f"reel{n:02d}-hook.mov")},
